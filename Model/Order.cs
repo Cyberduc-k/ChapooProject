@@ -28,7 +28,7 @@ namespace Model
                     sum += dish.Price;
 
                 foreach (Drink drink in Drinks)
-                    sum += drink.Prijs;
+                    sum += drink.Price;
 
                 return sum;
             }
