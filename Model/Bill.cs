@@ -9,10 +9,8 @@ namespace Model
     public class Bill
     {
         public int ID { get; }
-        public string FirstName { get; }
-        public string LastName { get; }
         public Table Table { get; }
-		public List<Item> Items { get; }
+	public List<Item> Items { get; }
         public double Price { get; }
         public Employee Employee { get; }
 
