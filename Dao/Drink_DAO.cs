@@ -3,33 +3,41 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 using Model;
+using System.Configuration;
 
 namespace Dao
 {
     public class Drink_DAO : Base
     {
-        public List<Drink> GetAll()
-        {
-            // @TODO
-            string query = "";
-            SqlParameter[] parameters = new SqlParameter[0];
+        private readonly SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ChapooDatabase"].ConnectionString);
 
-            return ReadDrinks(ExecuteSelectQuery(query, parameters));
+        //Get a list of all the drinks
+        public List<Drink> Db_Get_All_Drinks()
+        {
+            return null;
         }
 
-        private List<Drink> ReadDrinks(DataTable dataTable)
+        //Add a new drink to the database
+        public void Db_Add_New_Drink(Drink drink)
         {
-            List<Drink> drinks = new List<Drink>();
 
-            foreach (DataRow dataRow in dataTable.Rows)
-                drinks.Add(ReadDrink(dataRow));
-
-            return drinks;
         }
 
-        private Drink ReadDrink(DataRow dataRow)
+        //Remove a drink from the database
+        public void Db_Remove_Drink(Drink drink)
         {
-            // @TODO
+
+        }
+
+        //Modify the properties of a drink in the database
+        public void Db_Modify_Beverage(Drink drink)
+        {
+
+        }
+
+        //Convert the raw database data into Drink object
+        private List<Drink> ReadTables(DataTable dataTable)
+        {
             return null;
         }
     }
