@@ -14,8 +14,8 @@ namespace Model
         public double Price { get; }
         public Medewerker medewerker { get; }
         public Tafel tafel { get; }
-		public Dish dish { get; }
-		public Drink drink { get; }
+	public Dish dish { get; }
+	public Drink drink { get; }
 
         public Bill(int iD, string firstName, string lastName, double price, Medewerker medewerker, Tafel tafel)
         {
