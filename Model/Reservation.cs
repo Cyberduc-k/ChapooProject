@@ -14,6 +14,7 @@ namespace Model
         public DateTime From { get; }
         public DateTime To { get; }
         public int NumberOfPersons { get; }
+        public Table Table { get; }
 
         public Reservation(int iD, string name, DateTime date, DateTime from, DateTime to, int numberOfPersons)
         {

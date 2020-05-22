@@ -8,7 +8,7 @@ namespace Logic
 {
     public class Menu_Service
     {
-        Table_DAO menu_DAO = new Table_DAO();
+        Menu_DAO menu_DAO = new Menu_DAO();
 
         //Get a list of all the menu's from the DAO
         public List<Menu> GetAllMenus()
