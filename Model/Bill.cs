@@ -17,14 +17,16 @@ namespace Model
 	public Dish dish { get; }
 	public Drink drink { get; }
 
-        public Bill(int iD, string firstName, string lastName, double price, Medewerker medewerker, Tafel tafel)
+        public Bill(int iD, string firstName, string lastName, double price, Medewerker medewerker, Tafel tafel, Dish dish, Drink drink)
         {
-            ID = iD;
-            FirstName = firstName;
-            LastName = lastName;
-            Price = price;
-            Medewerker = medewerker;
-            Tafel = tafel;
+            	ID = iD;
+            	FirstName = firstName;
+            	LastName = lastName;
+            	Price = price;
+            	Medewerker = medewerker;
+            	Tafel = tafel;
+		Dish = dish;
+		Drink = drink;
         }
     }
 }
