@@ -15,6 +15,7 @@ namespace Logic
         public List<Order> GetAllOrders()
         {
             // @TODO
+            return null;
         }
 
         //Add a new order

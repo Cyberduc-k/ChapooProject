@@ -15,6 +15,7 @@ namespace Logic
         public List<Bill> GetAllBills()
         {
             // @TODO
+            return null;
         }
 
         //Add a new bill
