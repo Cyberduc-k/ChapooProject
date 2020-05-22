@@ -6,7 +6,7 @@ using Model;
 
 namespace Dao
 {
-    public class Menu_DAO : Base
+    public class Table_DAO : Base
     {
         public List<Menu> GetAll()
         {
