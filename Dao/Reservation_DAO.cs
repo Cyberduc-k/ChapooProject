@@ -6,43 +6,49 @@ using Model;
 
 namespace Dao
 {
-    public class Reservation_DAO
+    public class Reservation_DAO : Base
     {
-        //Get all reservations
+        // Get a list of all reservations
         public List<Reservation> GetAll()
         {
             // @TODO
-            return null;
+            string query = "";
+            SqlParameter[] parameters = new SqlParameter[0];
+
+            return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
-        //Change values of a reservation
-        public void ModifyReservation(Reservation reservation)
+        // Add a new reservation to the database
+        public void Add(Reservation reservation)
         {
             // @TODO
         }
 
-        //Add a new reservation
-        public void AddReservation(Reservation reservation)
+        // Remove a reservation from the database
+        public void Remove(Reservation reservation)
         {
             // @TODO
         }
 
-        public void RemoveReservation(Reservation reservation)
+        // Modify the properties of a reservation in the database
+        public void Modify(Reservation reservation)
         {
             // @TODO
         }
 
-        private List<Reservation> ReadReservations(DataTable dataTable)
+        // Convert the raw database data into a list of Reservation objects
+        private List<Reservation> ReadAll(DataTable dataTable)
         {
             List<Reservation> reservations = new List<Reservation>();
 
             foreach (DataRow dataRow in dataTable.Rows)
-                reservations.Add(ReadReservation(dataRow));
+                reservations.Add(Read(dataRow));
 
             return reservations;
         }
 
-        private Reservation ReadReservation(DataRow dataRow)
+        // Convert the raw database data into an Reservation object
+        private Reservation Read(DataRow dataRow)
         {
             // @TODO
             return null;
