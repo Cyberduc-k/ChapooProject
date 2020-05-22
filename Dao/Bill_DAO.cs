@@ -18,17 +18,17 @@ namespace Dao
             // @TODO
         }
 
-        public void editBill()
+        public void Add(Bill bill)
         {
             // @TODO
         }
 
-        public void addBill()
+        public void Delete(Bill bill)
         {
             // @TODO
         }
 
-        public void deleteBill()
+        public void Update(Bill bill)
         {
             // @TODO
         }
