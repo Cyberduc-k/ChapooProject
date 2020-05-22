@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeType.cs" />
+    <Compile Include="Gender.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuType.cs" />
