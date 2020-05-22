@@ -11,22 +11,20 @@ namespace Model
         public int ID { get; }
         public string FirstName { get; }
         public string LastName { get; }
+        public Table tafel { get; }
+		public List<Item> item { get; }
         public double Price { get; }
-        public Medewerker medewerker { get; }
-        public Tafel tafel { get; }
-	public Dish dish { get; }
-	public Drink drink { get; }
+        public Employee employee { get; }
 
-        public Bill(int iD, string firstName, string lastName, double price, Medewerker medewerker, Tafel tafel, Dish dish, Drink drink)
+        public Bill(int iD, string firstName, string lastName, Table tafel, double price,  Employee employee)
         {
-            	ID = iD;
-            	FirstName = firstName;
-            	LastName = lastName;
-            	Price = price;
-            	Medewerker = medewerker;
-            	Tafel = tafel;
-		Dish = dish;
-		Drink = drink;
+            ID = iD;
+            FirstName = firstName;
+            LastName = lastName;
+            Table = tafel;
+            Price = price;
+            Employee = employee;
+            
         }
     }
 }
