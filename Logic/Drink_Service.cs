@@ -19,7 +19,7 @@ namespace Logic
         }
 
         //Add a new drink
-        public void AddNewDrink(Drink drink)
+        public void AddDrink(Drink drink)
         {
 
         }

@@ -8,13 +8,29 @@ namespace Dao
 {
     public class Dish_DAO : Base
     {
+        //Get a list of all the dishes
         public List<Dish> GetAll()
         {
             // @TODO
-            string query = "";
-            SqlParameter[] parameters = new SqlParameter[0];
+            return null;
+        }
 
-            return ReadDishes(ExecuteSelectQuery(query, parameters));
+        //Add a new dish to the database
+        public void AddDishk(Dish dish)
+        {
+            // @TODO
+        }
+
+        //Remove a dish from the database
+        public void RemoveDish(Dish dish)
+        {
+            // @TODO
+        }
+
+        //Modify the properties of a dish in the database
+        public void ModifyDish(Dish dish)
+        {
+            // @TODO
         }
 
         private List<Dish> ReadDishes(DataTable dataTable)
