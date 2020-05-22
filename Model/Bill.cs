@@ -10,15 +10,13 @@ namespace Model
     {
         public int ID { get; }
         public Table Table { get; }
-	public List<Item> Items { get; }
+	    public List<Item> Items { get; }
         public double Price { get; }
         public Employee Employee { get; }
 
-        public Bill(int iD, string firstName, string lastName, Table table, double price,  Employee employee)
+        public Bill(int iD, Table table, double price,  Employee employee)
         {
             ID = iD;
-            FirstName = firstName;
-            LastName = lastName;
             Table = table;
             Price = price;
             Employee = employee;
