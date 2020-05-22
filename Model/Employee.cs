@@ -13,7 +13,7 @@ namespace Model
         public string LastName { get; }
         public DateTime BirthDate { get; }
         public DateTime DateEmployment { get; }
-        public string Gender { get; }
+        public Gender Gender { get; }
         public string Password { get; }
         public EmployeeType EmployeeType { get; }
 
