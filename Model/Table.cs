@@ -11,5 +11,12 @@ namespace Model
         public int Number { get; }
         public int Seats { get; }
         public bool Occupied { get; }
+
+        public Table(int number, int seats, bool occupied)
+        {
+            Number = number;
+            Seats = seats;
+            Occupied = occupied;
+        }
     }
 }

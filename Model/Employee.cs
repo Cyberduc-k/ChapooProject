@@ -15,6 +15,7 @@ namespace Model
         public DateTime DateEmployment { get; }
         public string Gender { get; }
         public string Password { get; }
+        public EmployeeType EmployeeType { get; }
 
         public int Age
         {
@@ -24,6 +25,18 @@ namespace Model
 
                 return today.Year - BirthDate.Year;
             }
+        }
+
+        public Employee(int iD, string firstName, string lastName, DateTime birthDate, DateTime dateEmployment, string gender, string password, EmployeeType employeeType)
+        {
+            ID = iD;
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
+            DateEmployment = dateEmployment;
+            Gender = gender;
+            Password = password;
+            EmployeeType = employeeType;
         }
     }
 }

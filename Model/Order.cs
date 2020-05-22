@@ -33,5 +33,18 @@ namespace Model
                 return sum;
             }
         }
+
+        public Order(DateTime date, DateTime timeOrdering, DateTime timeFinished, List<Dish> dishes, List<Drink> drinks, Employee employee, Table table, OrderState state, string comment)
+        {
+            Date = date;
+            TimeOrdering = timeOrdering;
+            TimeFinished = timeFinished;
+            Dishes = dishes;
+            Drinks = drinks;
+            Employee = employee;
+            Table = table;
+            State = state;
+            Comment = comment;
+        }
     }
 }

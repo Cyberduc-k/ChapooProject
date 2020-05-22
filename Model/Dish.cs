@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Dish
+    public class Dish : Item
     {
-        public string Name { get; }
         public string Description { get; }
         public List<string> Ingredients { get; }
-        public double Price { get; }
-        public int NumberInStock { get; }
+
+        public Dish(string name, double price, int numberInStock, string description, List<string> ingredients) : base(name, price, numberInStock)
+        {
+            Description = description;
+            Ingredients = ingredients;
+        }
     }
 }
