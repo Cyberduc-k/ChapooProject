@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace SomerenDAL
+namespace Dao
 {
     public abstract class Base
     {

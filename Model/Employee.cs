@@ -27,7 +27,7 @@ namespace Model
             }
         }
 
-        public Employee(int iD, string firstName, string lastName, DateTime birthDate, DateTime dateEmployment, string gender, string password, EmployeeType employeeType)
+        public Employee(int iD, string firstName, string lastName, DateTime birthDate, DateTime dateEmployment, Gender gender, string password, EmployeeType employeeType)
         {
             ID = iD;
             FirstName = firstName;
