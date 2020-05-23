@@ -13,25 +13,25 @@ namespace Logic
         //Get a list of all the tables from the DAO
         public List<Table> GetAllTables()
         {
-            return null;
+            return table_DAO.GetAll();
         }
 
         //Add a new table
         public void AddTable(Table table)
         {
-
+            table_DAO.Add(table);
         }
 
         //Remove a table
         public void DeleteTable(Table table)
         {
-
+            table_DAO.Remove(table);
         }
 
         //Modify the properties of the table
         public void ModifyTable(Table table)
         {
-
+            table_DAO.Modify(table);
         }
     }
 }
