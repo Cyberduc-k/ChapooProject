@@ -56,6 +56,9 @@ namespace Ui
         private void CP_btnUitloggen_Click(object sender, EventArgs e)
         {
             SetHightlight(CP_btnUitloggen);
+
+            // @TODO signout
+            Application.Exit();
         }
 
         //Highlight a button

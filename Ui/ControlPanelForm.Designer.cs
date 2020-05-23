@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.CP_pnlNavMenu = new System.Windows.Forms.Panel();
+            this.CP_pnlHeader = new System.Windows.Forms.Panel();
             this.CP_btnHome = new System.Windows.Forms.Button();
             this.CP_btnVoorraad = new System.Windows.Forms.Button();
             this.CP_lblActivePanel = new System.Windows.Forms.Label();
             this.CP_btnMenukaarten = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.CP_pnlHome = new System.Windows.Forms.Panel();
             this.CP_btnUitloggen = new System.Windows.Forms.Button();
             this.CP_btnBestellingen = new System.Windows.Forms.Button();
             this.CP_btnInkomsten = new System.Windows.Forms.Button();
             this.CP_btnMedewerkers = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.CP_imgLogo = new System.Windows.Forms.PictureBox();
+            this.CP_pnlNavMenu.SuspendLayout();
+            this.CP_pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // CP_pnlNavMenu
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
-            this.panel1.Controls.Add(this.CP_btnMedewerkers);
-            this.panel1.Controls.Add(this.CP_btnInkomsten);
-            this.panel1.Controls.Add(this.CP_btnBestellingen);
-            this.panel1.Controls.Add(this.CP_btnUitloggen);
-            this.panel1.Controls.Add(this.CP_btnMenukaarten);
-            this.panel1.Controls.Add(this.CP_btnVoorraad);
-            this.panel1.Controls.Add(this.CP_btnHome);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(151, 537);
-            this.panel1.TabIndex = 1;
+            this.CP_pnlNavMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_pnlNavMenu.Controls.Add(this.CP_btnMedewerkers);
+            this.CP_pnlNavMenu.Controls.Add(this.CP_btnInkomsten);
+            this.CP_pnlNavMenu.Controls.Add(this.CP_btnBestellingen);
+            this.CP_pnlNavMenu.Controls.Add(this.CP_btnUitloggen);
+            this.CP_pnlNavMenu.Controls.Add(this.CP_btnMenukaarten);
+            this.CP_pnlNavMenu.Controls.Add(this.CP_btnVoorraad);
+            this.CP_pnlNavMenu.Controls.Add(this.CP_btnHome);
+            this.CP_pnlNavMenu.Controls.Add(this.CP_imgLogo);
+            this.CP_pnlNavMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CP_pnlNavMenu.Location = new System.Drawing.Point(0, 0);
+            this.CP_pnlNavMenu.Name = "CP_pnlNavMenu";
+            this.CP_pnlNavMenu.Size = new System.Drawing.Size(151, 537);
+            this.CP_pnlNavMenu.TabIndex = 1;
             // 
-            // panel2
+            // CP_pnlHeader
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.CP_lblActivePanel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(151, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(857, 66);
-            this.panel2.TabIndex = 2;
+            this.CP_pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.CP_pnlHeader.Controls.Add(this.CP_lblActivePanel);
+            this.CP_pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CP_pnlHeader.Location = new System.Drawing.Point(151, 0);
+            this.CP_pnlHeader.Name = "CP_pnlHeader";
+            this.CP_pnlHeader.Size = new System.Drawing.Size(857, 66);
+            this.CP_pnlHeader.TabIndex = 2;
             // 
             // CP_btnHome
             // 
@@ -135,15 +135,15 @@
             this.CP_btnMenukaarten.UseVisualStyleBackColor = false;
             this.CP_btnMenukaarten.Click += new System.EventHandler(this.CP_btnMenukaarten_Click);
             // 
-            // panel3
+            // CP_pnlHome
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(151, 66);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(857, 471);
-            this.panel3.TabIndex = 3;
+            this.CP_pnlHome.BackColor = System.Drawing.Color.White;
+            this.CP_pnlHome.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CP_pnlHome.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlHome.Location = new System.Drawing.Point(151, 66);
+            this.CP_pnlHome.Name = "CP_pnlHome";
+            this.CP_pnlHome.Size = new System.Drawing.Size(857, 471);
+            this.CP_pnlHome.TabIndex = 3;
             // 
             // CP_btnUitloggen
             // 
@@ -213,45 +213,45 @@
             this.CP_btnMedewerkers.UseVisualStyleBackColor = false;
             this.CP_btnMedewerkers.Click += new System.EventHandler(this.CP_btnMedewerkers_Click);
             // 
-            // pictureBox1
+            // CP_imgLogo
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Ui.Properties.Resources.Logo2;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(151, 66);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.CP_imgLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CP_imgLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CP_imgLogo.Image = global::Ui.Properties.Resources.Logo2;
+            this.CP_imgLogo.Location = new System.Drawing.Point(0, 0);
+            this.CP_imgLogo.Name = "CP_imgLogo";
+            this.CP_imgLogo.Size = new System.Drawing.Size(151, 66);
+            this.CP_imgLogo.TabIndex = 1;
+            this.CP_imgLogo.TabStop = false;
             // 
             // ControlPanelForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1008, 537);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.CP_pnlHome);
+            this.Controls.Add(this.CP_pnlHeader);
+            this.Controls.Add(this.CP_pnlNavMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ControlPanelForm";
             this.Text = "Controlepaneel";
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.CP_pnlNavMenu.ResumeLayout(false);
+            this.CP_pnlHeader.ResumeLayout(false);
+            this.CP_pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel CP_pnlNavMenu;
         private System.Windows.Forms.Button CP_btnHome;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel CP_pnlHeader;
+        private System.Windows.Forms.PictureBox CP_imgLogo;
         private System.Windows.Forms.Button CP_btnVoorraad;
         private System.Windows.Forms.Label CP_lblActivePanel;
         private System.Windows.Forms.Button CP_btnMenukaarten;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel CP_pnlHome;
         private System.Windows.Forms.Button CP_btnUitloggen;
         private System.Windows.Forms.Button CP_btnMedewerkers;
         private System.Windows.Forms.Button CP_btnInkomsten;
