@@ -11,7 +11,8 @@ namespace Dao
         // Get a list of all the tables
         public List<Table> GetAll()
         {
-            string query = "SELECT [id], [occupied], [seats] FROM [dbo].[Table]";
+            // @TODO
+            string query = "";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -20,40 +21,19 @@ namespace Dao
         // Add a new table to the database
         public void Add(Table table)
         {
-            string query = "INSERT INTO [dbo].[Table] ([occupied], [seats]) VALUES (@occupied, @seats)";
-            SqlParameter[] parameters = new SqlParameter[2]
-            {
-                new SqlParameter("@occupied", table.Occupied),
-                new SqlParameter("@seats", table.Seats),
-            };
-
-            ExecuteEditQuery(query, parameters);
+            // @TODO
         }
 
         // Remove a drink from the database
         public void Remove(Table table)
         {
-            string query = "DELETE FROM [dbo].[Table] WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[1]
-            {
-                new SqlParameter("@id", table.Number),
-            };
-
-            ExecuteEditQuery(query, parameters);
+            // @TODO
         }
 
         // Modify the properties of a drink in the database
         public void Modify(Table table)
         {
-            string query = "UPDATE [dbo].[Table] SET [occupied] = @occupied, [seats] = @seats WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[3]
-            {
-                new SqlParameter("@occupied", table.Occupied),
-                new SqlParameter("@seats", table.Seats),
-                new SqlParameter("@id", table.Number),
-            };
-
-            ExecuteEditQuery(query, parameters);
+            // @TODO
         }
 
         // Convert the raw database data into a list of Table objects
@@ -70,11 +50,8 @@ namespace Dao
         // Convert the raw database data into a Table object
         private Table Read(DataRow dataRow)
         {
-            int id = (int)dataRow["id"];
-            bool occupied = (bool)dataRow["occupied"];
-            int seats = (int)dataRow["seats"];
-
-            return new Table(id, seats, occupied);
+            // @TODO
+            return null;
         }
     }
 }
