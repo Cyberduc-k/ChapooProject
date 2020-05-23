@@ -38,12 +38,12 @@ namespace Dao
         // Convert the raw database data into a list of Bill objects
         private List<Bill> ReadAll(DataTable dataTable)
         {
-            List<Bill> billes = new List<Bill>();
+            List<Bill> bills = new List<Bill>();
 
             foreach (DataRow dataRow in dataTable.Rows)
-                billes.Add(Read(dataRow));
+                bills.Add(Read(dataRow));
 
-            return billes;
+            return bills;
         }
 
         // Convert the raw database data into an Bill object
