@@ -64,6 +64,17 @@ namespace Dao
             ExecuteEditQuery(query, parameters);
         }
 
+        public void Remove(int id)
+        {
+            string query = "DELETE FROM [dbo].[Employees] WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", id),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
         // Modify the properties of an employee in the database
         public void Modify(Employee employee)
         {

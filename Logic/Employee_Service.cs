@@ -34,6 +34,11 @@ namespace Logic
             employee_DAO.Remove(employee);
         }
 
+        public void DeleteEmployee(int id)
+        {
+            employee_DAO.Remove(id);
+        }
+
         // Modify the properties of the employee
         public void ModifyEmployee(Employee employee)
         {
