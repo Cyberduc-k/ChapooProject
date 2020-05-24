@@ -56,6 +56,7 @@ CREATE TABLE [dbo].[Orders] (
   [id] INT NOT NULL PRIMARY KEY IDENTITY,
   [comment] VARCHAR(100) NULL,
   [date] DATE NOT NULL,
+  [orderState] TINYINT NOT NULL,
   [timeOrdering] TIME NOT NULL,
   [timeFinished] TIME NULL,
   [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON DELETE CASCADE NOT NULL,
