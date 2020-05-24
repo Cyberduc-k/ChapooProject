@@ -57,6 +57,13 @@ namespace Ui
                         cp_form.Location = Location;
                         cp_form.ShowDialog(this);
                         break;
+                    case EmployeeType.Chef:
+                        ChefForm chef_form = new ChefForm();
+
+                        Hide();
+                        chef_form.Location = Location;
+                        chef_form.ShowDialog(this);
+                        break;
                 }
 
                 ResetState();

@@ -11,8 +11,7 @@ namespace Dao
         // Get a list of all the orders
         public List<Order> GetAll()
         {
-            string query = "SELECT [id], [date], [timeOrdering], [timeFinished], [dishes], [drinks], [employee], [table], [state], [comment] FROM [dbo].[Orders]";
-
+            string query = "SELECT [id], [date], [timeOrdering], [timeFinished], [employeeId], [tableId], [orderState], [comment] FROM [dbo].[Orders]";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -92,8 +91,8 @@ namespace Dao
             DateTime date = (DateTime)dataRow["date"];
             DateTime timeOrdering = (DateTime)dataRow["timeOrdering"];
             DateTime timeFinished = (DateTime)dataRow["timeFinished"];
-            List<Dish> dishes = (List<Dish>)dataRow["dishes"];
-            List<Drink> drinks = (List<Drink>)dataRow["drinks"];
+            List<Dish> dishes = new List<Dish>();
+            List<Drink> drinks = new List<Drink>();
             Employee employee = (Employee)dataRow["employeeId"];
             Table table = (Table)dataRow["tableId"];
             OrderState state = (OrderState)dataRow["state"];

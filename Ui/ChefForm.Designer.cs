@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.Chef_pnlLeft = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Chef_btnOverzicht = new System.Windows.Forms.Button();
-            this.Chef_btnVoorraad = new System.Windows.Forms.Button();
             this.Chef_btnUitloggen = new System.Windows.Forms.Button();
+            this.Chef_btnVoorraad = new System.Windows.Forms.Button();
+            this.Chef_btnOverzicht = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Chef_pnlTop = new System.Windows.Forms.Panel();
             this.Chef_lblActivePanel = new System.Windows.Forms.Label();
             this.Chef_pnlOverzicht = new System.Windows.Forms.Panel();
+            this.Chef_lblGeenBestellingen = new System.Windows.Forms.Label();
+            this.Chef_pnlFirstOrder = new System.Windows.Forms.Panel();
             this.Chef_pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Chef_pnlTop.SuspendLayout();
+            this.Chef_pnlOverzicht.SuspendLayout();
             this.SuspendLayout();
             // 
             // Chef_pnlLeft
@@ -54,15 +57,34 @@
             this.Chef_pnlLeft.Size = new System.Drawing.Size(286, 1040);
             this.Chef_pnlLeft.TabIndex = 0;
             // 
-            // pictureBox1
+            // Chef_btnUitloggen
             // 
-            this.pictureBox1.Image = global::Ui.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(47, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 101);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.Chef_btnUitloggen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.Chef_btnUitloggen.FlatAppearance.BorderSize = 0;
+            this.Chef_btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Chef_btnUitloggen.Font = new System.Drawing.Font("Roboto", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_btnUitloggen.ForeColor = System.Drawing.Color.White;
+            this.Chef_btnUitloggen.Location = new System.Drawing.Point(1, 947);
+            this.Chef_btnUitloggen.Name = "Chef_btnUitloggen";
+            this.Chef_btnUitloggen.Size = new System.Drawing.Size(285, 92);
+            this.Chef_btnUitloggen.TabIndex = 1;
+            this.Chef_btnUitloggen.Text = "Uitloggen";
+            this.Chef_btnUitloggen.UseVisualStyleBackColor = true;
+            // 
+            // Chef_btnVoorraad
+            // 
+            this.Chef_btnVoorraad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.Chef_btnVoorraad.FlatAppearance.BorderSize = 2;
+            this.Chef_btnVoorraad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Chef_btnVoorraad.Font = new System.Drawing.Font("Roboto", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_btnVoorraad.ForeColor = System.Drawing.Color.White;
+            this.Chef_btnVoorraad.Location = new System.Drawing.Point(0, 216);
+            this.Chef_btnVoorraad.Name = "Chef_btnVoorraad";
+            this.Chef_btnVoorraad.Size = new System.Drawing.Size(285, 92);
+            this.Chef_btnVoorraad.TabIndex = 1;
+            this.Chef_btnVoorraad.Text = "Voorraad";
+            this.Chef_btnVoorraad.UseVisualStyleBackColor = true;
+            this.Chef_btnVoorraad.Click += new System.EventHandler(this.Chef_btnVoorraad_Click);
             // 
             // Chef_btnOverzicht
             // 
@@ -80,34 +102,15 @@
             this.Chef_btnOverzicht.UseVisualStyleBackColor = false;
             this.Chef_btnOverzicht.Click += new System.EventHandler(this.Chef_btnOverzicht_Click);
             // 
-            // Chef_btnVoorraad
+            // pictureBox1
             // 
-            this.Chef_btnVoorraad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.Chef_btnVoorraad.FlatAppearance.BorderSize = 2;
-            this.Chef_btnVoorraad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Chef_btnVoorraad.Font = new System.Drawing.Font("Roboto", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_btnVoorraad.ForeColor = System.Drawing.Color.White;
-            this.Chef_btnVoorraad.Location = new System.Drawing.Point(0, 216);
-            this.Chef_btnVoorraad.Name = "Chef_btnVoorraad";
-            this.Chef_btnVoorraad.Size = new System.Drawing.Size(285, 92);
-            this.Chef_btnVoorraad.TabIndex = 1;
-            this.Chef_btnVoorraad.Text = "Voorraad";
-            this.Chef_btnVoorraad.UseVisualStyleBackColor = true;
-            this.Chef_btnVoorraad.Click += new System.EventHandler(this.Chef_btnVoorraad_Click);
-            // 
-            // Chef_btnUitloggen
-            // 
-            this.Chef_btnUitloggen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.Chef_btnUitloggen.FlatAppearance.BorderSize = 0;
-            this.Chef_btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Chef_btnUitloggen.Font = new System.Drawing.Font("Roboto", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_btnUitloggen.ForeColor = System.Drawing.Color.White;
-            this.Chef_btnUitloggen.Location = new System.Drawing.Point(1, 947);
-            this.Chef_btnUitloggen.Name = "Chef_btnUitloggen";
-            this.Chef_btnUitloggen.Size = new System.Drawing.Size(285, 92);
-            this.Chef_btnUitloggen.TabIndex = 1;
-            this.Chef_btnUitloggen.Text = "Uitloggen";
-            this.Chef_btnUitloggen.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = global::Ui.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(47, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(194, 101);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Chef_pnlTop
             // 
@@ -131,11 +134,35 @@
             // 
             // Chef_pnlOverzicht
             // 
+            this.Chef_pnlOverzicht.BackColor = System.Drawing.Color.White;
+            this.Chef_pnlOverzicht.Controls.Add(this.Chef_pnlFirstOrder);
+            this.Chef_pnlOverzicht.Controls.Add(this.Chef_lblGeenBestellingen);
             this.Chef_pnlOverzicht.Location = new System.Drawing.Point(286, 125);
             this.Chef_pnlOverzicht.Margin = new System.Windows.Forms.Padding(0);
             this.Chef_pnlOverzicht.Name = "Chef_pnlOverzicht";
             this.Chef_pnlOverzicht.Size = new System.Drawing.Size(1618, 915);
             this.Chef_pnlOverzicht.TabIndex = 2;
+            // 
+            // Chef_lblGeenBestellingen
+            // 
+            this.Chef_lblGeenBestellingen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Chef_lblGeenBestellingen.AutoSize = true;
+            this.Chef_lblGeenBestellingen.Font = new System.Drawing.Font("Roboto", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblGeenBestellingen.Location = new System.Drawing.Point(462, 358);
+            this.Chef_lblGeenBestellingen.Name = "Chef_lblGeenBestellingen";
+            this.Chef_lblGeenBestellingen.Size = new System.Drawing.Size(665, 106);
+            this.Chef_lblGeenBestellingen.TabIndex = 0;
+            this.Chef_lblGeenBestellingen.Text = "Geen bestellingen";
+            // 
+            // Chef_pnlFirstOrder
+            // 
+            this.Chef_pnlFirstOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.Chef_pnlFirstOrder.Location = new System.Drawing.Point(54, 54);
+            this.Chef_pnlFirstOrder.Name = "Chef_pnlFirstOrder";
+            this.Chef_pnlFirstOrder.Size = new System.Drawing.Size(500, 393);
+            this.Chef_pnlFirstOrder.TabIndex = 1;
             // 
             // ChefForm
             // 
@@ -150,6 +177,8 @@
             this.Chef_pnlLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Chef_pnlTop.ResumeLayout(false);
+            this.Chef_pnlOverzicht.ResumeLayout(false);
+            this.Chef_pnlOverzicht.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -164,5 +193,7 @@
         private System.Windows.Forms.Panel Chef_pnlTop;
         private System.Windows.Forms.Label Chef_lblActivePanel;
         private System.Windows.Forms.Panel Chef_pnlOverzicht;
+        private System.Windows.Forms.Label Chef_lblGeenBestellingen;
+        private System.Windows.Forms.Panel Chef_pnlFirstOrder;
     }
 }
