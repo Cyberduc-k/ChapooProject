@@ -1,0 +1,94 @@
+CREATE TABLE [dbo].[Tables] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [occupied] BIT NOT NULL,
+  [seats] TINYINT NOT NULL,
+)
+
+CREATE TABLE [dbo].[Employees] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY(1000,1),
+  [dateOfBirth] DATETIME2(0) NOT NULL,
+  [dateEmployment] DATETIME2(0) NOT NULL,
+  [firstname] VARCHAR(45) NOT NULL,
+  [lastname] VARCHAR(45) NOT NULL,
+  [password] VARCHAR(45) NOT NULL,
+  [employeeType] TINYINT NOT NULL,
+  [gender] TINYINT NOT NULL,
+)
+
+CREATE TABLE [dbo].[Dishes] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [name] VARCHAR(45) NOT NULL,
+  [discription] TEXT NOT NULL,
+  [ingredienst] TEXT NOT NULL,
+  [price] DECIMAL NOT NULL,
+  [stock] INT NOT NULL
+)
+
+CREATE TABLE [dbo].[Drinks] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [name] VARCHAR(45) NOT NULL,
+  [alcoholic] BIT NOT NULL,
+  [price] DECIMAL NOT NULL,
+  [stock] INT NOT NULL
+)
+
+CREATE TABLE [dbo].[Menus] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [menuType] TINYINT NOT NULL
+)
+
+CREATE TABLE [dbo].[Reservations] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [date] DATETIME2(0) NOT NULL,
+  [from] TIME NOT NULL,
+  [to] TIME NOT NULL,
+  [name] VARCHAR(45) NOT NULL,
+  [numberOfPeople] TINYINT NOT NULL,
+  [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON UPDATE CASCADE NOT NULL
+)  
+
+CREATE TABLE [dbo].[Bills] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON UPDATE CASCADE NOT NULL,
+)  
+
+CREATE TABLE [dbo].[Orders] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [comment] VARCHAR(45) NULL,
+  [date] DATETIME2(0) NOT NULL,
+  [timeOrdering] TIME NOT NULL,
+  [timeFinished] TIME NULL,
+  [totalPrice] DECIMAL NOT NULL,
+  [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON DELETE CASCADE NOT NULL,
+  [employeeId] INT FOREIGN KEY REFERENCES Employees(id) ON DELETE CASCADE NOT NULL,
+)
+	
+CREATE TABLE [dbo].[Bill_has_order]
+(
+    [billId] INT FOREIGN KEY REFERENCES Bills(id) ON DELETE CASCADE NOT NULL,
+    [orderId] INT FOREIGN KEY REFERENCES Orders(id) ON DELETE CASCADE NOT NULL
+)
+
+CREATE TABLE [dbo].[Menu_has_dish]
+(
+    [menuId] INT FOREIGN KEY REFERENCES Menus(id) ON DELETE CASCADE NOT NULL,
+    [dishId] INT FOREIGN KEY REFERENCES Dishes(id) ON DELETE CASCADE NOT NULL
+)
+
+CREATE TABLE [dbo].[Menu_has_drink]
+(
+    [menuId] INT FOREIGN KEY REFERENCES Menus(id) ON DELETE CASCADE NOT NULL,
+    [drinkId] INT FOREIGN KEY REFERENCES Drinks(id) ON DELETE CASCADE NOT NULL
+)
+
+CREATE TABLE [dbo].[Order_has_dish]
+(
+    [orderId] INT FOREIGN KEY REFERENCES Orders(id) ON DELETE CASCADE NOT NULL,
+    [dishId] INT FOREIGN KEY REFERENCES Dishes(id) ON DELETE CASCADE NOT NULL
+)
+
+CREATE TABLE [dbo].[Order_has_drink]
+(
+    [orderId] INT FOREIGN KEY REFERENCES Orders(id) ON DELETE CASCADE NOT NULL,
+    [drinkId] INT FOREIGN KEY REFERENCES Drinks(id) ON DELETE CASCADE NOT NULL
+)
