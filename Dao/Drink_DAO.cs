@@ -10,8 +10,7 @@ namespace Dao
         // Get a list of all the drinks
         public List<Drink> GetAll()
         {
-            // @TODO
-            string query = "";
+            string query = "SELECT [id], [name], [alcoholic], [price], [stock] FROM [dbo].[Drink]";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -20,19 +19,44 @@ namespace Dao
         // Add a new drink to the database
         public void Add(Drink drink)
         {
-            // @TODO
+            string query = "INSERT INTO [dbo].[Drink] ([name], [alcoholic], [price], [stock]) VALUES (@name, @alcoholic, @price, @stock)";
+            SqlParameter[] parameters = new SqlParameter[4]
+            {
+                new SqlParameter("@name", drink.Name),
+                new SqlParameter("@alcoholic", drink.Alcoholic),
+                new SqlParameter("@price", drink.Price),
+                new SqlParameter("@stock", drink.Stock),
+            };
+
+            ExecuteEditQuery(query, parameters);
         }
 
         // Remove a drink from the database
         public void Remove(Drink drink)
         {
-            // @TODO
+            string query = "DELETE FROM [dbo].[Drink] WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", drink.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
         }
 
         // Modify the properties of a drink in the database
         public void Modify(Drink drink)
         {
-            // @TODO
+            string query = "UPDATE [dbo].[Drink] SET [name] = @name, [price] = @price, [stock] = @stock, [alcoholic] = @alcoholic WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[5]
+            {
+                new SqlParameter("@name", drink.Name),
+                new SqlParameter("@alcoholic", drink.Alcoholic),
+                new SqlParameter("@price", drink.Price),
+                new SqlParameter("@stock", drink.Stock),
+                new SqlParameter("@id", drink.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
         }
 
         // Convert the raw database data into a list of Drink objects
@@ -49,8 +73,13 @@ namespace Dao
         // Convert the raw database data into a Drink object
         private Drink Read(DataRow dataRow)
         {
-            // @TODO
-            return null;
+            int id = (int)dataRow["Id"];
+            string name = (string)dataRow["name"];
+            bool alcoholic = (bool)dataRow["alcoholic"];
+            double price = (double)dataRow["price"];
+            int stock = (int)dataRow["stock"];
+            
+            return new Drink(id, name, alcoholic, price, stock);
         }
     }
 }

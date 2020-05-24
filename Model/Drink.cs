@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Drink : Item
+    public class Drink
     {
+        public int Id { get; }
+        public string Name { get; }
         public bool Alcoholic { get; }
+        public double Price { get; }
+        public int Stock { get; }
 
-        public Drink(string name, double price, int numberInStock, bool alcoholic) : base(name, price, numberInStock)
+        public Drink(int id, string name, bool alcoholic, double price, int stock)
         {
+            Id = id;
+            Name = name;
             Alcoholic = alcoholic;
+            Price = price;
+            Stock = stock;
         }
     }
 }
