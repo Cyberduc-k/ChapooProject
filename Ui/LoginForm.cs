@@ -24,14 +24,10 @@ namespace Ui
 
         private void CheckCredentials()
         {
-            int id;
-
-            try
+            // Parse the user Id into a number
+            if (!int.TryParse(Login_textBoxNummer.Text, out int id))
             {
-                id = int.Parse(Login_textBoxNummer.Text);
-            } catch (Exception e)
-            {
-                ErrorHandler.Instance.HandleError("Ongeldig personeelsnummer ingevoerd", "Ongeldig personeelsnummer", e);
+                ErrorHandler.Instance.HandleError("Ongeldig personeelsnummer ingevoerd", "Ongeldig personeelsnummer", null);
                 ErrorState();
                 return;
             }
@@ -39,6 +35,7 @@ namespace Ui
             string password = Login_textBoxWachtwoord.Text;
             Employee employee = employee_service.GetWithPassword(id, password);
 
+            // Check if the employee was found
             if (employee == null)
             {
                 ErrorState();
@@ -52,13 +49,15 @@ namespace Ui
 
                         Hide();
                         cp_form.Location = Location;
-                        cp_form.Show();
-                        cp_form.FormClosed += (s, args) => Close();
+                        cp_form.ShowDialog(this);
                         break;
                 }
+
+                ResetState();
             }
         }
 
+        // Clear all text boxes and show the incorrect info message
         private void ErrorState()
         {
             Login_textBoxNummer.Clear();
@@ -67,10 +66,27 @@ namespace Ui
             Login_textBoxNummer.Focus();
         }
 
+        // Reset the form back to the Start state
+        private void ResetState()
+        {
+            Login_Logo.Top = 285;
+            Login_btnInloggen.Top = 631;
+            Login_btnAnnuleren.Hide();
+            Login_lblNummer.Hide();
+            Login_textBoxNummer.Hide();
+            Login_lblWachtwoord.Hide();
+            Login_textBoxWachtwoord.Hide();
+            Login_textBoxNummer.Clear();
+            Login_lblIncorrect.Hide();
+            Login_textBoxWachtwoord.Clear();
+            state = LoginState.Start;
+        }
+
         private void Login_btnInloggen_Click(object sender, EventArgs e)
         {
             if (state == LoginState.Start)
             {
+                // Change the form to the EnterCredentials state
                 Login_Logo.Top = 118;
                 Login_btnInloggen.Top = 792;
                 Login_btnAnnuleren.Show();
@@ -89,17 +105,7 @@ namespace Ui
 
         private void Login_btnAnnuleren_Click(object sender, EventArgs e)
         {
-            Login_Logo.Top = 285;
-            Login_btnInloggen.Top = 631;
-            Login_btnAnnuleren.Hide();
-            Login_lblNummer.Hide();
-            Login_textBoxNummer.Hide();
-            Login_lblWachtwoord.Hide();
-            Login_textBoxWachtwoord.Hide();
-            Login_textBoxNummer.Clear();
-            Login_lblIncorrect.Hide();
-            Login_textBoxWachtwoord.Clear();
-            state = LoginState.Start;
+            ResetState();
         }
     }
 }

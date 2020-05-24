@@ -10,7 +10,7 @@ namespace Dao
         // Get a list of all the tables
         public List<Table> GetAll()
         {
-            string query = "SELECT [id], [occupied], [seats] FROM [dbo].[Table]";
+            string query = "SELECT [id], [occupied], [seats] FROM [dbo].[Tables]";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -19,7 +19,7 @@ namespace Dao
         // Add a new table to the database
         public void Add(Table table)
         {
-            string query = "INSERT INTO [dbo].[Table] ([occupied], [seats]) VALUES (@occupied, @seats)";
+            string query = "INSERT INTO [dbo].[Tables] ([occupied], [seats]) VALUES (@occupied, @seats)";
             SqlParameter[] parameters = new SqlParameter[2]
             {
                 new SqlParameter("@occupied", table.Occupied),
@@ -32,7 +32,7 @@ namespace Dao
         // Remove a drink from the database
         public void Remove(Table table)
         {
-            string query = "DELETE FROM [dbo].[Table] WHERE [id] = @id";
+            string query = "DELETE FROM [dbo].[Tables] WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[1]
             {
                 new SqlParameter("@id", table.Number),
@@ -44,7 +44,7 @@ namespace Dao
         // Modify the properties of a drink in the database
         public void Modify(Table table)
         {
-            string query = "UPDATE [dbo].[Table] SET [occupied] = @occupied, [seats] = @seats WHERE [id] = @id";
+            string query = "UPDATE [dbo].[Tables] SET [occupied] = @occupied, [seats] = @seats WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[3]
             {
                 new SqlParameter("@occupied", table.Occupied),
