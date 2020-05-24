@@ -24,6 +24,11 @@ namespace Ui
 
         private void CheckCredentials()
         {
+            // @TODO Handle errors
+            //catch (Exception e){
+            //    ErrorHandler.Instance.HandleError("Er kon geen connectie gemaakt worden met de databse. Heeft u wel internet?", "Connectie mislukt", e);
+            //}
+
             int id = int.Parse(Login_textBoxNummer.Text);
             string password = Login_textBoxWachtwoord.Text;
             Employee employee = employee_service.GetWithPassword(id, password);
