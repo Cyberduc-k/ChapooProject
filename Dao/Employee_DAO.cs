@@ -79,8 +79,9 @@ namespace Dao
         public void Modify(Employee employee)
         {
             string query = "UPDATE [dbo].[Employees] SET [dateOfBirth] = @dateOfBirth, [dateOfEmployment] = @dateOfEmployment, [firstname] = @firstname, [lastname] = @lastname, [password] = @password, [employeeType] = @employeeType, [gender] = @gender WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[7]
+            SqlParameter[] parameters = new SqlParameter[8]
             {
+                new SqlParameter("@id", employee.Id),
                 new SqlParameter("@dateOfBirth", employee.BirthDate),
                 new SqlParameter("@dateOfEmployment", employee.DateEmployment),
                 new SqlParameter("@firstname", employee.FirstName),
