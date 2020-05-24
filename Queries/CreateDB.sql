@@ -58,7 +58,6 @@ CREATE TABLE [dbo].[Orders] (
   [date] DATE NOT NULL,
   [timeOrdering] TIME NOT NULL,
   [timeFinished] TIME NULL,
-  [totalPrice] FLOAT NOT NULL,
   [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON DELETE CASCADE NOT NULL,
   [employeeId] INT FOREIGN KEY REFERENCES Employees(id) ON DELETE CASCADE NOT NULL,
 )
