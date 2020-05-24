@@ -51,12 +51,12 @@ CREATE TABLE [dbo].[Reservations] (
 CREATE TABLE [dbo].[Bills] (
   [id] INT NOT NULL PRIMARY KEY IDENTITY,
   [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON UPDATE CASCADE NOT NULL,
+  [date] DATE NOT NULL,
 )  
 
 CREATE TABLE [dbo].[Orders] (
   [id] INT NOT NULL PRIMARY KEY IDENTITY,
   [comment] VARCHAR(100) NULL,
-  [date] DATE NOT NULL,
   [orderState] TINYINT NOT NULL,
   [timeOrdering] TIME NOT NULL,
   [timeFinished] TIME NULL,

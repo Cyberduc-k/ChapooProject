@@ -58,6 +58,12 @@
     <Compile Include="ControlPanelForm.Designer.cs">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CP_Popup_NewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_NewEmployee.Designer.cs">
+      <DependentUpon>CP_Popup_NewEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlPanelForm.resx">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_NewEmployee.resx">
+      <DependentUpon>CP_Popup_NewEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
