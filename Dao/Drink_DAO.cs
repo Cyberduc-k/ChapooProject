@@ -55,7 +55,7 @@ namespace Dao
                 new SqlParameter("@stock", drink.Stock),
                 new SqlParameter("@id", drink.Id),
             };
-            //
+            
             ExecuteEditQuery(query, parameters);
         }
 
