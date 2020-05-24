@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[Employees] (
   [lastname] VARCHAR(100) NOT NULL,
   [password] VARCHAR(100) NOT NULL,
   [employeeType] TINYINT NOT NULL,
-  [gender] BIT NOT NULL,
+  [gender] TINYINT NOT NULL,
 )
 
 CREATE TABLE [dbo].[Dishes] (
