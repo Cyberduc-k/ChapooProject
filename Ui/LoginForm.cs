@@ -33,10 +33,21 @@ namespace Ui
                 Login_textBoxNummer.Clear();
                 Login_textBoxWachtwoord.Clear();
                 Login_lblIncorrect.Show();
+                Login_textBoxNummer.Focus();
             }
             else
             {
-                // @TODO
+                switch (employee.EmployeeType)
+                {
+                    case EmployeeType.Owner:
+                        ControlPanelForm cp_form = new ControlPanelForm();
+
+                        Hide();
+                        cp_form.Location = Location;
+                        cp_form.Show();
+                        cp_form.FormClosed += (s, args) => Close();
+                        break;
+                }
             }
         }
 
