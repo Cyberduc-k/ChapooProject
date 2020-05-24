@@ -11,27 +11,27 @@ namespace Logic
         Reservation_DAO reservation_DAO = new Reservation_DAO();
 
         //Get a list of all the reservations from the DAO
-        public List<Menu> GetAllMenus()
+        public List<Reservation> GetAllReservations()
         {
-            return null;
+            return reservation_DAO.GetAll();
         }
 
         //Add a new reservation
         public void AddReservation(Reservation reservation)
         {
-
+            reservation_DAO.Add(reservation);
         }
 
         //Remove a reservation
-        public void DeleteReservation(Reservation reservation)
+        public void RemoveReservation(Reservation reservation)
         {
-
+            reservation_DAO.Remove(reservation);
         }
 
         //Modify the properties of the reservation
         public void ModifyReservation(Reservation reservation)
         {
-
+            reservation_DAO.Modify(reservation);
         }
     }
 }

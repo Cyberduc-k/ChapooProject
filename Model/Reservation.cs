@@ -8,7 +8,7 @@ namespace Model
 {
     public class Reservation
     {
-        public int ID { get; }
+        public int Id { get; }
         public string Name { get; }
         public DateTime Date { get; }
         public DateTime From { get; }
@@ -16,9 +16,9 @@ namespace Model
         public int NumberOfPersons { get; }
         public Table Table { get; }
 
-        public Reservation(int iD, string name, DateTime date, DateTime from, DateTime to, int numberOfPersons)
+        public Reservation(int id, string name, DateTime date, DateTime from, DateTime to, int numberOfPersons)
         {
-            ID = iD;
+            Id = id;
             Name = name;
             Date = date;
             From = from;
