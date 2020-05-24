@@ -26,8 +26,6 @@ namespace Dao
                 new SqlParameter("@password", password),
             };
 
-            Console.WriteLine("{0}, {1}", id, password);
-
             DataTable results = ExecuteSelectQuery(query, parameters);
 
             if (results == null)
