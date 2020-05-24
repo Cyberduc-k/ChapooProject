@@ -44,10 +44,14 @@
             this.CP_Voorraad_btnDranken = new System.Windows.Forms.Button();
             this.CP_Voorraad_btnDinergerechten = new System.Windows.Forms.Button();
             this.CP_Voorraad_btnLunchgerechten = new System.Windows.Forms.Button();
+            this.CP_pnlMedewerkers = new System.Windows.Forms.Panel();
+            this.CP_Medewerkers_btnNieuweMedewerker = new System.Windows.Forms.Button();
+            this.CP_Medewerkers_listView = new System.Windows.Forms.ListView();
             this.CP_pnlNavMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.CP_pnlHeader.SuspendLayout();
             this.CP_pnlVoorraad.SuspendLayout();
+            this.CP_pnlMedewerkers.SuspendLayout();
             this.SuspendLayout();
             // 
             // CP_pnlNavMenu
@@ -222,6 +226,7 @@
             // CP_pnlVoorraad
             // 
             this.CP_pnlVoorraad.BackColor = System.Drawing.Color.White;
+            this.CP_pnlVoorraad.Controls.Add(this.CP_pnlMedewerkers);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnLunchgerechten);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnDinergerechten);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnDranken);
@@ -292,6 +297,43 @@
             this.CP_Voorraad_btnLunchgerechten.UseVisualStyleBackColor = false;
             this.CP_Voorraad_btnLunchgerechten.Click += new System.EventHandler(this.CP_Voorraad_btnLunchgerechten_Click);
             // 
+            // CP_pnlMedewerkers
+            // 
+            this.CP_pnlMedewerkers.BackColor = System.Drawing.Color.White;
+            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnNieuweMedewerker);
+            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_listView);
+            this.CP_pnlMedewerkers.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CP_pnlMedewerkers.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlMedewerkers.Location = new System.Drawing.Point(0, 0);
+            this.CP_pnlMedewerkers.Name = "CP_pnlMedewerkers";
+            this.CP_pnlMedewerkers.Size = new System.Drawing.Size(857, 471);
+            this.CP_pnlMedewerkers.TabIndex = 11;
+            // 
+            // CP_Medewerkers_btnNieuweMedewerker
+            // 
+            this.CP_Medewerkers_btnNieuweMedewerker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Medewerkers_btnNieuweMedewerker.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnNieuweMedewerker.ForeColor = System.Drawing.Color.White;
+            this.CP_Medewerkers_btnNieuweMedewerker.Location = new System.Drawing.Point(7, 409);
+            this.CP_Medewerkers_btnNieuweMedewerker.Name = "CP_Medewerkers_btnNieuweMedewerker";
+            this.CP_Medewerkers_btnNieuweMedewerker.Size = new System.Drawing.Size(312, 50);
+            this.CP_Medewerkers_btnNieuweMedewerker.TabIndex = 8;
+            this.CP_Medewerkers_btnNieuweMedewerker.Text = "Nieuwe medewerker toevoegen";
+            this.CP_Medewerkers_btnNieuweMedewerker.UseVisualStyleBackColor = false;
+            // 
+            // CP_Medewerkers_listView
+            // 
+            this.CP_Medewerkers_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_listView.HideSelection = false;
+            this.CP_Medewerkers_listView.Location = new System.Drawing.Point(7, 0);
+            this.CP_Medewerkers_listView.Name = "CP_Medewerkers_listView";
+            this.CP_Medewerkers_listView.Size = new System.Drawing.Size(838, 403);
+            this.CP_Medewerkers_listView.TabIndex = 0;
+            this.CP_Medewerkers_listView.UseCompatibleStateImageBehavior = false;
+            // 
             // ControlPanelForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -307,6 +349,7 @@
             this.CP_pnlHeader.ResumeLayout(false);
             this.CP_pnlHeader.PerformLayout();
             this.CP_pnlVoorraad.ResumeLayout(false);
+            this.CP_pnlMedewerkers.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -329,6 +372,9 @@
         private System.Windows.Forms.Button CP_Voorraad_btnLunchgerechten;
         private System.Windows.Forms.Button CP_Voorraad_btnDinergerechten;
         private System.Windows.Forms.Button CP_Voorraad_btnDranken;
+        private System.Windows.Forms.Panel CP_pnlMedewerkers;
+        private System.Windows.Forms.Button CP_Medewerkers_btnNieuweMedewerker;
+        private System.Windows.Forms.ListView CP_Medewerkers_listView;
     }
 }
 
