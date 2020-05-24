@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[Employees] (
   [lastname] VARCHAR(100) NOT NULL,
   [password] VARCHAR(100) NOT NULL,
   [employeeType] TINYINT NOT NULL,
-  [gender] BIT NOT NULL,
+  [gender] TINYINT NOT NULL,
 )
 
 CREATE TABLE [dbo].[Dishes] (
@@ -20,15 +20,16 @@ CREATE TABLE [dbo].[Dishes] (
   [name] VARCHAR(100) NOT NULL,
   [description] TEXT,
   [ingredients] TEXT,
-  [price] DECIMAL NOT NULL,
-  [stock] INT NOT NULL
+  [price] FLOAT NOT NULL,
+  [stock] INT NOT NULL,
+  [category] TINYINT NOT NULL,
 )
 
 CREATE TABLE [dbo].[Drinks] (
   [id] INT NOT NULL PRIMARY KEY IDENTITY,
   [name] VARCHAR(100) NOT NULL,
   [alcoholic] BIT NOT NULL,
-  [price] DECIMAL NOT NULL,
+  [price] FLOAT NOT NULL,
   [stock] INT NOT NULL
 )
 
@@ -56,9 +57,9 @@ CREATE TABLE [dbo].[Orders] (
   [id] INT NOT NULL PRIMARY KEY IDENTITY,
   [comment] VARCHAR(100) NULL,
   [date] DATE NOT NULL,
+  [orderState] TINYINT NOT NULL,
   [timeOrdering] TIME NOT NULL,
   [timeFinished] TIME NULL,
-  [totalPrice] DECIMAL NOT NULL,
   [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON DELETE CASCADE NOT NULL,
   [employeeId] INT FOREIGN KEY REFERENCES Employees(id) ON DELETE CASCADE NOT NULL,
 )

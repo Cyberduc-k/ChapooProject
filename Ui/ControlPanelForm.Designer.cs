@@ -40,13 +40,13 @@
             this.CP_pnlHeader = new System.Windows.Forms.Panel();
             this.CP_lblActivePanel = new System.Windows.Forms.Label();
             this.CP_pnlVoorraad = new System.Windows.Forms.Panel();
-            this.CP_Voorraad_listViewDranken = new System.Windows.Forms.ListView();
-            this.CP_Voorraad_btnDranken = new System.Windows.Forms.Button();
-            this.CP_Voorraad_btnDinergerechten = new System.Windows.Forms.Button();
-            this.CP_Voorraad_btnLunchgerechten = new System.Windows.Forms.Button();
             this.CP_pnlMedewerkers = new System.Windows.Forms.Panel();
             this.CP_Medewerkers_btnNieuweMedewerker = new System.Windows.Forms.Button();
             this.CP_Medewerkers_listView = new System.Windows.Forms.ListView();
+            this.CP_Voorraad_btnLunchgerechten = new System.Windows.Forms.Button();
+            this.CP_Voorraad_btnDinergerechten = new System.Windows.Forms.Button();
+            this.CP_Voorraad_btnDranken = new System.Windows.Forms.Button();
+            this.CP_Voorraad_listViewDranken = new System.Windows.Forms.ListView();
             this.CP_pnlNavMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.CP_pnlHeader.SuspendLayout();
@@ -70,6 +70,7 @@
             this.CP_pnlNavMenu.Name = "CP_pnlNavMenu";
             this.CP_pnlNavMenu.Size = new System.Drawing.Size(151, 537);
             this.CP_pnlNavMenu.TabIndex = 1;
+            this.CP_pnlNavMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.CP_pnlNavMenu_Paint);
             // 
             // CP_btnMedewerkers
             // 
@@ -200,6 +201,7 @@
             this.CP_imgLogo.Size = new System.Drawing.Size(151, 66);
             this.CP_imgLogo.TabIndex = 1;
             this.CP_imgLogo.TabStop = false;
+            this.CP_imgLogo.Click += new System.EventHandler(this.CP_imgLogo_Click);
             // 
             // CP_pnlHeader
             // 
@@ -209,8 +211,9 @@
             this.CP_pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.CP_pnlHeader.Location = new System.Drawing.Point(151, 0);
             this.CP_pnlHeader.Name = "CP_pnlHeader";
-            this.CP_pnlHeader.Size = new System.Drawing.Size(857, 66);
+            this.CP_pnlHeader.Size = new System.Drawing.Size(1821, 66);
             this.CP_pnlHeader.TabIndex = 2;
+            this.CP_pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.CP_pnlHeader_Paint);
             // 
             // CP_lblActivePanel
             // 
@@ -219,67 +222,63 @@
             this.CP_lblActivePanel.ForeColor = System.Drawing.Color.White;
             this.CP_lblActivePanel.Location = new System.Drawing.Point(366, 7);
             this.CP_lblActivePanel.Name = "CP_lblActivePanel";
-            this.CP_lblActivePanel.Size = new System.Drawing.Size(114, 46);
+            this.CP_lblActivePanel.Size = new System.Drawing.Size(113, 42);
             this.CP_lblActivePanel.TabIndex = 0;
             this.CP_lblActivePanel.Text = "Home";
+            this.CP_lblActivePanel.Click += new System.EventHandler(this.CP_lblActivePanel_Click);
             // 
             // CP_pnlVoorraad
             // 
             this.CP_pnlVoorraad.BackColor = System.Drawing.Color.White;
-            this.CP_pnlVoorraad.Controls.Add(this.CP_pnlMedewerkers);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnLunchgerechten);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnDinergerechten);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnDranken);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_listViewDranken);
-            this.CP_pnlVoorraad.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CP_pnlVoorraad.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_pnlVoorraad.Location = new System.Drawing.Point(151, 66);
             this.CP_pnlVoorraad.Name = "CP_pnlVoorraad";
             this.CP_pnlVoorraad.Size = new System.Drawing.Size(857, 471);
             this.CP_pnlVoorraad.TabIndex = 3;
+            this.CP_pnlVoorraad.Paint += new System.Windows.Forms.PaintEventHandler(this.CP_pnlVoorraad_Paint);
             // 
-            // CP_Voorraad_listViewDranken
+            // CP_pnlMedewerkers
             // 
-            this.CP_Voorraad_listViewDranken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.CP_Voorraad_listViewDranken.HideSelection = false;
-            this.CP_Voorraad_listViewDranken.Location = new System.Drawing.Point(7, 56);
-            this.CP_Voorraad_listViewDranken.Name = "CP_Voorraad_listViewDranken";
-            this.CP_Voorraad_listViewDranken.Size = new System.Drawing.Size(838, 403);
-            this.CP_Voorraad_listViewDranken.TabIndex = 0;
-            this.CP_Voorraad_listViewDranken.UseCompatibleStateImageBehavior = false;
-            this.CP_Voorraad_listViewDranken.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Home_listView1_ColumnClick);
+            this.CP_pnlMedewerkers.BackColor = System.Drawing.Color.White;
+            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnNieuweMedewerker);
+            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_listView);
+            this.CP_pnlMedewerkers.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlMedewerkers.Location = new System.Drawing.Point(1014, 66);
+            this.CP_pnlMedewerkers.Name = "CP_pnlMedewerkers";
+            this.CP_pnlMedewerkers.Size = new System.Drawing.Size(857, 471);
+            this.CP_pnlMedewerkers.TabIndex = 11;
+            this.CP_pnlMedewerkers.Paint += new System.Windows.Forms.PaintEventHandler(this.CP_pnlMedewerkers_Paint);
             // 
-            // CP_Voorraad_btnDranken
+            // CP_Medewerkers_btnNieuweMedewerker
             // 
-            this.CP_Voorraad_btnDranken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Voorraad_btnDranken.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_Voorraad_btnDranken.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Voorraad_btnDranken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Voorraad_btnDranken.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_Voorraad_btnDranken.ForeColor = System.Drawing.Color.White;
-            this.CP_Voorraad_btnDranken.Location = new System.Drawing.Point(6, 0);
-            this.CP_Voorraad_btnDranken.Name = "CP_Voorraad_btnDranken";
-            this.CP_Voorraad_btnDranken.Size = new System.Drawing.Size(275, 50);
-            this.CP_Voorraad_btnDranken.TabIndex = 8;
-            this.CP_Voorraad_btnDranken.Text = "Dranken";
-            this.CP_Voorraad_btnDranken.UseVisualStyleBackColor = false;
-            this.CP_Voorraad_btnDranken.Click += new System.EventHandler(this.CP_Voorraad_btnDranken_Click);
+            this.CP_Medewerkers_btnNieuweMedewerker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Medewerkers_btnNieuweMedewerker.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnNieuweMedewerker.ForeColor = System.Drawing.Color.White;
+            this.CP_Medewerkers_btnNieuweMedewerker.Location = new System.Drawing.Point(7, 409);
+            this.CP_Medewerkers_btnNieuweMedewerker.Name = "CP_Medewerkers_btnNieuweMedewerker";
+            this.CP_Medewerkers_btnNieuweMedewerker.Size = new System.Drawing.Size(312, 50);
+            this.CP_Medewerkers_btnNieuweMedewerker.TabIndex = 8;
+            this.CP_Medewerkers_btnNieuweMedewerker.Text = "Nieuwe medewerker toevoegen";
+            this.CP_Medewerkers_btnNieuweMedewerker.UseVisualStyleBackColor = false;
+            this.CP_Medewerkers_btnNieuweMedewerker.Click += new System.EventHandler(this.CP_Medewerkers_btnNieuweMedewerker_Click);
             // 
-            // CP_Voorraad_btnDinergerechten
+            // CP_Medewerkers_listView
             // 
-            this.CP_Voorraad_btnDinergerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
-            this.CP_Voorraad_btnDinergerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_Voorraad_btnDinergerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Voorraad_btnDinergerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Voorraad_btnDinergerechten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_Voorraad_btnDinergerechten.ForeColor = System.Drawing.Color.White;
-            this.CP_Voorraad_btnDinergerechten.Location = new System.Drawing.Point(570, 0);
-            this.CP_Voorraad_btnDinergerechten.Name = "CP_Voorraad_btnDinergerechten";
-            this.CP_Voorraad_btnDinergerechten.Size = new System.Drawing.Size(275, 50);
-            this.CP_Voorraad_btnDinergerechten.TabIndex = 9;
-            this.CP_Voorraad_btnDinergerechten.Text = "Dinergerechten";
-            this.CP_Voorraad_btnDinergerechten.UseVisualStyleBackColor = false;
-            this.CP_Voorraad_btnDinergerechten.Click += new System.EventHandler(this.CP_Voorraad_btnDinergerechten_Click);
+            this.CP_Medewerkers_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_listView.HideSelection = false;
+            this.CP_Medewerkers_listView.Location = new System.Drawing.Point(7, 0);
+            this.CP_Medewerkers_listView.Name = "CP_Medewerkers_listView";
+            this.CP_Medewerkers_listView.Size = new System.Drawing.Size(838, 403);
+            this.CP_Medewerkers_listView.TabIndex = 0;
+            this.CP_Medewerkers_listView.UseCompatibleStateImageBehavior = false;
+            this.CP_Medewerkers_listView.SelectedIndexChanged += new System.EventHandler(this.CP_Medewerkers_listView_SelectedIndexChanged);
             // 
             // CP_Voorraad_btnLunchgerechten
             // 
@@ -297,47 +296,55 @@
             this.CP_Voorraad_btnLunchgerechten.UseVisualStyleBackColor = false;
             this.CP_Voorraad_btnLunchgerechten.Click += new System.EventHandler(this.CP_Voorraad_btnLunchgerechten_Click);
             // 
-            // CP_pnlMedewerkers
+            // CP_Voorraad_btnDinergerechten
             // 
-            this.CP_pnlMedewerkers.BackColor = System.Drawing.Color.White;
-            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnNieuweMedewerker);
-            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_listView);
-            this.CP_pnlMedewerkers.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CP_pnlMedewerkers.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_pnlMedewerkers.Location = new System.Drawing.Point(0, 0);
-            this.CP_pnlMedewerkers.Name = "CP_pnlMedewerkers";
-            this.CP_pnlMedewerkers.Size = new System.Drawing.Size(857, 471);
-            this.CP_pnlMedewerkers.TabIndex = 11;
+            this.CP_Voorraad_btnDinergerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_Voorraad_btnDinergerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Voorraad_btnDinergerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Voorraad_btnDinergerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Voorraad_btnDinergerechten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Voorraad_btnDinergerechten.ForeColor = System.Drawing.Color.White;
+            this.CP_Voorraad_btnDinergerechten.Location = new System.Drawing.Point(570, 0);
+            this.CP_Voorraad_btnDinergerechten.Name = "CP_Voorraad_btnDinergerechten";
+            this.CP_Voorraad_btnDinergerechten.Size = new System.Drawing.Size(275, 50);
+            this.CP_Voorraad_btnDinergerechten.TabIndex = 9;
+            this.CP_Voorraad_btnDinergerechten.Text = "Dinergerechten";
+            this.CP_Voorraad_btnDinergerechten.UseVisualStyleBackColor = false;
+            this.CP_Voorraad_btnDinergerechten.Click += new System.EventHandler(this.CP_Voorraad_btnDinergerechten_Click);
             // 
-            // CP_Medewerkers_btnNieuweMedewerker
+            // CP_Voorraad_btnDranken
             // 
-            this.CP_Medewerkers_btnNieuweMedewerker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Medewerkers_btnNieuweMedewerker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Medewerkers_btnNieuweMedewerker.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_Medewerkers_btnNieuweMedewerker.ForeColor = System.Drawing.Color.White;
-            this.CP_Medewerkers_btnNieuweMedewerker.Location = new System.Drawing.Point(7, 409);
-            this.CP_Medewerkers_btnNieuweMedewerker.Name = "CP_Medewerkers_btnNieuweMedewerker";
-            this.CP_Medewerkers_btnNieuweMedewerker.Size = new System.Drawing.Size(312, 50);
-            this.CP_Medewerkers_btnNieuweMedewerker.TabIndex = 8;
-            this.CP_Medewerkers_btnNieuweMedewerker.Text = "Nieuwe medewerker toevoegen";
-            this.CP_Medewerkers_btnNieuweMedewerker.UseVisualStyleBackColor = false;
+            this.CP_Voorraad_btnDranken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Voorraad_btnDranken.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Voorraad_btnDranken.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Voorraad_btnDranken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Voorraad_btnDranken.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Voorraad_btnDranken.ForeColor = System.Drawing.Color.White;
+            this.CP_Voorraad_btnDranken.Location = new System.Drawing.Point(6, 0);
+            this.CP_Voorraad_btnDranken.Name = "CP_Voorraad_btnDranken";
+            this.CP_Voorraad_btnDranken.Size = new System.Drawing.Size(275, 50);
+            this.CP_Voorraad_btnDranken.TabIndex = 8;
+            this.CP_Voorraad_btnDranken.Text = "Dranken";
+            this.CP_Voorraad_btnDranken.UseVisualStyleBackColor = false;
+            this.CP_Voorraad_btnDranken.Click += new System.EventHandler(this.CP_Voorraad_btnDranken_Click);
             // 
-            // CP_Medewerkers_listView
+            // CP_Voorraad_listViewDranken
             // 
-            this.CP_Medewerkers_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.CP_Medewerkers_listView.HideSelection = false;
-            this.CP_Medewerkers_listView.Location = new System.Drawing.Point(7, 0);
-            this.CP_Medewerkers_listView.Name = "CP_Medewerkers_listView";
-            this.CP_Medewerkers_listView.Size = new System.Drawing.Size(838, 403);
-            this.CP_Medewerkers_listView.TabIndex = 0;
-            this.CP_Medewerkers_listView.UseCompatibleStateImageBehavior = false;
+            this.CP_Voorraad_listViewDranken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.CP_Voorraad_listViewDranken.HideSelection = false;
+            this.CP_Voorraad_listViewDranken.Location = new System.Drawing.Point(7, 56);
+            this.CP_Voorraad_listViewDranken.Name = "CP_Voorraad_listViewDranken";
+            this.CP_Voorraad_listViewDranken.Size = new System.Drawing.Size(838, 403);
+            this.CP_Voorraad_listViewDranken.TabIndex = 0;
+            this.CP_Voorraad_listViewDranken.UseCompatibleStateImageBehavior = false;
+            this.CP_Voorraad_listViewDranken.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Home_listView1_ColumnClick);
+            this.CP_Voorraad_listViewDranken.SelectedIndexChanged += new System.EventHandler(this.CP_Voorraad_listViewDranken_SelectedIndexChanged);
             // 
             // ControlPanelForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1008, 537);
+            this.ClientSize = new System.Drawing.Size(1972, 537);
+            this.Controls.Add(this.CP_pnlMedewerkers);
             this.Controls.Add(this.CP_pnlVoorraad);
             this.Controls.Add(this.CP_pnlHeader);
             this.Controls.Add(this.CP_pnlNavMenu);
@@ -372,9 +379,9 @@
         private System.Windows.Forms.Button CP_Voorraad_btnLunchgerechten;
         private System.Windows.Forms.Button CP_Voorraad_btnDinergerechten;
         private System.Windows.Forms.Button CP_Voorraad_btnDranken;
-        private System.Windows.Forms.Panel CP_pnlMedewerkers;
         private System.Windows.Forms.Button CP_Medewerkers_btnNieuweMedewerker;
         private System.Windows.Forms.ListView CP_Medewerkers_listView;
+        private System.Windows.Forms.Panel CP_pnlMedewerkers;
     }
 }
 
