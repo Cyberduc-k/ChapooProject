@@ -38,9 +38,9 @@ namespace Ui
         {
             List<Drink> drinkList = drinkService.GetAllDrinks();
             drinkList = new List<Drink>();
-            drinkList.Add(new Drink(1, "cola", 2, 2, false));
-            drinkList.Add(new Drink(2, "bier", 2.50, 5, true));
-            drinkList.Add(new Drink(3, "sprite", 3, 10, false));
+            // drinkList.Add(new Drink(1, "cola", 2, 2, false));
+            // drinkList.Add(new Drink(2, "bier", 2.50, 5, true));
+            // drinkList.Add(new Drink(3, "sprite", 3, 10, false));
 
             CP_Voorraad_listViewDranken.Clear();
 
@@ -50,7 +50,7 @@ namespace Ui
                 li.SubItems.Add(drinkList[i].Name);
                 li.SubItems.Add(drinkList[i].Alcoholic.ToString());
                 li.SubItems.Add(drinkList[i].Price.ToString());
-                li.SubItems.Add(drinkList[i].NumberInStock.ToString());
+                // li.SubItems.Add(drinkList[i].NumberInStock.ToString());
 
                 CP_Voorraad_listViewDranken.Items.Add(li);
             }
@@ -124,9 +124,9 @@ namespace Ui
             {
                 ListViewItem li = new ListViewItem(employeeList[i].Id.ToString());
                 li.SubItems.Add(employeeList[i].FirstName + " " + employeeList[i].LastName);
-                li.SubItems.Add(employeeList[i].Alcoholic.ToString());
-                li.SubItems.Add(employeeList[i].Price.ToString());
-                li.SubItems.Add(employeeList[i].NumberInStock.ToString());
+                // li.SubItems.Add(employeeList[i].Alcoholic.ToString());
+                // li.SubItems.Add(employeeList[i].Price.ToString());
+                // li.SubItems.Add(employeeList[i].NumberInStock.ToString());
 
                 CP_Voorraad_listViewDranken.Items.Add(li);
             }

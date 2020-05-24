@@ -58,7 +58,7 @@ namespace Dao
             string query = "DELETE FROM [dbo].[Employees] WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[1]
             {
-                new SqlParameter("@id", employee.ID),
+                new SqlParameter("@id", employee.Id),
             };
 
             ExecuteEditQuery(query, parameters);

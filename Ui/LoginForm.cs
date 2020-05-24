@@ -21,8 +21,11 @@ namespace Ui
         {
             InitializeComponent();
 
-            //Also show the control panel on startup
+            // Also show the control panel on startup
             new ControlPanelForm().Show();
+
+            // Also show the chef panel on startup
+            new ChefForm().Show();
         }
 
         private void CheckCredentials()
