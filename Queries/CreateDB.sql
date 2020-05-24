@@ -106,12 +106,10 @@ INSERT INTO Employees([dateOfBirth],[dateOfEmployment],[firstname],[lastname],[p
 INSERT INTO Employees([dateOfBirth],[dateOfEmployment],[firstname],[lastname],[password],[employeeType],[gender]) VALUES('2019-06-09','2019-08-08','Merritt','Wilkinson',2709,2,1),('2019-10-10','2019-10-25','Nathan','Nieves',9265,1,1),('2020-01-17','2019-07-28','Christopher','Campbell',4223,1,0),('2020-03-10','2019-07-21','Gareth','Santana',4476,0,1),('2019-05-28','2020-09-14','Akeem','Terrell',6476,2,1),('2020-04-07','2019-06-13','Deacon','Walton',9229,0,1),('2020-04-27','2021-01-29','Hoyt','Avery',7286,2,0),('2019-07-29','2020-09-24','Tanner','Contreras',3373,0,1),('2019-10-21','2020-02-03','Jonas','Burnett',3121,2,1),('2019-06-11','2019-10-22','Kelly','Richmond',8690,2,1);
 INSERT INTO Employees([dateOfBirth],[dateOfEmployment],[firstname],[lastname],[password],[employeeType],[gender]) VALUES('2020-04-23','2020-05-11','Laith','Joseph',7339,1,1),('2020-05-24','2019-12-19','Damian','Cobb',5095,2,0),('2019-11-14','2020-06-24','David','Wong',4876,1,1),('2020-04-23','2020-07-11','Justin','Talley',5755,2,0),('2019-06-12','2019-08-21','Cade','Rivera',6904,2,0),('2020-05-21','2020-05-29','Hector','Robbins',4312,2,0),('2020-02-12','2019-10-24','Malik','Conway',7127,0,0),('2019-10-11','2020-03-16','Ira','Nunez',3693,2,1),('2020-03-04','2020-10-03','Laith','Compton',6296,2,0),('2019-11-14','2019-07-14','Eaton','Dawson',7034,2,1);
 
-INSERT INTO Dishes([name],[ingredients],[price],[stock]) VALUES ('Kalfstartaar met tonijnmayonaise en gefrituurde mosselen','Tonijn, mayonaise, mosselen','8.50','10'),('Paté van fazant met Monegaskische uitjes','Fazant, ui, knoflook','8.50','12'),('Provençaalse vissoep met rouille en croutons','Vis, mayonaise, mosselen','8.50','10'),('Krab-zalm koekjes met zoetzure-chilisaus','Zalm, krab, chili','9.00','13');
 
-INSERT INTO Drinks([name],[alcoholic],[price],[stock]) VALUES ('Spa rood',0,'2.50',20),('Spa groen',0,'2.50',22),('Hertog Jan',1,'3.00',25);
-
+INSERT INTO Dishes([name],[ingredients],[price],[stock],[category]) VALUES ('Kalfstartaar met tonijnmayonaise en gefrituurde mosselen','Tonijn, mayonaise, mosselen','8.50','10','0'),('Paté van fazant met Monegaskische uitjes','Fazant, ui, knoflook','8.50','12','0'),('Provençaalse vissoep met rouille en croutons','Vis, mayonaise, mosselen','8.50','10','1'),('Krab-zalm koekjes met zoetzure-chilisaus','Zalm, krab, chili','9.00','13','1');INSERT INTO Drinks([name],[alcoholic],[price],[stock]) VALUES ('Spa rood',0,'2.50',20),('Spa groen',0,'2.50',22),('Hertog Jan',1,'3.00',25);
 INSERT INTO Menus([menuType]) VALUES(0),(1),(2);
-
 INSERT INTO Tables([occupied],[seats]) VALUES (0, 5),(1, 7),(0, 3),(0, 4); 
-
 INSERT INTO Reservations([date],[from],[to],[name],[numberOfPeople],[tableId]) VALUES ('2020-05-24', '18:00:00', '22:00:00', 'Sierhuis', 5, 1),('2020-05-24', '17:00:00', '23:00:00', 'Ooijevaar', 3, 3);
+INSERT INTO Menu_has_dish([menuId],[dishId]) VALUES (1,1),(1,2),(2,3);
+INSERT INTO Menu_has_drink([menuId],[dishId]) VALUES (3,1),(3,2),(3,3);
