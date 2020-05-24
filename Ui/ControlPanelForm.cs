@@ -232,7 +232,7 @@ namespace Ui
 
         private void CP_Medewerkers_btnNieuweMedewerker_Click(object sender, EventArgs e)
         {
-
+            new CP_Popup_NewEmployee().ShowDialog();
         }
 
         private void CP_imgLogo_Click(object sender, EventArgs e)

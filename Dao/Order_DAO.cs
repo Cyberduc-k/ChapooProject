@@ -24,9 +24,8 @@ namespace Dao
                 "([date], [timeOrdering], [timeFinished], [dishes], [drinks], [employee], [table], [state]) " +
                 "VALUES " +
                 "(@date, @timeOrdering, @timeFinished, @dishes, @drinks, @employee, @table, @state)";
-            SqlParameter[] parameters = new SqlParameter[8]
+            SqlParameter[] parameters = new SqlParameter[7]
             {
-                new SqlParameter("@date", order.Date),
                 new SqlParameter("@timeOrdering", order.TimeOrdering),
                 new SqlParameter("@timeFinished", order.TimeFinished),
                 new SqlParameter("@dishes", order.Dishes),
@@ -57,9 +56,8 @@ namespace Dao
             string query = "UPDATE [dbo].[Orders] SET " +
                 "[date] = @date, [timeOrdering] = @timeOrdering, [timeFinished] = @timeFinished, [dishes] = @dishes, [drinks] = @drinks, [employee] = @employee, [table] = @table, [state] = @state" +
                 "WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[9]
+            SqlParameter[] parameters = new SqlParameter[8]
             {
-                new SqlParameter("@date", order.Date),
                 new SqlParameter("@timeOrdering", order.TimeOrdering),
                 new SqlParameter("@timeFinished", order.TimeFinished),
                 new SqlParameter("@dishes", order.Dishes),
@@ -88,7 +86,6 @@ namespace Dao
         private Order Read(DataRow dataRow)
         {
             int id = (int)dataRow["id"];
-            DateTime date = (DateTime)dataRow["date"];
             DateTime timeOrdering = (DateTime)dataRow["timeOrdering"];
             DateTime timeFinished = (DateTime)dataRow["timeFinished"];
             List<Dish> dishes = new List<Dish>();
@@ -98,7 +95,7 @@ namespace Dao
             OrderState state = (OrderState)dataRow["state"];
             string comment = (string)dataRow["comment"];
 
-            return new Order(id, date, timeOrdering, timeFinished, dishes, drinks, employee, table, state, comment);
+            return new Order(id, timeOrdering, timeFinished, dishes, drinks, employee, table, state, comment);
         }
     }
 }
