@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
+using System;
 using Model;
 
 namespace Dao
@@ -10,9 +11,9 @@ namespace Dao
         // Get a list of all the billes
         public List<Bill> GetAll()
         {
-            // @TODO
-            string query = "";
-            SqlParameter[] parameters = new SqlParameter[0];
+            string query = "SELECT [id], [date], [tableId], [orderId], [price], [employeeId] FROM [dbo].[Bills]";
+
+        SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
@@ -20,19 +21,46 @@ namespace Dao
         // Add a new bill to the database
         public void Add(Bill bill)
         {
-            // @TODO
+            string query = "INSERT INTO [dbo].[Bills] ([date], [tableId], [orderId], [price], [employeeId]) VALUES (@date, @tableId, @orderId, @price, @employeeId)";
+            SqlParameter[] parameters = new SqlParameter[5]
+            {
+                new SqlParameter("@date", bill.Date),
+                new SqlParameter("@tableId", bill.Table),
+                new SqlParameter("@orderId", bill.Order),
+                new SqlParameter("@price", bill.Price),
+                new SqlParameter("@employeeId", bill.Employee),
+            };
+
+            ExecuteEditQuery(query, parameters);
         }
 
         // Remove a bill from the database
         public void Remove(Bill bill)
         {
-            // @TODO
+            string query = "DELETE FROM [dbo].[Bills] WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", bill.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
         }
 
         // Modify the properties of a bill in the database
         public void Modify(Bill bill)
         {
-            // @TODO
+            string query = "UPDATE [dbo].[Bills] SET " +
+                "[date] = @date, [tableId] = @table, [orderId] = @orderId, [price] = @price, [employeeId] = @employeeId " +
+                "WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[6]
+            {
+                new SqlParameter("@date", bill.Date),
+                new SqlParameter("@tableId", bill.Table),
+                new SqlParameter("@orderId", bill.Order),
+                new SqlParameter("@price", bill.Price),
+                new SqlParameter("@employeeId", bill.Employee),
+                new SqlParameter("@id", bill.Id),
+            };
         }
 
         // Convert the raw database data into a list of Bill objects
@@ -49,8 +77,14 @@ namespace Dao
         // Convert the raw database data into an Bill object
         private Bill Read(DataRow dataRow)
         {
-            // @TODO
-            return null;
+            int id = (int)dataRow["Id"];
+            DateTime date = (DateTime)dataRow["id"];
+            Table tableId = (Table)dataRow["tableId"];
+            List<Order> order = (List<Order>)dataRow["orderId"];
+            double price = (double)dataRow["price"];
+            Employee employeeId = (Employee)dataRow["employeeId"];
+
+            return new Bill(id, date, tableId, order, price, employeeId);
         }
     }
 }

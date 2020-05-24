@@ -14,26 +14,25 @@ namespace Logic
         //Get a list of all the bills from the DAO
         public List<Bill> GetAllBills()
         {
-            // @TODO
-            return null;
+            return bill_DAO.GetAll();
         }
 
         //Add a new bill
         public void AddBill(Bill bill)
         {
-            // @TODO
+            bill_DAO.Add(bill);
         }
 
         //Remove a bill
         public void RemoveBill(Bill bill)
         {
-            // @TODO
+            bill_DAO.Remove(bill);
         }
 
         //Modify the properties of a bill
         public void ModifyBill(Bill bill)
         {
-            // @TODO
+            bill_DAO.Modify(bill);
         }
     }
 }
