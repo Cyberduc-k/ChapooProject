@@ -10,28 +10,34 @@ namespace Logic
     {
         Employee_DAO employee_DAO = new Employee_DAO();
 
-        //Get a list of all the employees from the DAO
+        // Get a list of all the employees from the DAO
         public List<Employee> GetAllEmployees() 
         {
-            return null;
+            return employee_DAO.GetAll();
         }
 
-        //Add a new Employee
+        // Get a single Employee with an id and password
+        public Employee GetWithPassword(int id, string password)
+        {
+            return employee_DAO.GetWithPassword(id, password);
+        }
+
+        // Add a new Employee
         public void AddEmployee(Employee employee)
         {
-
+            employee_DAO.Add(employee);
         }
 
-        //Remove an employee
+        // Remove an employee
         public void DeleteEmployee(Employee employee)
-        { 
-            
+        {
+            employee_DAO.Remove(employee);
         }
 
-        //Modify the properties of the employee
+        // Modify the properties of the employee
         public void ModifyEmployee(Employee employee)
         {
-
+            employee_DAO.Modify(employee);
         }
     }
 }
