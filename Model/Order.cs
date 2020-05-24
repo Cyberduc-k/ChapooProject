@@ -8,7 +8,6 @@ namespace Model
 {
     public class Order
     {
-        public int Id { get; }
         public DateTime Date { get; }
         public DateTime TimeOrdering { get; }
         public DateTime TimeFinished { get; }
@@ -35,9 +34,8 @@ namespace Model
             }
         }
 
-        public Order(int id, DateTime date, DateTime timeOrdering, DateTime timeFinished, List<Dish> dishes, List<Drink> drinks, Employee employee, Table table, OrderState state, string comment)
+        public Order(DateTime date, DateTime timeOrdering, DateTime timeFinished, List<Dish> dishes, List<Drink> drinks, Employee employee, Table table, OrderState state, string comment)
         {
-            Id = id;
             Date = date;
             TimeOrdering = timeOrdering;
             TimeFinished = timeFinished;
