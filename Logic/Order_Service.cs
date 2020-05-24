@@ -14,26 +14,25 @@ namespace Logic
         //Get a list of all the orders from the DAO
         public List<Order> GetAllOrders()
         {
-            // @TODO
-            return null;
+            return order_DAO.GetAll();
         }
 
         //Add a new order
         public void AddOrder(Order order)
         {
-            // @TODO
+            order_DAO.Add(order);
         }
 
         //Remove a order
         public void RemoveOrder(Order order)
         {
-            // @TODO
+            order_DAO.Remove(order);
         }
 
         //Modify the properties of a order
         public void ModifyOrder(Order order)
         {
-            // @TODO
+            order_DAO.Modify(order);
         }
     }
 }
