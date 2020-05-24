@@ -164,10 +164,12 @@ namespace Ui
             for (int i = 0; i < employeeList.Count; i++)
             {
                 ListViewItem li = new ListViewItem(employeeList[i].Id.ToString());
-                li.SubItems.Add(employeeList[i].FirstName + " " + employeeList[i].LastName);
+                li.SubItems.Add(employeeList[i].FirstName.ToString());
+                li.SubItems.Add(employeeList[i].LastName.ToString());
                 li.SubItems.Add(employeeList[i].BirthDate.ToString());
                 li.SubItems.Add(employeeList[i].Gender.ToString());
                 li.SubItems.Add(employeeList[i].DateEmployment.ToString());
+                li.SubItems.Add(employeeList[i].Password.ToString());
                 li.SubItems.Add(employeeList[i].EmployeeType.ToString());
 
                 CP_Medewerkers_listView.Items.Add(li);
@@ -179,7 +181,11 @@ namespace Ui
             CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Naam";
+            columnheader.Text = "Voornaam";
+            CP_Medewerkers_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Achternaam";
             CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
@@ -192,6 +198,10 @@ namespace Ui
 
             columnheader = new ColumnHeader();
             columnheader.Text = "Indiensttreding";
+            CP_Medewerkers_listView.Columns.Add(columnheader);     
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Wachtwoord";
             CP_Medewerkers_listView.Columns.Add(columnheader);            
             
             columnheader = new ColumnHeader();
@@ -203,6 +213,12 @@ namespace Ui
             {
                 ch.Width = -2;
             }
+
+            CP_Medewerkers_btnEdit.Enabled = false;
+            CP_Medewerkers_btnVerwijderen.Enabled = false;
+
+            CP_Medewerkers_btnEdit.BackColor = Color.PaleTurquoise;
+            CP_Medewerkers_btnVerwijderen.BackColor = Color.Salmon;
         }
 
         private void InitializeSorting()
@@ -307,17 +323,31 @@ namespace Ui
             employeeService.DeleteEmployee(id);
 
             LoadEmployeeList();
-
-            CP_Medewerkers_btnEdit.Enabled = false;
-            CP_Medewerkers_btnVerwijderen.Enabled = false;
-
-            CP_Medewerkers_btnEdit.BackColor = Color.PaleTurquoise;
-            CP_Medewerkers_btnVerwijderen.BackColor = Color.Salmon;
         }
 
         private void CP_Medewerkers_btnEdit_Click(object sender, EventArgs e)
         {
+            //Make sure an item is selected
+            if (CP_Medewerkers_listView.SelectedItems.Count == 0)
+                return;
 
+            ListViewItem item = CP_Medewerkers_listView.SelectedItems[0];
+
+            int id = int.Parse(item.SubItems[0].Text);
+            string firstName = item.SubItems[1].Text;
+            string lastName = item.SubItems[2].Text;
+            DateTime birthDate = Convert.ToDateTime(item.SubItems[3].Text);
+            Enum.TryParse(item.SubItems[4].Text, out Gender gender);
+            DateTime employment = Convert.ToDateTime(item.SubItems[5].Text);
+            string password = item.SubItems[6].Text;
+            Enum.TryParse(item.SubItems[7].Text, out EmployeeType employeeType);
+
+            Form popup = new CP_Popup_EditEmployee(id, firstName, lastName, birthDate, employment, gender, password, employeeType);
+
+            popup.ShowDialog();
+
+            if (popup.DialogResult == DialogResult.OK)
+                LoadEmployeeList();
         }
     }
 }
