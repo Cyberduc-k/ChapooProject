@@ -11,7 +11,7 @@ namespace Dao
         // Get a list of all employees
         public List<Employee> GetAll()
         {
-            string query = "SELECT [id], [dateOfBirth], [dateEmployment], [firstname], [lastname], [password], [employeeType], [gender] FROM [dbo].[Employee]";
+            string query = "SELECT [id], [dateOfBirth], [dateOfEmployment], [firstname], [lastname], [password], [employeeType], [gender] FROM [dbo].[Employees]";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -19,7 +19,7 @@ namespace Dao
 
         public Employee GetWithPassword(int id, string password)
         {
-            string query = "SELECT [id], [dateOfBirth], [dateEmployment], [firstname], [lastname], [password], [employeeType], [gender] FROM [dbo].[Employee] WHERE [id] = @id AND [password] = @password";
+            string query = "SELECT [id], [dateOfBirth], [dateOfEmployment], [firstname], [lastname], [password], [employeeType], [gender] FROM [dbo].[Employees] WHERE [id] = @id AND [password] = @password";
             SqlParameter[] parameters = new SqlParameter[2]
             {
                 new SqlParameter("@id", id),
@@ -68,12 +68,12 @@ namespace Dao
         {
             int id = (int)dataRow["id"];
             DateTime dateOfBirth = (DateTime)dataRow["dateOfBirth"];
-            DateTime dateEmployment = (DateTime)dataRow["dateEmployment"];
+            DateTime dateEmployment = (DateTime)dataRow["dateOfEmployment"];
             string firstname = (string)dataRow["firstname"];
             string lastname = (string)dataRow["lastname"];
             string password = (string)dataRow["password"];
-            EmployeeType employeeType = (EmployeeType)dataRow["employeeType"];
-            Gender gender = (Gender)dataRow["gender"];
+            EmployeeType employeeType = (EmployeeType)(byte)dataRow["employeeType"];
+            Gender gender = (Gender)(byte)dataRow["gender"];
 
             return new Employee(id, firstname, lastname, dateOfBirth, dateEmployment, gender, password, employeeType);
         }

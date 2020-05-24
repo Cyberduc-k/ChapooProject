@@ -167,12 +167,11 @@ namespace Ui
         private void CP_btnUitloggen_Click(object sender, EventArgs e)
         {
             SetHightlight(CP_btnUitloggen);
-
-            // @TODO signout
-            Application.Exit();
+            Close();
+            Owner.Show();
         }
 
-        //Highlight a button
+        // Highlight a button
         private void SetHightlight(Button btn)
         {
             CP_btnHome.BackColor = CP_btnVoorraad.BackColor = CP_btnMenukaarten.BackColor = CP_btnBestellingen.BackColor

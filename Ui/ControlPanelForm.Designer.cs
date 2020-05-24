@@ -219,7 +219,7 @@
             this.CP_lblActivePanel.ForeColor = System.Drawing.Color.White;
             this.CP_lblActivePanel.Location = new System.Drawing.Point(366, 7);
             this.CP_lblActivePanel.Name = "CP_lblActivePanel";
-            this.CP_lblActivePanel.Size = new System.Drawing.Size(113, 42);
+            this.CP_lblActivePanel.Size = new System.Drawing.Size(114, 46);
             this.CP_lblActivePanel.TabIndex = 0;
             this.CP_lblActivePanel.Text = "Home";
             // 
