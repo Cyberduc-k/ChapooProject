@@ -21,7 +21,8 @@ CREATE TABLE [dbo].[Dishes] (
   [description] TEXT,
   [ingredients] TEXT,
   [price] FLOAT NOT NULL,
-  [stock] INT NOT NULL
+  [stock] INT NOT NULL,
+  [category] TINYINT NOT NULL,
 )
 
 CREATE TABLE [dbo].[Drinks] (
