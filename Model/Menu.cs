@@ -8,12 +8,11 @@ namespace Model
 {
     public class Menu
     {
-        public int Id { get; }
+        public List<Item> items { get; }
         public MenuType MenuType { get; }
 
-        public Menu(int id, MenuType menuType)
+        public Menu(MenuType menuType)
         {
-            Id = id;
             MenuType = menuType;
         }
     }
