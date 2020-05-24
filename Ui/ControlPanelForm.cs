@@ -37,10 +37,6 @@ namespace Ui
         private void CP_btnVoorraad_Click(object sender, EventArgs e)
         {
             List<Drink> drinkList = drinkService.GetAllDrinks();
-            drinkList = new List<Drink>();
-            drinkList.Add(new Drink(1, "cola", 2, 2, false));
-            drinkList.Add(new Drink(2, "bier", 2.50, 5, true));
-            drinkList.Add(new Drink(3, "sprite", 3, 10, false));
 
             CP_Voorraad_listViewDranken.Clear();
 
@@ -50,7 +46,7 @@ namespace Ui
                 li.SubItems.Add(drinkList[i].Name);
                 li.SubItems.Add(drinkList[i].Alcoholic.ToString());
                 li.SubItems.Add(drinkList[i].Price.ToString());
-                li.SubItems.Add(drinkList[i].NumberInStock.ToString());
+                li.SubItems.Add(drinkList[i].Stock.ToString());
 
                 CP_Voorraad_listViewDranken.Items.Add(li);
             }
@@ -112,55 +108,50 @@ namespace Ui
         private void CP_btnMedewerkers_Click(object sender, EventArgs e)
         {
             List<Employee> employeeList = employeeService.GetAllEmployees();
-
-            employeeList = new List<Employee>();
-            employeeList.Add(new Employee(1, "Bram", "Sierhuis", new DateTime(2001, 5, 16), new DateTime(2020, 4, 18), Gender.Male, "2039", EmployeeType.Owner));
-            employeeList.Add(new Employee(2, "Bram", "Sierhuis", new DateTime(2001, 5, 16), new DateTime(2020, 4, 18), Gender.Male, "2039", EmployeeType.Owner));
-            employeeList.Add(new Employee(3, "Bram", "Sierhuis", new DateTime(2001, 5, 16), new DateTime(2020, 4, 18), Gender.Male, "2039", EmployeeType.Owner));
-
+            
             CP_Medewerkers_listView.Clear();
 
             for (int i = 0; i < employeeList.Count; i++)
             {
                 ListViewItem li = new ListViewItem(employeeList[i].Id.ToString());
                 li.SubItems.Add(employeeList[i].FirstName + " " + employeeList[i].LastName);
-                li.SubItems.Add(employeeList[i].Alcoholic.ToString());
-                li.SubItems.Add(employeeList[i].Price.ToString());
-                li.SubItems.Add(employeeList[i].NumberInStock.ToString());
+                li.SubItems.Add(employeeList[i].BirthDate.ToString());
+                li.SubItems.Add(employeeList[i].Gender.ToString());
+                li.SubItems.Add(employeeList[i].DateEmployment.ToString());
 
-                CP_Voorraad_listViewDranken.Items.Add(li);
+                CP_Medewerkers_listView.Items.Add(li);
             }
 
             // Create some column headers for the data. 
             columnheader = new ColumnHeader();
             columnheader.Text = "ID";
-            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+            CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
             columnheader.Text = "Naam";
-            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+            CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Alcoholisch";
-            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+            columnheader.Text = "Geboortedatum";
+            CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Prijs";
-            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+            columnheader.Text = "Geslacht";
+            CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Voorraad";
-            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+            columnheader.Text = "Indiensttreding";
+            CP_Medewerkers_listView.Columns.Add(columnheader);
 
             // Loop through and size each column header to fit the column header text.
-            foreach (ColumnHeader ch in CP_Voorraad_listViewDranken.Columns)
+            foreach (ColumnHeader ch in CP_Medewerkers_listView.Columns)
             {
                 ch.Width = -2;
             }
 
+            HideAllPanels();
             SetHightlight(CP_btnMedewerkers);
             CP_lblActivePanel.Text = "Medewerkers";
-            HideAllPanels();
             CP_pnlMedewerkers.Show();
         }
 
@@ -210,11 +201,15 @@ namespace Ui
         {
             CP_Voorraad_listViewDranken.View = View.Details;
             CP_Voorraad_listViewDranken.ListViewItemSorter = lvwColumnSorter;
+
+            CP_Medewerkers_listView.View = View.Details;
+            CP_Medewerkers_listView.ListViewItemSorter = lvwColumnSorter;
         }
 
         private void HideAllPanels()
         {
             CP_pnlVoorraad.Hide();
+            CP_pnlMedewerkers.Hide();
         }
 
         private void CP_Voorraad_btnDranken_Click(object sender, EventArgs e)
@@ -233,6 +228,51 @@ namespace Ui
         {
             CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 184, 255);
             CP_Voorraad_btnLunchgerechten.BackColor = CP_Voorraad_btnDranken.BackColor = Color.FromArgb(0, 165, 229);
+        }
+
+        private void CP_Medewerkers_btnNieuweMedewerker_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CP_imgLogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CP_pnlHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CP_lblActivePanel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CP_pnlVoorraad_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CP_pnlMedewerkers_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CP_pnlNavMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CP_Medewerkers_listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CP_Voorraad_listViewDranken_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
