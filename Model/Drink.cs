@@ -10,7 +10,7 @@ namespace Model
     {
         public bool Alcoholic { get; }
 
-        public Drink(string name, double price, int numberInStock, bool alcoholic) : base(name, price, numberInStock)
+        public Drink(int id, string name, double price, int numberInStock, bool alcoholic) : base(id, name, price, numberInStock)
         {
             Alcoholic = alcoholic;
         }

@@ -8,12 +8,14 @@ namespace Model
 {
     public abstract class Item
     {
+        public int Id { get; }
         public string Name { get; }
         public double Price { get; }
         public int NumberInStock { get; }
 
-        public Item(string name, double price, int numberInStock)
+        public Item(int id, string name, double price, int numberInStock)
         {
+            Id = id;
             Name = name;
             Price = price;
             NumberInStock = numberInStock;

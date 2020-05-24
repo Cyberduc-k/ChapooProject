@@ -20,6 +20,9 @@ namespace Ui
         public LoginForm()
         {
             InitializeComponent();
+
+            //Also show the control panel on startup
+            new ControlPanelForm().Show();
         }
 
         private void CheckCredentials()

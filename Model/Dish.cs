@@ -11,7 +11,7 @@ namespace Model
         public string Description { get; }
         public List<string> Ingredients { get; }
 
-        public Dish(string name, double price, int numberInStock, string description, List<string> ingredients) : base(name, price, numberInStock)
+        public Dish(int id, string name, double price, int numberInStock, string description, List<string> ingredients) : base(id, name, price, numberInStock)
         {
             Description = description;
             Ingredients = ingredients;

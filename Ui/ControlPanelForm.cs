@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
+using Model;
 
 namespace Ui
 {
@@ -18,37 +19,66 @@ namespace Ui
         public ControlPanelForm()
         {
             InitializeComponent();
+            HideAllPanels();
         }
 
         private void CP_btnHome_Click(object sender, EventArgs e)
         {
-            ListView view = CP_Home_listView1;
-
             SetHightlight(CP_btnHome);
             CP_lblActivePanel.Text = "Home";
+            HideAllPanels();
+        }
 
-            // Ensure that the view is set to show details.
+        private void CP_btnVoorraad_Click(object sender, EventArgs e)
+        {
+            Drink_Service drinkService = new Drink_Service();
+            List<Drink> drinkList = drinkService.GetAllDrinks();
+
+            SetHightlight(CP_btnVoorraad);
+            CP_lblActivePanel.Text = "Voorraad";
+            HideAllPanels();
+
+            ListView view = CP_Voorraad_listViewDranken;
+
+            // Ensure that the view is empty and set to show details.
             view.View = View.Details;
-            // clear the listview before filling it again
             view.Clear();
+            view.ListViewItemSorter = lvwColumnSorter;
 
-            ListViewItem li = new ListViewItem("Drankje");
-            li.SubItems.Add("Gerecht");
-            view.Items.Add(li);
-            ListViewItem li2 = new ListViewItem("Drankje2");
-            li2.SubItems.Add("Gerecht2");
-            view.Items.Add(li2);
+            for (int i = 0; i < drinkList.Count; i++)
+            {
+                ListViewItem li = new ListViewItem(drinkList[i].Id.ToString());
+                li.SubItems.Add(drinkList[i].Name);
+                li.SubItems.Add(drinkList[i].Alcoholic.ToString());
+                li.SubItems.Add(drinkList[i].Price.ToString());
+                li.SubItems.Add(drinkList[i].NumberInStock.ToString());
+
+                view.Items.Add(li);
+            }
 
 
             // Create some column headers for the data. 
             ColumnHeader columnheader;
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Number";
+            columnheader.Text = "ID";
             view.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Name";
+            columnheader.Text = "Naam";
+            view.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Alcoholisch";
+            view.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Prijs";
+            view.Columns.Add(columnheader);
+
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Voorraad";
             view.Columns.Add(columnheader);
 
             // Loop through and size each column header to fit the column header text.
@@ -57,19 +87,15 @@ namespace Ui
                 ch.Width = -2;
             }
 
-            view.ListViewItemSorter = lvwColumnSorter;
-        }
-
-        private void CP_btnVoorraad_Click(object sender, EventArgs e)
-        {
-            SetHightlight(CP_btnVoorraad);
-            CP_lblActivePanel.Text = "Voorraad";
+            CP_pnlVoorraad.Show();
         }
 
         private void CP_btnMenukaarten_Click(object sender, EventArgs e)
         {
             SetHightlight(CP_btnMenukaarten);
             CP_lblActivePanel.Text = "Menukaarten";
+            HideAllPanels();
+
         }
 
         private void CP_btnBestellingen_Click(object sender, EventArgs e)
@@ -108,7 +134,7 @@ namespace Ui
 
         private void CP_Home_listView1_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            SortListView(e, CP_Home_listView1);
+            SortListView(e, CP_Voorraad_listViewDranken);
         }
 
         private void SortListView(ColumnClickEventArgs e, ListView lv)
@@ -130,6 +156,29 @@ namespace Ui
             }
 
             lv.Sort();
+        }
+
+        private void HideAllPanels()
+        {
+            CP_pnlVoorraad.Hide();
+        }
+
+        private void CP_Voorraad_btnDranken_Click(object sender, EventArgs e)
+        {
+            CP_Voorraad_btnDranken.BackColor = Color.FromArgb(0, 184, 255);
+            CP_Voorraad_btnLunchgerechten.BackColor = CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
+        }
+
+        private void CP_Voorraad_btnLunchgerechten_Click(object sender, EventArgs e)
+        {
+            CP_Voorraad_btnLunchgerechten.BackColor = Color.FromArgb(0, 184, 255);
+            CP_Voorraad_btnDranken.BackColor = CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
+        }
+
+        private void CP_Voorraad_btnDinergerechten_Click(object sender, EventArgs e)
+        {
+            CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 184, 255);
+            CP_Voorraad_btnLunchgerechten.BackColor = CP_Voorraad_btnDranken.BackColor = Color.FromArgb(0, 165, 229);
         }
     }
 }
