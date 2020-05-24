@@ -14,25 +14,25 @@ namespace Logic
         //Get a list of all the dishes from the DAO
         public List<Dish> GetAllDishes()
         {
-            return null;
+            return dish_DAO.GetAll();
         }
 
         //Add a new dish
         public void AddDish(Dish dish)
         {
-
+            dish_DAO.Add(dish);
         }
 
         //Remove a dish
         public void RemoveDish(Dish dish)
         {
-
+            dish_DAO.Remove(dish);
         }
 
         //Modify the properties of a dish
         public void ModifyDish(Dish dish)
         {
-
+            dish_DAO.Modify(dish);
         }
     }
 }

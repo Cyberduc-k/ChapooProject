@@ -10,8 +10,7 @@ namespace Dao
         // Get a list of all the dishes
         public List<Dish> GetAll()
         {
-            // @TODO
-            string query = "";
+            string query = "SELECT [id], [name], [description], [ingredienst], [price], [stock] FROM [dbo].[Dishes]";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -20,19 +19,47 @@ namespace Dao
         // Add a new dish to the database
         public void Add(Dish dish)
         {
-            // @TODO
+            string query = "INSERT INTO [dbo].[Dishes] ([name], [description], [ingredients], [price], [stock]) VALUES (@name, @description, @ingredients, @price, @stock)";
+            SqlParameter[] parameters = new SqlParameter[5]
+            {
+                new SqlParameter("@name", dish.Name),
+                new SqlParameter("@description", dish.Description),
+                new SqlParameter("@ingredienst", dish.Ingredients),
+                new SqlParameter("@price", dish.Price),
+                new SqlParameter("@stock", dish.Stock),
+            };
+
+            ExecuteEditQuery(query, parameters);
         }
 
         // Remove a dish from the database
         public void Remove(Dish dish)
         {
-            // @TODO
+            string query = "DELETE FROM [dbo].[Dish] WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", dish.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
         }
 
         // Modify the properties of a dish in the database
         public void Modify(Dish dish)
         {
-            // @TODO
+            string query = "UPDATE [dbo].[Dishes] SET " +
+                "[name] = @name, [description] = @description, [ingredients] = @ingredients, [price] = @price, [stock] = @stock " +
+                "WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[5]
+            {
+                new SqlParameter("@name", dish.Name),
+                new SqlParameter("@description", dish.Description),
+                new SqlParameter("@price", dish.Price),
+                new SqlParameter("@stock", dish.Stock),
+                new SqlParameter("@id", dish.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
         }
 
         // Convert the raw database data into a list of Dish objects
@@ -49,8 +76,14 @@ namespace Dao
         // Convert the raw database data into an Dish object
         private Dish Read(DataRow dataRow)
         {
-            // @TODO
-            return null;
+            int id = (int)dataRow["Id"];
+            string name = (string)dataRow["name"];
+            string description = (string)dataRow["description"];
+            List<string> ingredients = (List<string>)dataRow["ingredients"];
+            double price = (double)dataRow["price"];
+            int stock = (int)dataRow["stock"];
+
+            return new Dish(id, name, description, ingredients, price, stock);
         }
     }
 }
