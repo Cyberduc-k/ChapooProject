@@ -14,7 +14,7 @@ namespace Model
         public double Price { get; }
         public int Stock { get; }
 
-        public Drink(int id, string name, double price, int numberInStock, bool alcoholic) : base(id, name, price, numberInStock)
+        public Drink(int id, string name, bool alcoholic, double price, int stock)
         {
             Id = id;
             Name = name;
