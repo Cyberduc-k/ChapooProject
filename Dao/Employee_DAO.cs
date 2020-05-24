@@ -23,12 +23,12 @@ namespace Dao
             SqlParameter[] parameters = new SqlParameter[2]
             {
                 new SqlParameter("@id", id),
-                new SqlParameter("@password", id),
+                new SqlParameter("@password", password),
             };
 
             DataTable results = ExecuteSelectQuery(query, parameters);
 
-            if (results.Rows.Count == 0)
+            if (results == null)
                 return null;
             else
                 return Read(results.Rows[0]);

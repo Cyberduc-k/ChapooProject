@@ -24,25 +24,47 @@ namespace Ui
 
         private void CheckCredentials()
         {
-            // @TODO Handle errors
-            //catch (Exception e){
-            //    ErrorHandler.Instance.HandleError("Er kon geen connectie gemaakt worden met de databse. Heeft u wel internet?", "Connectie mislukt", e);
-            //}
+            int id;
 
-            int id = int.Parse(Login_textBoxNummer.Text);
+            try
+            {
+                id = int.Parse(Login_textBoxNummer.Text);
+            } catch (Exception e)
+            {
+                ErrorHandler.Instance.HandleError("Ongeldig personeelsnummer ingevoerd", "Ongeldig personeelsnummer", e);
+                ErrorState();
+                return;
+            }
+
             string password = Login_textBoxWachtwoord.Text;
             Employee employee = employee_service.GetWithPassword(id, password);
 
             if (employee == null)
             {
-                Login_textBoxNummer.Clear();
-                Login_textBoxWachtwoord.Clear();
-                Login_lblIncorrect.Show();
+                ErrorState();
             }
             else
             {
-                // @TODO
+                switch (employee.EmployeeType)
+                {
+                    case EmployeeType.Owner:
+                        ControlPanelForm cp_form = new ControlPanelForm();
+
+                        Hide();
+                        cp_form.Location = Location;
+                        cp_form.Show();
+                        cp_form.FormClosed += (s, args) => Close();
+                        break;
+                }
             }
+        }
+
+        private void ErrorState()
+        {
+            Login_textBoxNummer.Clear();
+            Login_textBoxWachtwoord.Clear();
+            Login_lblIncorrect.Show();
+            Login_textBoxNummer.Focus();
         }
 
         private void Login_btnInloggen_Click(object sender, EventArgs e)
