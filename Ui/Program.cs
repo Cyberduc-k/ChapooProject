@@ -16,7 +16,7 @@ namespace Ui
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ControlPanelForm());
+            Application.Run(new LoginForm());
         }
     }
 }
