@@ -107,52 +107,11 @@ namespace Ui
 
         private void CP_btnMedewerkers_Click(object sender, EventArgs e)
         {
-            List<Employee> employeeList = employeeService.GetAllEmployees();
-            
-            CP_Medewerkers_listView.Clear();
-
-            for (int i = 0; i < employeeList.Count; i++)
-            {
-                ListViewItem li = new ListViewItem(employeeList[i].Id.ToString());
-                li.SubItems.Add(employeeList[i].FirstName + " " + employeeList[i].LastName);
-                li.SubItems.Add(employeeList[i].BirthDate.ToString());
-                li.SubItems.Add(employeeList[i].Gender.ToString());
-                li.SubItems.Add(employeeList[i].DateEmployment.ToString());
-
-                CP_Medewerkers_listView.Items.Add(li);
-            }
-
-            // Create some column headers for the data. 
-            columnheader = new ColumnHeader();
-            columnheader.Text = "ID";
-            CP_Medewerkers_listView.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Naam";
-            CP_Medewerkers_listView.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Geboortedatum";
-            CP_Medewerkers_listView.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Geslacht";
-            CP_Medewerkers_listView.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Indiensttreding";
-            CP_Medewerkers_listView.Columns.Add(columnheader);
-
-            // Loop through and size each column header to fit the column header text.
-            foreach (ColumnHeader ch in CP_Medewerkers_listView.Columns)
-            {
-                ch.Width = -2;
-            }
-
             HideAllPanels();
             SetHightlight(CP_btnMedewerkers);
             CP_lblActivePanel.Text = "Medewerkers";
             CP_pnlMedewerkers.Show();
+            LoadEmployeeList();
         }
 
         private void CP_btnUitloggen_Click(object sender, EventArgs e)
@@ -162,7 +121,6 @@ namespace Ui
             Owner.Show();
         }
 
-        // Highlight a button
         private void SetHightlight(Button btn)
         {
             CP_btnHome.BackColor = CP_btnVoorraad.BackColor = CP_btnMenukaarten.BackColor = CP_btnBestellingen.BackColor
@@ -195,6 +153,56 @@ namespace Ui
             }
 
             lv.Sort();
+        }
+
+        private void LoadEmployeeList()
+        {
+            List<Employee> employeeList = employeeService.GetAllEmployees();
+
+            CP_Medewerkers_listView.Clear();
+
+            for (int i = 0; i < employeeList.Count; i++)
+            {
+                ListViewItem li = new ListViewItem(employeeList[i].Id.ToString());
+                li.SubItems.Add(employeeList[i].FirstName + " " + employeeList[i].LastName);
+                li.SubItems.Add(employeeList[i].BirthDate.ToString());
+                li.SubItems.Add(employeeList[i].Gender.ToString());
+                li.SubItems.Add(employeeList[i].DateEmployment.ToString());
+                li.SubItems.Add(employeeList[i].EmployeeType.ToString());
+
+                CP_Medewerkers_listView.Items.Add(li);
+            }
+
+            // Create some column headers for the data. 
+            columnheader = new ColumnHeader();
+            columnheader.Text = "ID";
+            CP_Medewerkers_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Naam";
+            CP_Medewerkers_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Geboortedatum";
+            CP_Medewerkers_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Geslacht";
+            CP_Medewerkers_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Indiensttreding";
+            CP_Medewerkers_listView.Columns.Add(columnheader);            
+            
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Rol";
+            CP_Medewerkers_listView.Columns.Add(columnheader);
+
+            // Loop through and size each column header to fit the column header text.
+            foreach (ColumnHeader ch in CP_Medewerkers_listView.Columns)
+            {
+                ch.Width = -2;
+            }
         }
 
         private void InitializeSorting()
@@ -232,7 +240,12 @@ namespace Ui
 
         private void CP_Medewerkers_btnNieuweMedewerker_Click(object sender, EventArgs e)
         {
-            new CP_Popup_NewEmployee().ShowDialog();
+            Form popup = new CP_Popup_NewEmployee();
+
+            popup.ShowDialog();
+
+            if(popup.DialogResult == DialogResult.OK)
+                LoadEmployeeList();
         }
 
         private void CP_imgLogo_Click(object sender, EventArgs e)
@@ -267,10 +280,42 @@ namespace Ui
 
         private void CP_Medewerkers_listView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            CP_Medewerkers_btnEdit.Enabled = true;
+            CP_Medewerkers_btnVerwijderen.Enabled = true;
 
+            CP_Medewerkers_btnEdit.BackColor = Color.FromArgb(0, 184, 255);
+            CP_Medewerkers_btnVerwijderen.BackColor = Color.Red;
         }
 
         private void CP_Voorraad_listViewDranken_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CP_Medewerkers_listView_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            SortListView(e, CP_Medewerkers_listView);
+        }
+
+        private void CP_Medewerkers_btnVerwijderen_Click(object sender, EventArgs e)
+        {
+            //Make sure an item is selected
+            if (CP_Medewerkers_listView.SelectedItems.Count == 0)
+                return;
+
+            int id = int.Parse(CP_Medewerkers_listView.SelectedItems[0].Text);
+            employeeService.DeleteEmployee(id);
+
+            LoadEmployeeList();
+
+            CP_Medewerkers_btnEdit.Enabled = false;
+            CP_Medewerkers_btnVerwijderen.Enabled = false;
+
+            CP_Medewerkers_btnEdit.BackColor = Color.PaleTurquoise;
+            CP_Medewerkers_btnVerwijderen.BackColor = Color.Salmon;
+        }
+
+        private void CP_Medewerkers_btnEdit_Click(object sender, EventArgs e)
         {
 
         }

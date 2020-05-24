@@ -40,13 +40,15 @@
             this.CP_pnlHeader = new System.Windows.Forms.Panel();
             this.CP_lblActivePanel = new System.Windows.Forms.Label();
             this.CP_pnlVoorraad = new System.Windows.Forms.Panel();
-            this.CP_pnlMedewerkers = new System.Windows.Forms.Panel();
-            this.CP_Medewerkers_btnNieuweMedewerker = new System.Windows.Forms.Button();
-            this.CP_Medewerkers_listView = new System.Windows.Forms.ListView();
             this.CP_Voorraad_btnLunchgerechten = new System.Windows.Forms.Button();
             this.CP_Voorraad_btnDinergerechten = new System.Windows.Forms.Button();
             this.CP_Voorraad_btnDranken = new System.Windows.Forms.Button();
             this.CP_Voorraad_listViewDranken = new System.Windows.Forms.ListView();
+            this.CP_pnlMedewerkers = new System.Windows.Forms.Panel();
+            this.CP_Medewerkers_btnNieuweMedewerker = new System.Windows.Forms.Button();
+            this.CP_Medewerkers_listView = new System.Windows.Forms.ListView();
+            this.CP_Medewerkers_btnEdit = new System.Windows.Forms.Button();
+            this.CP_Medewerkers_btnVerwijderen = new System.Windows.Forms.Button();
             this.CP_pnlNavMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.CP_pnlHeader.SuspendLayout();
@@ -239,46 +241,6 @@
             this.CP_pnlVoorraad.Name = "CP_pnlVoorraad";
             this.CP_pnlVoorraad.Size = new System.Drawing.Size(857, 471);
             this.CP_pnlVoorraad.TabIndex = 3;
-            this.CP_pnlVoorraad.Paint += new System.Windows.Forms.PaintEventHandler(this.CP_pnlVoorraad_Paint);
-            // 
-            // CP_pnlMedewerkers
-            // 
-            this.CP_pnlMedewerkers.BackColor = System.Drawing.Color.White;
-            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnNieuweMedewerker);
-            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_listView);
-            this.CP_pnlMedewerkers.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_pnlMedewerkers.Location = new System.Drawing.Point(1014, 66);
-            this.CP_pnlMedewerkers.Name = "CP_pnlMedewerkers";
-            this.CP_pnlMedewerkers.Size = new System.Drawing.Size(857, 471);
-            this.CP_pnlMedewerkers.TabIndex = 11;
-            this.CP_pnlMedewerkers.Paint += new System.Windows.Forms.PaintEventHandler(this.CP_pnlMedewerkers_Paint);
-            // 
-            // CP_Medewerkers_btnNieuweMedewerker
-            // 
-            this.CP_Medewerkers_btnNieuweMedewerker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Medewerkers_btnNieuweMedewerker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Medewerkers_btnNieuweMedewerker.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_Medewerkers_btnNieuweMedewerker.ForeColor = System.Drawing.Color.White;
-            this.CP_Medewerkers_btnNieuweMedewerker.Location = new System.Drawing.Point(7, 409);
-            this.CP_Medewerkers_btnNieuweMedewerker.Name = "CP_Medewerkers_btnNieuweMedewerker";
-            this.CP_Medewerkers_btnNieuweMedewerker.Size = new System.Drawing.Size(312, 50);
-            this.CP_Medewerkers_btnNieuweMedewerker.TabIndex = 8;
-            this.CP_Medewerkers_btnNieuweMedewerker.Text = "Nieuwe medewerker toevoegen";
-            this.CP_Medewerkers_btnNieuweMedewerker.UseVisualStyleBackColor = false;
-            this.CP_Medewerkers_btnNieuweMedewerker.Click += new System.EventHandler(this.CP_Medewerkers_btnNieuweMedewerker_Click);
-            // 
-            // CP_Medewerkers_listView
-            // 
-            this.CP_Medewerkers_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.CP_Medewerkers_listView.HideSelection = false;
-            this.CP_Medewerkers_listView.Location = new System.Drawing.Point(7, 0);
-            this.CP_Medewerkers_listView.Name = "CP_Medewerkers_listView";
-            this.CP_Medewerkers_listView.Size = new System.Drawing.Size(838, 403);
-            this.CP_Medewerkers_listView.TabIndex = 0;
-            this.CP_Medewerkers_listView.UseCompatibleStateImageBehavior = false;
-            this.CP_Medewerkers_listView.SelectedIndexChanged += new System.EventHandler(this.CP_Medewerkers_listView_SelectedIndexChanged);
             // 
             // CP_Voorraad_btnLunchgerechten
             // 
@@ -338,7 +300,82 @@
             this.CP_Voorraad_listViewDranken.TabIndex = 0;
             this.CP_Voorraad_listViewDranken.UseCompatibleStateImageBehavior = false;
             this.CP_Voorraad_listViewDranken.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Home_listView1_ColumnClick);
-            this.CP_Voorraad_listViewDranken.SelectedIndexChanged += new System.EventHandler(this.CP_Voorraad_listViewDranken_SelectedIndexChanged);
+            // 
+            // CP_pnlMedewerkers
+            // 
+            this.CP_pnlMedewerkers.BackColor = System.Drawing.Color.White;
+            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnVerwijderen);
+            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnEdit);
+            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnNieuweMedewerker);
+            this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_listView);
+            this.CP_pnlMedewerkers.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlMedewerkers.Location = new System.Drawing.Point(1014, 66);
+            this.CP_pnlMedewerkers.Name = "CP_pnlMedewerkers";
+            this.CP_pnlMedewerkers.Size = new System.Drawing.Size(857, 471);
+            this.CP_pnlMedewerkers.TabIndex = 11;
+            // 
+            // CP_Medewerkers_btnNieuweMedewerker
+            // 
+            this.CP_Medewerkers_btnNieuweMedewerker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Medewerkers_btnNieuweMedewerker.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnNieuweMedewerker.ForeColor = System.Drawing.Color.White;
+            this.CP_Medewerkers_btnNieuweMedewerker.Location = new System.Drawing.Point(7, 409);
+            this.CP_Medewerkers_btnNieuweMedewerker.Name = "CP_Medewerkers_btnNieuweMedewerker";
+            this.CP_Medewerkers_btnNieuweMedewerker.Size = new System.Drawing.Size(312, 50);
+            this.CP_Medewerkers_btnNieuweMedewerker.TabIndex = 8;
+            this.CP_Medewerkers_btnNieuweMedewerker.Text = "Nieuwe medewerker toevoegen";
+            this.CP_Medewerkers_btnNieuweMedewerker.UseVisualStyleBackColor = false;
+            this.CP_Medewerkers_btnNieuweMedewerker.Click += new System.EventHandler(this.CP_Medewerkers_btnNieuweMedewerker_Click);
+            // 
+            // CP_Medewerkers_listView
+            // 
+            this.CP_Medewerkers_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_listView.FullRowSelect = true;
+            this.CP_Medewerkers_listView.HideSelection = false;
+            this.CP_Medewerkers_listView.Location = new System.Drawing.Point(7, 0);
+            this.CP_Medewerkers_listView.Name = "CP_Medewerkers_listView";
+            this.CP_Medewerkers_listView.Size = new System.Drawing.Size(838, 403);
+            this.CP_Medewerkers_listView.TabIndex = 0;
+            this.CP_Medewerkers_listView.UseCompatibleStateImageBehavior = false;
+            this.CP_Medewerkers_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Medewerkers_listView_ColumnClick);
+            this.CP_Medewerkers_listView.SelectedIndexChanged += new System.EventHandler(this.CP_Medewerkers_listView_SelectedIndexChanged);
+            // 
+            // CP_Medewerkers_btnEdit
+            // 
+            this.CP_Medewerkers_btnEdit.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CP_Medewerkers_btnEdit.Enabled = false;
+            this.CP_Medewerkers_btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Medewerkers_btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Medewerkers_btnEdit.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnEdit.ForeColor = System.Drawing.Color.White;
+            this.CP_Medewerkers_btnEdit.Location = new System.Drawing.Point(325, 409);
+            this.CP_Medewerkers_btnEdit.Name = "CP_Medewerkers_btnEdit";
+            this.CP_Medewerkers_btnEdit.Size = new System.Drawing.Size(312, 50);
+            this.CP_Medewerkers_btnEdit.TabIndex = 9;
+            this.CP_Medewerkers_btnEdit.Text = "Medewerker aanpassen";
+            this.CP_Medewerkers_btnEdit.UseVisualStyleBackColor = false;
+            this.CP_Medewerkers_btnEdit.Click += new System.EventHandler(this.CP_Medewerkers_btnEdit_Click);
+            // 
+            // CP_Medewerkers_btnVerwijderen
+            // 
+            this.CP_Medewerkers_btnVerwijderen.BackColor = System.Drawing.Color.Salmon;
+            this.CP_Medewerkers_btnVerwijderen.Enabled = false;
+            this.CP_Medewerkers_btnVerwijderen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Medewerkers_btnVerwijderen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.CP_Medewerkers_btnVerwijderen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Medewerkers_btnVerwijderen.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnVerwijderen.ForeColor = System.Drawing.Color.White;
+            this.CP_Medewerkers_btnVerwijderen.Location = new System.Drawing.Point(643, 409);
+            this.CP_Medewerkers_btnVerwijderen.Name = "CP_Medewerkers_btnVerwijderen";
+            this.CP_Medewerkers_btnVerwijderen.Size = new System.Drawing.Size(202, 50);
+            this.CP_Medewerkers_btnVerwijderen.TabIndex = 10;
+            this.CP_Medewerkers_btnVerwijderen.Text = "Verwijderen";
+            this.CP_Medewerkers_btnVerwijderen.UseVisualStyleBackColor = false;
+            this.CP_Medewerkers_btnVerwijderen.Click += new System.EventHandler(this.CP_Medewerkers_btnVerwijderen_Click);
             // 
             // ControlPanelForm
             // 
@@ -382,6 +419,8 @@
         private System.Windows.Forms.Button CP_Medewerkers_btnNieuweMedewerker;
         private System.Windows.Forms.ListView CP_Medewerkers_listView;
         private System.Windows.Forms.Panel CP_pnlMedewerkers;
+        private System.Windows.Forms.Button CP_Medewerkers_btnVerwijderen;
+        private System.Windows.Forms.Button CP_Medewerkers_btnEdit;
     }
 }
 
