@@ -37,7 +37,7 @@ namespace Ui
 
         private void CP_btnVoorraad_Click(object sender, EventArgs e)
         {
-            LoadVoorraad(drinkService.GetAllDrinks());
+            LoadDrinks();
 
             SetHightlight(CP_btnVoorraad);
             CP_lblActivePanel.Text = "Voorraad";
@@ -45,9 +45,11 @@ namespace Ui
             CP_pnlVoorraad.Show();
         }
 
-        private void LoadVoorraad(List<Drink> drinkList)
+        private void LoadDrinks()
         {
             CP_Voorraad_listViewDranken.Clear();
+
+            List<Drink> drinkList = drinkService.GetAllDrinks();
 
             for (int i = 0; i < drinkList.Count; i++)
             {
@@ -79,6 +81,118 @@ namespace Ui
 
             columnheader = new ColumnHeader();
             columnheader.Text = "Voorraad";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            // Loop through and size each column header to fit the column header text.
+            foreach (ColumnHeader ch in CP_Voorraad_listViewDranken.Columns)
+            {
+                ch.Width = -2;
+            }
+        }        
+        
+        private void LoadLunch()
+        {
+            CP_Voorraad_listViewDranken.Clear();
+
+            List<Dish> lunchList = dishService.GetAllLunch();
+
+            for (int i = 0; i < lunchList.Count; i++)
+            {
+                //@TODO: Add category
+                ListViewItem li = new ListViewItem(lunchList[i].Id.ToString());
+                li.SubItems.Add(lunchList[i].Name);
+                li.SubItems.Add(lunchList[i].Description);
+                li.SubItems.Add(lunchList[i].Ingredients);
+                li.SubItems.Add(lunchList[i].Price.ToString());
+                li.SubItems.Add(lunchList[i].Stock.ToString());
+                li.SubItems.Add(lunchList[i].Category.ToString());
+
+                CP_Voorraad_listViewDranken.Items.Add(li);
+            }
+
+            // Create some column headers for the data. 
+            columnheader = new ColumnHeader();
+            columnheader.Text = "ID";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Naam";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Beschrijving";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Ingredienten";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Prijs";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Voorraad";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Categorie";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            // Loop through and size each column header to fit the column header text.
+            foreach (ColumnHeader ch in CP_Voorraad_listViewDranken.Columns)
+            {
+                ch.Width = -2;
+            }
+        }    
+        
+        private void LoadDinner()
+        {
+            CP_Voorraad_listViewDranken.Clear();
+
+            List<Dish> dinnerList = dishService.GetAllDinner();
+
+            for (int i = 0; i < dinnerList.Count; i++)
+            {
+                //@TODO: Add category
+                ListViewItem li = new ListViewItem(dinnerList[i].Id.ToString());
+                li.SubItems.Add(dinnerList[i].Name);
+                li.SubItems.Add(dinnerList[i].Description);
+                li.SubItems.Add(dinnerList[i].Ingredients);
+                li.SubItems.Add(dinnerList[i].Price.ToString());
+                li.SubItems.Add(dinnerList[i].Stock.ToString());
+                li.SubItems.Add(dinnerList[i].Category.ToString());
+
+                CP_Voorraad_listViewDranken.Items.Add(li);
+            }
+
+            // Create some column headers for the data. 
+            columnheader = new ColumnHeader();
+            columnheader.Text = "ID";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Naam";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Beschrijving";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Ingredienten";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Prijs";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Voorraad";
+            CP_Voorraad_listViewDranken.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Categorie";
             CP_Voorraad_listViewDranken.Columns.Add(columnheader);
 
             // Loop through and size each column header to fit the column header text.
@@ -244,18 +358,24 @@ namespace Ui
         {
             CP_Voorraad_btnDranken.BackColor = Color.FromArgb(0, 184, 255);
             CP_Voorraad_btnLunchgerechten.BackColor = CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
+
+            LoadDrinks();
         }
 
         private void CP_Voorraad_btnLunchgerechten_Click(object sender, EventArgs e)
         {
             CP_Voorraad_btnLunchgerechten.BackColor = Color.FromArgb(0, 184, 255);
             CP_Voorraad_btnDranken.BackColor = CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
+
+            LoadLunch();
         }
 
         private void CP_Voorraad_btnDinergerechten_Click(object sender, EventArgs e)
         {
             CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 184, 255);
             CP_Voorraad_btnLunchgerechten.BackColor = CP_Voorraad_btnDranken.BackColor = Color.FromArgb(0, 165, 229);
+
+            LoadDinner();
         }
 
         private void CP_Medewerkers_btnNieuweMedewerker_Click(object sender, EventArgs e)
