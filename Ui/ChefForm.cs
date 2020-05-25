@@ -15,6 +15,7 @@ namespace Ui
     public partial class ChefForm : Form
     {
         private Order_Service order_service = new Order_Service();
+        private Dish_Service dish_service = new Dish_Service();
         private List<Order> orders;
 
         public ChefForm()
@@ -41,7 +42,7 @@ namespace Ui
             Chef_pnlFourthOrder.Hide();
             Chef_pnlOverflow.Hide();
 
-            // Chef_pnlvoorraad.Hide();
+            Chef_pnlVoorraad.Hide();
         }
 
         private void Chef_btnOverzicht_Click(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace Ui
             HideAllPanels();
             Chef_pnlOverzicht.Show();
 
+            // Get all unprocessed orders
             orders = order_service
                 .GetAllOrders()
                 .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
@@ -78,21 +80,41 @@ namespace Ui
 
         private void FillFirstOrder(Order order)
         {
+            Chef_lvFirst.Clear();
+
+            foreach (Dish dish in order.Dishes)
+                Chef_lvFirst.Items.Add(new ListViewItem(dish.Name));
+
             Chef_pnlFirstOrder.Show();
         }
 
         private void FillSecondOrder(Order order)
         {
+            Chef_lvSecond.Clear();
+
+            foreach (Dish dish in order.Dishes)
+                Chef_lvSecond.Items.Add(new ListViewItem(dish.Name));
+
             Chef_pnlSecondOrder.Show();
         }
 
         private void FillThirdOrder(Order order)
         {
+            Chef_lvThird.Clear();
+
+            foreach (Dish dish in order.Dishes)
+                Chef_lvThird.Items.Add(new ListViewItem(dish.Name));
+
             Chef_pnlThirdOrder.Show();
         }
 
         private void FillFourthOrder(Order order)
         {
+            Chef_lvFourth.Clear();
+
+            foreach (Dish dish in order.Dishes)
+                Chef_lvFourth.Items.Add(new ListViewItem(dish.Name));
+
             Chef_pnlFourthOrder.Show();
         }
 
@@ -107,7 +129,20 @@ namespace Ui
             SetHightlight(Chef_btnVoorraad);
             Chef_lblActivePanel.Text = "Voorraad";
             HideAllPanels();
-            // Chef_pnlVoorraad.Show();
+            Chef_pnlVoorraad.Show();
+            Chef_lvVoorraad.Items.Clear();
+
+            List<Dish> dishes = dish_service.GetAllDishes();
+
+            foreach (Dish dish in dishes)
+            {
+                ListViewItem li = new ListViewItem(dish.Name);
+
+                li.SubItems.Add(dish.Stock.ToString());
+                li.SubItems.Add(dish.Price.ToString("€ 0.00"));
+
+                Chef_lvVoorraad.Items.Add(li);
+            }
         }
 
         private void Chef_btnFirstKlaar_Click(object sender, EventArgs e)

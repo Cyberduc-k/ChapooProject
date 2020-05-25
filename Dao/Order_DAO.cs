@@ -11,7 +11,9 @@ namespace Dao
         // Get a list of all the orders
         public List<Order> GetAll()
         {
-            string query = "SELECT [id], [comment], [orderState], [timeOrdering], [timeFinished], [tableId], [employeeId] FROM [dbo].[Orders]";
+            string query =
+                "SELECT [id], [comment], [orderState], [timeOrdering], [timeFinished], [tableId], [employeeId] " +
+                "FROM [dbo].[Orders]";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -25,9 +27,9 @@ namespace Dao
             SqlParameter[] parameters = new SqlParameter[6]
             {
                 new SqlParameter("@comment", order.Comment),
-                new SqlParameter("@orderState", (int)order.State),
-                new SqlParameter("@timeOrdering", order.TimeOrdering.ToString()),
-                new SqlParameter("@timeFinished", order.TimeFinished.ToString()),
+                new SqlParameter("@orderState", order.State),
+                new SqlParameter("@timeOrdering", order.TimeOrdering.TimeOfDay),
+                new SqlParameter("@timeFinished", order.TimeFinished.TimeOfDay),
                 new SqlParameter("@tableId", order.TableId),
                 new SqlParameter("@employeeId", order.EmployeeId),
             };
@@ -82,7 +84,7 @@ namespace Dao
         private Order Read(DataRow dataRow)
         {
             int id = (int)dataRow["id"];
-            List<Dish> dishes = new List<Dish>();
+            List<Dish> dishes = new Dish_DAO().GetAllForOrder(id);
             List<Drink> drinks = new List<Drink>();
             int employeeId = int.Parse(dataRow["employeeId"].ToString());
             int tableId = int.Parse(dataRow["tableId"].ToString());
