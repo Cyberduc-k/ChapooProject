@@ -54,11 +54,11 @@ namespace Logic
 
             //Probeer om de inhoudt van de column naar een int te parsen. Als dit lukt sorten we als int
             //Anders als string
-            int number;
-            bool success = Int32.TryParse(listviewX.SubItems[ColumnToSort].Text, out number);
+            double number;
+            bool success = Double.TryParse(listviewX.SubItems[ColumnToSort].Text, out number);
 
             if (success)
-                compareResult = int.Parse(listviewX.SubItems[ColumnToSort].Text).CompareTo(int.Parse(listviewY.SubItems[ColumnToSort].Text));
+                compareResult = Double.Parse(listviewX.SubItems[ColumnToSort].Text).CompareTo(Double.Parse(listviewY.SubItems[ColumnToSort].Text));
             else
                 compareResult = ObjectCompare.Compare(listviewX.SubItems[ColumnToSort].Text, listviewY.SubItems[ColumnToSort].Text);
 
