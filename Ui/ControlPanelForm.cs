@@ -16,6 +16,7 @@ namespace Ui
     {
         private ListViewColumnSorter lvwColumnSorter = new ListViewColumnSorter();
         private Drink_Service drinkService = new Drink_Service();
+        private Dish_Service dishService = new Dish_Service();
         private Employee_Service employeeService = new Employee_Service();
 
         private ColumnHeader columnheader;
@@ -36,8 +37,16 @@ namespace Ui
 
         private void CP_btnVoorraad_Click(object sender, EventArgs e)
         {
-            List<Drink> drinkList = drinkService.GetAllDrinks();
+            LoadVoorraad(drinkService.GetAllDrinks());
 
+            SetHightlight(CP_btnVoorraad);
+            CP_lblActivePanel.Text = "Voorraad";
+            HideAllPanels();
+            CP_pnlVoorraad.Show();
+        }
+
+        private void LoadVoorraad(List<Drink> drinkList)
+        {
             CP_Voorraad_listViewDranken.Clear();
 
             for (int i = 0; i < drinkList.Count; i++)
@@ -77,11 +86,6 @@ namespace Ui
             {
                 ch.Width = -2;
             }
-
-            SetHightlight(CP_btnVoorraad);
-            CP_lblActivePanel.Text = "Voorraad";
-            HideAllPanels();
-            CP_pnlVoorraad.Show();
         }
 
         private void CP_btnMenukaarten_Click(object sender, EventArgs e)
