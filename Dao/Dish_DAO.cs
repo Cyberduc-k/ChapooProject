@@ -16,10 +16,19 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
-        public List<Dish> GetAllDiner()
+        public List<Dish> GetAllDinner()
         {
             //1 is the diner card
-            string query = "SELECT [id], [name], [description], [ingredients], [price], [stock], [category] Dishes JOIN Menu_has_dish ON Dishes.id=Menu_has_dish.dishId WHERE menuId = 1";
+            string query = "SELECT [id], [name], [description], [ingredients], [price], [stock], [category] FROM Dishes JOIN Menu_has_dish ON Dishes.id=Menu_has_dish.dishId WHERE menuId = 1";
+            SqlParameter[] parameters = new SqlParameter[0];
+
+            return ReadAll(ExecuteSelectQuery(query, parameters));
+        }
+
+        public List<Dish> GetAllLunch()
+        {
+            //0 is the lunch card
+            string query = "SELECT [id], [name], [description], [ingredients], [price], [stock], [category] FROM Dishes JOIN Menu_has_dish ON Dishes.id=Menu_has_dish.dishId WHERE menuId = 0";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -87,12 +96,13 @@ namespace Dao
         {
             int id = (int)dataRow["Id"];
             string name = (string)dataRow["name"];
-            string description = (string)dataRow["description"];
-            List<string> ingredients = (List<string>)dataRow["ingredients"];
+            string description = dataRow["description"].ToString();
+            string ingredients = (string)dataRow["ingredients"];
             double price = (double)dataRow["price"];
             int stock = (int)dataRow["stock"];
+            DishCategory category = (DishCategory)int.Parse(dataRow["category"].ToString());
 
-            return new Dish(id, name, description, ingredients, price, stock);
+            return new Dish(id, name, description, ingredients, price, stock, category);
         }
     }
 }

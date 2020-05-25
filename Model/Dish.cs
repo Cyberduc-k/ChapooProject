@@ -11,11 +11,12 @@ namespace Model
         public int Id { get; }
         public string Name { get; }
         public string Description { get; }
-        public List<string> Ingredients { get; }
+        public string Ingredients { get; }
         public double Price { get; }
         public int Stock { get; }
+        public DishCategory Category { get; }
 
-        public Dish(int id, string name, string description, List<string> ingredients, double price, int stock)
+        public Dish(int id, string name, string description, string ingredients, double price, int stock, DishCategory category)
         {
             Id = id;
             Name = name;
@@ -23,6 +24,7 @@ namespace Model
             Ingredients = ingredients;
             Price = price;
             Stock = stock;
+            Category = category;
         }
     }
 }

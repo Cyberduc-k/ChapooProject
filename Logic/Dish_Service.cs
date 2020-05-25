@@ -17,9 +17,14 @@ namespace Logic
             return dish_DAO.GetAll();
         }
 
-        public List<Dish> GetAllDiner()
+        public List<Dish> GetAllDinner()
         {
-            return dish_DAO.GetAllDiner();
+            return dish_DAO.GetAllDinner();
+        }
+
+        public List<Dish> GetAllLunch()
+        {
+            return dish_DAO.GetAllLunch();
         }
 
         //Add a new dish

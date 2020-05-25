@@ -22,13 +22,8 @@ namespace Ui
         private void button1_Click(object sender, EventArgs e)
         {
             Logic.Order_Service orderService = new Order_Service();
-            
-            List<string> ingredients = new List<string>();
-            ingredients.Add("biefstuk");
-            ingredients.Add("ui");
-            ingredients.Add("zout");
-
-            Dish steak = new Dish(1, "Hertenbiefstuk", "biefstuk met uien", ingredients, 25.00, 40);
+           
+            Dish steak = new Dish(1, "Hertenbiefstuk", "biefstuk met uien", "biefstuk, ui, zout", 25.00, 40, DishCategory.Hoofdgerechten);
             List<Dish> dishes = new List<Dish>();
             dishes.Add(steak);
 
