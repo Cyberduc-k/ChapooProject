@@ -113,3 +113,4 @@ INSERT INTO Tables([occupied],[seats]) VALUES (0, 5),(1, 7),(0, 3),(0, 4);
 INSERT INTO Reservations([date],[from],[to],[name],[numberOfPeople],[tableId]) VALUES ('2020-05-24', '18:00:00', '22:00:00', 'Sierhuis', 5, 1),('2020-05-24', '17:00:00', '23:00:00', 'Ooijevaar', 3, 3);
 INSERT INTO Menu_has_dish([menuId],[dishId]) VALUES (1,1),(1,2),(2,3);
 INSERT INTO Menu_has_drink([menuId],[dishId]) VALUES (3,1),(3,2),(3,3);
+INSERT INTO Orders([comment],[orderState],[timeOrdering],[timeFinished],[tableId],[employeeId]) VALUES ('Graag zonder saus','0','12:00:00','13:00:00','1','1001');
