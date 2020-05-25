@@ -49,7 +49,6 @@ namespace Ui
             Chef_pnlThirdOrder.Hide();
             Chef_pnlFourthOrder.Hide();
             Chef_pnlOverflow.Hide();
-
             Chef_pnlVoorraad.Hide();
         }
 
@@ -66,23 +65,26 @@ namespace Ui
                 .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
                 .ToList();
 
-            if (orders.Count == 0)
-                Chef_lblGeenBestellingen.Show();
-            else
+            switch (orders.Count)
             {
-                FillFirstOrder(orders[0]);
-
-                if (orders.Count >= 2)
+                case 0:
+                    Chef_lblGeenBestellingen.Show();
+                    break;
+                case 1:
+                    FillFirstOrder(orders[0]);
+                    goto case 2;
+                case 2:
                     FillSecondOrder(orders[1]);
-
-                if (orders.Count >= 3)
+                    goto case 3;
+                case 3:
                     FillThirdOrder(orders[2]);
-
-                if (orders.Count >= 4)
+                    goto case 4;
+                case 4:
                     FillFourthOrder(orders[3]);
-
-                if (orders.Count >= 5)
+                    goto default;
+                default:
                     ShowOverflow(orders.Count - 4);
+                    break;
             }
         }
 
