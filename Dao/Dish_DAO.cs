@@ -19,7 +19,7 @@ namespace Dao
         public List<Dish> GetAllDinner()
         {
             //1 is the diner card
-            string query = "SELECT [id], [name], [description], [ingredients], [price], [stock], [category] FROM Dishes JOIN Menu_has_dish ON Dishes.id=Menu_has_dish.dishId WHERE menuId = 1";
+            string query = "SELECT Dishes.id, [name], [description], [ingredients], [price], [stock], [category] FROM Dishes JOIN Menu_has_dish ON Dishes.id=Menu_has_dish.dishId JOIN Menus ON Menu_has_dish.menuId=Menus.id WHERE menuType = 1";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -28,7 +28,7 @@ namespace Dao
         public List<Dish> GetAllLunch()
         {
             //0 is the lunch card
-            string query = "SELECT [id], [name], [description], [ingredients], [price], [stock], [category] FROM Dishes JOIN Menu_has_dish ON Dishes.id=Menu_has_dish.dishId WHERE menuId = 0";
+            string query = "SELECT Dishes.id, [name], [description], [ingredients], [price], [stock], [category] FROM Dishes JOIN Menu_has_dish ON Dishes.id=Menu_has_dish.dishId JOIN Menus ON Menu_has_dish.menuId=Menus.id WHERE menuType = 0";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
