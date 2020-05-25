@@ -416,20 +416,14 @@ namespace Ui
 
             for (int i = 0; i < drinkList.Count; i++)
             {
-                ListViewItem li = new ListViewItem(drinkList[i].Id.ToString());
-                li.SubItems.Add(drinkList[i].Name);
+                ListViewItem li = new ListViewItem(drinkList[i].Name);
                 li.SubItems.Add(drinkList[i].Alcoholic.ToString());
                 li.SubItems.Add(drinkList[i].Price.ToString());
-                li.SubItems.Add(drinkList[i].Stock.ToString());
 
                 CP_Menukaarten_listView.Items.Add(li);
             }
 
             // Create some column headers for the data. 
-            columnheader = new ColumnHeader();
-            columnheader.Text = "ID";
-            CP_Menukaarten_listView.Columns.Add(columnheader);
-
             columnheader = new ColumnHeader();
             columnheader.Text = "Naam";
             CP_Menukaarten_listView.Columns.Add(columnheader);
@@ -440,10 +434,6 @@ namespace Ui
 
             columnheader = new ColumnHeader();
             columnheader.Text = "Prijs";
-            CP_Menukaarten_listView.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Voorraad";
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             // Loop through and size each column header to fit the column header text.
@@ -462,22 +452,16 @@ namespace Ui
             for (int i = 0; i < lunchList.Count; i++)
             {
                 //@TODO: Add category
-                ListViewItem li = new ListViewItem(lunchList[i].Id.ToString());
-                li.SubItems.Add(lunchList[i].Name);
+                ListViewItem li = new ListViewItem(lunchList[i].Name);
                 li.SubItems.Add(lunchList[i].Description);
                 li.SubItems.Add(lunchList[i].Ingredients);
                 li.SubItems.Add(lunchList[i].Price.ToString());
-                li.SubItems.Add(lunchList[i].Stock.ToString());
                 li.SubItems.Add(lunchList[i].Category.ToString());
 
                 CP_Menukaarten_listView.Items.Add(li);
             }
 
             // Create some column headers for the data. 
-            columnheader = new ColumnHeader();
-            columnheader.Text = "ID";
-            CP_Menukaarten_listView.Columns.Add(columnheader);
-
             columnheader = new ColumnHeader();
             columnheader.Text = "Naam";
             CP_Menukaarten_listView.Columns.Add(columnheader);
@@ -492,10 +476,6 @@ namespace Ui
 
             columnheader = new ColumnHeader();
             columnheader.Text = "Prijs";
-            CP_Menukaarten_listView.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Voorraad";
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
@@ -518,22 +498,16 @@ namespace Ui
             for (int i = 0; i < dinnerList.Count; i++)
             {
                 //@TODO: Add category
-                ListViewItem li = new ListViewItem(dinnerList[i].Id.ToString());
-                li.SubItems.Add(dinnerList[i].Name);
+                ListViewItem li = new ListViewItem(dinnerList[i].Name);
                 li.SubItems.Add(dinnerList[i].Description);
                 li.SubItems.Add(dinnerList[i].Ingredients);
                 li.SubItems.Add(dinnerList[i].Price.ToString());
-                li.SubItems.Add(dinnerList[i].Stock.ToString());
                 li.SubItems.Add(dinnerList[i].Category.ToString());
 
                 CP_Menukaarten_listView.Items.Add(li);
             }
 
             // Create some column headers for the data. 
-            columnheader = new ColumnHeader();
-            columnheader.Text = "ID";
-            CP_Menukaarten_listView.Columns.Add(columnheader);
-
             columnheader = new ColumnHeader();
             columnheader.Text = "Naam";
             CP_Menukaarten_listView.Columns.Add(columnheader);
@@ -551,10 +525,6 @@ namespace Ui
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Voorraad";
-            CP_Menukaarten_listView.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
             columnheader.Text = "Categorie";
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
@@ -567,22 +537,35 @@ namespace Ui
         #region OnClicks
         private void CP_Menukaarten_listView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            CP_Menukaarten_btnEditItem.Enabled = true;
+            CP_Menukaarten_btnDeleteItem.Enabled = true;
 
+            CP_Menukaarten_btnEditItem.BackColor = Color.FromArgb(0, 184, 255);
+            CP_Menukaarten_btnDeleteItem.BackColor = Color.Red;
         }
 
         private void CP_Menukaarten_btnDranken_Click(object sender, EventArgs e)
         {
+            CP_Menukaarten_btnDranken.BackColor = Color.FromArgb(0, 184, 255);
+            CP_Menukaarten_btnLunchgerechten.BackColor = CP_Menukaarten_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
 
+            LoadMenukaartenDrinks();
         }
 
         private void CP_Menukaarten_btnLunchgerechten_Click(object sender, EventArgs e)
         {
-
+            CP_Menukaarten_btnLunchgerechten.BackColor = Color.FromArgb(0, 184, 255);
+            CP_Menukaarten_btnDranken.BackColor = CP_Menukaarten_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
+            
+            LoadMenukaartenLunch();
         }
 
         private void CP_Menukaarten_btnDinergerechten_Click(object sender, EventArgs e)
         {
-
+            CP_Menukaarten_btnDinergerechten.BackColor = Color.FromArgb(0, 184, 255);
+            CP_Menukaarten_btnLunchgerechten.BackColor = CP_Menukaarten_btnDranken.BackColor = Color.FromArgb(0, 165, 229);
+            
+            LoadMenukaartenDinner();
         }
 
         private void CP_Menukaarten_btnNewItem_Click(object sender, EventArgs e)
