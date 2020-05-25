@@ -403,6 +403,7 @@
             this.Chef_lvVoorraad.TabIndex = 0;
             this.Chef_lvVoorraad.UseCompatibleStateImageBehavior = false;
             this.Chef_lvVoorraad.View = System.Windows.Forms.View.Details;
+            this.Chef_lvVoorraad.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.Chef_lvVoorraad_ColumnClicck);
             // 
             // Chef_chGerecht
             // 

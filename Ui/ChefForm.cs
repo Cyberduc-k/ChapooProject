@@ -14,6 +14,7 @@ namespace Ui
 {
     public partial class ChefForm : Form
     {
+        private ListViewColumnSorter lvwColumnSorter = new ListViewColumnSorter();
         private Order_Service order_service = new Order_Service();
         private Dish_Service dish_service = new Dish_Service();
         private List<Order> orders;
@@ -21,7 +22,14 @@ namespace Ui
         public ChefForm()
         {
             InitializeComponent();
+            InitializeSorting();
             Chef_btnOverzicht_Click(null, null);
+        }
+
+        private void InitializeSorting()
+        {
+            Chef_lvVoorraad.View = View.Details;
+            Chef_lvVoorraad.ListViewItemSorter = lvwColumnSorter;
         }
 
         // Highlight a button
@@ -152,6 +160,32 @@ namespace Ui
             order.TimeFinished = DateTime.Now;
             order.State = OrderState.Done;
             order_service.ModifyOrder(order);
+        }
+
+        private void Chef_lvVoorraad_ColumnClicck(object sender, ColumnClickEventArgs e)
+        {
+            SortListView(e, Chef_lvVoorraad);
+        }
+
+        private void SortListView(ColumnClickEventArgs e, ListView lv)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                else
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+
+            lv.Sort();
         }
     }
 }
