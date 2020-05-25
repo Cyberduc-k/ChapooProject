@@ -11,7 +11,7 @@ namespace Dao
         // Get a list of all the orders
         public List<Order> GetAll()
         {
-            string query = "SELECT [id], [date], [timeOrdering], [timeFinished], [employeeId], [tableId], [orderState], [comment] FROM [dbo].[Orders]";
+            string query = "SELECT [id], [comment], [orderState], [timeOrdering], [timeFinished], [tableId], [employeeId] FROM [dbo].[Orders]";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -21,18 +21,15 @@ namespace Dao
         public void Add(Order order)
         {
             string query = "INSERT INTO [dbo].[Orders] " +
-                "([date], [timeOrdering], [timeFinished], [dishes], [drinks], [employee], [table], [state]) " +
-                "VALUES " +
-                "(@date, @timeOrdering, @timeFinished, @dishes, @drinks, @employee, @table, @state)";
-            SqlParameter[] parameters = new SqlParameter[7]
+                "([comment],[orderState],[timeOrdering], [timeFinished], [tableId], [employeeId]) VALUES (@comment, @orderState, @timeOrdering, @timeFinished, @tableId, @employeeId)";
+            SqlParameter[] parameters = new SqlParameter[6]
             {
-                new SqlParameter("@timeOrdering", order.TimeOrdering),
-                new SqlParameter("@timeFinished", order.TimeFinished),
-                new SqlParameter("@dishes", order.Dishes),
-                new SqlParameter("@drinks", order.Drinks),
-                new SqlParameter("@employee", order.Employee),
-                new SqlParameter("@table", order.Table),
-                new SqlParameter("@state", order.State),
+                new SqlParameter("@comment", order.Comment),
+                new SqlParameter("@orderState", (int)order.State),
+                new SqlParameter("@timeOrdering", order.TimeOrdering.ToString()),
+                new SqlParameter("@timeFinished", order.TimeFinished.ToString()),
+                new SqlParameter("@tableId", order.TableId),
+                new SqlParameter("@employeeId", order.EmployeeId),
             };
 
             ExecuteEditQuery(query, parameters);
@@ -54,17 +51,16 @@ namespace Dao
         public void Modify(Order order)
         {
             string query = "UPDATE [dbo].[Orders] SET " +
-                "[date] = @date, [timeOrdering] = @timeOrdering, [timeFinished] = @timeFinished, [dishes] = @dishes, [drinks] = @drinks, [employee] = @employee, [table] = @table, [state] = @state" +
+                "[comment] = @comment, [orderState] = @orderState, [timeOrdering] = @timeOrdering, [timeFinished] = @timeFinished, [tableId] = @tableId, [employeeId] = @employeeId" +
                 "WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[8]
+            SqlParameter[] parameters = new SqlParameter[7]
             {
-                new SqlParameter("@timeOrdering", order.TimeOrdering),
-                new SqlParameter("@timeFinished", order.TimeFinished),
-                new SqlParameter("@dishes", order.Dishes),
-                new SqlParameter("@drinks", order.Drinks),
-                new SqlParameter("@employee", order.Employee),
-                new SqlParameter("@table", order.Table),
-                new SqlParameter("@state", order.State),
+                new SqlParameter("@comment", order.Comment),
+                new SqlParameter("@orderState", (int)order.State),
+                new SqlParameter("@timeOrdering", order.TimeOrdering.ToString()),
+                new SqlParameter("@timeFinished", order.TimeFinished.ToString()),
+                new SqlParameter("@tableId", order.TableId),
+                new SqlParameter("@employeeId", order.EmployeeId),
                 new SqlParameter("@id", order.Id)
             };
 
@@ -86,16 +82,19 @@ namespace Dao
         private Order Read(DataRow dataRow)
         {
             int id = (int)dataRow["id"];
-            DateTime timeOrdering = (DateTime)dataRow["timeOrdering"];
-            DateTime timeFinished = (DateTime)dataRow["timeFinished"];
             List<Dish> dishes = new List<Dish>();
             List<Drink> drinks = new List<Drink>();
-            Employee employee = (Employee)dataRow["employeeId"];
-            Table table = (Table)dataRow["tableId"];
-            OrderState state = (OrderState)dataRow["state"];
+            int employeeId = int.Parse(dataRow["employeeId"].ToString());
+            int tableId = int.Parse(dataRow["tableId"].ToString());
+            OrderState state = (OrderState)int.Parse(dataRow["orderState"].ToString());
             string comment = (string)dataRow["comment"];
 
-            return new Order(id, timeOrdering, timeFinished, dishes, drinks, employee, table, state, comment);
+            DateTime timeOrdering;
+            DateTime.TryParse(dataRow["timeOrdering"].ToString(), out timeOrdering);
+            DateTime timeFinished;
+            DateTime.TryParse(dataRow["timeFinished"].ToString(), out timeFinished);
+
+            return new Order(id, timeOrdering, timeFinished, dishes, drinks, employeeId, tableId, state, comment);
         }
     }
 }

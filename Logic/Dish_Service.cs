@@ -17,6 +17,11 @@ namespace Logic
             return dish_DAO.GetAll();
         }
 
+        public List<Dish> GetAllDiner()
+        {
+            return dish_DAO.GetAllDiner();
+        }
+
         //Add a new dish
         public void AddDish(Dish dish)
         {

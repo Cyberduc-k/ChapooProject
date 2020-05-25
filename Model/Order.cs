@@ -13,8 +13,8 @@ namespace Model
         public DateTime TimeFinished { get; }
         public List<Dish> Dishes { get; }
         public List<Drink> Drinks { get; }
-        public Employee Employee { get; }
-        public Table Table { get; }
+        public int EmployeeId { get; }
+        public int TableId { get; }
         public OrderState State { get; set; }
         public string Comment { get; }
 
@@ -34,15 +34,15 @@ namespace Model
             }
         }
 
-        public Order(int id, DateTime timeOrdering, DateTime timeFinished, List<Dish> dishes, List<Drink> drinks, Employee employee, Table table, OrderState state, string comment)
+        public Order(int id, DateTime timeOrdering, DateTime timeFinished, List<Dish> dishes, List<Drink> drinks, int employeeId, int tableId, OrderState state, string comment)
         {
             Id = id;
             TimeOrdering = timeOrdering;
             TimeFinished = timeFinished;
             Dishes = dishes;
             Drinks = drinks;
-            Employee = employee;
-            Table = table;
+            EmployeeId = employeeId;
+            TableId = tableId;
             State = state;
             Comment = comment;
         }

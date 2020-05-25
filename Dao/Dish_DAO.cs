@@ -10,7 +10,16 @@ namespace Dao
         // Get a list of all the dishes
         public List<Dish> GetAll()
         {
-            string query = "SELECT [id], [name], [description], [ingredienst], [price], [stock] FROM [dbo].[Dishes]";
+            string query = "SELECT [id], [name], [description], [ingredients], [price], [stock], [category] FROM [dbo].[Dishes]";
+            SqlParameter[] parameters = new SqlParameter[0];
+
+            return ReadAll(ExecuteSelectQuery(query, parameters));
+        }
+
+        public List<Dish> GetAllDiner()
+        {
+            //1 is the diner card
+            string query = "SELECT [id], [name], [description], [ingredients], [price], [stock], [category] Dishes JOIN Menu_has_dish ON Dishes.id=Menu_has_dish.dishId WHERE menuId = 1";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));

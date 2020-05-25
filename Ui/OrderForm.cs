@@ -36,12 +36,10 @@ namespace Ui
             List<Drink> drinks = new List<Drink>();
             drinks.Add(tonic);
 
-            Employee employee = new Employee(1, "Rico", "Verhoeven", DateTime.Parse("15-05-1993"), DateTime.Parse("18-04-2020"), Gender.Male, "Pa$$w0rd", EmployeeType.Waiter);
-            Table table = new Table(1, 4, false);
-            Order order = new Order(1, DateTime.Parse("5:34:50 PM"), DateTime.Parse("5:53:24 PM"), dishes, drinks, employee, table, OrderState.Started, "Graag extra veel saus");
+            //Employee employee = new Employee(1, "Rico", "Verhoeven", DateTime.Parse("15-05-1993"), DateTime.Parse("18-04-2020"), Gender.Male, "Pa$$w0rd", EmployeeType.Waiter);
+            //Table table = new Table(1, 4, false);
+            Order order = new Order(1, DateTime.Parse("5:34:50 PM"), DateTime.Parse("5:53:24 PM"), dishes, drinks, 1, 1, OrderState.Started, "Graag extra veel saus");
             orderService.AddOrder(order);
-
-
         }
     }
 }
