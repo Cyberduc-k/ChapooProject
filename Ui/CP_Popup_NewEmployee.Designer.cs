@@ -56,6 +56,7 @@
             // 
             this.CP_Popup_NewEmployee_btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Popup_NewEmployee_btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.CP_Popup_NewEmployee_btnOK.Enabled = false;
             this.CP_Popup_NewEmployee_btnOK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Popup_NewEmployee_btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Popup_NewEmployee_btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -137,6 +138,7 @@
             this.CP_PopopNewEmployee_txtFirstName.Name = "CP_PopopNewEmployee_txtFirstName";
             this.CP_PopopNewEmployee_txtFirstName.Size = new System.Drawing.Size(303, 20);
             this.CP_PopopNewEmployee_txtFirstName.TabIndex = 16;
+            this.CP_PopopNewEmployee_txtFirstName.TextChanged += new System.EventHandler(this.CP_PopopNewEmployee_txtFirstName_TextChanged);
             // 
             // CP_PopopNewEmployee_dtpBirthdate
             // 
@@ -180,6 +182,7 @@
             this.CP_PopopNewEmployee_txtPassword.Name = "CP_PopopNewEmployee_txtPassword";
             this.CP_PopopNewEmployee_txtPassword.Size = new System.Drawing.Size(100, 20);
             this.CP_PopopNewEmployee_txtPassword.TabIndex = 23;
+            this.CP_PopopNewEmployee_txtPassword.TextChanged += new System.EventHandler(this.CP_PopopNewEmployee_txtPassword_TextChanged);
             // 
             // CP_PopupNewEmployee_txtLastName
             // 
@@ -187,6 +190,7 @@
             this.CP_PopupNewEmployee_txtLastName.Name = "CP_PopupNewEmployee_txtLastName";
             this.CP_PopupNewEmployee_txtLastName.Size = new System.Drawing.Size(303, 20);
             this.CP_PopupNewEmployee_txtLastName.TabIndex = 24;
+            this.CP_PopupNewEmployee_txtLastName.TextChanged += new System.EventHandler(this.CP_PopupNewEmployee_txtLastName_TextChanged);
             // 
             // label6
             // 
