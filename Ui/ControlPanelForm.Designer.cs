@@ -43,17 +43,26 @@
             this.CP_Voorraad_btnLunchgerechten = new System.Windows.Forms.Button();
             this.CP_Voorraad_btnDinergerechten = new System.Windows.Forms.Button();
             this.CP_Voorraad_btnDranken = new System.Windows.Forms.Button();
-            this.CP_Voorraad_listViewDranken = new System.Windows.Forms.ListView();
+            this.CP_Menukaarten_listView = new System.Windows.Forms.ListView();
             this.CP_pnlMedewerkers = new System.Windows.Forms.Panel();
+            this.CP_Medewerkers_btnVerwijderen = new System.Windows.Forms.Button();
+            this.CP_Medewerkers_btnEdit = new System.Windows.Forms.Button();
             this.CP_Medewerkers_btnNieuweMedewerker = new System.Windows.Forms.Button();
             this.CP_Medewerkers_listView = new System.Windows.Forms.ListView();
-            this.CP_Medewerkers_btnEdit = new System.Windows.Forms.Button();
-            this.CP_Medewerkers_btnVerwijderen = new System.Windows.Forms.Button();
+            this.CP_pnlMenukaarten = new System.Windows.Forms.Panel();
+            this.CP_Menukaarten_btnLunchgerechten = new System.Windows.Forms.Button();
+            this.CP_Menukaarten_btnDinergerechten = new System.Windows.Forms.Button();
+            this.CP_Menukaarten_btnDranken = new System.Windows.Forms.Button();
+            this.CP_Menukaarten_btnDeleteItem = new System.Windows.Forms.Button();
+            this.CP_Menukaarten_btnEditItem = new System.Windows.Forms.Button();
+            this.CP_Menukaarten_btnNewItem = new System.Windows.Forms.Button();
+            this.CP_Voorraad_listView = new System.Windows.Forms.ListView();
             this.CP_pnlNavMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.CP_pnlHeader.SuspendLayout();
             this.CP_pnlVoorraad.SuspendLayout();
             this.CP_pnlMedewerkers.SuspendLayout();
+            this.CP_pnlMenukaarten.SuspendLayout();
             this.SuspendLayout();
             // 
             // CP_pnlNavMenu
@@ -70,7 +79,7 @@
             this.CP_pnlNavMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.CP_pnlNavMenu.Location = new System.Drawing.Point(0, 0);
             this.CP_pnlNavMenu.Name = "CP_pnlNavMenu";
-            this.CP_pnlNavMenu.Size = new System.Drawing.Size(151, 537);
+            this.CP_pnlNavMenu.Size = new System.Drawing.Size(151, 1061);
             this.CP_pnlNavMenu.TabIndex = 1;
             this.CP_pnlNavMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.CP_pnlNavMenu_Paint);
             // 
@@ -134,7 +143,7 @@
             this.CP_btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_btnUitloggen.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnUitloggen.ForeColor = System.Drawing.Color.White;
-            this.CP_btnUitloggen.Location = new System.Drawing.Point(0, 475);
+            this.CP_btnUitloggen.Location = new System.Drawing.Point(0, 999);
             this.CP_btnUitloggen.Name = "CP_btnUitloggen";
             this.CP_btnUitloggen.Size = new System.Drawing.Size(151, 62);
             this.CP_btnUitloggen.TabIndex = 4;
@@ -232,10 +241,10 @@
             // CP_pnlVoorraad
             // 
             this.CP_pnlVoorraad.BackColor = System.Drawing.Color.White;
+            this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_listView);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnLunchgerechten);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnDinergerechten);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnDranken);
-            this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_listViewDranken);
             this.CP_pnlVoorraad.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_pnlVoorraad.Location = new System.Drawing.Point(151, 66);
             this.CP_pnlVoorraad.Name = "CP_pnlVoorraad";
@@ -290,16 +299,18 @@
             this.CP_Voorraad_btnDranken.UseVisualStyleBackColor = false;
             this.CP_Voorraad_btnDranken.Click += new System.EventHandler(this.CP_Voorraad_btnDranken_Click);
             // 
-            // CP_Voorraad_listViewDranken
+            // CP_Menukaarten_listView
             // 
-            this.CP_Voorraad_listViewDranken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.CP_Voorraad_listViewDranken.HideSelection = false;
-            this.CP_Voorraad_listViewDranken.Location = new System.Drawing.Point(7, 56);
-            this.CP_Voorraad_listViewDranken.Name = "CP_Voorraad_listViewDranken";
-            this.CP_Voorraad_listViewDranken.Size = new System.Drawing.Size(838, 403);
-            this.CP_Voorraad_listViewDranken.TabIndex = 0;
-            this.CP_Voorraad_listViewDranken.UseCompatibleStateImageBehavior = false;
-            this.CP_Voorraad_listViewDranken.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Home_listView1_ColumnClick);
+            this.CP_Menukaarten_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.CP_Menukaarten_listView.FullRowSelect = true;
+            this.CP_Menukaarten_listView.HideSelection = false;
+            this.CP_Menukaarten_listView.Location = new System.Drawing.Point(7, 59);
+            this.CP_Menukaarten_listView.Name = "CP_Menukaarten_listView";
+            this.CP_Menukaarten_listView.Size = new System.Drawing.Size(838, 344);
+            this.CP_Menukaarten_listView.TabIndex = 0;
+            this.CP_Menukaarten_listView.UseCompatibleStateImageBehavior = false;
+            this.CP_Menukaarten_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Voorraad_listView_ColumnClick);
+            this.CP_Menukaarten_listView.SelectedIndexChanged += new System.EventHandler(this.CP_Menukaarten_listView_SelectedIndexChanged);
             // 
             // CP_pnlMedewerkers
             // 
@@ -313,6 +324,40 @@
             this.CP_pnlMedewerkers.Name = "CP_pnlMedewerkers";
             this.CP_pnlMedewerkers.Size = new System.Drawing.Size(857, 471);
             this.CP_pnlMedewerkers.TabIndex = 11;
+            // 
+            // CP_Medewerkers_btnVerwijderen
+            // 
+            this.CP_Medewerkers_btnVerwijderen.BackColor = System.Drawing.Color.Salmon;
+            this.CP_Medewerkers_btnVerwijderen.Enabled = false;
+            this.CP_Medewerkers_btnVerwijderen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Medewerkers_btnVerwijderen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.CP_Medewerkers_btnVerwijderen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Medewerkers_btnVerwijderen.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnVerwijderen.ForeColor = System.Drawing.Color.White;
+            this.CP_Medewerkers_btnVerwijderen.Location = new System.Drawing.Point(643, 409);
+            this.CP_Medewerkers_btnVerwijderen.Name = "CP_Medewerkers_btnVerwijderen";
+            this.CP_Medewerkers_btnVerwijderen.Size = new System.Drawing.Size(202, 50);
+            this.CP_Medewerkers_btnVerwijderen.TabIndex = 10;
+            this.CP_Medewerkers_btnVerwijderen.Text = "Verwijderen";
+            this.CP_Medewerkers_btnVerwijderen.UseVisualStyleBackColor = false;
+            this.CP_Medewerkers_btnVerwijderen.Click += new System.EventHandler(this.CP_Medewerkers_btnVerwijderen_Click);
+            // 
+            // CP_Medewerkers_btnEdit
+            // 
+            this.CP_Medewerkers_btnEdit.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CP_Medewerkers_btnEdit.Enabled = false;
+            this.CP_Medewerkers_btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Medewerkers_btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Medewerkers_btnEdit.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnEdit.ForeColor = System.Drawing.Color.White;
+            this.CP_Medewerkers_btnEdit.Location = new System.Drawing.Point(325, 409);
+            this.CP_Medewerkers_btnEdit.Name = "CP_Medewerkers_btnEdit";
+            this.CP_Medewerkers_btnEdit.Size = new System.Drawing.Size(312, 50);
+            this.CP_Medewerkers_btnEdit.TabIndex = 9;
+            this.CP_Medewerkers_btnEdit.Text = "Medewerker aanpassen";
+            this.CP_Medewerkers_btnEdit.UseVisualStyleBackColor = false;
+            this.CP_Medewerkers_btnEdit.Click += new System.EventHandler(this.CP_Medewerkers_btnEdit_Click);
             // 
             // CP_Medewerkers_btnNieuweMedewerker
             // 
@@ -343,44 +388,136 @@
             this.CP_Medewerkers_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Medewerkers_listView_ColumnClick);
             this.CP_Medewerkers_listView.SelectedIndexChanged += new System.EventHandler(this.CP_Medewerkers_listView_SelectedIndexChanged);
             // 
-            // CP_Medewerkers_btnEdit
+            // CP_pnlMenukaarten
             // 
-            this.CP_Medewerkers_btnEdit.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.CP_Medewerkers_btnEdit.Enabled = false;
-            this.CP_Medewerkers_btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_Medewerkers_btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Medewerkers_btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Medewerkers_btnEdit.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_Medewerkers_btnEdit.ForeColor = System.Drawing.Color.White;
-            this.CP_Medewerkers_btnEdit.Location = new System.Drawing.Point(325, 409);
-            this.CP_Medewerkers_btnEdit.Name = "CP_Medewerkers_btnEdit";
-            this.CP_Medewerkers_btnEdit.Size = new System.Drawing.Size(312, 50);
-            this.CP_Medewerkers_btnEdit.TabIndex = 9;
-            this.CP_Medewerkers_btnEdit.Text = "Medewerker aanpassen";
-            this.CP_Medewerkers_btnEdit.UseVisualStyleBackColor = false;
-            this.CP_Medewerkers_btnEdit.Click += new System.EventHandler(this.CP_Medewerkers_btnEdit_Click);
+            this.CP_pnlMenukaarten.BackColor = System.Drawing.Color.White;
+            this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_btnLunchgerechten);
+            this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_btnDinergerechten);
+            this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_btnDranken);
+            this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_btnDeleteItem);
+            this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_btnEditItem);
+            this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_btnNewItem);
+            this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_listView);
+            this.CP_pnlMenukaarten.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlMenukaarten.Location = new System.Drawing.Point(151, 543);
+            this.CP_pnlMenukaarten.Name = "CP_pnlMenukaarten";
+            this.CP_pnlMenukaarten.Size = new System.Drawing.Size(857, 471);
+            this.CP_pnlMenukaarten.TabIndex = 12;
             // 
-            // CP_Medewerkers_btnVerwijderen
+            // CP_Menukaarten_btnLunchgerechten
             // 
-            this.CP_Medewerkers_btnVerwijderen.BackColor = System.Drawing.Color.Salmon;
-            this.CP_Medewerkers_btnVerwijderen.Enabled = false;
-            this.CP_Medewerkers_btnVerwijderen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_Medewerkers_btnVerwijderen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.CP_Medewerkers_btnVerwijderen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Medewerkers_btnVerwijderen.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_Medewerkers_btnVerwijderen.ForeColor = System.Drawing.Color.White;
-            this.CP_Medewerkers_btnVerwijderen.Location = new System.Drawing.Point(643, 409);
-            this.CP_Medewerkers_btnVerwijderen.Name = "CP_Medewerkers_btnVerwijderen";
-            this.CP_Medewerkers_btnVerwijderen.Size = new System.Drawing.Size(202, 50);
-            this.CP_Medewerkers_btnVerwijderen.TabIndex = 10;
-            this.CP_Medewerkers_btnVerwijderen.Text = "Verwijderen";
-            this.CP_Medewerkers_btnVerwijderen.UseVisualStyleBackColor = false;
-            this.CP_Medewerkers_btnVerwijderen.Click += new System.EventHandler(this.CP_Medewerkers_btnVerwijderen_Click);
+            this.CP_Menukaarten_btnLunchgerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_Menukaarten_btnLunchgerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Menukaarten_btnLunchgerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Menukaarten_btnLunchgerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Menukaarten_btnLunchgerechten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnLunchgerechten.ForeColor = System.Drawing.Color.White;
+            this.CP_Menukaarten_btnLunchgerechten.Location = new System.Drawing.Point(289, 3);
+            this.CP_Menukaarten_btnLunchgerechten.Name = "CP_Menukaarten_btnLunchgerechten";
+            this.CP_Menukaarten_btnLunchgerechten.Size = new System.Drawing.Size(275, 50);
+            this.CP_Menukaarten_btnLunchgerechten.TabIndex = 13;
+            this.CP_Menukaarten_btnLunchgerechten.Text = "Lunchkaart";
+            this.CP_Menukaarten_btnLunchgerechten.UseVisualStyleBackColor = false;
+            this.CP_Menukaarten_btnLunchgerechten.Click += new System.EventHandler(this.CP_Menukaarten_btnLunchgerechten_Click);
+            // 
+            // CP_Menukaarten_btnDinergerechten
+            // 
+            this.CP_Menukaarten_btnDinergerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_Menukaarten_btnDinergerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Menukaarten_btnDinergerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Menukaarten_btnDinergerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Menukaarten_btnDinergerechten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnDinergerechten.ForeColor = System.Drawing.Color.White;
+            this.CP_Menukaarten_btnDinergerechten.Location = new System.Drawing.Point(570, 3);
+            this.CP_Menukaarten_btnDinergerechten.Name = "CP_Menukaarten_btnDinergerechten";
+            this.CP_Menukaarten_btnDinergerechten.Size = new System.Drawing.Size(275, 50);
+            this.CP_Menukaarten_btnDinergerechten.TabIndex = 12;
+            this.CP_Menukaarten_btnDinergerechten.Text = "Dinerkaart";
+            this.CP_Menukaarten_btnDinergerechten.UseVisualStyleBackColor = false;
+            this.CP_Menukaarten_btnDinergerechten.Click += new System.EventHandler(this.CP_Menukaarten_btnDinergerechten_Click);
+            // 
+            // CP_Menukaarten_btnDranken
+            // 
+            this.CP_Menukaarten_btnDranken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Menukaarten_btnDranken.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Menukaarten_btnDranken.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Menukaarten_btnDranken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Menukaarten_btnDranken.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnDranken.ForeColor = System.Drawing.Color.White;
+            this.CP_Menukaarten_btnDranken.Location = new System.Drawing.Point(6, 3);
+            this.CP_Menukaarten_btnDranken.Name = "CP_Menukaarten_btnDranken";
+            this.CP_Menukaarten_btnDranken.Size = new System.Drawing.Size(275, 50);
+            this.CP_Menukaarten_btnDranken.TabIndex = 11;
+            this.CP_Menukaarten_btnDranken.Text = "Drankenkaart";
+            this.CP_Menukaarten_btnDranken.UseVisualStyleBackColor = false;
+            this.CP_Menukaarten_btnDranken.Click += new System.EventHandler(this.CP_Menukaarten_btnDranken_Click);
+            // 
+            // CP_Menukaarten_btnDeleteItem
+            // 
+            this.CP_Menukaarten_btnDeleteItem.BackColor = System.Drawing.Color.Salmon;
+            this.CP_Menukaarten_btnDeleteItem.Enabled = false;
+            this.CP_Menukaarten_btnDeleteItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Menukaarten_btnDeleteItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.CP_Menukaarten_btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Menukaarten_btnDeleteItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnDeleteItem.ForeColor = System.Drawing.Color.White;
+            this.CP_Menukaarten_btnDeleteItem.Location = new System.Drawing.Point(643, 409);
+            this.CP_Menukaarten_btnDeleteItem.Name = "CP_Menukaarten_btnDeleteItem";
+            this.CP_Menukaarten_btnDeleteItem.Size = new System.Drawing.Size(202, 50);
+            this.CP_Menukaarten_btnDeleteItem.TabIndex = 10;
+            this.CP_Menukaarten_btnDeleteItem.Text = "Verwijderen";
+            this.CP_Menukaarten_btnDeleteItem.UseVisualStyleBackColor = false;
+            this.CP_Menukaarten_btnDeleteItem.Click += new System.EventHandler(this.CP_Menukaarten_btnDeleteItem_Click);
+            // 
+            // CP_Menukaarten_btnEditItem
+            // 
+            this.CP_Menukaarten_btnEditItem.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CP_Menukaarten_btnEditItem.Enabled = false;
+            this.CP_Menukaarten_btnEditItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Menukaarten_btnEditItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Menukaarten_btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Menukaarten_btnEditItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnEditItem.ForeColor = System.Drawing.Color.White;
+            this.CP_Menukaarten_btnEditItem.Location = new System.Drawing.Point(325, 409);
+            this.CP_Menukaarten_btnEditItem.Name = "CP_Menukaarten_btnEditItem";
+            this.CP_Menukaarten_btnEditItem.Size = new System.Drawing.Size(312, 50);
+            this.CP_Menukaarten_btnEditItem.TabIndex = 9;
+            this.CP_Menukaarten_btnEditItem.Text = "Gerecht aanpassen";
+            this.CP_Menukaarten_btnEditItem.UseVisualStyleBackColor = false;
+            this.CP_Menukaarten_btnEditItem.Click += new System.EventHandler(this.CP_Menukaarten_btnEditItem_Click);
+            // 
+            // CP_Menukaarten_btnNewItem
+            // 
+            this.CP_Menukaarten_btnNewItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Menukaarten_btnNewItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Menukaarten_btnNewItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Menukaarten_btnNewItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Menukaarten_btnNewItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnNewItem.ForeColor = System.Drawing.Color.White;
+            this.CP_Menukaarten_btnNewItem.Location = new System.Drawing.Point(7, 409);
+            this.CP_Menukaarten_btnNewItem.Name = "CP_Menukaarten_btnNewItem";
+            this.CP_Menukaarten_btnNewItem.Size = new System.Drawing.Size(312, 50);
+            this.CP_Menukaarten_btnNewItem.TabIndex = 8;
+            this.CP_Menukaarten_btnNewItem.Text = "Nieuw gerecht toevoegen";
+            this.CP_Menukaarten_btnNewItem.UseVisualStyleBackColor = false;
+            this.CP_Menukaarten_btnNewItem.Click += new System.EventHandler(this.CP_Menukaarten_btnNewItem_Click);
+            // 
+            // CP_Voorraad_listView
+            // 
+            this.CP_Voorraad_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.CP_Voorraad_listView.FullRowSelect = true;
+            this.CP_Voorraad_listView.HideSelection = false;
+            this.CP_Voorraad_listView.Location = new System.Drawing.Point(7, 56);
+            this.CP_Voorraad_listView.Name = "CP_Voorraad_listView";
+            this.CP_Voorraad_listView.Size = new System.Drawing.Size(838, 403);
+            this.CP_Voorraad_listView.TabIndex = 11;
+            this.CP_Voorraad_listView.UseCompatibleStateImageBehavior = false;
             // 
             // ControlPanelForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1972, 537);
+            this.ClientSize = new System.Drawing.Size(1972, 1061);
+            this.Controls.Add(this.CP_pnlMenukaarten);
             this.Controls.Add(this.CP_pnlMedewerkers);
             this.Controls.Add(this.CP_pnlVoorraad);
             this.Controls.Add(this.CP_pnlHeader);
@@ -394,6 +531,7 @@
             this.CP_pnlHeader.PerformLayout();
             this.CP_pnlVoorraad.ResumeLayout(false);
             this.CP_pnlMedewerkers.ResumeLayout(false);
+            this.CP_pnlMenukaarten.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -412,7 +550,7 @@
         private System.Windows.Forms.Button CP_btnMedewerkers;
         private System.Windows.Forms.Button CP_btnInkomsten;
         private System.Windows.Forms.Button CP_btnBestellingen;
-        private System.Windows.Forms.ListView CP_Voorraad_listViewDranken;
+        private System.Windows.Forms.ListView CP_Menukaarten_listView;
         private System.Windows.Forms.Button CP_Voorraad_btnLunchgerechten;
         private System.Windows.Forms.Button CP_Voorraad_btnDinergerechten;
         private System.Windows.Forms.Button CP_Voorraad_btnDranken;
@@ -421,6 +559,14 @@
         private System.Windows.Forms.Panel CP_pnlMedewerkers;
         private System.Windows.Forms.Button CP_Medewerkers_btnVerwijderen;
         private System.Windows.Forms.Button CP_Medewerkers_btnEdit;
+        private System.Windows.Forms.Panel CP_pnlMenukaarten;
+        private System.Windows.Forms.Button CP_Menukaarten_btnLunchgerechten;
+        private System.Windows.Forms.Button CP_Menukaarten_btnDinergerechten;
+        private System.Windows.Forms.Button CP_Menukaarten_btnDranken;
+        private System.Windows.Forms.Button CP_Menukaarten_btnDeleteItem;
+        private System.Windows.Forms.Button CP_Menukaarten_btnEditItem;
+        private System.Windows.Forms.Button CP_Menukaarten_btnNewItem;
+        private System.Windows.Forms.ListView CP_Voorraad_listView;
     }
 }
 
