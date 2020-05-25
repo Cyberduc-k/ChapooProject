@@ -51,14 +51,14 @@ namespace Dao
         public void Modify(Order order)
         {
             string query = "UPDATE [dbo].[Orders] SET " +
-                "[comment] = @comment, [orderState] = @orderState, [timeOrdering] = @timeOrdering, [timeFinished] = @timeFinished, [tableId] = @tableId, [employeeId] = @employeeId" +
+                "[comment] = @comment, [orderState] = @orderState, [timeOrdering] = @timeOrdering, [timeFinished] = @timeFinished, [tableId] = @tableId, [employeeId] = @employeeId " +
                 "WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[7]
             {
                 new SqlParameter("@comment", order.Comment),
-                new SqlParameter("@orderState", (int)order.State),
-                new SqlParameter("@timeOrdering", order.TimeOrdering.ToString()),
-                new SqlParameter("@timeFinished", order.TimeFinished.ToString()),
+                new SqlParameter("@orderState", order.State),
+                new SqlParameter("@timeOrdering", order.TimeOrdering.TimeOfDay),
+                new SqlParameter("@timeFinished", order.TimeFinished.TimeOfDay),
                 new SqlParameter("@tableId", order.TableId),
                 new SqlParameter("@employeeId", order.EmployeeId),
                 new SqlParameter("@id", order.Id)

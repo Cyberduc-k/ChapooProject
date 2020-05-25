@@ -10,7 +10,7 @@ namespace Model
     {
         public int Id { get; }
         public DateTime TimeOrdering { get; }
-        public DateTime TimeFinished { get; }
+        public DateTime TimeFinished { get; set; }
         public List<Dish> Dishes { get; }
         public List<Drink> Drinks { get; }
         public int EmployeeId { get; }
