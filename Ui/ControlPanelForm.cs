@@ -378,16 +378,21 @@ namespace Ui
         //Remove the selected employee(s)
         private void CP_Medewerkers_btnVerwijderen_Click(object sender, EventArgs e)
         {
-            //Make sure an item is selected
+            //Make sure an employee is selected
             if (CP_Medewerkers_listView.SelectedItems.Count == 0)
             {
                 MessageBox.Show("U moet een medewerker selecteren", "Selecteer 1 medewerker", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-                
-            int id = int.Parse(CP_Medewerkers_listView.SelectedItems[0].Text);
-            employeeService.DeleteEmployee(id);
+            
+            //Remove all selected employee's
+            foreach(ListViewItem item in CP_Medewerkers_listView.SelectedItems){
+                bool success = int.TryParse(item.Text, out int id);
+                if(success)
+                    employeeService.DeleteEmployee(id);
+            }
 
+            //Reload the employee list
             LoadEmployeeList();
         }
 
