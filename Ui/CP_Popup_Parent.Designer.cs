@@ -41,10 +41,10 @@
             this.CP_Popup_Parent_btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_Popup_Parent_btnCancel.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Popup_Parent_btnCancel.ForeColor = System.Drawing.Color.White;
-            this.CP_Popup_Parent_btnCancel.Location = new System.Drawing.Point(361, 292);
-            this.CP_Popup_Parent_btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.CP_Popup_Parent_btnCancel.Location = new System.Drawing.Point(342, 294);
+            this.CP_Popup_Parent_btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CP_Popup_Parent_btnCancel.Name = "CP_Popup_Parent_btnCancel";
-            this.CP_Popup_Parent_btnCancel.Size = new System.Drawing.Size(298, 48);
+            this.CP_Popup_Parent_btnCancel.Size = new System.Drawing.Size(315, 44);
             this.CP_Popup_Parent_btnCancel.TabIndex = 12;
             this.CP_Popup_Parent_btnCancel.Text = "Cancel";
             this.CP_Popup_Parent_btnCancel.UseVisualStyleBackColor = false;
@@ -60,10 +60,10 @@
             this.CP_Popup_Parent_btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_Popup_Parent_btnOK.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Popup_Parent_btnOK.ForeColor = System.Drawing.Color.White;
-            this.CP_Popup_Parent_btnOK.Location = new System.Drawing.Point(13, 292);
-            this.CP_Popup_Parent_btnOK.Margin = new System.Windows.Forms.Padding(4);
+            this.CP_Popup_Parent_btnOK.Location = new System.Drawing.Point(15, 294);
+            this.CP_Popup_Parent_btnOK.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CP_Popup_Parent_btnOK.Name = "CP_Popup_Parent_btnOK";
-            this.CP_Popup_Parent_btnOK.Size = new System.Drawing.Size(298, 48);
+            this.CP_Popup_Parent_btnOK.Size = new System.Drawing.Size(315, 44);
             this.CP_Popup_Parent_btnOK.TabIndex = 11;
             this.CP_Popup_Parent_btnOK.Text = "Oke";
             this.CP_Popup_Parent_btnOK.UseVisualStyleBackColor = false;
@@ -71,14 +71,16 @@
             // 
             // CP_Popup_Parent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(672, 353);
             this.Controls.Add(this.CP_Popup_Parent_btnCancel);
             this.Controls.Add(this.CP_Popup_Parent_btnOK);
+            this.Font = new System.Drawing.Font("Roboto", 12F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CP_Popup_Parent";
             this.Text = "CP_Popup_Sure";
             this.ResumeLayout(false);
