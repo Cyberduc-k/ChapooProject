@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CP_Popup_NewEmployee_btnOK = new System.Windows.Forms.Button();
-            this.CP_PopupNewEmployee_btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,43 +49,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // CP_Popup_NewEmployee_btnOK
-            // 
-            this.CP_Popup_NewEmployee_btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Popup_NewEmployee_btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.CP_Popup_NewEmployee_btnOK.Enabled = false;
-            this.CP_Popup_NewEmployee_btnOK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_Popup_NewEmployee_btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_Popup_NewEmployee_btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Popup_NewEmployee_btnOK.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_Popup_NewEmployee_btnOK.ForeColor = System.Drawing.Color.White;
-            this.CP_Popup_NewEmployee_btnOK.Location = new System.Drawing.Point(18, 287);
-            this.CP_Popup_NewEmployee_btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CP_Popup_NewEmployee_btnOK.Name = "CP_Popup_NewEmployee_btnOK";
-            this.CP_Popup_NewEmployee_btnOK.Size = new System.Drawing.Size(298, 48);
-            this.CP_Popup_NewEmployee_btnOK.TabIndex = 9;
-            this.CP_Popup_NewEmployee_btnOK.Text = "Oke";
-            this.CP_Popup_NewEmployee_btnOK.UseVisualStyleBackColor = false;
-            this.CP_Popup_NewEmployee_btnOK.Click += new System.EventHandler(this.CP_Popup_NewEmployee_btnOK_Click);
-            // 
-            // CP_PopupNewEmployee_btnCancel
-            // 
-            this.CP_PopupNewEmployee_btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_PopupNewEmployee_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CP_PopupNewEmployee_btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_PopupNewEmployee_btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_PopupNewEmployee_btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_PopupNewEmployee_btnCancel.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_PopupNewEmployee_btnCancel.ForeColor = System.Drawing.Color.White;
-            this.CP_PopupNewEmployee_btnCancel.Location = new System.Drawing.Point(356, 287);
-            this.CP_PopupNewEmployee_btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CP_PopupNewEmployee_btnCancel.Name = "CP_PopupNewEmployee_btnCancel";
-            this.CP_PopupNewEmployee_btnCancel.Size = new System.Drawing.Size(298, 48);
-            this.CP_PopupNewEmployee_btnCancel.TabIndex = 10;
-            this.CP_PopupNewEmployee_btnCancel.Text = "Cancel";
-            this.CP_PopupNewEmployee_btnCancel.UseVisualStyleBackColor = false;
-            this.CP_PopupNewEmployee_btnCancel.Click += new System.EventHandler(this.CP_PopupNewEmployee_btnCancel_Click);
             // 
             // label1
             // 
@@ -157,7 +118,7 @@
             // 
             this.CP_PopopNewEmployee_txtFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_PopopNewEmployee_txtFirstName.Location = new System.Drawing.Point(200, 19);
-            this.CP_PopopNewEmployee_txtFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopopNewEmployee_txtFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopopNewEmployee_txtFirstName.Name = "CP_PopopNewEmployee_txtFirstName";
             this.CP_PopopNewEmployee_txtFirstName.Size = new System.Drawing.Size(452, 27);
             this.CP_PopopNewEmployee_txtFirstName.TabIndex = 16;
@@ -169,7 +130,7 @@
             this.CP_PopopNewEmployee_dtpBirthdate.CalendarMonthBackground = System.Drawing.Color.White;
             this.CP_PopopNewEmployee_dtpBirthdate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_PopopNewEmployee_dtpBirthdate.Location = new System.Drawing.Point(200, 93);
-            this.CP_PopopNewEmployee_dtpBirthdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopopNewEmployee_dtpBirthdate.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopopNewEmployee_dtpBirthdate.Name = "CP_PopopNewEmployee_dtpBirthdate";
             this.CP_PopopNewEmployee_dtpBirthdate.Size = new System.Drawing.Size(452, 27);
             this.CP_PopopNewEmployee_dtpBirthdate.TabIndex = 19;
@@ -177,7 +138,7 @@
             // CP_PopopNewEmployee_dtpEmployment
             // 
             this.CP_PopopNewEmployee_dtpEmployment.Location = new System.Drawing.Point(200, 207);
-            this.CP_PopopNewEmployee_dtpEmployment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopopNewEmployee_dtpEmployment.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopopNewEmployee_dtpEmployment.Name = "CP_PopopNewEmployee_dtpEmployment";
             this.CP_PopopNewEmployee_dtpEmployment.Size = new System.Drawing.Size(452, 27);
             this.CP_PopopNewEmployee_dtpEmployment.TabIndex = 20;
@@ -187,7 +148,7 @@
             this.CP_PopopNewEmployee_rbtnMale.AutoSize = true;
             this.CP_PopopNewEmployee_rbtnMale.Checked = true;
             this.CP_PopopNewEmployee_rbtnMale.Location = new System.Drawing.Point(4, 3);
-            this.CP_PopopNewEmployee_rbtnMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopopNewEmployee_rbtnMale.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopopNewEmployee_rbtnMale.Name = "CP_PopopNewEmployee_rbtnMale";
             this.CP_PopopNewEmployee_rbtnMale.Size = new System.Drawing.Size(41, 23);
             this.CP_PopopNewEmployee_rbtnMale.TabIndex = 21;
@@ -199,7 +160,7 @@
             // 
             this.CP_PopopNewEmployee_rbtnFemale.AutoSize = true;
             this.CP_PopopNewEmployee_rbtnFemale.Location = new System.Drawing.Point(69, 3);
-            this.CP_PopopNewEmployee_rbtnFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopopNewEmployee_rbtnFemale.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopopNewEmployee_rbtnFemale.Name = "CP_PopopNewEmployee_rbtnFemale";
             this.CP_PopopNewEmployee_rbtnFemale.Size = new System.Drawing.Size(37, 23);
             this.CP_PopopNewEmployee_rbtnFemale.TabIndex = 22;
@@ -210,7 +171,7 @@
             // 
             this.CP_PopopNewEmployee_txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_PopopNewEmployee_txtPassword.Location = new System.Drawing.Point(200, 169);
-            this.CP_PopopNewEmployee_txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopopNewEmployee_txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopopNewEmployee_txtPassword.Name = "CP_PopopNewEmployee_txtPassword";
             this.CP_PopopNewEmployee_txtPassword.PasswordChar = '*';
             this.CP_PopopNewEmployee_txtPassword.Size = new System.Drawing.Size(148, 27);
@@ -221,7 +182,7 @@
             // 
             this.CP_PopupNewEmployee_txtLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_PopupNewEmployee_txtLastName.Location = new System.Drawing.Point(200, 57);
-            this.CP_PopupNewEmployee_txtLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopupNewEmployee_txtLastName.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopupNewEmployee_txtLastName.Name = "CP_PopupNewEmployee_txtLastName";
             this.CP_PopupNewEmployee_txtLastName.Size = new System.Drawing.Size(452, 27);
             this.CP_PopupNewEmployee_txtLastName.TabIndex = 24;
@@ -258,7 +219,7 @@
             this.CP_PopupNewEmployee_rbtnWaiter.AutoSize = true;
             this.CP_PopupNewEmployee_rbtnWaiter.Checked = true;
             this.CP_PopupNewEmployee_rbtnWaiter.Location = new System.Drawing.Point(200, 245);
-            this.CP_PopupNewEmployee_rbtnWaiter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopupNewEmployee_rbtnWaiter.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopupNewEmployee_rbtnWaiter.Name = "CP_PopupNewEmployee_rbtnWaiter";
             this.CP_PopupNewEmployee_rbtnWaiter.Size = new System.Drawing.Size(97, 23);
             this.CP_PopupNewEmployee_rbtnWaiter.TabIndex = 27;
@@ -270,7 +231,7 @@
             // 
             this.CP_PopupNewEmployee_rbtnChef.AutoSize = true;
             this.CP_PopupNewEmployee_rbtnChef.Location = new System.Drawing.Point(327, 245);
-            this.CP_PopupNewEmployee_rbtnChef.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopupNewEmployee_rbtnChef.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopupNewEmployee_rbtnChef.Name = "CP_PopupNewEmployee_rbtnChef";
             this.CP_PopupNewEmployee_rbtnChef.Size = new System.Drawing.Size(60, 23);
             this.CP_PopupNewEmployee_rbtnChef.TabIndex = 28;
@@ -281,7 +242,7 @@
             // 
             this.CP_PopupNewEmployee_rbtnBartender.AutoSize = true;
             this.CP_PopupNewEmployee_rbtnBartender.Location = new System.Drawing.Point(429, 245);
-            this.CP_PopupNewEmployee_rbtnBartender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopupNewEmployee_rbtnBartender.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopupNewEmployee_rbtnBartender.Name = "CP_PopupNewEmployee_rbtnBartender";
             this.CP_PopupNewEmployee_rbtnBartender.Size = new System.Drawing.Size(83, 23);
             this.CP_PopupNewEmployee_rbtnBartender.TabIndex = 29;
@@ -292,7 +253,7 @@
             // 
             this.CP_PopupNewEmployee_rbtnOwner.AutoSize = true;
             this.CP_PopupNewEmployee_rbtnOwner.Location = new System.Drawing.Point(550, 245);
-            this.CP_PopupNewEmployee_rbtnOwner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CP_PopupNewEmployee_rbtnOwner.Margin = new System.Windows.Forms.Padding(4);
             this.CP_PopupNewEmployee_rbtnOwner.Name = "CP_PopupNewEmployee_rbtnOwner";
             this.CP_PopupNewEmployee_rbtnOwner.Size = new System.Drawing.Size(89, 23);
             this.CP_PopupNewEmployee_rbtnOwner.TabIndex = 30;
@@ -304,7 +265,7 @@
             this.panel1.Controls.Add(this.CP_PopopNewEmployee_rbtnFemale);
             this.panel1.Controls.Add(this.CP_PopopNewEmployee_rbtnMale);
             this.panel1.Location = new System.Drawing.Point(200, 131);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 32);
             this.panel1.TabIndex = 31;
@@ -332,14 +293,27 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.CP_PopupNewEmployee_btnCancel);
-            this.Controls.Add(this.CP_Popup_NewEmployee_btnOK);
             this.Font = new System.Drawing.Font("Roboto", 12F);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CP_Popup_NewEmployee";
             this.Text = "Nieuwe werknemer";
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.CP_PopopNewEmployee_txtFirstName, 0);
+            this.Controls.SetChildIndex(this.CP_PopopNewEmployee_dtpBirthdate, 0);
+            this.Controls.SetChildIndex(this.CP_PopopNewEmployee_dtpEmployment, 0);
+            this.Controls.SetChildIndex(this.CP_PopopNewEmployee_txtPassword, 0);
+            this.Controls.SetChildIndex(this.CP_PopupNewEmployee_txtLastName, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.CP_PopupNewEmployee_rbtnWaiter, 0);
+            this.Controls.SetChildIndex(this.CP_PopupNewEmployee_rbtnChef, 0);
+            this.Controls.SetChildIndex(this.CP_PopupNewEmployee_rbtnBartender, 0);
+            this.Controls.SetChildIndex(this.CP_PopupNewEmployee_rbtnOwner, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -348,9 +322,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button CP_Popup_NewEmployee_btnOK;
-        private System.Windows.Forms.Button CP_PopupNewEmployee_btnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
