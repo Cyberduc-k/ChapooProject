@@ -13,6 +13,7 @@ namespace Logic
 
         private ErrorHandler() { }
 
+        //Singleton
         public static ErrorHandler Instance
         {
             get
@@ -28,6 +29,7 @@ namespace Logic
         //Function to show and log the error
         public void HandleError(string message, string title, Exception e)
         {
+            //@TODO Log to DB, Store e type
             //Show the error as a popup
             MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
