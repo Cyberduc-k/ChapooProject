@@ -40,6 +40,7 @@
             this.CP_pnlHeader = new System.Windows.Forms.Panel();
             this.CP_lblActivePanel = new System.Windows.Forms.Label();
             this.CP_pnlVoorraad = new System.Windows.Forms.Panel();
+            this.CP_Voorraad_listView = new System.Windows.Forms.ListView();
             this.CP_Voorraad_btnLunchgerechten = new System.Windows.Forms.Button();
             this.CP_Voorraad_btnDinergerechten = new System.Windows.Forms.Button();
             this.CP_Voorraad_btnDranken = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.CP_Menukaarten_btnDeleteItem = new System.Windows.Forms.Button();
             this.CP_Menukaarten_btnEditItem = new System.Windows.Forms.Button();
             this.CP_Menukaarten_btnNewItem = new System.Windows.Forms.Button();
-            this.CP_Voorraad_listView = new System.Windows.Forms.ListView();
             this.CP_pnlNavMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.CP_pnlHeader.SuspendLayout();
@@ -81,7 +81,6 @@
             this.CP_pnlNavMenu.Name = "CP_pnlNavMenu";
             this.CP_pnlNavMenu.Size = new System.Drawing.Size(151, 1061);
             this.CP_pnlNavMenu.TabIndex = 1;
-            this.CP_pnlNavMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.CP_pnlNavMenu_Paint);
             // 
             // CP_btnMedewerkers
             // 
@@ -212,7 +211,6 @@
             this.CP_imgLogo.Size = new System.Drawing.Size(151, 66);
             this.CP_imgLogo.TabIndex = 1;
             this.CP_imgLogo.TabStop = false;
-            this.CP_imgLogo.Click += new System.EventHandler(this.CP_imgLogo_Click);
             // 
             // CP_pnlHeader
             // 
@@ -224,7 +222,6 @@
             this.CP_pnlHeader.Name = "CP_pnlHeader";
             this.CP_pnlHeader.Size = new System.Drawing.Size(1821, 66);
             this.CP_pnlHeader.TabIndex = 2;
-            this.CP_pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.CP_pnlHeader_Paint);
             // 
             // CP_lblActivePanel
             // 
@@ -236,7 +233,6 @@
             this.CP_lblActivePanel.Size = new System.Drawing.Size(113, 42);
             this.CP_lblActivePanel.TabIndex = 0;
             this.CP_lblActivePanel.Text = "Home";
-            this.CP_lblActivePanel.Click += new System.EventHandler(this.CP_lblActivePanel_Click);
             // 
             // CP_pnlVoorraad
             // 
@@ -250,6 +246,17 @@
             this.CP_pnlVoorraad.Name = "CP_pnlVoorraad";
             this.CP_pnlVoorraad.Size = new System.Drawing.Size(857, 471);
             this.CP_pnlVoorraad.TabIndex = 3;
+            // 
+            // CP_Voorraad_listView
+            // 
+            this.CP_Voorraad_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.CP_Voorraad_listView.FullRowSelect = true;
+            this.CP_Voorraad_listView.HideSelection = false;
+            this.CP_Voorraad_listView.Location = new System.Drawing.Point(7, 56);
+            this.CP_Voorraad_listView.Name = "CP_Voorraad_listView";
+            this.CP_Voorraad_listView.Size = new System.Drawing.Size(838, 403);
+            this.CP_Voorraad_listView.TabIndex = 11;
+            this.CP_Voorraad_listView.UseCompatibleStateImageBehavior = false;
             // 
             // CP_Voorraad_btnLunchgerechten
             // 
@@ -501,17 +508,6 @@
             this.CP_Menukaarten_btnNewItem.Text = "Nieuw gerecht toevoegen";
             this.CP_Menukaarten_btnNewItem.UseVisualStyleBackColor = false;
             this.CP_Menukaarten_btnNewItem.Click += new System.EventHandler(this.CP_Menukaarten_btnNewItem_Click);
-            // 
-            // CP_Voorraad_listView
-            // 
-            this.CP_Voorraad_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.CP_Voorraad_listView.FullRowSelect = true;
-            this.CP_Voorraad_listView.HideSelection = false;
-            this.CP_Voorraad_listView.Location = new System.Drawing.Point(7, 56);
-            this.CP_Voorraad_listView.Name = "CP_Voorraad_listView";
-            this.CP_Voorraad_listView.Size = new System.Drawing.Size(838, 403);
-            this.CP_Voorraad_listView.TabIndex = 11;
-            this.CP_Voorraad_listView.UseCompatibleStateImageBehavior = false;
             // 
             // ControlPanelForm
             // 

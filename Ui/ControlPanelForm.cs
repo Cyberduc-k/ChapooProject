@@ -682,28 +682,5 @@ namespace Ui
             btn.BackColor = Color.FromArgb(0, 184, 255);
         }
         #endregion
-
-        //Empty, unused Code that we aren't abled to remove
-        #region Empty
-        private void CP_lblActivePanel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CP_imgLogo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CP_pnlHeader_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void CP_pnlNavMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        #endregion
     }
 }
