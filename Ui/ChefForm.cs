@@ -66,25 +66,26 @@ namespace Ui
                 .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
                 .ToList();
 
-            // Not a switch because all cases need to be evaluated
-            if (orders.Count == 0)
-                Chef_lblGeenBestellingen.Show();
-            else
+            switch (orders.Count)
             {
-                if (orders.Count >= 1)
+                case 0:
+                    Chef_lblGeenBestellingen.Show();
+                    break;
+                case 1:
                     FillFirstOrder(orders[0]);
-
-                if (orders.Count >= 2)
+                    break;
+                case 2:
                     FillSecondOrder(orders[1]);
-
-                if (orders.Count >= 3)
+                    goto case 1;
+                case 3:
                     FillThirdOrder(orders[2]);
-
-                if (orders.Count >= 4)
+                    goto case 2;
+                case 4:
                     FillFourthOrder(orders[3]);
-
-                if (orders.Count >= 5)
+                    goto case 3;
+                default:
                     ShowOverflow(orders.Count - 4);
+                    goto case 4;
             }
         }
 
