@@ -250,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 393);
+            this.ClientSize = new System.Drawing.Size(672, 353);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.CP_PopupEditEmployee_rbtnOwner);
             this.Controls.Add(this.CP_PopupEditEmployee_rbtnBartender);

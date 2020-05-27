@@ -21,11 +21,19 @@ namespace Ui
         private bool lastNameFilledIn = false;
         private bool passwordFilledIn = false;
 
+        private List<bool> vars;
+
         public CP_Popup_EditEmployee(int id, string firstName, string lastName, DateTime birthDate, DateTime employment, Gender gender, string password, EmployeeType employeeType)
         {
             InitializeComponent();
-            CP_Popup_Parent_btnOK.Enabled = true;
 
+            //Init the list with vars to enable the OK button
+            vars = new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn };
+
+            //Load an icon for the form
+            LoadIcon("Resources/pencil-icon.ico");
+
+            //Show the current values of the employee
             CP_PopopEditEmployee_txtFirstName.Text = firstName;
             CP_PopupEditEmployee_txtLastName.Text = lastName;
             CP_PopopEditEmployee_dtpBirthdate.Value = birthDate;
@@ -90,7 +98,7 @@ namespace Ui
             else
                 firstNameFilledIn = false;
 
-            UpdateOKbtn(new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn });
+            UpdateOKbtn(vars);
         }
 
         private void CP_PopupEditEmployee_txtLastName_TextChanged(object sender, EventArgs e)
@@ -100,7 +108,7 @@ namespace Ui
             else
                 lastNameFilledIn = false;
 
-            UpdateOKbtn(new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn });
+            UpdateOKbtn(vars);
         }
 
         private void CP_PopopEditEmployee_txtPassword_TextChanged(object sender, EventArgs e)
@@ -110,7 +118,7 @@ namespace Ui
             else
                 passwordFilledIn = false;
 
-            UpdateOKbtn(new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn });
+            UpdateOKbtn(vars);
         }
     }
 }
