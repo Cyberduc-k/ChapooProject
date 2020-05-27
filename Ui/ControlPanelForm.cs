@@ -14,20 +14,26 @@ namespace Ui
 {
     public partial class ControlPanelForm : Form
     {
+        //The services used to interact with the DAO
         private ListViewColumnSorter lvwColumnSorter = new ListViewColumnSorter();
         private Drink_Service drinkService = new Drink_Service();
         private Dish_Service dishService = new Dish_Service();
         private Employee_Service employeeService = new Employee_Service();
 
+        //Var used to create new columnHeader for the listView sorter
         private ColumnHeader columnheader;
 
         public ControlPanelForm()
         {
             InitializeComponent();
+
+            //Hide all the existing panels on startup
             HideAllPanels();
+            //Make sure all the listviews are setup properly
             InitializeSorting();
         }
 
+        //Code for the navmenu
         #region NavMenu
         private void CP_btnHome_Click(object sender, EventArgs e)
         {
@@ -87,6 +93,7 @@ namespace Ui
         }
         #endregion
 
+        //Code for the Voorraad panel
         #region Voorraad
         private void LoadVoorraadDrinks()
         {
@@ -276,13 +283,18 @@ namespace Ui
         #endregion
         #endregion
 
+        //Code for the Medewerker panel
         #region Medewerkers
+        //Get a list of all the employees in the database
         private void LoadEmployeeList()
         {
+            //Get the list
             List<Employee> employeeList = employeeService.GetAllEmployees();
 
+            //Make sure the ListView is clear
             CP_Medewerkers_listView.Clear();
 
+            //Add all of the items in the list to the listView
             for (int i = 0; i < employeeList.Count; i++)
             {
                 ListViewItem li = new ListViewItem(employeeList[i].Id.ToString());
@@ -336,6 +348,7 @@ namespace Ui
                 ch.Width = -2;
             }
 
+            //No item is selected after reloading, so dont make the buttons that require a selected item enabled
             CP_Medewerkers_btnEdit.Enabled = false;
             CP_Medewerkers_btnVerwijderen.Enabled = false;
 
@@ -343,7 +356,10 @@ namespace Ui
             CP_Medewerkers_btnVerwijderen.BackColor = Color.Salmon;
         }
 
+        //All of the OnClick functions
         #region OnClicks
+
+        //Called when an item is selected, so the buttons that require a selected item are enabled
         private void CP_Medewerkers_listView_SelectedIndexChanged(object sender, EventArgs e)
         {
             CP_Medewerkers_btnEdit.Enabled = true;
@@ -353,17 +369,22 @@ namespace Ui
             CP_Medewerkers_btnVerwijderen.BackColor = Color.Red;
         }
 
+        //Sort the selected column
         private void CP_Medewerkers_listView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             SortListView(e, CP_Medewerkers_listView);
         }
 
+        //Remove the selected employee(s)
         private void CP_Medewerkers_btnVerwijderen_Click(object sender, EventArgs e)
         {
             //Make sure an item is selected
             if (CP_Medewerkers_listView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("U moet een medewerker selecteren", "Selecteer 1 medewerker", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-
+            }
+                
             int id = int.Parse(CP_Medewerkers_listView.SelectedItems[0].Text);
             employeeService.DeleteEmployee(id);
 
@@ -372,9 +393,14 @@ namespace Ui
 
         private void CP_Medewerkers_btnEdit_Click(object sender, EventArgs e)
         {
-            //Make sure an item is selected
-            if (CP_Medewerkers_listView.SelectedItems.Count == 0)
+            //Make sure a single item is selected
+            if (CP_Medewerkers_listView.SelectedItems.Count != 1)
+            {
+                if (CP_Medewerkers_listView.SelectedItems.Count > 1)
+                    MessageBox.Show("U kunt maar 1 medewerker tegelijk aanpassen", "Selecteer 1 medewerker", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return;
+            }
 
             ListViewItem item = CP_Medewerkers_listView.SelectedItems[0];
 
@@ -382,10 +408,20 @@ namespace Ui
             string firstName = item.SubItems[1].Text;
             string lastName = item.SubItems[2].Text;
             DateTime birthDate = Convert.ToDateTime(item.SubItems[3].Text);
-            Enum.TryParse(item.SubItems[4].Text, out Gender gender);
+            bool genderParsed = Enum.TryParse(item.SubItems[4].Text, out Gender gender);
             DateTime employment = Convert.ToDateTime(item.SubItems[5].Text);
             string password = item.SubItems[6].Text;
-            Enum.TryParse(item.SubItems[7].Text, out EmployeeType employeeType);
+            bool typeParsed = Enum.TryParse(item.SubItems[7].Text, out EmployeeType employeeType);
+
+            if(!genderParsed || !typeParsed)
+            {
+                if (!genderParsed)
+                    ErrorHandler.Instance.HandleError("Het geslacht van " + firstName + " bestaat niet", "Onbekend geslacht", new ArgumentException());
+                if (!typeParsed)
+                    ErrorHandler.Instance.HandleError("Het medewerker type van " + firstName + " bestaat niet", "Onbekend medewerker type", new ArgumentException());
+
+                return;
+            }
 
             Form popup = new CP_Popup_EditEmployee(id, firstName, lastName, birthDate, employment, gender, password, employeeType);
 
@@ -394,6 +430,7 @@ namespace Ui
             if (popup.DialogResult == DialogResult.OK)
                 LoadEmployeeList();
         }
+
         private void CP_Medewerkers_btnNieuweMedewerker_Click(object sender, EventArgs e)
         {
             Form popup = new CP_Popup_NewEmployee();
@@ -407,6 +444,7 @@ namespace Ui
         #endregion
         #endregion
 
+        //Code for the Menukaarten panel
         #region Menukaarten
         private void LoadMenukaartenDrinks()
         {
@@ -585,7 +623,9 @@ namespace Ui
         #endregion
         #endregion
 
+        //Code used by multiple panels
         #region General
+        //Sort the items of this list view based on the selected column
         private void SortListView(ColumnClickEventArgs e, ListView lv)
         {
             // Determine if clicked column is already the column that is being sorted.
@@ -607,6 +647,7 @@ namespace Ui
             lv.Sort();
         }
 
+        //Makes sure all the listviews are setup properly
         private void InitializeSorting()
         {
             CP_Voorraad_listView.View = View.Details;
@@ -619,6 +660,7 @@ namespace Ui
             CP_Menukaarten_listView.ListViewItemSorter = lvwColumnSorter;
         }
 
+        //Hide all the panels
         private void HideAllPanels()
         {
             CP_pnlVoorraad.Hide();
@@ -626,6 +668,7 @@ namespace Ui
             CP_pnlMenukaarten.Hide();
         }
 
+        //Highlight the selected button
         private void SetHightlight(Button btn)
         {
             CP_btnHome.BackColor = CP_btnVoorraad.BackColor = CP_btnMenukaarten.BackColor = CP_btnBestellingen.BackColor
@@ -635,13 +678,9 @@ namespace Ui
         }
         #endregion
 
+        //Empty, unused Code that we aren't abled to remove
         #region Empty
         private void CP_lblActivePanel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CP_pnlVoorraad_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -652,11 +691,6 @@ namespace Ui
         }
 
         private void CP_pnlHeader_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void CP_pnlMedewerkers_Paint(object sender, PaintEventArgs e)
         {
 
         }
