@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Logic;
@@ -29,7 +30,7 @@ namespace Ui
             else
                 firstNameFilledIn = false;
 
-            UpdateOKbtn();
+            UpdateOKbtn(new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn });
         }
 
         //Get called whenever the text in the LastName textbox changes
@@ -40,7 +41,7 @@ namespace Ui
             else
                 lastNameFilledIn = false;
 
-            UpdateOKbtn();
+            UpdateOKbtn(new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn });
         }
 
         //Get called whenever the text in the Password textbox changes
@@ -51,16 +52,7 @@ namespace Ui
             else
                 passwordFilledIn = false;
 
-            UpdateOKbtn();
-        }
-
-        //Check if all txtFields are filled in, and if the OK button can be activated
-        private void UpdateOKbtn()
-        {
-            if (firstNameFilledIn && lastNameFilledIn && passwordFilledIn)
-                CP_Popup_Parent_btnOK.Enabled = true;
-            else
-                CP_Popup_Parent_btnOK.Enabled = false;
+            UpdateOKbtn(new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn });
         }
 
         public override void OnClickOK(object sender, EventArgs e)
