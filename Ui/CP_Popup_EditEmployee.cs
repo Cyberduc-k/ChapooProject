@@ -12,13 +12,19 @@ using Model;
 
 namespace Ui
 {
-    public partial class CP_Popup_EditEmployee : Form
+    public partial class CP_Popup_EditEmployee : CP_Popup_Parent
     {
         private int id;
+
+        //Bools to store if the text boxes are filled in
+        private bool firstNameFilledIn = false;
+        private bool lastNameFilledIn = false;
+        private bool passwordFilledIn = false;
 
         public CP_Popup_EditEmployee(int id, string firstName, string lastName, DateTime birthDate, DateTime employment, Gender gender, string password, EmployeeType employeeType)
         {
             InitializeComponent();
+            CP_Popup_Parent_btnOK.Enabled = true;
 
             CP_PopopEditEmployee_txtFirstName.Text = firstName;
             CP_PopupEditEmployee_txtLastName.Text = lastName;
@@ -43,7 +49,7 @@ namespace Ui
             this.id = id;
         }
 
-        private void CP_Popup_EditEmployee_btnOK_Click(object sender, EventArgs e)
+        public override void OnClickOK(object sender, EventArgs e)
         {
             Employee_Service employeeService = new Employee_Service();
 
@@ -69,17 +75,42 @@ namespace Ui
             else
                 employeeType = EmployeeType.Chef;
 
-            //@TODO Handle errors
-            if (firstName == "" || lastName == "" || password == null)
-                return;
-
-            //employeeService.AddEmployee(new Employee(1, "Bram", "Sierhuis", new DateTime(2001, 5, 16), new DateTime(2020, 5, 20), Gender.Male, "2343", EmployeeType.Chef));
             employeeService.ModifyEmployee(new Employee(id, firstName, lastName, birthDate, employment, gender, password, employeeType));
         }
 
-        private void CP_PopupEditEmployee_btnCancel_Click(object sender, EventArgs e)
+        public override void OnClickCancel(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CP_PopopEditEmployee_txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+            if (CP_PopopEditEmployee_txtFirstName.Text != "")
+                firstNameFilledIn = true;
+            else
+                firstNameFilledIn = false;
+
+            UpdateOKbtn(new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn });
+        }
+
+        private void CP_PopupEditEmployee_txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            if (CP_PopupEditEmployee_txtLastName.Text != "")
+                lastNameFilledIn = true;
+            else
+                lastNameFilledIn = false;
+
+            UpdateOKbtn(new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn });
+        }
+
+        private void CP_PopopEditEmployee_txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (CP_PopopEditEmployee_txtPassword.Text != "")
+                passwordFilledIn = true;
+            else
+                passwordFilledIn = false;
+
+            UpdateOKbtn(new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn });
         }
     }
 }
