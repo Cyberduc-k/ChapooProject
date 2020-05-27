@@ -44,6 +44,7 @@ namespace Ui
         {
             Chef_pnlOverzicht.Hide();
             Chef_lblGeenBestellingen.Hide();
+            Chef_pnlOpmerkingen.Hide();
             Chef_pnlFirstOrder.Hide();
             Chef_pnlSecondOrder.Hide();
             Chef_pnlThirdOrder.Hide();
@@ -65,31 +66,32 @@ namespace Ui
                 .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
                 .ToList();
 
-            switch (orders.Count)
+            // Not a switch because all cases need to be evaluated
+            if (orders.Count == 0)
+                Chef_lblGeenBestellingen.Show();
+            else
             {
-                case 0:
-                    Chef_lblGeenBestellingen.Show();
-                    break;
-                case 1:
+                if (orders.Count >= 1)
                     FillFirstOrder(orders[0]);
-                    goto case 2;
-                case 2:
+
+                if (orders.Count >= 2)
                     FillSecondOrder(orders[1]);
-                    goto case 3;
-                case 3:
+
+                if (orders.Count >= 3)
                     FillThirdOrder(orders[2]);
-                    goto case 4;
-                case 4:
+
+                if (orders.Count >= 4)
                     FillFourthOrder(orders[3]);
-                    goto default;
-                default:
+
+                if (orders.Count >= 5)
                     ShowOverflow(orders.Count - 4);
-                    break;
             }
         }
 
         private void FillFirstOrder(Order order)
         {
+            Chef_lblOpmerkingenContent.Text = order.Comment;
+            Chef_pnlOpmerkingen.Show();
             Chef_lvFirst.Clear();
 
             foreach (Dish dish in order.Dishes)

@@ -36,30 +36,34 @@
             this.Chef_pnlTop = new System.Windows.Forms.Panel();
             this.Chef_lblActivePanel = new System.Windows.Forms.Label();
             this.Chef_pnlOverzicht = new System.Windows.Forms.Panel();
+            this.Chef_pnlOpmerkingen = new System.Windows.Forms.Panel();
+            this.Chef_lblOpmerkingen = new System.Windows.Forms.Label();
             this.Chef_pnlOverflow = new System.Windows.Forms.Panel();
             this.Chef_lblOverflow = new System.Windows.Forms.Label();
             this.Chef_pnlFourthOrder = new System.Windows.Forms.Panel();
+            this.Chef_lvFourth = new System.Windows.Forms.ListView();
             this.Chef_btnFourthKlaar = new System.Windows.Forms.Button();
             this.Chef_pnlThirdOrder = new System.Windows.Forms.Panel();
+            this.Chef_lvThird = new System.Windows.Forms.ListView();
             this.Chef_btnThirdKlaar = new System.Windows.Forms.Button();
             this.Chef_pnlSecondOrder = new System.Windows.Forms.Panel();
+            this.Chef_lvSecond = new System.Windows.Forms.ListView();
             this.Chef_btnSecondKlaar = new System.Windows.Forms.Button();
             this.Chef_pnlFirstOrder = new System.Windows.Forms.Panel();
+            this.Chef_lvFirst = new System.Windows.Forms.ListView();
             this.Chef_btnFirstKlaar = new System.Windows.Forms.Button();
             this.Chef_lblGeenBestellingen = new System.Windows.Forms.Label();
-            this.Chef_lvFirst = new System.Windows.Forms.ListView();
-            this.Chef_lvSecond = new System.Windows.Forms.ListView();
-            this.Chef_lvThird = new System.Windows.Forms.ListView();
-            this.Chef_lvFourth = new System.Windows.Forms.ListView();
             this.Chef_pnlVoorraad = new System.Windows.Forms.Panel();
             this.Chef_lvVoorraad = new System.Windows.Forms.ListView();
             this.Chef_chGerecht = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Chef_chAantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Chef_chPrijs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Chef_lblOpmerkingenContent = new System.Windows.Forms.Label();
             this.Chef_pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Chef_pnlTop.SuspendLayout();
             this.Chef_pnlOverzicht.SuspendLayout();
+            this.Chef_pnlOpmerkingen.SuspendLayout();
             this.Chef_pnlOverflow.SuspendLayout();
             this.Chef_pnlFourthOrder.SuspendLayout();
             this.Chef_pnlThirdOrder.SuspendLayout();
@@ -159,6 +163,7 @@
             // Chef_pnlOverzicht
             // 
             this.Chef_pnlOverzicht.BackColor = System.Drawing.Color.White;
+            this.Chef_pnlOverzicht.Controls.Add(this.Chef_pnlOpmerkingen);
             this.Chef_pnlOverzicht.Controls.Add(this.Chef_pnlOverflow);
             this.Chef_pnlOverzicht.Controls.Add(this.Chef_pnlFourthOrder);
             this.Chef_pnlOverzicht.Controls.Add(this.Chef_pnlThirdOrder);
@@ -170,6 +175,28 @@
             this.Chef_pnlOverzicht.Name = "Chef_pnlOverzicht";
             this.Chef_pnlOverzicht.Size = new System.Drawing.Size(1618, 915);
             this.Chef_pnlOverzicht.TabIndex = 2;
+            // 
+            // Chef_pnlOpmerkingen
+            // 
+            this.Chef_pnlOpmerkingen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.Chef_pnlOpmerkingen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Chef_pnlOpmerkingen.Controls.Add(this.Chef_lblOpmerkingenContent);
+            this.Chef_pnlOpmerkingen.Controls.Add(this.Chef_lblOpmerkingen);
+            this.Chef_pnlOpmerkingen.Location = new System.Drawing.Point(651, 54);
+            this.Chef_pnlOpmerkingen.Name = "Chef_pnlOpmerkingen";
+            this.Chef_pnlOpmerkingen.Size = new System.Drawing.Size(726, 393);
+            this.Chef_pnlOpmerkingen.TabIndex = 3;
+            this.Chef_pnlOpmerkingen.Visible = false;
+            // 
+            // Chef_lblOpmerkingen
+            // 
+            this.Chef_lblOpmerkingen.AutoSize = true;
+            this.Chef_lblOpmerkingen.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblOpmerkingen.Location = new System.Drawing.Point(11, 10);
+            this.Chef_lblOpmerkingen.Name = "Chef_lblOpmerkingen";
+            this.Chef_lblOpmerkingen.Size = new System.Drawing.Size(176, 31);
+            this.Chef_lblOpmerkingen.TabIndex = 0;
+            this.Chef_lblOpmerkingen.Text = "Opmerkingen";
             // 
             // Chef_pnlOverflow
             // 
@@ -206,6 +233,20 @@
             this.Chef_pnlFourthOrder.TabIndex = 1;
             this.Chef_pnlFourthOrder.Visible = false;
             // 
+            // Chef_lvFourth
+            // 
+            this.Chef_lvFourth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.Chef_lvFourth.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Chef_lvFourth.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvFourth.HideSelection = false;
+            this.Chef_lvFourth.Location = new System.Drawing.Point(-1, -1);
+            this.Chef_lvFourth.Margin = new System.Windows.Forms.Padding(0);
+            this.Chef_lvFourth.Name = "Chef_lvFourth";
+            this.Chef_lvFourth.Size = new System.Drawing.Size(416, 269);
+            this.Chef_lvFourth.TabIndex = 1;
+            this.Chef_lvFourth.UseCompatibleStateImageBehavior = false;
+            this.Chef_lvFourth.View = System.Windows.Forms.View.List;
+            // 
             // Chef_btnFourthKlaar
             // 
             this.Chef_btnFourthKlaar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -233,6 +274,20 @@
             this.Chef_pnlThirdOrder.Size = new System.Drawing.Size(416, 327);
             this.Chef_pnlThirdOrder.TabIndex = 1;
             this.Chef_pnlThirdOrder.Visible = false;
+            // 
+            // Chef_lvThird
+            // 
+            this.Chef_lvThird.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.Chef_lvThird.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Chef_lvThird.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvThird.HideSelection = false;
+            this.Chef_lvThird.Location = new System.Drawing.Point(-2, -1);
+            this.Chef_lvThird.Margin = new System.Windows.Forms.Padding(0);
+            this.Chef_lvThird.Name = "Chef_lvThird";
+            this.Chef_lvThird.Size = new System.Drawing.Size(416, 269);
+            this.Chef_lvThird.TabIndex = 1;
+            this.Chef_lvThird.UseCompatibleStateImageBehavior = false;
+            this.Chef_lvThird.View = System.Windows.Forms.View.List;
             // 
             // Chef_btnThirdKlaar
             // 
@@ -262,6 +317,20 @@
             this.Chef_pnlSecondOrder.TabIndex = 1;
             this.Chef_pnlSecondOrder.Visible = false;
             // 
+            // Chef_lvSecond
+            // 
+            this.Chef_lvSecond.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.Chef_lvSecond.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Chef_lvSecond.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvSecond.HideSelection = false;
+            this.Chef_lvSecond.Location = new System.Drawing.Point(-1, -1);
+            this.Chef_lvSecond.Margin = new System.Windows.Forms.Padding(0);
+            this.Chef_lvSecond.Name = "Chef_lvSecond";
+            this.Chef_lvSecond.Size = new System.Drawing.Size(416, 269);
+            this.Chef_lvSecond.TabIndex = 1;
+            this.Chef_lvSecond.UseCompatibleStateImageBehavior = false;
+            this.Chef_lvSecond.View = System.Windows.Forms.View.List;
+            // 
             // Chef_btnSecondKlaar
             // 
             this.Chef_btnSecondKlaar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -289,6 +358,20 @@
             this.Chef_pnlFirstOrder.Size = new System.Drawing.Size(500, 393);
             this.Chef_pnlFirstOrder.TabIndex = 1;
             this.Chef_pnlFirstOrder.Visible = false;
+            // 
+            // Chef_lvFirst
+            // 
+            this.Chef_lvFirst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.Chef_lvFirst.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Chef_lvFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvFirst.HideSelection = false;
+            this.Chef_lvFirst.Location = new System.Drawing.Point(0, 0);
+            this.Chef_lvFirst.Margin = new System.Windows.Forms.Padding(0);
+            this.Chef_lvFirst.Name = "Chef_lvFirst";
+            this.Chef_lvFirst.Size = new System.Drawing.Size(498, 320);
+            this.Chef_lvFirst.TabIndex = 1;
+            this.Chef_lvFirst.UseCompatibleStateImageBehavior = false;
+            this.Chef_lvFirst.View = System.Windows.Forms.View.List;
             // 
             // Chef_btnFirstKlaar
             // 
@@ -319,62 +402,6 @@
             this.Chef_lblGeenBestellingen.TabIndex = 0;
             this.Chef_lblGeenBestellingen.Text = "Geen bestellingen";
             this.Chef_lblGeenBestellingen.Visible = false;
-            // 
-            // Chef_lvFirst
-            // 
-            this.Chef_lvFirst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.Chef_lvFirst.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Chef_lvFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lvFirst.HideSelection = false;
-            this.Chef_lvFirst.Location = new System.Drawing.Point(0, 0);
-            this.Chef_lvFirst.Margin = new System.Windows.Forms.Padding(0);
-            this.Chef_lvFirst.Name = "Chef_lvFirst";
-            this.Chef_lvFirst.Size = new System.Drawing.Size(498, 320);
-            this.Chef_lvFirst.TabIndex = 1;
-            this.Chef_lvFirst.UseCompatibleStateImageBehavior = false;
-            this.Chef_lvFirst.View = System.Windows.Forms.View.List;
-            // 
-            // Chef_lvSecond
-            // 
-            this.Chef_lvSecond.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.Chef_lvSecond.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Chef_lvSecond.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lvSecond.HideSelection = false;
-            this.Chef_lvSecond.Location = new System.Drawing.Point(-1, -1);
-            this.Chef_lvSecond.Margin = new System.Windows.Forms.Padding(0);
-            this.Chef_lvSecond.Name = "Chef_lvSecond";
-            this.Chef_lvSecond.Size = new System.Drawing.Size(416, 269);
-            this.Chef_lvSecond.TabIndex = 1;
-            this.Chef_lvSecond.UseCompatibleStateImageBehavior = false;
-            this.Chef_lvSecond.View = System.Windows.Forms.View.List;
-            // 
-            // Chef_lvThird
-            // 
-            this.Chef_lvThird.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.Chef_lvThird.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Chef_lvThird.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lvThird.HideSelection = false;
-            this.Chef_lvThird.Location = new System.Drawing.Point(-2, -1);
-            this.Chef_lvThird.Margin = new System.Windows.Forms.Padding(0);
-            this.Chef_lvThird.Name = "Chef_lvThird";
-            this.Chef_lvThird.Size = new System.Drawing.Size(416, 269);
-            this.Chef_lvThird.TabIndex = 1;
-            this.Chef_lvThird.UseCompatibleStateImageBehavior = false;
-            this.Chef_lvThird.View = System.Windows.Forms.View.List;
-            // 
-            // Chef_lvFourth
-            // 
-            this.Chef_lvFourth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.Chef_lvFourth.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Chef_lvFourth.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lvFourth.HideSelection = false;
-            this.Chef_lvFourth.Location = new System.Drawing.Point(-1, -1);
-            this.Chef_lvFourth.Margin = new System.Windows.Forms.Padding(0);
-            this.Chef_lvFourth.Name = "Chef_lvFourth";
-            this.Chef_lvFourth.Size = new System.Drawing.Size(416, 269);
-            this.Chef_lvFourth.TabIndex = 1;
-            this.Chef_lvFourth.UseCompatibleStateImageBehavior = false;
-            this.Chef_lvFourth.View = System.Windows.Forms.View.List;
             // 
             // Chef_pnlVoorraad
             // 
@@ -420,13 +447,21 @@
             this.Chef_chPrijs.Text = "Prijs";
             this.Chef_chPrijs.Width = 190;
             // 
+            // Chef_lblOpmerkingenContent
+            // 
+            this.Chef_lblOpmerkingenContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblOpmerkingenContent.Location = new System.Drawing.Point(15, 70);
+            this.Chef_lblOpmerkingenContent.Name = "Chef_lblOpmerkingenContent";
+            this.Chef_lblOpmerkingenContent.Size = new System.Drawing.Size(694, 308);
+            this.Chef_lblOpmerkingenContent.TabIndex = 1;
+            // 
             // ChefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.Chef_pnlVoorraad);
             this.Controls.Add(this.Chef_pnlOverzicht);
+            this.Controls.Add(this.Chef_pnlVoorraad);
             this.Controls.Add(this.Chef_pnlTop);
             this.Controls.Add(this.Chef_pnlLeft);
             this.Name = "ChefForm";
@@ -436,6 +471,8 @@
             this.Chef_pnlTop.ResumeLayout(false);
             this.Chef_pnlOverzicht.ResumeLayout(false);
             this.Chef_pnlOverzicht.PerformLayout();
+            this.Chef_pnlOpmerkingen.ResumeLayout(false);
+            this.Chef_pnlOpmerkingen.PerformLayout();
             this.Chef_pnlOverflow.ResumeLayout(false);
             this.Chef_pnlFourthOrder.ResumeLayout(false);
             this.Chef_pnlThirdOrder.ResumeLayout(false);
@@ -476,5 +513,8 @@
         private System.Windows.Forms.ColumnHeader Chef_chGerecht;
         private System.Windows.Forms.ColumnHeader Chef_chAantal;
         private System.Windows.Forms.ColumnHeader Chef_chPrijs;
+        private System.Windows.Forms.Panel Chef_pnlOpmerkingen;
+        private System.Windows.Forms.Label Chef_lblOpmerkingen;
+        private System.Windows.Forms.Label Chef_lblOpmerkingenContent;
     }
 }
