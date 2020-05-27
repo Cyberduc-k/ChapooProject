@@ -43,5 +43,19 @@ namespace Ui
                 ErrorHandler.Instance.HandleError("Het icoon con niet ingeladen worden", "Icoon niet gevonden", e);
             }
         }
+
+        public void UpdateOKbtn(List<bool> vars)
+        {
+            foreach (bool var in vars)
+            {
+                if (!var)
+                {
+                    CP_Popup_Parent_btnOK.Enabled = false;
+                    return;
+                }
+            }
+
+            CP_Popup_Parent_btnOK.Enabled = true;
+        }
     }
 }
