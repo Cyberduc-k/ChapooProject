@@ -27,9 +27,22 @@ namespace Model
             }
         }
 
+        //Constructor for employee's that need an id
         public Employee(int id, string firstName, string lastName, DateTime birthDate, DateTime dateEmployment, Gender gender, string password, EmployeeType employeeType)
         {
             Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
+            DateEmployment = dateEmployment;
+            Gender = gender;
+            Password = password;
+            EmployeeType = employeeType;
+        }
+
+        //Overload for employee's that dont need an id
+        public Employee(string firstName, string lastName, DateTime birthDate, DateTime dateEmployment, Gender gender, string password, EmployeeType employeeType)
+        {
             FirstName = firstName;
             LastName = lastName;
             BirthDate = birthDate;
