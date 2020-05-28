@@ -1,4 +1,5 @@
 CREATE TABLE [dbo].[Errors] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
   [type] VARCHAR(100) NOT NULL,
   [time] DATETIME2 NOT NULL,
   [message] VARCHAR(100) NULL,
