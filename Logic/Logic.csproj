@@ -47,6 +47,7 @@
     <Compile Include="Drink_Service.cs" />
     <Compile Include="Employee_Service.cs" />
     <Compile Include="ErrorHandler.cs" />
+    <Compile Include="Error_Service.cs" />
     <Compile Include="ListViewColumnSorter.cs" />
     <Compile Include="Menu_Service.cs" />
     <Compile Include="Order_Service.cs" />

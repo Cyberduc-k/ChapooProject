@@ -1,17 +1,16 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Model;
 
 namespace Logic
 {
     public class ErrorHandler //Class to handle all the errors thrown in the application
     {
-        private string path = "log.txt";
+        private Error_Service errorService = new Error_Service();
 
         //A singelton pattern to optimize overhead
         private static ErrorHandler instance;
-
-        private ErrorHandler() { }
 
         //Singleton
         public static ErrorHandler Instance
@@ -29,29 +28,18 @@ namespace Logic
         //Function to show and log the error
         public void HandleError(string message, string title, Exception e)
         {
-            //@TODO Log to DB, Store e type
             //Show the error as a popup
             MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            //Try to log the error to a file
+            //Try to log the error to the database
             try
             {
-                //Check if the file exists
-                if (!File.Exists(path))
-                    File.Create(path).Dispose();
-
-                //Write the error to the file
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine("Error Time: " + DateTime.Now);
-                    sw.WriteLine("Error Message: " + e.Message);
-                    sw.WriteLine("Stack Trace: " + e.StackTrace);
-                    sw.WriteLine();
-                }
+                errorService.LogError(new Error(e.GetType().Name, DateTime.Now, message, e.StackTrace));
             }
-            catch (Exception) //If there is an error while writing or creating the log file
+            catch (Exception ex) //If there is an error while writing to the db
             {
-                MessageBox.Show("De error kon helaas niet in een log gezet worden", "Loggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("De error kon helaas niet in de database gelogd worden", "Loggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.StackTrace, "Loggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
