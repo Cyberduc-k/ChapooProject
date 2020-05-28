@@ -1,3 +1,10 @@
+CREATE TABLE [dbo].[Errors] (
+  [type] VARCHAR(100) NOT NULL,
+  [time] DATETIME2 NOT NULL,
+  [message] VARCHAR(100) NULL,
+  [trace] TEXT NOT NULL,
+)
+
 CREATE TABLE [dbo].[Tables] (
   [id] INT NOT NULL PRIMARY KEY IDENTITY,
   [occupied] BIT NOT NULL,
