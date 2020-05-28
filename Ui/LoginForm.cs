@@ -59,6 +59,7 @@ namespace Ui
                         Hide();
                         cp_form.Location = Location;
                         cp_form.ShowDialog(this);
+                        cp_form.FormClosed += (s, a) => Show();
                         break;
                     case EmployeeType.Chef:
                         ChefForm chef_form = new ChefForm();
@@ -66,6 +67,15 @@ namespace Ui
                         Hide();
                         chef_form.Location = Location;
                         chef_form.ShowDialog(this);
+                        chef_form.FormClosed += (s, a) => Show();
+                        break;
+                    case EmployeeType.Waiter:
+                        OrderForm order_form = new OrderForm();
+
+                        Hide();
+                        order_form.Location = Location;
+                        order_form.ShowDialog(this);
+                        order_form.FormClosed += (s, a) => Show();
                         break;
                 }
 
