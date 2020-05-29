@@ -12,18 +12,18 @@ namespace Logic
         //A singelton pattern to optimize overhead
         private static ErrorHandler instance;
 
-        //Singleton
         public static ErrorHandler Instance
         {
             get
             {
                 if (instance == null)
-                {
                     instance = new ErrorHandler();
-                }
+
                 return instance;
             }
         }
+
+        private ErrorHandler() { }
 
         //Function to show and log the error
         public void HandleError(string message, string title, Exception e)
