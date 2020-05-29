@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarForm.Designer.cs">
+      <DependentUpon>BarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChefForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BarForm.resx">
+      <DependentUpon>BarForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChefForm.resx">
       <DependentUpon>ChefForm.cs</DependentUpon>
     </EmbeddedResource>

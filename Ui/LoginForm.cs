@@ -27,6 +27,9 @@ namespace Ui
             // Also show the chef panel on startup
             new ChefForm().Show();
 
+            // Also show the bar panel on startup
+            new BarForm().Show();
+
             // Also show the order panel on startup
             new OrderForm().Show();
         }
