@@ -21,14 +21,9 @@ namespace Ui
         private bool lastNameFilledIn = false;
         private bool passwordFilledIn = false;
 
-        private List<bool> vars;
-
         public CP_Popup_EditEmployee(int id, string firstName, string lastName, DateTime birthDate, DateTime employment, Gender gender, string password, EmployeeType employeeType)
         {
             InitializeComponent();
-
-            //Init the list with vars to enable the OK button
-            vars = new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn };
 
             //Load an icon for the form
             LoadIcon("Resources/pencil-icon.ico");
@@ -98,7 +93,7 @@ namespace Ui
             else
                 firstNameFilledIn = false;
 
-            UpdateOKbtn(vars);
+            UpdateOKbtn(firstNameFilledIn, lastNameFilledIn, passwordFilledIn);
         }
 
         private void CP_PopupEditEmployee_txtLastName_TextChanged(object sender, EventArgs e)
@@ -108,7 +103,7 @@ namespace Ui
             else
                 lastNameFilledIn = false;
 
-            UpdateOKbtn(vars);
+            UpdateOKbtn(firstNameFilledIn, lastNameFilledIn, passwordFilledIn);
         }
 
         private void CP_PopopEditEmployee_txtPassword_TextChanged(object sender, EventArgs e)
@@ -118,7 +113,7 @@ namespace Ui
             else
                 passwordFilledIn = false;
 
-            UpdateOKbtn(vars);
+            UpdateOKbtn(firstNameFilledIn, lastNameFilledIn, passwordFilledIn);
         }
     }
 }

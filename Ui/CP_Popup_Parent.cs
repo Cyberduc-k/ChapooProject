@@ -44,7 +44,7 @@ namespace Ui
             }
         }
 
-        public void UpdateOKbtn(List<bool> vars)
+        public void UpdateOKbtn(params bool[] vars)
         {
             foreach (bool var in vars)
             {
