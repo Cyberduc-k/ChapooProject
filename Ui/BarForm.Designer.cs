@@ -45,11 +45,11 @@
             this.Bar_pnlSecondOrder = new System.Windows.Forms.Panel();
             this.Bar_lvSecond = new System.Windows.Forms.ListView();
             this.Bar_pnlFirstOrder = new System.Windows.Forms.Panel();
+            this.Bar_btnFirstKlaar = new System.Windows.Forms.Button();
             this.Bar_lblGeenBestellingen = new System.Windows.Forms.Label();
             this.Bar_lvFirstOrder = new System.Windows.Forms.ListView();
             this.Bar_lvVoorraad = new System.Windows.Forms.ListView();
             this.Bar_lblActivePanel = new System.Windows.Forms.Label();
-            this.Bar_btnFirstKlaar = new System.Windows.Forms.Button();
             this.Bar_pnlVoorraad.SuspendLayout();
             this.Bar_pnlOverzicht.SuspendLayout();
             this.Bar_pnlOpmerkingen.SuspendLayout();
@@ -92,7 +92,6 @@
             // 
             // Bar_pnlVoorraad
             // 
-            this.Bar_pnlVoorraad.Controls.Add(this.Bar_pnlOverzicht);
             this.Bar_pnlVoorraad.Controls.Add(this.Bar_lvVoorraad);
             this.Bar_pnlVoorraad.Location = new System.Drawing.Point(94, 46);
             this.Bar_pnlVoorraad.Name = "Bar_pnlVoorraad";
@@ -101,13 +100,14 @@
             // 
             // Bar_pnlOverzicht
             // 
+            this.Bar_pnlOverzicht.Controls.Add(this.Bar_lblGeenBestellingen);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlOpmerkingen);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlOverflow);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlFourthOrder);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlThirdOrder);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlSecondOrder);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlFirstOrder);
-            this.Bar_pnlOverzicht.Location = new System.Drawing.Point(0, 0);
+            this.Bar_pnlOverzicht.Location = new System.Drawing.Point(94, 46);
             this.Bar_pnlOverzicht.Name = "Bar_pnlOverzicht";
             this.Bar_pnlOverzicht.Size = new System.Drawing.Size(694, 392);
             this.Bar_pnlOverzicht.TabIndex = 1;
@@ -210,21 +210,30 @@
             // Bar_pnlFirstOrder
             // 
             this.Bar_pnlFirstOrder.Controls.Add(this.Bar_btnFirstKlaar);
-            this.Bar_pnlFirstOrder.Controls.Add(this.Bar_lblGeenBestellingen);
             this.Bar_pnlFirstOrder.Controls.Add(this.Bar_lvFirstOrder);
             this.Bar_pnlFirstOrder.Location = new System.Drawing.Point(3, 3);
             this.Bar_pnlFirstOrder.Name = "Bar_pnlFirstOrder";
             this.Bar_pnlFirstOrder.Size = new System.Drawing.Size(312, 160);
             this.Bar_pnlFirstOrder.TabIndex = 0;
             // 
+            // Bar_btnFirstKlaar
+            // 
+            this.Bar_btnFirstKlaar.Location = new System.Drawing.Point(4, 134);
+            this.Bar_btnFirstKlaar.Name = "Bar_btnFirstKlaar";
+            this.Bar_btnFirstKlaar.Size = new System.Drawing.Size(75, 23);
+            this.Bar_btnFirstKlaar.TabIndex = 2;
+            this.Bar_btnFirstKlaar.Text = "Klaar";
+            this.Bar_btnFirstKlaar.UseVisualStyleBackColor = true;
+            this.Bar_btnFirstKlaar.Click += new System.EventHandler(this.Bar_btnFirstKlaar_Click_1);
+            // 
             // Bar_lblGeenBestellingen
             // 
             this.Bar_lblGeenBestellingen.AutoSize = true;
-            this.Bar_lblGeenBestellingen.Location = new System.Drawing.Point(137, 65);
+            this.Bar_lblGeenBestellingen.Location = new System.Drawing.Point(312, 183);
             this.Bar_lblGeenBestellingen.Name = "Bar_lblGeenBestellingen";
-            this.Bar_lblGeenBestellingen.Size = new System.Drawing.Size(35, 13);
+            this.Bar_lblGeenBestellingen.Size = new System.Drawing.Size(92, 13);
             this.Bar_lblGeenBestellingen.TabIndex = 1;
-            this.Bar_lblGeenBestellingen.Text = "label1";
+            this.Bar_lblGeenBestellingen.Text = "Geen bestellingen";
             // 
             // Bar_lvFirstOrder
             // 
@@ -243,6 +252,7 @@
             this.Bar_lvVoorraad.Size = new System.Drawing.Size(688, 386);
             this.Bar_lvVoorraad.TabIndex = 0;
             this.Bar_lvVoorraad.UseCompatibleStateImageBehavior = false;
+            this.Bar_lvVoorraad.View = System.Windows.Forms.View.Details;
             // 
             // Bar_lblActivePanel
             // 
@@ -253,21 +263,12 @@
             this.Bar_lblActivePanel.TabIndex = 6;
             this.Bar_lblActivePanel.Text = "label1";
             // 
-            // Bar_btnFirstKlaar
-            // 
-            this.Bar_btnFirstKlaar.Location = new System.Drawing.Point(4, 134);
-            this.Bar_btnFirstKlaar.Name = "Bar_btnFirstKlaar";
-            this.Bar_btnFirstKlaar.Size = new System.Drawing.Size(75, 23);
-            this.Bar_btnFirstKlaar.TabIndex = 2;
-            this.Bar_btnFirstKlaar.Text = "Klaar";
-            this.Bar_btnFirstKlaar.UseVisualStyleBackColor = true;
-            this.Bar_btnFirstKlaar.Click += new System.EventHandler(this.Bar_btnFirstKlaar_Click_1);
-            // 
             // BarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Bar_pnlOverzicht);
             this.Controls.Add(this.Bar_lblActivePanel);
             this.Controls.Add(this.Bar_pnlVoorraad);
             this.Controls.Add(this.Bar_btnBestellen);
@@ -277,6 +278,7 @@
             this.Text = "BarForm";
             this.Bar_pnlVoorraad.ResumeLayout(false);
             this.Bar_pnlOverzicht.ResumeLayout(false);
+            this.Bar_pnlOverzicht.PerformLayout();
             this.Bar_pnlOpmerkingen.ResumeLayout(false);
             this.Bar_pnlOpmerkingen.PerformLayout();
             this.Bar_pnlOverflow.ResumeLayout(false);
@@ -285,7 +287,6 @@
             this.Bar_pnlThirdOrder.ResumeLayout(false);
             this.Bar_pnlSecondOrder.ResumeLayout(false);
             this.Bar_pnlFirstOrder.ResumeLayout(false);
-            this.Bar_pnlFirstOrder.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

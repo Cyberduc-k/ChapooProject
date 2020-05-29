@@ -15,6 +15,22 @@ namespace Dao
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
+        
+        // Get a list of all drinks for the specified order
+        public List<Drink> GetAllForOrder(int orderId)
+        {
+            string query =
+                "SELECT D.[id], D.[name], D.[alcoholic], D.[price], D.[stock] " +
+                "FROM [dbo].[Drinks] AS D " +
+                "JOIN [dbo].[Order_has_drink] AS OD ON OD.[drinkId] = D.[id] " +
+                "WHERE OD.[orderId] = @orderId";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@orderId", orderId),
+            };
+
+            return ReadAll(ExecuteSelectQuery(query, parameters));
+        }
 
         // Add a new drink to the database
         public void Add(Drink drink)

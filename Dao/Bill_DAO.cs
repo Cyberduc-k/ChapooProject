@@ -13,7 +13,7 @@ namespace Dao
         {
             string query = "SELECT [id], [date], [tableId], [orderId], [price], [employeeId] FROM [dbo].[Bills]";
 
-        SqlParameter[] parameters = new SqlParameter[0];
+            SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
@@ -61,6 +61,8 @@ namespace Dao
                 new SqlParameter("@employeeId", bill.Employee),
                 new SqlParameter("@id", bill.Id),
             };
+
+            ExecuteEditQuery(query, parameters);
         }
 
         // Convert the raw database data into a list of Bill objects

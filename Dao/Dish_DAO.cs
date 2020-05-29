@@ -38,8 +38,8 @@ namespace Dao
         {
             string query =
                 "SELECT D.[id], D.[name], D.[description], D.[ingredients], D.[price], D.[stock], D.[category] " +
-                "FROM[dbo].[Dishes] AS D " +
-                "JOIN[dbo].[Order_has_dish] AS OD ON OD.[dishId] = D.[id] " +
+                "FROM [dbo].[Dishes] AS D " +
+                "JOIN [dbo].[Order_has_dish] AS OD ON OD.[dishId] = D.[id] " +
                 "WHERE OD.[orderId] = @orderId";
             SqlParameter[] parameters = new SqlParameter[1]
             {

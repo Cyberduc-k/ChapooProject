@@ -85,7 +85,7 @@ namespace Dao
         {
             int id = (int)dataRow["id"];
             List<Dish> dishes = new Dish_DAO().GetAllForOrder(id);
-            List<Drink> drinks = new List<Drink>();
+            List<Drink> drinks = new Drink_DAO().GetAllForOrder(id);
             int employeeId = int.Parse(dataRow["employeeId"].ToString());
             int tableId = int.Parse(dataRow["tableId"].ToString());
             OrderState state = (OrderState)int.Parse(dataRow["orderState"].ToString());
