@@ -14,14 +14,9 @@ namespace Ui
         private bool lastNameFilledIn = false;
         private bool passwordFilledIn = false;
 
-        private List<bool> vars;
-
         public CP_Popup_NewEmployee()
         {
             InitializeComponent();
-
-            //Init the list with vars to enable the OK button
-            vars = new List<bool>() { firstNameFilledIn, lastNameFilledIn, passwordFilledIn };
 
             //Load an icon for the form
             LoadIcon("Resources/pencil-icon.ico");
@@ -35,7 +30,7 @@ namespace Ui
             else
                 firstNameFilledIn = false;
 
-            UpdateOKbtn(vars);
+            UpdateOKbtn(firstNameFilledIn, lastNameFilledIn, passwordFilledIn);
         }
 
         //Get called whenever the text in the LastName textbox changes
@@ -46,7 +41,7 @@ namespace Ui
             else
                 lastNameFilledIn = false;
 
-            UpdateOKbtn(vars);
+            UpdateOKbtn(firstNameFilledIn, lastNameFilledIn, passwordFilledIn);
         }
 
         //Get called whenever the text in the Password textbox changes
@@ -57,7 +52,7 @@ namespace Ui
             else
                 passwordFilledIn = false;
 
-            UpdateOKbtn(vars);
+            UpdateOKbtn(firstNameFilledIn, lastNameFilledIn, passwordFilledIn);
         }
 
         public override void OnClickOK(object sender, EventArgs e)
