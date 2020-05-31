@@ -23,6 +23,9 @@ namespace Ui
         //Var used to create new columnHeader for the listView sorter
         private ColumnHeader columnheader;
 
+        //Var to track the shown menu card
+        private MenuType shownMenu;
+
         public ControlPanelForm()
         {
             InitializeComponent();
@@ -362,6 +365,10 @@ namespace Ui
         //Called when an item is selected, so the buttons that require a selected item are enabled
         private void CP_Medewerkers_listView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Make sure an item is selected
+            if (!(CP_Medewerkers_listView.SelectedItems.Count > 0))
+                return;
+
             CP_Medewerkers_btnEdit.Enabled = true;
             CP_Medewerkers_btnVerwijderen.Enabled = true;
 
@@ -491,6 +498,8 @@ namespace Ui
             {
                 ch.Width = -2;
             }
+
+            shownMenu = MenuType.Drinksmenu;
         }
 
         private void LoadMenukaartenLunch()
@@ -537,6 +546,8 @@ namespace Ui
             {
                 ch.Width = -2;
             }
+
+            shownMenu = MenuType.Lunchmenu;
         }
 
         private void LoadMenukaartenDinner()
@@ -583,10 +594,17 @@ namespace Ui
             {
                 ch.Width = -2;
             }
+
+            shownMenu = MenuType.Dinnermenu;
         }
+
         #region OnClicks
         private void CP_Menukaarten_listView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Make sure an item is selected
+            if (!(CP_Menukaarten_listView.SelectedItems.Count > 0))
+                return;
+
             CP_Menukaarten_btnEditItem.Enabled = true;
             CP_Menukaarten_btnDeleteItem.Enabled = true;
 
@@ -620,7 +638,12 @@ namespace Ui
 
         private void CP_Menukaarten_btnNewItem_Click(object sender, EventArgs e)
         {
+            Form popup = new CP_Popup_NewEmployee();
 
+            popup.ShowDialog();
+
+            if (popup.DialogResult == DialogResult.OK)
+                LoadEmployeeList();
         }
 
         private void CP_Menukaarten_btnEditItem_Click(object sender, EventArgs e)
