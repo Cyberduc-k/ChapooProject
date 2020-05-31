@@ -79,7 +79,7 @@
             this.CP_pnlNavMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.CP_pnlNavMenu.Location = new System.Drawing.Point(0, 0);
             this.CP_pnlNavMenu.Name = "CP_pnlNavMenu";
-            this.CP_pnlNavMenu.Size = new System.Drawing.Size(151, 1061);
+            this.CP_pnlNavMenu.Size = new System.Drawing.Size(151, 1021);
             this.CP_pnlNavMenu.TabIndex = 1;
             // 
             // CP_btnMedewerkers
@@ -142,7 +142,7 @@
             this.CP_btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_btnUitloggen.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnUitloggen.ForeColor = System.Drawing.Color.White;
-            this.CP_btnUitloggen.Location = new System.Drawing.Point(0, 999);
+            this.CP_btnUitloggen.Location = new System.Drawing.Point(0, 959);
             this.CP_btnUitloggen.Name = "CP_btnUitloggen";
             this.CP_btnUitloggen.Size = new System.Drawing.Size(151, 62);
             this.CP_btnUitloggen.TabIndex = 4;
@@ -220,7 +220,7 @@
             this.CP_pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.CP_pnlHeader.Location = new System.Drawing.Point(151, 0);
             this.CP_pnlHeader.Name = "CP_pnlHeader";
-            this.CP_pnlHeader.Size = new System.Drawing.Size(1821, 66);
+            this.CP_pnlHeader.Size = new System.Drawing.Size(1717, 66);
             this.CP_pnlHeader.TabIndex = 2;
             // 
             // CP_lblActivePanel
@@ -512,7 +512,7 @@
             // ControlPanelForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1972, 1061);
+            this.ClientSize = new System.Drawing.Size(1868, 1021);
             this.Controls.Add(this.CP_pnlMenukaarten);
             this.Controls.Add(this.CP_pnlMedewerkers);
             this.Controls.Add(this.CP_pnlVoorraad);

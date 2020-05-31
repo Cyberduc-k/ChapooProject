@@ -54,6 +54,15 @@ namespace Ui
 
         public override void OnClickOK(object sender, EventArgs e)
         {
+            Form popup = new CP_Popup_Sure(CP_PopopEditEmployee_txtFirstName.Text);
+            popup.ShowDialog();
+
+            if (!(popup.DialogResult == DialogResult.OK))
+            {
+                DialogResult = DialogResult.Cancel;
+                Close();
+            }
+
             Employee_Service employeeService = new Employee_Service();
 
             string firstName = CP_PopopEditEmployee_txtFirstName.Text;
