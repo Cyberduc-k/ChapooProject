@@ -82,6 +82,12 @@
     <Compile Include="CP_Popup_Parent.Designer.cs">
       <DependentUpon>CP_Popup_Parent.cs</DependentUpon>
     </Compile>
+    <Compile Include="CP_Popup_Sure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_Sure.Designer.cs">
+      <DependentUpon>CP_Popup_Sure.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CP_Popup_Parent.resx">
       <DependentUpon>CP_Popup_Parent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_Sure.resx">
+      <DependentUpon>CP_Popup_Sure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

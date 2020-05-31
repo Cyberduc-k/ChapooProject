@@ -384,9 +384,16 @@ namespace Ui
                 MessageBox.Show("U moet een medewerker selecteren", "Selecteer 1 medewerker", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
+            //Verify if the user really wants to remove these items
+            Form popup = new CP_Popup_Sure(CP_Medewerkers_listView.SelectedItems.Count);
+            popup.ShowDialog();
+
+            if (!(popup.DialogResult == DialogResult.OK))
+                return;
+
             //Remove all selected employee's
-            foreach(ListViewItem item in CP_Medewerkers_listView.SelectedItems){
+            foreach (ListViewItem item in CP_Medewerkers_listView.SelectedItems){
                 bool success = int.TryParse(item.Text, out int id);
                 if(success)
                     employeeService.DeleteEmployee(id);
