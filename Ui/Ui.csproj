@@ -64,6 +64,12 @@
     <Compile Include="ControlPanelForm.Designer.cs">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CP_Popup_AddToMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_AddToMenu.Designer.cs">
+      <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="CP_Popup_EditEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlPanelForm.resx">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_AddToMenu.resx">
+      <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CP_Popup_EditEmployee.resx">
       <DependentUpon>CP_Popup_EditEmployee.cs</DependentUpon>

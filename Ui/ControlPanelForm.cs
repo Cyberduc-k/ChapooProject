@@ -638,12 +638,19 @@ namespace Ui
 
         private void CP_Menukaarten_btnNewItem_Click(object sender, EventArgs e)
         {
-            Form popup = new CP_Popup_NewEmployee();
+            Form popup = new CP_Popup_AddToMenu(shownMenu);
 
             popup.ShowDialog();
 
             if (popup.DialogResult == DialogResult.OK)
-                LoadEmployeeList();
+            {
+                if (shownMenu == MenuType.Drinksmenu)
+                    LoadMenukaartenDrinks();
+                else if (shownMenu == MenuType.Dinnermenu)
+                    LoadMenukaartenDinner();
+                else
+                    LoadMenukaartenLunch();
+            }
         }
 
         private void CP_Menukaarten_btnEditItem_Click(object sender, EventArgs e)
