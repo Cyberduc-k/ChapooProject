@@ -36,6 +36,7 @@ namespace Ui
         private void SetHightlight(Button btn)
         {
             Chef_btnOverzicht.BackColor = Color.FromArgb(0, 165, 229);
+            Chef_btnGereed.BackColor = Color.FromArgb(0, 165, 229);
             Chef_btnVoorraad.BackColor = Color.FromArgb(0, 165, 229);
             btn.BackColor = Color.FromArgb(0, 184, 255);
         }
@@ -50,6 +51,7 @@ namespace Ui
             Chef_pnlThirdOrder.Hide();
             Chef_pnlFourthOrder.Hide();
             Chef_pnlOverflow.Hide();
+            Chef_pnlGereed.Hide();
             Chef_pnlVoorraad.Hide();
         }
 
@@ -135,6 +137,55 @@ namespace Ui
         {
             Chef_pnlOverflow.Show();
             Chef_lblOverflow.Text = string.Format("+ {0}", count);
+        }
+
+        private void Chef_btnGereed_Click(object sender, EventArgs e)
+        {
+            SetHightlight(Chef_btnGereed);
+            Chef_lblActivePanel.Text = "Gereed";
+            HideAllPanels();
+            Chef_pnlGereed.Show();
+
+            // Get all orders that are ready/served
+            List<Order> orders = order_service
+                .GetAllOrders()
+                .Where(order => order.State == OrderState.Done || order.State == OrderState.Served)
+                .ToList();
+
+            Chef_pnlOrders.Controls.Clear();
+
+            int y = 0;
+
+            for (int i = 0; i < orders.Count; i++)
+            {
+                Order order = orders[i];
+                Panel pnl_order = new Panel();
+                ListView lv_order = new ListView();
+
+                pnl_order.BackColor = Color.FromArgb(250, 253, 255);
+                pnl_order.BorderStyle = BorderStyle.FixedSingle;
+                pnl_order.Controls.Add(lv_order);
+                pnl_order.Location = new Point(0, y);
+                pnl_order.Name = $"Chef_pnlOrder_{i}";
+                pnl_order.Size = new Size(666, 483);
+
+                lv_order.BackColor = Color.FromArgb(250, 253, 255);
+                lv_order.BorderStyle = BorderStyle.None;
+                lv_order.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                lv_order.HideSelection = false;
+                lv_order.Location = new Point(0, 0);
+                lv_order.Margin = new Padding(0);
+                lv_order.Name = $"Chef_lvOrder_{i}";
+                lv_order.Size = new Size(664, 481);
+                lv_order.View = View.List;
+
+                foreach (Dish dish in order.Dishes)
+                    lv_order.Items.Add(dish.Name);
+
+                Chef_pnlOrders.Controls.Add(pnl_order);
+
+                y += 503;
+            }
         }
 
         private void Chef_btnVoorraad_Click(object sender, EventArgs e)
