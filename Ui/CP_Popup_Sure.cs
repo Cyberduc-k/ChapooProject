@@ -16,7 +16,7 @@ namespace Ui
         {
             InitializeComponent();
 
-            CP_Popup_Sure_lblText.Text = "Weet je zeker dat je " + count + " medewerkers van de lijst wilt verwijderen?";
+            CP_Popup_Sure_lblText.Text = "Weet je zeker dat je " + count + " medewerker(s) van de lijst wilt verwijderen?";
             CP_Popup_Parent_btnOK.Enabled = true;
         }
 

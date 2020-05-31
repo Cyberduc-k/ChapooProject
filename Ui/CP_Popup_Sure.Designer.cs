@@ -43,7 +43,7 @@
             // 
             this.CP_Popup_Sure_lblText.AutoSize = true;
             this.CP_Popup_Sure_lblText.Font = new System.Drawing.Font("Roboto", 12F);
-            this.CP_Popup_Sure_lblText.Location = new System.Drawing.Point(57, 116);
+            this.CP_Popup_Sure_lblText.Location = new System.Drawing.Point(159, 117);
             this.CP_Popup_Sure_lblText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CP_Popup_Sure_lblText.Name = "CP_Popup_Sure_lblText";
             this.CP_Popup_Sure_lblText.Size = new System.Drawing.Size(403, 19);
@@ -58,7 +58,7 @@
             this.ClientSize = new System.Drawing.Size(667, 343);
             this.Controls.Add(this.CP_Popup_Sure_lblText);
             this.Font = new System.Drawing.Font("Roboto", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CP_Popup_Sure";
             this.Text = "Form1";
             this.ResumeLayout(false);
