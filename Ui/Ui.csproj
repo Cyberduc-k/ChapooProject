@@ -52,6 +52,12 @@
     <Compile Include="BarForm.Designer.cs">
       <DependentUpon>BarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BestelLijstFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BestelLijstFrom.Designer.cs">
+      <DependentUpon>BestelLijstFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChefForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,12 @@
     <Compile Include="CP_Popup_Sure.Designer.cs">
       <DependentUpon>CP_Popup_Sure.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailForm.Designer.cs">
+      <DependentUpon>DetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +113,18 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginState.cs" />
+    <Compile Include="LunchMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LunchMenuForm.Designer.cs">
+      <DependentUpon>LunchMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +135,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BarForm.resx">
       <DependentUpon>BarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BestelLijstFrom.resx">
+      <DependentUpon>BestelLijstFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChefForm.resx">
       <DependentUpon>ChefForm.cs</DependentUpon>
@@ -133,8 +160,17 @@
     <EmbeddedResource Include="CP_Popup_Sure.resx">
       <DependentUpon>CP_Popup_Sure.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DetailForm.resx">
+      <DependentUpon>DetailForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LunchMenuForm.resx">
+      <DependentUpon>LunchMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>

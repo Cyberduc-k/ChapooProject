@@ -2,6 +2,7 @@ using System;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using Model;
 
 namespace Dao
 {
@@ -42,8 +43,7 @@ namespace Dao
             }
             catch (Exception e)
             {
-                //Print.ErrorLog(e);
-                throw;
+                new Error_DAO().Log(new Error(e.GetType().Name, DateTime.Now, e.Message, e.StackTrace));
             }
         }
 
@@ -62,8 +62,7 @@ namespace Dao
             }
             catch (SqlException e)
             {
-               // Print.ErrorLog(e);
-                throw;
+                new Error_DAO().Log(new Error(e.GetType().Name, DateTime.Now, e.Message, e.StackTrace));
             }
             finally
             {
@@ -92,9 +91,9 @@ namespace Dao
             }
             catch (SqlException e)
             {
-               // Print.ErrorLog(e);
+                new Error_DAO().Log(new Error(e.GetType().Name, DateTime.Now, e.Message, e.StackTrace));
+
                 return null;
-                throw;
             }
             finally
             {

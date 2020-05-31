@@ -39,7 +39,7 @@ namespace Ui
             // Parse the user Id into a number
             if (!int.TryParse(Login_textBoxNummer.Text, out int id))
             {
-                ErrorHandler.Instance.HandleError("Ongeldig personeelsnummer ingevoerd", "Ongeldig personeelsnummer", null);
+                ErrorHandler.Instance.HandleError("Ongeldig personeelsnummer ingevoerd", "Ongeldig personeelsnummer", new Exception());
                 ErrorState();
                 return;
             }
