@@ -16,6 +16,18 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        // Get the last dish id
+        public int GetLastId()
+        {
+            string query = "SELECT IDENT_CURRENT('Dishes') as nextId";
+            SqlParameter[] parameters = new SqlParameter[0];
+
+            DataTable table = ExecuteSelectQuery(query, parameters);
+            DataRow row = table.Rows[0];
+
+            return int.Parse(row["nextId"].ToString());
+        }
+
         public List<Dish> GetAllDinner()
         {
             //1 is the diner card
@@ -50,16 +62,26 @@ namespace Dao
         }
 
         // Add a new dish to the database
-        public void Add(Dish dish)
+        public void Add(Dish dish, MenuType menu)
         {
-            string query = "INSERT INTO [dbo].[Dishes] ([name], [description], [ingredients], [price], [stock]) VALUES (@name, @description, @ingredients, @price, @stock)";
-            SqlParameter[] parameters = new SqlParameter[5]
+            string query = "INSERT INTO [dbo].[Dishes] ([name], [description], [ingredients], [price], [stock], [category]) VALUES (@name, @description, @ingredients, @price, @stock, @category)";
+            SqlParameter[] parameters = new SqlParameter[6]
             {
                 new SqlParameter("@name", dish.Name),
                 new SqlParameter("@description", dish.Description),
-                new SqlParameter("@ingredienst", dish.Ingredients),
+                new SqlParameter("@ingredients", dish.Ingredients),
                 new SqlParameter("@price", dish.Price),
                 new SqlParameter("@stock", dish.Stock),
+                new SqlParameter("@category", (int)dish.Category)
+            };
+
+            ExecuteEditQuery(query, parameters);
+
+            query = "INSERT INTO [dbo].[Menu_has_dish] ([menuId], [dishId]) VALUES (@menuId, @dishId)";
+            parameters = new SqlParameter[2]
+            {
+                new SqlParameter("@menuId", (int)menu + 1),
+                new SqlParameter("@dishId", GetLastId()),
             };
 
             ExecuteEditQuery(query, parameters);

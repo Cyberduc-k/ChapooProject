@@ -28,9 +28,9 @@ namespace Logic
         }
 
         //Add a new dish
-        public void AddDish(Dish dish)
+        public void AddDish(Dish dish, MenuType menuType)
         {
-            dish_DAO.Add(dish);
+            dish_DAO.Add(dish, menuType);
         }
 
         //Remove a dish
