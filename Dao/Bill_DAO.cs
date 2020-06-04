@@ -82,11 +82,10 @@ namespace Dao
             int id = (int)dataRow["Id"];
             DateTime date = (DateTime)dataRow["id"];
             Table tableId = (Table)dataRow["tableId"];
-            List<Order> order = (List<Order>)dataRow["orderId"];
-            double price = (double)dataRow["price"];
+            List<Order> orders = new Order_DAO().GetAllForBill(id);
             Employee employeeId = (Employee)dataRow["employeeId"];
 
-            return new Bill(id, date, tableId, order, price, employeeId);
+            return new Bill(id, date, tableId, orders, employeeId);
         }
     }
 }
