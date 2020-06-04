@@ -11,18 +11,27 @@ namespace Model
         public int Id { get; }
         public DateTime Date { get; }
         public Table Table { get; }
-	    public List<Order> Order { get; }
-        public double Price { get; }
+	    public List<Order> Orders { get; }
         public Employee Employee { get; }
 
-        public Bill(int id, DateTime date, Table table, List<Order> order,  double price,  Employee employee)
+        public Bill(int id, DateTime date, Table table, List<Order> orders, Employee employee)
         {
             Id = id;
             Date = date;
             Table = table;
-            Order = order;
-            Price = price;
+            Orders = orders;
             Employee = employee;
+        }
+
+        public double Price
+        {
+            get
+            {
+                return Orders.Sum((order) =>
+                    order.Dishes.Sum((dish) => dish.Price) +
+                    order.Drinks.Sum((drink) => drink.Price)
+                );
+            }
         }
     }
 }

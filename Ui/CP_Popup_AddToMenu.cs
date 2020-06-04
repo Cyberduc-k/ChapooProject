@@ -99,7 +99,7 @@ namespace Ui
             //Add a new dish to the system
             try
             {
-                dishService.AddDish(new Dish(name, description, ingredients, price, stock, category), currentMenu);
+                dishService.AddDish(new Dish(0, name, description, ingredients, price, stock, category), currentMenu);
             }
             catch (Exception ex)
             {

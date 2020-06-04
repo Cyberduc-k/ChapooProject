@@ -19,6 +19,21 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        public List<Order> GetAllForBill(int billId)
+        {
+            string query =
+                "SELECT [D].[id], [D].[comment], [D].[orderState], [D].[timeOrdering], [D].[timeFinished], [D].[tableId], [D].[employeeId] " +
+                "FROM [dbo].[Orders] AS D " +
+                "JOIN [dbo].[Bill_has_Order] AS B ON B.[orderId] = D.[id] " +
+                "WHERE B.[billId] = @billId";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@billId", billId),
+            };
+
+            return ReadAll(ExecuteSelectQuery(query, parameters));
+        }
+
         // Add a new order to the database
         public void Add(Order order)
         {
