@@ -12,5 +12,6 @@ namespace Model
         Started,
         Done,
         Served,
+        Payed,
     }
 }

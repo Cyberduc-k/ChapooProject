@@ -192,15 +192,5 @@ namespace Ui
 
             lv.Sort();
         }
-
-        private void Bar_btnBestellen_Click_1(object sender, EventArgs e)
-        {
-            SetHightlight(Bar_btnOverzicht);
-            Bar_lblActivePanel.Text = "Bestellen";
-            HideAllPanels();
-            //Bar_pnlBestellen.Show();
-
-            //@TODO
-        }
     }
 }

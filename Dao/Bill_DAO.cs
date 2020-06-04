@@ -18,6 +18,20 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        // Get bill by tableId
+        public Bill GetBillByTableId(int tableId)
+        {
+            string query = "SELECT [id], [date], [tableId], [orderId], [price], [employeeId] FROM [dbo].[Bills] WHERE [tableId] = @tableId";
+
+            SqlParameter[] parameters = new SqlParameter[1] {
+
+                new SqlParameter("@tableId", tableId),
+
+            };
+
+            return Read(ExecuteSelectQuery(query, parameters).Rows[0]);
+        }
+
         // Add a new bill to the database
         public void Add(Bill bill)
         {

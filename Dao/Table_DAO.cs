@@ -71,7 +71,7 @@ namespace Dao
         {
             int id = (int)dataRow["id"];
             bool occupied = (bool)dataRow["occupied"];
-            int seats = (int)dataRow["seats"];
+            byte seats = (byte)dataRow["seats"];
 
             return new Table(id, seats, occupied);
         }
