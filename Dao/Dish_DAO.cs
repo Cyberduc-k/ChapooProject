@@ -88,12 +88,12 @@ namespace Dao
         }
 
         // Remove a dish from the database
-        public void Remove(Dish dish)
+        public void Remove(int id)
         {
-            string query = "DELETE FROM [dbo].[Dish] WHERE [id] = @id";
+            string query = "DELETE FROM [dbo].[Dishes] WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[1]
             {
-                new SqlParameter("@id", dish.Id),
+                new SqlParameter("@id", id),
             };
 
             ExecuteEditQuery(query, parameters);
@@ -103,14 +103,16 @@ namespace Dao
         public void Modify(Dish dish)
         {
             string query = "UPDATE [dbo].[Dishes] SET " +
-                "[name] = @name, [description] = @description, [ingredients] = @ingredients, [price] = @price, [stock] = @stock " +
+                "[name] = @name, [description] = @description, [ingredients] = @ingredients, [price] = @price, [stock] = @stock, [category] = @category " +
                 "WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[5]
+            SqlParameter[] parameters = new SqlParameter[7]
             {
                 new SqlParameter("@name", dish.Name),
                 new SqlParameter("@description", dish.Description),
+                new SqlParameter("@ingredients", dish.Ingredients),
                 new SqlParameter("@price", dish.Price),
                 new SqlParameter("@stock", dish.Stock),
+                new SqlParameter("@category", dish.Category),
                 new SqlParameter("@id", dish.Id),
             };
 

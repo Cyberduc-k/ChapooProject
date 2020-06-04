@@ -34,9 +34,9 @@ namespace Logic
         }
 
         //Remove a dish
-        public void RemoveDish(Dish dish)
+        public void RemoveDish(int id)
         {
-            dish_DAO.Remove(dish);
+            dish_DAO.Remove(id);
         }
 
         //Modify the properties of a dish
