@@ -180,7 +180,7 @@ namespace Ui
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Beschrijving";
+            columnheader.Text = "Omschrijving";
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
@@ -243,7 +243,7 @@ namespace Ui
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Beschrijving";
+            columnheader.Text = "Omschrijving";
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
@@ -424,9 +424,9 @@ namespace Ui
             //Verify if the user really wants to remove these items
             CP_Popup_Sure popup = new CP_Popup_Sure();
             if (CP_Medewerkers_listView.SelectedItems.Count > 1)
-                popup.SetAsRemove(CP_Medewerkers_listView.SelectedItems.Count);
+                popup.SetAsRemoveEmployee(CP_Medewerkers_listView.SelectedItems.Count);
             else
-                popup.SetAsRemove(((Employee)CP_Medewerkers_listView.Tag).FirstName);         
+                popup.SetAsRemoveEmployee(((Employee)CP_Medewerkers_listView.SelectedItems[0].Tag).FirstName);         
 
             popup.ShowDialog();
 
@@ -547,7 +547,7 @@ namespace Ui
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Beschrijving";
+            columnheader.Text = "Omschrijving";
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
@@ -603,7 +603,7 @@ namespace Ui
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Beschrijving";
+            columnheader.Text = "Omschrijving";
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
@@ -689,12 +689,74 @@ namespace Ui
 
         private void CP_Menukaarten_btnEditItem_Click(object sender, EventArgs e)
         {
+            //Make sure a single item is selected
+            if (CP_Menukaarten_listView.SelectedItems.Count != 1)
+            {
+                if (CP_Menukaarten_listView.SelectedItems.Count > 1)
+                    MessageBox.Show("U kunt maar 1 item tegelijk aanpassen", "Selecteer 1 item", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                return;
+            }
+
+            CP_Popup_EditMenu popup;
+            /*if(shownMenu == MenuType.Drinksmenu)
+                popup = new CP_Popup_EditMenu((Drink)CP_Menukaarten_listView.SelectedItems[0].Tag);
+            else*/
+                popup = new CP_Popup_EditMenu((Dish)CP_Menukaarten_listView.SelectedItems[0].Tag);
+
+            popup.ShowDialog();
+
+            //Reload the menu list
+            //@TODO Remove duplicate code
+            if (popup.DialogResult == DialogResult.OK)
+            {
+                if (shownMenu == MenuType.Dinnermenu)
+                    LoadMenukaartenDinner();
+                else if (shownMenu == MenuType.Lunchmenu)
+                    LoadMenukaartenLunch();
+                else
+                    LoadMenukaartenDrinks();
+            }
         }
 
         private void CP_Menukaarten_btnDeleteItem_Click(object sender, EventArgs e)
         {
+            //Make sure a single item is selected
+            if (CP_Menukaarten_listView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("U moet een item selecteren", "Selecteer 1 item", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            //Verify if the user really wants to remove these items
+            CP_Popup_Sure popup = new CP_Popup_Sure();
+            if (CP_Menukaarten_listView.SelectedItems.Count > 1)
+                popup.SetAsRemoveDish(CP_Menukaarten_listView.SelectedItems.Count);
+            else
+                popup.SetAsRemoveDish(((Dish)CP_Menukaarten_listView.SelectedItems[0].Tag).Name);
+
+            popup.ShowDialog();
+
+            if (!(popup.DialogResult == DialogResult.OK))
+                return;
+
+            //Remove all selected items
+            foreach (ListViewItem item in CP_Menukaarten_listView.SelectedItems)
+            {
+                dishService.RemoveDish(((Dish)item.Tag).Id);
+            }
+
+            //Reload the menu list
+            //@TODO Remove duplicate code
+            if (popup.DialogResult == DialogResult.OK)
+            {
+                if (shownMenu == MenuType.Dinnermenu)
+                    LoadMenukaartenDinner();
+                else if (shownMenu == MenuType.Lunchmenu)
+                    LoadMenukaartenLunch();
+                else
+                    LoadMenukaartenDrinks();
+            }
         }
         #endregion
         #endregion

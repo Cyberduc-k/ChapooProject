@@ -12,12 +12,32 @@ namespace Ui
             CP_Popup_Parent_btnOK.Enabled = true;
         }
 
-        public void SetAsRemove(int count)
+        public void SetAsRemoveEmployee(int count)
         {
             CP_Popup_Sure_lblText.Text = "Weet u zeker dat u " + count + " medewerkers wilt verwijderen?";
         }
 
-        public void SetAsRemove(string name)
+        public void SetAsRemoveEmployee(string name)
+        {
+            CP_Popup_Sure_lblText.Text = "Weet u zeker dat u " + name + " wilt verwijderen?";
+        }
+
+        public void SetAsRemoveDish(int count)
+        {
+            CP_Popup_Sure_lblText.Text = "Weet u zeker dat u " + count + " gerechten wilt verwijderen?";
+        }
+
+        public void SetAsRemoveDish(string name)
+        {
+            CP_Popup_Sure_lblText.Text = "Weet u zeker dat u " + name + " wilt verwijderen?";
+        }
+
+        public void SetAsRemoveDrink(int count)
+        {
+            CP_Popup_Sure_lblText.Text = "Weet u zeker dat u " + count + " dranken wilt verwijderen?";
+        }
+
+        public void SetAsRemoveDrink(string name)
         {
             CP_Popup_Sure_lblText.Text = "Weet u zeker dat u " + name + " wilt verwijderen?";
         }
