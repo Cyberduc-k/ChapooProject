@@ -88,6 +88,12 @@
     <Compile Include="CP_Popup_AddToMenu.Designer.cs">
       <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="CP_Popup_ChangeStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_ChangeStock.Designer.cs">
+      <DependentUpon>CP_Popup_ChangeStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="CP_Popup_EditDrinksMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CP_Popup_AddToMenu.resx">
       <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_ChangeStock.resx">
+      <DependentUpon>CP_Popup_ChangeStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CP_Popup_EditDrinksMenu.resx">
       <DependentUpon>CP_Popup_EditDrinksMenu.cs</DependentUpon>
