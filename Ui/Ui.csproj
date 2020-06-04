@@ -70,6 +70,12 @@
     <Compile Include="ControlPanelForm.Designer.cs">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CP_Popup_AddToDrinksMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_AddToDrinksMenu.designer.cs">
+      <DependentUpon>CP_Popup_AddToDrinksMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="CP_Popup_AddToMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlPanelForm.resx">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_AddToDrinksMenu.resx">
+      <DependentUpon>CP_Popup_AddToDrinksMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CP_Popup_AddToMenu.resx">
       <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>

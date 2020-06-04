@@ -176,7 +176,7 @@
             this.Font = new System.Drawing.Font("Roboto", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CP_Popup_EditDrinksMenu";
-            this.Text = "CP_Popup_EditDrinksMenu";
+            this.Text = "Menu aanpassen";
             this.ResumeLayout(false);
             this.PerformLayout();
 

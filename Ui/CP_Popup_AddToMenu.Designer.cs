@@ -246,7 +246,7 @@
             this.Font = new System.Drawing.Font("Roboto", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CP_Popup_AddToMenu";
-            this.Text = "CP_Popup_AddToMenu";
+            this.Text = "Aan menu toevoegen";
             this.ResumeLayout(false);
             this.PerformLayout();
 

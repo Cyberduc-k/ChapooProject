@@ -518,6 +518,10 @@ namespace Ui
             //Select the first item in the listview
             if (CP_Menukaarten_listView.Items.Count > 0)
                 CP_Menukaarten_listView.Items[0].Selected = true;
+
+            //Change the text of the buttons
+            CP_Menukaarten_btnNewItem.Text = "Nieuwe drank toevoegen";
+            CP_Menukaarten_btnEditItem.Text = "Drank aanpassen";
         }
 
         private void LoadMenukaartenLunch()
@@ -574,6 +578,10 @@ namespace Ui
             //Select the first item in the listview
             if (CP_Menukaarten_listView.Items.Count > 0)
                 CP_Menukaarten_listView.Items[0].Selected = true;
+
+            //Change the text of the buttons
+            CP_Menukaarten_btnNewItem.Text = "Nieuw gerecht toevoegen";
+            CP_Menukaarten_btnEditItem.Text = "Gerecht aanpassen";
         }
 
         private void LoadMenukaartenDinner()
@@ -630,6 +638,10 @@ namespace Ui
             //Select the first item in the listview
             if (CP_Menukaarten_listView.Items.Count > 0)
                 CP_Menukaarten_listView.Items[0].Selected = true;
+
+            //Change the text of the buttons
+            CP_Menukaarten_btnNewItem.Text = "Nieuw gerecht toevoegen";
+            CP_Menukaarten_btnEditItem.Text = "Gerecht aanpassen";
         }
 
         #region OnClicks
@@ -673,16 +685,17 @@ namespace Ui
 
         private void CP_Menukaarten_btnNewItem_Click(object sender, EventArgs e)
         {
-            CP_Popup_AddToMenu popup = new CP_Popup_AddToMenu(shownMenu);
-            /*
+            //Show a popup for adding a drink or adding a dish in the shown menu
             CP_Popup_Parent popup;
             if (shownMenu == MenuType.Drinksmenu)
                 popup = new CP_Popup_AddToDrinksMenu();
             else
-                popup = new CP_Popup_AddToMenu(shownMenu);*/
+                popup = new CP_Popup_AddToMenu(shownMenu);
 
             popup.ShowDialog();
 
+            //Reload the menu list
+            //@TODO Remove duplicate code
             if (popup.DialogResult == DialogResult.OK)
             {
                 if (shownMenu == MenuType.Drinksmenu)
@@ -705,6 +718,7 @@ namespace Ui
                 return;
             }
 
+            //Show a popup for editing a drink or editing a dish in the shown menu
             CP_Popup_Parent popup;
             if(shownMenu == MenuType.Drinksmenu)
                 popup = new CP_Popup_EditDrinksMenu((Drink)CP_Menukaarten_listView.SelectedItems[0].Tag);
@@ -738,9 +752,19 @@ namespace Ui
             //Verify if the user really wants to remove these items
             CP_Popup_Sure popup = new CP_Popup_Sure();
             if (CP_Menukaarten_listView.SelectedItems.Count > 1)
-                popup.SetAsRemoveDish(CP_Menukaarten_listView.SelectedItems.Count);
+            {
+                if (shownMenu == MenuType.Drinksmenu)
+                    popup.SetAsRemoveDrink(CP_Menukaarten_listView.SelectedItems.Count);
+                else
+                    popup.SetAsRemoveDish(CP_Menukaarten_listView.SelectedItems.Count);
+            }
             else
-                popup.SetAsRemoveDish(((Dish)CP_Menukaarten_listView.SelectedItems[0].Tag).Name);
+            {
+                if (shownMenu == MenuType.Drinksmenu)
+                    popup.SetAsRemoveDrink(((Drink)CP_Menukaarten_listView.SelectedItems[0].Tag).Name);
+                else
+                    popup.SetAsRemoveDish(((Dish)CP_Menukaarten_listView.SelectedItems[0].Tag).Name);
+            }
 
             popup.ShowDialog();
 
@@ -748,10 +772,16 @@ namespace Ui
                 return;
 
             //Remove all selected items
-            foreach (ListViewItem item in CP_Menukaarten_listView.SelectedItems)
-            {
-                dishService.RemoveDish(((Dish)item.Tag).Id);
-            }
+            if(shownMenu == MenuType.Drinksmenu)
+                foreach (ListViewItem item in CP_Menukaarten_listView.SelectedItems)
+                {
+                    drinkService.RemoveDrink(((Drink)item.Tag).Id);
+                }
+            else
+                foreach (ListViewItem item in CP_Menukaarten_listView.SelectedItems)
+                {
+                    dishService.RemoveDish(((Dish)item.Tag).Id);
+                }
 
             //Reload the menu list
             //@TODO Remove duplicate code

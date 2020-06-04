@@ -61,7 +61,7 @@
             this.Font = new System.Drawing.Font("Roboto", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CP_Popup_Sure";
-            this.Text = "Form1";
+            this.Text = "Weet je het zeker?";
             this.ResumeLayout(false);
             this.PerformLayout();
 
