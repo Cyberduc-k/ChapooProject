@@ -15,13 +15,13 @@ namespace Ui
     public partial class DetailForm : Form
     {
         private Table tafel;
-        private Dish dish;
+        private DetailViewModel product;
         private Order order;
         private string maaltijd;
-        public DetailForm(Table tafel, Dish dish, Order order, string maaltijd)
+        public DetailForm(Table tafel, DetailViewModel product, Order order, string maaltijd)
         {
             this.tafel = tafel;
-            this.dish = dish;
+            this.product = product;
             this.order = order;
             this.maaltijd = maaltijd;
             InitializeComponent();
@@ -29,33 +29,71 @@ namespace Ui
 
         private void DetailForm_Load(object sender, EventArgs e)
         {
-            nameLbl.Text = dish.Name;
-            ingredientTxt.Text = dish.Ingredients;
-            int[] items = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            int[] items = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            if (product.Dish != null)
+            {
+                nameLbl.Text = product.Dish.Name;
+                ingredientTxt.Text = product.Dish.Ingredients;
+                
 
-            comboBox.DataSource = items;
-            int quantity  = (int)comboBox.SelectedItem;
-            prijsLbl.Text = (dish.Price * quantity).ToString();
+                comboBox.DataSource = items;
+                int quantity = (int)comboBox.SelectedItem;
+                prijsLbl.Text = (product.Dish.Price * quantity).ToString();
+            }
+            else if (product.Drink != null)
+            {
+                ingredientTxt.Visible = false;
+                nameLbl.Text = product.Drink.Name;
+                label2.Text = $"Alcoholisch: {product.Drink.ToString()}";
+
+                comboBox.DataSource = items;
+                int quantity = (int)comboBox.SelectedItem;
+                prijsLbl.Text = (product.Drink.Price * quantity).ToString();
+            }
+            
         }
 
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int quantity = (int)comboBox.SelectedItem;
-            prijsLbl.Text = (dish.Price * quantity).ToString();
+            if (product.Dish != null)
+            {
+                int quantity = (int)comboBox.SelectedItem;
+                prijsLbl.Text = (product.Dish.Price * quantity).ToString();
+            }
+            else if (product.Drink != null)
+            {
+                int quantity = (int)comboBox.SelectedItem;
+                prijsLbl.Text = (product.Drink.Price * quantity).ToString();
+            }
         }
 
         private void bestelBtn_Click(object sender, EventArgs e)
         {
             List<Dish> dishes = new List<Dish>();
             List<Drink> drinks = new List<Drink>();
-            if (order.Dishes == null)
+            if (product.Dish != null)
             {
-                order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started, "");
-                order.Dishes.Add(dish);
+                if (order.Dishes == null)
+                {
+                    order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started, "");
+                    order.Dishes.Add(product.Dish);
+                }
+                else
+                {
+                    order.Dishes.Add(product.Dish);
+                }
             }
-            else
+            else if (product.Drink != null)
             {
-                order.Dishes.Add(dish);
+                if (order.Drinks == null)
+                {
+                    order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started, "");
+                    order.Drinks.Add(product.Drink);
+                }
+                else
+                {
+                    order.Drinks.Add(product.Drink);
+                }
             }
             //order.TableId = tafelnr;
             //order.State = OrderState.Started;

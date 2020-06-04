@@ -22,5 +22,20 @@ namespace Model
             Price = price;
             Stock = stock;
         }
+
+        public Drink() 
+        {
+            
+        }
+
+        public override string ToString()
+        {
+            if (Alcoholic)
+            {
+                return "Ja";
+            }
+
+            return "Nee";
+        }
     }
 }

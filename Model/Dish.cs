@@ -27,14 +27,9 @@ namespace Model
             Category = category;
         }
 
-        public Dish(string name, string description, string ingredients, double price, int stock, DishCategory category)
+        public Dish()
         {
-            Name = name;
-            Description = description;
-            Ingredients = ingredients;
-            Price = price;
-            Stock = stock;
-            Category = category;
+
         }
     }
 }
