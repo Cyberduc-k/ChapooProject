@@ -42,6 +42,16 @@ namespace Ui
             CP_Popup_Sure_lblText.Text = "Weet u zeker dat u " + name + " wilt verwijderen?";
         }
 
+        public void SetAsEmptyStock(string name)
+        {
+            CP_Popup_Sure_lblText.Text = "Weet u zeker dat u de voorraad van " + name + " wilt legen?";
+        }
+
+        public void SetAsEmptyStock(int count)
+        {
+            CP_Popup_Sure_lblText.Text = "Weet u zeker dat u " + count + " voorraden wilt legen?";
+        }
+
         public void SetAsEdit(string name)
         {
             CP_Popup_Sure_lblText.Text = "Weet u zeker dat u " + name + " wilt aanpassen?";

@@ -112,6 +112,9 @@ namespace Ui
                 li.SubItems.Add(drinkList[i].Price.ToString());
                 li.SubItems.Add(drinkList[i].Stock.ToString());
 
+                //Tag is used to store the drink object
+                li.Tag = drinkList[i];
+
                 CP_Voorraad_listView.Items.Add(li);
             }
 
@@ -148,6 +151,10 @@ namespace Ui
             //Select the first item in the listview
             if (CP_Voorraad_listView.Items.Count > 0)
                 CP_Voorraad_listView.Items[0].Selected = true;
+
+            //Change the text of the buttons
+            CP_Voorraad_btnEditItem.Text = "Voorraad van drank aanpassen";
+            CP_Voorraad_btnEmptyItem.Text = "Voorraad van drank legen";
         }
 
         private void LoadVoorraadLunch()
@@ -166,6 +173,9 @@ namespace Ui
                 li.SubItems.Add(lunchList[i].Price.ToString());
                 li.SubItems.Add(lunchList[i].Stock.ToString());
                 li.SubItems.Add(lunchList[i].Category.ToString());
+
+                //Tag is used to store the dish object
+                li.Tag = lunchList[i];
 
                 CP_Voorraad_listView.Items.Add(li);
             }
@@ -211,6 +221,10 @@ namespace Ui
             //Select the first item in the listview
             if (CP_Voorraad_listView.Items.Count > 0)
                 CP_Voorraad_listView.Items[0].Selected = true;
+
+            //Change the text of the buttons
+            CP_Voorraad_btnEditItem.Text = "Voorraad van gerecht aanpassen";
+            CP_Voorraad_btnEmptyItem.Text = "Voorraad van gerecht legen";
         }
 
         private void LoadVoorraadDinner()
@@ -229,6 +243,9 @@ namespace Ui
                 li.SubItems.Add(dinnerList[i].Price.ToString());
                 li.SubItems.Add(dinnerList[i].Stock.ToString());
                 li.SubItems.Add(dinnerList[i].Category.ToString());
+
+                //Tag is used to store the dish object
+                li.Tag = dinnerList[i];
 
                 CP_Voorraad_listView.Items.Add(li);
             }
@@ -274,6 +291,20 @@ namespace Ui
             //Select the first item in the listview
             if (CP_Voorraad_listView.Items.Count > 0)
                 CP_Voorraad_listView.Items[0].Selected = true;
+
+            //Change the text of the buttons
+            CP_Voorraad_btnEditItem.Text = "Voorraad van gerecht aanpassen";
+            CP_Voorraad_btnEmptyItem.Text = "Voorraad van gerecht legen";
+        }
+
+        private void LoadListViewVoorraad()
+        {
+            if (shownMenu == MenuType.Dinnermenu)
+                LoadVoorraadDinner();
+            else if (shownMenu == MenuType.Lunchmenu)
+                LoadVoorraadLunch();
+            else
+                LoadVoorraadDrinks();
         }
 
         #region OnClicks
@@ -300,9 +331,83 @@ namespace Ui
 
             LoadVoorraadDinner();
         }
+
         private void CP_Voorraad_listView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             SortListView(e, CP_Voorraad_listView);
+        }
+
+        private void CP_Voorraad_btnEditItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CP_Voorraad_btnEmptyItem_Click(object sender, EventArgs e)
+        {
+            //Make sure a item is selected
+            if (CP_Voorraad_listView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("U moet een item selecteren", "Selecteer 1 item", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //Verify if the user really wants to clear these stocks
+            CP_Popup_Sure popup = new CP_Popup_Sure();
+
+            if (CP_Voorraad_listView.SelectedItems.Count > 1)
+                popup.SetAsEmptyStock(CP_Voorraad_listView.SelectedItems.Count);
+            else
+            {
+                if (shownMenu == MenuType.Drinksmenu)
+                {
+                    if (((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Stock == 0)
+                        return;
+
+                    popup.SetAsEmptyStock(((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Name);
+                }
+                else
+                {
+                    if (((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Stock == 0)
+                        return;
+
+                    popup.SetAsEmptyStock(((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Name);
+                }
+            }
+
+            popup.ShowDialog();
+
+            if (!(popup.DialogResult == DialogResult.OK))
+                return;
+
+            //Empty all selected stocks
+            if (shownMenu == MenuType.Drinksmenu)
+                foreach (ListViewItem item in CP_Voorraad_listView.SelectedItems)
+                {
+                    drinkService.EmptyStock(((Drink)item.Tag).Id);
+                }
+            else
+                foreach (ListViewItem item in CP_Voorraad_listView.SelectedItems)
+                {
+                    dishService.EmptyStock(((Dish)item.Tag).Id);
+                }
+
+            //Reload the voorraad list
+            if (popup.DialogResult == DialogResult.OK)
+                LoadListViewVoorraad();          
+        }
+
+        private void CP_Voorraad_listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Make sure an item is selected
+            //By default an item should be selected, but just to be sure and to avoid errors in future implementation
+            if (!(CP_Voorraad_listView.SelectedItems.Count > 0))
+                return;
+
+            CP_Voorraad_btnEditItem.Enabled = true;
+            CP_Voorraad_btnEmptyItem.Enabled = true;
+
+            CP_Voorraad_btnEditItem.BackColor = Color.FromArgb(0, 184, 255);
+            CP_Voorraad_btnEmptyItem.BackColor = Color.Red;
         }
         #endregion
         #endregion
@@ -644,6 +749,16 @@ namespace Ui
             CP_Menukaarten_btnEditItem.Text = "Gerecht aanpassen";
         }
 
+        private void LoadListViewMenus()
+        {
+            if (shownMenu == MenuType.Dinnermenu)
+                LoadMenukaartenDinner();
+            else if (shownMenu == MenuType.Lunchmenu)
+                LoadMenukaartenLunch();
+            else
+                LoadMenukaartenDrinks();
+        }
+
         #region OnClicks
         private void CP_Menukaarten_listView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -695,16 +810,8 @@ namespace Ui
             popup.ShowDialog();
 
             //Reload the menu list
-            //@TODO Remove duplicate code
             if (popup.DialogResult == DialogResult.OK)
-            {
-                if (shownMenu == MenuType.Drinksmenu)
-                    LoadMenukaartenDrinks();
-                else if (shownMenu == MenuType.Dinnermenu)
-                    LoadMenukaartenDinner();
-                else
-                    LoadMenukaartenLunch();
-            }
+                LoadListViewMenus();
         }
 
         private void CP_Menukaarten_btnEditItem_Click(object sender, EventArgs e)
@@ -728,16 +835,8 @@ namespace Ui
             popup.ShowDialog();
 
             //Reload the menu list
-            //@TODO Remove duplicate code
             if (popup.DialogResult == DialogResult.OK)
-            {
-                if (shownMenu == MenuType.Dinnermenu)
-                    LoadMenukaartenDinner();
-                else if (shownMenu == MenuType.Lunchmenu)
-                    LoadMenukaartenLunch();
-                else
-                    LoadMenukaartenDrinks();
-            }
+                LoadListViewMenus();
         }
 
         private void CP_Menukaarten_btnDeleteItem_Click(object sender, EventArgs e)
@@ -784,16 +883,8 @@ namespace Ui
                 }
 
             //Reload the menu list
-            //@TODO Remove duplicate code
             if (popup.DialogResult == DialogResult.OK)
-            {
-                if (shownMenu == MenuType.Dinnermenu)
-                    LoadMenukaartenDinner();
-                else if (shownMenu == MenuType.Lunchmenu)
-                    LoadMenukaartenLunch();
-                else
-                    LoadMenukaartenDrinks();
-            }
+                LoadListViewMenus();
         }
         #endregion
         #endregion

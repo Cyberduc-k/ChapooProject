@@ -40,6 +40,8 @@
             this.CP_pnlHeader = new System.Windows.Forms.Panel();
             this.CP_lblActivePanel = new System.Windows.Forms.Label();
             this.CP_pnlVoorraad = new System.Windows.Forms.Panel();
+            this.CP_Voorraad_btnEmptyItem = new System.Windows.Forms.Button();
+            this.CP_Voorraad_btnEditItem = new System.Windows.Forms.Button();
             this.CP_Voorraad_listView = new System.Windows.Forms.ListView();
             this.CP_Voorraad_btnLunchgerechten = new System.Windows.Forms.Button();
             this.CP_Voorraad_btnDinergerechten = new System.Windows.Forms.Button();
@@ -237,6 +239,8 @@
             // CP_pnlVoorraad
             // 
             this.CP_pnlVoorraad.BackColor = System.Drawing.Color.White;
+            this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnEmptyItem);
+            this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnEditItem);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_listView);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnLunchgerechten);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnDinergerechten);
@@ -247,6 +251,40 @@
             this.CP_pnlVoorraad.Size = new System.Drawing.Size(857, 471);
             this.CP_pnlVoorraad.TabIndex = 3;
             // 
+            // CP_Voorraad_btnEmptyItem
+            // 
+            this.CP_Voorraad_btnEmptyItem.BackColor = System.Drawing.Color.Salmon;
+            this.CP_Voorraad_btnEmptyItem.Enabled = false;
+            this.CP_Voorraad_btnEmptyItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Voorraad_btnEmptyItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.CP_Voorraad_btnEmptyItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Voorraad_btnEmptyItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Voorraad_btnEmptyItem.ForeColor = System.Drawing.Color.White;
+            this.CP_Voorraad_btnEmptyItem.Location = new System.Drawing.Point(435, 409);
+            this.CP_Voorraad_btnEmptyItem.Name = "CP_Voorraad_btnEmptyItem";
+            this.CP_Voorraad_btnEmptyItem.Size = new System.Drawing.Size(410, 50);
+            this.CP_Voorraad_btnEmptyItem.TabIndex = 13;
+            this.CP_Voorraad_btnEmptyItem.Text = "Voorraad van gerecht legen";
+            this.CP_Voorraad_btnEmptyItem.UseVisualStyleBackColor = false;
+            this.CP_Voorraad_btnEmptyItem.Click += new System.EventHandler(this.CP_Voorraad_btnEmptyItem_Click);
+            // 
+            // CP_Voorraad_btnEditItem
+            // 
+            this.CP_Voorraad_btnEditItem.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CP_Voorraad_btnEditItem.Enabled = false;
+            this.CP_Voorraad_btnEditItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Voorraad_btnEditItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Voorraad_btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Voorraad_btnEditItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Voorraad_btnEditItem.ForeColor = System.Drawing.Color.White;
+            this.CP_Voorraad_btnEditItem.Location = new System.Drawing.Point(7, 409);
+            this.CP_Voorraad_btnEditItem.Name = "CP_Voorraad_btnEditItem";
+            this.CP_Voorraad_btnEditItem.Size = new System.Drawing.Size(410, 50);
+            this.CP_Voorraad_btnEditItem.TabIndex = 12;
+            this.CP_Voorraad_btnEditItem.Text = "Voorraad van gerecht aanpassen";
+            this.CP_Voorraad_btnEditItem.UseVisualStyleBackColor = false;
+            this.CP_Voorraad_btnEditItem.Click += new System.EventHandler(this.CP_Voorraad_btnEditItem_Click);
+            // 
             // CP_Voorraad_listView
             // 
             this.CP_Voorraad_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
@@ -254,9 +292,10 @@
             this.CP_Voorraad_listView.HideSelection = false;
             this.CP_Voorraad_listView.Location = new System.Drawing.Point(7, 56);
             this.CP_Voorraad_listView.Name = "CP_Voorraad_listView";
-            this.CP_Voorraad_listView.Size = new System.Drawing.Size(838, 403);
+            this.CP_Voorraad_listView.Size = new System.Drawing.Size(838, 344);
             this.CP_Voorraad_listView.TabIndex = 11;
             this.CP_Voorraad_listView.UseCompatibleStateImageBehavior = false;
+            this.CP_Voorraad_listView.SelectedIndexChanged += new System.EventHandler(this.CP_Voorraad_listView_SelectedIndexChanged);
             // 
             // CP_Voorraad_btnLunchgerechten
             // 
@@ -563,6 +602,8 @@
         private System.Windows.Forms.Button CP_Menukaarten_btnEditItem;
         private System.Windows.Forms.Button CP_Menukaarten_btnNewItem;
         private System.Windows.Forms.ListView CP_Voorraad_listView;
+        private System.Windows.Forms.Button CP_Voorraad_btnEmptyItem;
+        private System.Windows.Forms.Button CP_Voorraad_btnEditItem;
     }
 }
 
