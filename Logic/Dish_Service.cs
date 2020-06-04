@@ -39,6 +39,12 @@ namespace Logic
             dish_DAO.Remove(id);
         }
 
+        //Empty stock of a dish
+        public void EmptyStock(int id)
+        {
+            dish_DAO.EmptyStock(id);
+        }
+
         //Modify the properties of a dish
         public void ModifyDish(Dish dish)
         {

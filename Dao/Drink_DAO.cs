@@ -75,6 +75,18 @@ namespace Dao
             ExecuteEditQuery(query, parameters);
         }
 
+        // Empty the stock of a drink in the database
+        public void EmptyStock(int id)
+        {
+            string query = "UPDATE [dbo].[Drinks] SET [stock] = 0 WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", id)
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
         // Convert the raw database data into a list of Drink objects
         private List<Drink> ReadAll(DataTable dataTable)
         {

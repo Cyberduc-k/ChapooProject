@@ -119,6 +119,18 @@ namespace Dao
             ExecuteEditQuery(query, parameters);
         }
 
+        // Empty the stock of a dish in the database
+        public void EmptyStock(int id)
+        {
+            string query = "UPDATE [dbo].[Dishes] SET [stock] = 0 WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", id)
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
         // Convert the raw database data into a list of Dish objects
         private List<Dish> ReadAll(DataTable dataTable)
         {
