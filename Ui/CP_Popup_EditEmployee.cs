@@ -21,7 +21,7 @@ namespace Ui
         private bool lastNameFilledIn = false;
         private bool passwordFilledIn = false;
 
-        public CP_Popup_EditEmployee(int id, string firstName, string lastName, DateTime birthDate, DateTime employment, Gender gender, string password, EmployeeType employeeType)
+        public CP_Popup_EditEmployee(Employee employee)
         {
             InitializeComponent();
 
@@ -29,32 +29,33 @@ namespace Ui
             LoadIcon("Resources/pencil-icon.ico");
 
             //Show the current values of the employee
-            CP_PopopEditEmployee_txtFirstName.Text = firstName;
-            CP_PopupEditEmployee_txtLastName.Text = lastName;
-            CP_PopopEditEmployee_dtpBirthdate.Value = birthDate;
-            CP_PopopEditEmployee_dtpEmployment.Value = employment;
-            CP_PopopEditEmployee_txtPassword.Text = password;
+            CP_PopopEditEmployee_txtFirstName.Text = employee.FirstName;
+            CP_PopupEditEmployee_txtLastName.Text = employee.LastName;
+            CP_PopopEditEmployee_dtpBirthdate.Value = employee.BirthDate;
+            CP_PopopEditEmployee_dtpEmployment.Value = employee.DateEmployment;
+            CP_PopopEditEmployee_txtPassword.Text = employee.Password;
 
-            if (gender == Gender.Male)
+            if (employee.Gender == Gender.Male)
                 CP_PopopEditEmployee_rbtnMale.Checked = true;
             else
                 CP_PopopEditEmployee_rbtnFemale.Checked = true;
 
-            if (employeeType == EmployeeType.Waiter)
+            if (employee.EmployeeType == EmployeeType.Waiter)
                 CP_PopupEditEmployee_rbtnWaiter.Checked = true;
-            else if (employeeType == EmployeeType.Bartender)
+            else if (employee.EmployeeType == EmployeeType.Bartender)
                 CP_PopupEditEmployee_rbtnBartender.Checked = true;
-            else if (employeeType == EmployeeType.Chef)
+            else if (employee.EmployeeType == EmployeeType.Chef)
                 CP_PopupEditEmployee_rbtnChef.Checked = true;
             else
                 CP_PopupEditEmployee_rbtnOwner.Checked = true;
 
-            this.id = id;
+            id = employee.Id;
         }
 
         public override void OnClickOK(object sender, EventArgs e)
         {
-            Form popup = new CP_Popup_Sure(CP_PopopEditEmployee_txtFirstName.Text);
+            CP_Popup_Sure popup = new CP_Popup_Sure();
+            popup.SetAsEdit(CP_PopopEditEmployee_txtFirstName.Text);
             popup.ShowDialog();
 
             if (!(popup.DialogResult == DialogResult.OK))
