@@ -22,5 +22,29 @@ namespace Model
             Price = price;
             Stock = stock;
         }
+
+        //A constructor for when an ID isnt neccesary
+        public Drink(string name, bool alcoholic, double price, int stock)
+        {
+            Name = name;
+            Alcoholic = alcoholic;
+            Price = price;
+            Stock = stock;
+        }
+
+        public Drink() 
+        {
+            
+        }
+
+        public override string ToString()
+        {
+            if (Alcoholic)
+            {
+                return "Ja";
+            }
+
+            return "Nee";
+        }
     }
 }

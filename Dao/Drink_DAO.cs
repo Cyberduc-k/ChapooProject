@@ -48,12 +48,12 @@ namespace Dao
         }
 
         // Remove a drink from the database
-        public void Remove(Drink drink)
+        public void Remove(int id)
         {
             string query = "DELETE FROM [dbo].[Drinks] WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[1]
             {
-                new SqlParameter("@id", drink.Id),
+                new SqlParameter("@id", id),
             };
 
             ExecuteEditQuery(query, parameters);
@@ -72,6 +72,18 @@ namespace Dao
                 new SqlParameter("@id", drink.Id),
             };
             
+            ExecuteEditQuery(query, parameters);
+        }
+
+        // Empty the stock of a drink in the database
+        public void EmptyStock(int id)
+        {
+            string query = "UPDATE [dbo].[Drinks] SET [stock] = 0 WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", id)
+            };
+
             ExecuteEditQuery(query, parameters);
         }
 

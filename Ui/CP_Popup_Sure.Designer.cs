@@ -43,10 +43,11 @@
             // 
             this.CP_Popup_Sure_lblText.AutoSize = true;
             this.CP_Popup_Sure_lblText.Font = new System.Drawing.Font("Roboto", 12F);
-            this.CP_Popup_Sure_lblText.Location = new System.Drawing.Point(159, 117);
+            this.CP_Popup_Sure_lblText.Location = new System.Drawing.Point(34, 112);
             this.CP_Popup_Sure_lblText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CP_Popup_Sure_lblText.MinimumSize = new System.Drawing.Size(600, 20);
             this.CP_Popup_Sure_lblText.Name = "CP_Popup_Sure_lblText";
-            this.CP_Popup_Sure_lblText.Size = new System.Drawing.Size(403, 19);
+            this.CP_Popup_Sure_lblText.Size = new System.Drawing.Size(600, 20);
             this.CP_Popup_Sure_lblText.TabIndex = 3;
             this.CP_Popup_Sure_lblText.Text = "Weet je zeker dat je \"Xavier\" van de lijst wilt verwijderen?";
             this.CP_Popup_Sure_lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -60,7 +61,7 @@
             this.Font = new System.Drawing.Font("Roboto", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CP_Popup_Sure";
-            this.Text = "Form1";
+            this.Text = "Weet je het zeker?";
             this.ResumeLayout(false);
             this.PerformLayout();
 

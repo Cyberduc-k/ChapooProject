@@ -25,5 +25,15 @@ namespace Model
             To = to;
             NumberOfPersons = numberOfPersons;
         }
+        public Reservation(int id, string name, DateTime date, DateTime from, DateTime to, int numberOfPersons, Table table)
+        {
+            Id = id;
+            Name = name;
+            Date = date;
+            From = from;
+            To = to;
+            NumberOfPersons = numberOfPersons;
+            Table = table;
+        }
     }
 }

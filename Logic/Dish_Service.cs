@@ -28,15 +28,21 @@ namespace Logic
         }
 
         //Add a new dish
-        public void AddDish(Dish dish)
+        public void AddDish(Dish dish, MenuType menuType)
         {
-            dish_DAO.Add(dish);
+            dish_DAO.Add(dish, menuType);
         }
 
         //Remove a dish
-        public void RemoveDish(Dish dish)
+        public void RemoveDish(int id)
         {
-            dish_DAO.Remove(dish);
+            dish_DAO.Remove(id);
+        }
+
+        //Empty stock of a dish
+        public void EmptyStock(int id)
+        {
+            dish_DAO.EmptyStock(id);
         }
 
         //Modify the properties of a dish

@@ -16,6 +16,18 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        // Get the last dish id
+        public int GetLastId()
+        {
+            string query = "SELECT IDENT_CURRENT('Dishes') as nextId";
+            SqlParameter[] parameters = new SqlParameter[0];
+
+            DataTable table = ExecuteSelectQuery(query, parameters);
+            DataRow row = table.Rows[0];
+
+            return int.Parse(row["nextId"].ToString());
+        }
+
         public List<Dish> GetAllDinner()
         {
             //1 is the diner card
@@ -50,28 +62,38 @@ namespace Dao
         }
 
         // Add a new dish to the database
-        public void Add(Dish dish)
+        public void Add(Dish dish, MenuType menu)
         {
-            string query = "INSERT INTO [dbo].[Dishes] ([name], [description], [ingredients], [price], [stock]) VALUES (@name, @description, @ingredients, @price, @stock)";
-            SqlParameter[] parameters = new SqlParameter[5]
+            string query = "INSERT INTO [dbo].[Dishes] ([name], [description], [ingredients], [price], [stock], [category]) VALUES (@name, @description, @ingredients, @price, @stock, @category)";
+            SqlParameter[] parameters = new SqlParameter[6]
             {
                 new SqlParameter("@name", dish.Name),
                 new SqlParameter("@description", dish.Description),
-                new SqlParameter("@ingredienst", dish.Ingredients),
+                new SqlParameter("@ingredients", dish.Ingredients),
                 new SqlParameter("@price", dish.Price),
                 new SqlParameter("@stock", dish.Stock),
+                new SqlParameter("@category", (int)dish.Category)
+            };
+
+            ExecuteEditQuery(query, parameters);
+
+            query = "INSERT INTO [dbo].[Menu_has_dish] ([menuId], [dishId]) VALUES (@menuId, @dishId)";
+            parameters = new SqlParameter[2]
+            {
+                new SqlParameter("@menuId", (int)menu + 1),
+                new SqlParameter("@dishId", GetLastId()),
             };
 
             ExecuteEditQuery(query, parameters);
         }
 
         // Remove a dish from the database
-        public void Remove(Dish dish)
+        public void Remove(int id)
         {
-            string query = "DELETE FROM [dbo].[Dish] WHERE [id] = @id";
+            string query = "DELETE FROM [dbo].[Dishes] WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[1]
             {
-                new SqlParameter("@id", dish.Id),
+                new SqlParameter("@id", id),
             };
 
             ExecuteEditQuery(query, parameters);
@@ -81,15 +103,29 @@ namespace Dao
         public void Modify(Dish dish)
         {
             string query = "UPDATE [dbo].[Dishes] SET " +
-                "[name] = @name, [description] = @description, [ingredients] = @ingredients, [price] = @price, [stock] = @stock " +
+                "[name] = @name, [description] = @description, [ingredients] = @ingredients, [price] = @price, [stock] = @stock, [category] = @category " +
                 "WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[5]
+            SqlParameter[] parameters = new SqlParameter[7]
             {
                 new SqlParameter("@name", dish.Name),
                 new SqlParameter("@description", dish.Description),
+                new SqlParameter("@ingredients", dish.Ingredients),
                 new SqlParameter("@price", dish.Price),
                 new SqlParameter("@stock", dish.Stock),
+                new SqlParameter("@category", dish.Category),
                 new SqlParameter("@id", dish.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
+        // Empty the stock of a dish in the database
+        public void EmptyStock(int id)
+        {
+            string query = "UPDATE [dbo].[Dishes] SET [stock] = 0 WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", id)
             };
 
             ExecuteEditQuery(query, parameters);
