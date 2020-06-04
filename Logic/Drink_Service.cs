@@ -25,9 +25,9 @@ namespace Logic
         }
 
         //Remove a drink
-        public void RemoveDrink(Drink drink)
+        public void RemoveDrink(int id)
         {
-            drink_DAO.Remove(drink);
+            drink_DAO.Remove(id);
         }
 
         //Modify the properties of a drink

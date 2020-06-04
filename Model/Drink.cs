@@ -23,6 +23,15 @@ namespace Model
             Stock = stock;
         }
 
+        //A constructor for when an ID isnt neccesary
+        public Drink(string name, bool alcoholic, double price, int stock)
+        {
+            Name = name;
+            Alcoholic = alcoholic;
+            Price = price;
+            Stock = stock;
+        }
+
         public Drink() 
         {
             

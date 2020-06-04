@@ -48,12 +48,12 @@ namespace Dao
         }
 
         // Remove a drink from the database
-        public void Remove(Drink drink)
+        public void Remove(int id)
         {
             string query = "DELETE FROM [dbo].[Drinks] WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[1]
             {
-                new SqlParameter("@id", drink.Id),
+                new SqlParameter("@id", id),
             };
 
             ExecuteEditQuery(query, parameters);

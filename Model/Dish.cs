@@ -27,6 +27,17 @@ namespace Model
             Category = category;
         }
 
+        //Constructor for when an ID isn't necessary
+        public Dish(string name, string description, string ingredients, double price, int stock, DishCategory category)
+        {
+            Name = name;
+            Description = description;
+            Ingredients = ingredients;
+            Price = price;
+            Stock = stock;
+            Category = category;
+        }
+
         public Dish()
         {
 
