@@ -158,7 +158,7 @@ namespace Ui
             }
             catch (Exception ex)
             {
-                ErrorHandler.Instance.HandleError("Gerecht met id " + id + " kon niet toegevoegd worden!", "Gerecht niet toegevoegd", ex);
+                ErrorHandler.Instance.HandleError("Gerecht met id " + id + " kon niet aangepast worden!", "Gerecht niet aangepast", ex);
 
                 //Tell the ControlPanel form that the action didn't succeed
                 DialogResult = DialogResult.Cancel;

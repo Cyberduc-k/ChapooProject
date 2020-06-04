@@ -674,6 +674,13 @@ namespace Ui
         private void CP_Menukaarten_btnNewItem_Click(object sender, EventArgs e)
         {
             CP_Popup_AddToMenu popup = new CP_Popup_AddToMenu(shownMenu);
+            /*
+            CP_Popup_Parent popup;
+            if (shownMenu == MenuType.Drinksmenu)
+                popup = new CP_Popup_AddToDrinksMenu();
+            else
+                popup = new CP_Popup_AddToMenu(shownMenu);*/
+
             popup.ShowDialog();
 
             if (popup.DialogResult == DialogResult.OK)
@@ -698,10 +705,10 @@ namespace Ui
                 return;
             }
 
-            CP_Popup_EditMenu popup;
-            /*if(shownMenu == MenuType.Drinksmenu)
-                popup = new CP_Popup_EditMenu((Drink)CP_Menukaarten_listView.SelectedItems[0].Tag);
-            else*/
+            CP_Popup_Parent popup;
+            if(shownMenu == MenuType.Drinksmenu)
+                popup = new CP_Popup_EditDrinksMenu((Drink)CP_Menukaarten_listView.SelectedItems[0].Tag);
+            else
                 popup = new CP_Popup_EditMenu((Dish)CP_Menukaarten_listView.SelectedItems[0].Tag);
 
             popup.ShowDialog();
