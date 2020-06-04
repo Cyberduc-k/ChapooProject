@@ -41,7 +41,7 @@
             this.CP_Popup_ChangeStock_txtStock.Name = "CP_Popup_ChangeStock_txtStock";
             this.CP_Popup_ChangeStock_txtStock.Size = new System.Drawing.Size(77, 27);
             this.CP_Popup_ChangeStock_txtStock.TabIndex = 41;
-            //this.CP_Popup_ChangeStock_txtStock.TextChanged += new System.EventHandler(this.CP_Popup_ChangeStock_txtStock_TextChanged);
+            this.CP_Popup_ChangeStock_txtStock.TextChanged += new System.EventHandler(this.CP_Popup_ChangeStock_txtStock_TextChanged);
             // 
             // label5
             // 

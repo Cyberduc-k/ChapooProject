@@ -14,51 +14,25 @@ namespace Ui
 {
     public partial class CP_Popup_ChangeStock : CP_Popup_Parent
     {
-        /*//Bools to store if the text boxes are filled in
-        private bool nameFilledIn = false;
-        private bool priceFilledIn = false;
+        //Bools to store if the text boxes are filled in
         private bool stockFilledIn = false;
 
-        public CP_Popup_ChangeStock()
+        //The int of the item to change
+        private int id;
+        private string name;
+
+        public CP_Popup_ChangeStock(int id, int stock, string name)
         {
             InitializeComponent();
 
             //Load an icon for the form
             LoadIcon("Resources/pencil-icon.ico");
-        }
 
-        private void CP_Popop_ChangeStock_txtName_TextChanged(object sender, EventArgs e)
-        {
-            if (CP_Popop_ChangeStock_txtName.Text != "")
-                nameFilledIn = true;
-            else
-                nameFilledIn = false;
+            //Store the id of the item to change the stock off
+            this.id = id;
 
-            UpdateOKbtn(nameFilledIn, priceFilledIn, stockFilledIn);
-        }
-
-        private void CP_Popop_ChangeStock_txtPrice_TextChanged(object sender, EventArgs e)
-        {
-            if(CP_Popop_ChangeStock_txtPrice.Text != "")
-            {
-                if (double.TryParse(CP_Popop_ChangeStock_txtPrice.Text, out _))
-                {
-                    CP_Popup_ChangeStock_lblPrijsError.Hide();
-                    priceFilledIn = true;
-                }
-                else
-                {
-                    CP_Popup_ChangeStock_lblPrijsError.Show();
-                    priceFilledIn = false;
-                }
-            }
-            else
-            {
-                CP_Popup_ChangeStock_lblPrijsError.Hide();
-                priceFilledIn = false;
-            }
-
-            UpdateOKbtn(nameFilledIn, priceFilledIn, stockFilledIn);
+            //Show the current stock in the textbox
+            CP_Popup_ChangeStock_txtStock.Text = stock.ToString();
         }
 
         private void CP_Popup_ChangeStock_txtStock_TextChanged(object sender, EventArgs e)
@@ -82,40 +56,41 @@ namespace Ui
                 stockFilledIn = false;
             }
 
-            UpdateOKbtn(nameFilledIn, priceFilledIn, stockFilledIn);
-        }*/
+            UpdateOKbtn(stockFilledIn);
+        }
 
         public override void OnClickOK(object sender, EventArgs e)
-        {/*
+        {
+            CP_Popup_Sure popup = new CP_Popup_Sure();
+            popup.SetAsChangeStock(name);
+            popup.ShowDialog();
+
+            if (!(popup.DialogResult == DialogResult.OK))
+            {
+                DialogResult = DialogResult.Cancel;
+                Close();
+            }
+
             Drink_Service drinkService = new Drink_Service();
 
-            //Store the values of all of the inputs
-            string name = CP_Popop_ChangeStock_txtName.Text;
-            bool alcoholic;
-
-            bool priceParsed = double.TryParse(CP_Popop_ChangeStock_txtPrice.Text, out double price);
+            //Store the value of the input
             bool stockParsed = int.TryParse(CP_Popup_ChangeStock_txtStock.Text, out int stock);
 
-            if (!(priceParsed && stockParsed))
+            if (!stockParsed)
                 Close();
 
-            if (CP_Popup_ChangeStock_cboxAlcoholic.Checked)
-                alcoholic = true;
-            else
-                alcoholic = false;
-
-            //Add a new drink to the system
+            //Modify the stock
             try
             {
-                drinkService.AddDrink(new Drink(name, alcoholic, price, stock));
+                drinkService.ModifyStock(id, stock);
             }
             catch (Exception ex)
             {
-                ErrorHandler.Instance.HandleError("Drank kon niet toegevoegd worden!", "Drank niet toegevoegd", ex);
+                ErrorHandler.Instance.HandleError("Voorraad kon niet aangepast worden!", "Voorraad niet aangepast", ex);
 
                 //Tell the ControlPanel form that the action didn't succeed
                 DialogResult = DialogResult.Cancel;
-            }*/
+            }
         }
 
         public override void OnClickCancel(object sender, EventArgs e)
