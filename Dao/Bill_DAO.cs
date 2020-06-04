@@ -11,7 +11,7 @@ namespace Dao
         // Get a list of all the billes
         public List<Bill> GetAll()
         {
-            string query = "SELECT [id], [date], [tableId], [orderId], [price], [employeeId] FROM [dbo].[Bills]";
+            string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills]";
 
             SqlParameter[] parameters = new SqlParameter[0];
 
@@ -21,13 +21,11 @@ namespace Dao
         // Add a new bill to the database
         public void Add(Bill bill)
         {
-            string query = "INSERT INTO [dbo].[Bills] ([date], [tableId], [orderId], [price], [employeeId]) VALUES (@date, @tableId, @orderId, @price, @employeeId)";
-            SqlParameter[] parameters = new SqlParameter[5]
+            string query = "INSERT INTO [dbo].[Bills] ([date], [tableId], [employeeId]) VALUES (@date, @tableId, @employeeId)";
+            SqlParameter[] parameters = new SqlParameter[3]
             {
                 new SqlParameter("@date", bill.Date),
                 new SqlParameter("@tableId", bill.Table),
-                new SqlParameter("@orderId", bill.Order),
-                new SqlParameter("@price", bill.Price),
                 new SqlParameter("@employeeId", bill.Employee),
             };
 
@@ -50,14 +48,12 @@ namespace Dao
         public void Modify(Bill bill)
         {
             string query = "UPDATE [dbo].[Bills] SET " +
-                "[date] = @date, [tableId] = @table, [orderId] = @orderId, [price] = @price, [employeeId] = @employeeId " +
+                "[date] = @date, [tableId] = @table, [employeeId] = @employeeId " +
                 "WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[6]
+            SqlParameter[] parameters = new SqlParameter[4]
             {
                 new SqlParameter("@date", bill.Date),
                 new SqlParameter("@tableId", bill.Table),
-                new SqlParameter("@orderId", bill.Order),
-                new SqlParameter("@price", bill.Price),
                 new SqlParameter("@employeeId", bill.Employee),
                 new SqlParameter("@id", bill.Id),
             };
