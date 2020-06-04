@@ -15,6 +15,10 @@ namespace Logic
         {
             return employee_DAO.GetAll();
         }
+        public Employee GetWithId(int id)
+        {
+            return employee_DAO.GetWithId(id);
+        }
 
         // Get a single Employee with an id and password
         public Employee GetWithPassword(int id, string password)

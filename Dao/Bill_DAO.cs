@@ -21,7 +21,7 @@ namespace Dao
         // Get bill by tableId
         public Bill GetBillByTableId(int tableId)
         {
-            string query = "SELECT [id], [date], [tableId], [orderId], [price], [employeeId] FROM [dbo].[Bills] WHERE [tableId] = @tableId";
+            string query = "SELECT [id], [date], [employeeId] FROM [dbo].[Bills] WHERE [tableId] = @tableId";
 
             SqlParameter[] parameters = new SqlParameter[1] {
 
@@ -90,12 +90,12 @@ namespace Dao
         private Bill Read(DataRow dataRow)
         {
             int id = (int)dataRow["Id"];
-            DateTime date = (DateTime)dataRow["id"];
-            Table tableId = (Table)dataRow["tableId"];
+            DateTime date = (DateTime)dataRow["date"];
+            Table table = new Table_DAO().GetWithId((int)dataRow["tableId"]);
             List<Order> orders = new Order_DAO().GetAllForBill(id);
-            Employee employeeId = (Employee)dataRow["employeeId"];
-
-            return new Bill(id, date, tableId, orders, employeeId);
+            Employee employee = new Employee_DAO().GetWithId((int)dataRow["employeeId"]);
+            
+            return new Bill(id, date, table, orders, employee);
         }
     }
 }

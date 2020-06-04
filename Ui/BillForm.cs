@@ -33,6 +33,7 @@ namespace Ui
             HideAllPanels();
             Bill_lblActivePanel.Text = "Afrekenen";
             Bill_pnlAfrekenen.Show();
+            Bill_btnBillOverview.Show();
             Bill_lblTableNumber.Show();
             Bill_lvTables.Show();
             ShowOccupiedTables();
