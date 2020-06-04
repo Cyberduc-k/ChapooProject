@@ -17,7 +17,10 @@ namespace Ui
         private Table tafel;
         private Order order;
         private string maaltijd;
-        private List<Dish> dishes;
+        private List<Dish> orderDishes;
+        private List<Drink> orderDrinks;
+        private List<Dish> lunch;
+        private List<Dish> diner;
         private List<Drink> drinks;
         private Dish_Service dishService = new Dish_Service();
         private Drink_Service drinkService = new Drink_Service();
@@ -31,16 +34,9 @@ namespace Ui
 
         private void LunchMenuForm_Load(object sender, EventArgs e)
         {
-            // List<Dish> dishes = dishService.GetAllLunch();
-            //dishes = new List<Dish>();
-            //Dish voorgerecht = new Dish(0, "negerbrood", "brood voor de negers", "fufu", 5, 200, DishCategory.Voorgerechten);
-            //Dish hoofdgerecht = new Dish(1, "mijn pik", "pik is de hoofdgerecht man", "zebi", 500, 1, DishCategory.Hoofdgerechten);
-            //Dish nagerecht = new Dish(2, "pagga op stok", "paggerino", "sperrie", 100, 200000, DishCategory.Nagerechten);
+            
             int i = 0;
-            //dishes.Add(voorgerecht);
-            //dishes.Add(hoofdgerecht);
-            //dishes.Add(nagerecht);
-
+            
             //hier komen de db calls voor de maaltijd, op basis van wat de maaaltijd string is weet je of het een lunch, diner of drank menu is.
             //lunch = "Lunchmenu"
             //diner = "Dinermenu"
@@ -48,18 +44,18 @@ namespace Ui
             if (maaltijd == "Lunchmenu")
             {
                 //get lunchmenu
-                List<Dish> dishes = dishService.GetAllLunch();
+                lunch = dishService.GetAllLunch();
 
             }
             else if (maaltijd == "Dinermenu")
             {
                 //get dinermenu
-                List<Dish> dishes = dishService.GetAllDinner();
+                diner = dishService.GetAllDinner();
             }
             else if (maaltijd == "Drankenlijst")
             {
                 //get drankenlijst
-                List<Drink> drinks = drinkService.GetAllDrinks();
+                drinks = drinkService.GetAllDrinks();
             }
 
             List<Button> list = new List<Button>();
@@ -67,7 +63,7 @@ namespace Ui
             List<Button> voorgerechten = new List<Button>();
             List<Button> hoofdgerechten = new List<Button>();
             List<Button> nagerechten = new List<Button>();
-            if (dishes == null)
+            if (lunch == null)
             {
                 label1.Text = "Er is niets in db";
                 label2.Text = "Er is niets in db";
@@ -98,9 +94,47 @@ namespace Ui
                 Button[] btns5 = voorgerechten.ToArray();
                 voorgerechtFlow.Controls.AddRange(btns5);
             }
-            else
+            else if(maaltijd == "Lunchmenu")
             {
-                foreach (Dish t in dishes)
+                foreach (Dish t in lunch)
+                {
+                    Button btn = new Button();
+                    btn.BackColor = System.Drawing.Color.LightBlue;
+                    btn.Text = t.Name;
+                    btn.Click += new EventHandler(this.ClickEvent);
+                    Point point = new Point();
+                    point.X = i * 83;
+                    point.Y = 35;
+                    btn.Size = new Size(200, 50);
+                    btn.PointToClient(point);
+                    btn.Show();
+                    list.Add(btn);
+                    i++;
+                    if (t.Category == DishCategory.Voorgerechten)
+                    {
+                        voorgerechten.Add(btn);
+                    }
+                    else if (t.Category == DishCategory.Hoofdgerechten)
+                    {
+                        hoofdgerechten.Add(btn);
+                    }
+                    else if (t.Category == DishCategory.Nagerechten)
+                    {
+                        nagerechten.Add(btn);
+                    }
+                    this.Controls.Add(btn);
+                }
+                Button[] btns1 = voorgerechten.ToArray();
+                Button[] btns2 = hoofdgerechten.ToArray();
+                Button[] btns3 = nagerechten.ToArray();
+
+                voorgerechtFlow.Controls.AddRange(btns1);
+                hoofdgerechtFlow.Controls.AddRange(btns2);
+                nagerechtFlow.Controls.AddRange(btns3);
+            }
+            else if (maaltijd == "Dinermenu")
+            {
+                foreach (Dish t in diner)
                 {
                     Button btn = new Button();
                     btn.BackColor = System.Drawing.Color.LightBlue;
@@ -141,8 +175,33 @@ namespace Ui
         {
             Button btn = (Button)sender;
             Dish dish = new Dish();
-
+            Drink drink = new Drink();
             string name = btn.Text;
+            List<Dish> dishes = new List<Dish>();
+            if (lunch != null)
+            {
+                dishes = lunch;
+            }
+
+            else if (diner != null)
+            {
+                dishes = diner;
+            }
+
+
+            else if (drinks != null)
+            {
+                
+                foreach (Drink d in drinks)
+                {
+                    if (d.Name == name)
+                    {
+                        drink = d;
+                    }
+                }
+            }
+
+
             foreach (Dish d in dishes)
             {
                 if (d.Name == name)
@@ -150,7 +209,8 @@ namespace Ui
                     dish = d;
                 }
             }
-            DetailForm form = new DetailForm(tafel, dish, order, maaltijd);
+            DetailViewModel product = new DetailViewModel(dish, drink);
+            DetailForm form = new DetailForm(tafel, product, order, maaltijd);
             form.Show();
         }
 

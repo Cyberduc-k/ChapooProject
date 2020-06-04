@@ -14,6 +14,8 @@ namespace Ui
 {
     public partial class OrderForm : Form
     {
+        private Table_Service tableService = new Table_Service();
+        private List<Table> tafels;
         public OrderForm()
         {
             InitializeComponent();
@@ -21,20 +23,63 @@ namespace Ui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Logic.Order_Service orderService = new Order_Service();
-           
-            Dish steak = new Dish(1, "Hertenbiefstuk", "biefstuk met uien", "biefstuk, ui, zout", 25.00, 40, DishCategory.Hoofdgerechten);
-            List<Dish> dishes = new List<Dish>();
-            dishes.Add(steak);
+            this.Hide();
+        }
+        private void OrderForm_Load(object sender, EventArgs e)
+        {
+            tafels = tableService.GetAllTables();
+            var color = System.Drawing.Color.White;
+            List<Button> list = new List<Button>();
+            int i = 0;
 
-            Drink tonic = new Drink(1, "Tonic", false, 2.50, 30);
-            List<Drink> drinks = new List<Drink>();
-            drinks.Add(tonic);
+            foreach (Table t in tafels)
+            {
+                if (t.Occupied)
+                {
+                    color = System.Drawing.Color.Red;
+                } 
+                else
+                {
+                    color = System.Drawing.Color.Green;
+                }
+                Button btn = new Button();
+                btn.BackColor = color;
+                btn.Name = ("tafel" + t.Number);
+                btn.Text = t.Number.ToString();
+                btn.Click += new EventHandler(this.ClickEvent);
+                Point point = new Point();
+                point.X = i * 83;
+                point.Y = 35;
+                btn.Size = new Size(50, 50);
+                btn.PointToClient(point);
+                btn.Show();
+                list.Add(btn);
+                i++;
+                this.Controls.Add(btn);
+            }
+            Button[] btns = list.ToArray();
 
-            //Employee employee = new Employee(1, "Rico", "Verhoeven", DateTime.Parse("15-05-1993"), DateTime.Parse("18-04-2020"), Gender.Male, "Pa$$w0rd", EmployeeType.Waiter);
-            //Table table = new Table(1, 4, false);
-            Order order = new Order(1, DateTime.Parse("5:34:50 PM"), DateTime.Parse("5:53:24 PM"), dishes, drinks, 1001, 1, OrderState.Started, "Graag extra veel saus");
-            orderService.AddOrder(order);
+            flowPanel.Controls.AddRange(btns);
+        }
+
+        private void ClickEvent(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int tafelnr = int.Parse(btn.Text);
+            Table tafel = new Table();
+
+            foreach(Table t in tafels)
+            {
+                if (t.Number == tafelnr)
+                {
+                    tafel = t;
+                }
+            }
+            Order order = new Order();
+            
+            this.Hide();
+            MenuForm menu = new MenuForm(tafel, order);
+            menu.Show();
         }
     }
 }

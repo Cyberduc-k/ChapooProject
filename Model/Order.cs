@@ -9,12 +9,12 @@ namespace Model
     public class Order
     {
         public int Id { get; }
-        public DateTime TimeOrdering { get; }
+        public DateTime TimeOrdering { get; set; }
         public DateTime TimeFinished { get; set; }
         public List<Dish> Dishes { get; }
         public List<Drink> Drinks { get; }
         public int EmployeeId { get; }
-        public int TableId { get; }
+        public int TableId { get; set; }
         public OrderState State { get; set; }
         public string Comment { get; }
 
@@ -45,6 +45,11 @@ namespace Model
             TableId = tableId;
             State = state;
             Comment = comment;
+        }
+
+        public Order()
+        {
+
         }
     }
 }

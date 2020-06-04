@@ -61,7 +61,6 @@ namespace Ui
             UpdateOKbtn(nameFilledIn, priceFilledIn, ingredientsFilledIn, stockFilledIn);
         }
 
-
         private void CP_Popup_AddToMenu_txtStock_TextChanged(object sender, EventArgs e)
         {
             if (CP_Popup_AddToMenu_txtStock.Text != "")

@@ -18,5 +18,10 @@ namespace Model
             Seats = seats;
             Occupied = occupied;
         }
+
+        public Table()
+        {
+
+        }
     }
 }
