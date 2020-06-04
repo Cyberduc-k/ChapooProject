@@ -52,6 +52,12 @@
     <Compile Include="BarForm.Designer.cs">
       <DependentUpon>BarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BestelLijstFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BestelLijstFrom.Designer.cs">
+      <DependentUpon>BestelLijstFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="BillForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,11 +76,35 @@
     <Compile Include="ControlPanelForm.Designer.cs">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CP_Popup_AddToDrinksMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_AddToDrinksMenu.Designer.cs">
+      <DependentUpon>CP_Popup_AddToDrinksMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_AddToMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_AddToMenu.Designer.cs">
+      <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_EditDrinksMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_EditDrinksMenu.Designer.cs">
+      <DependentUpon>CP_Popup_EditDrinksMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="CP_Popup_EditEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CP_Popup_EditEmployee.Designer.cs">
       <DependentUpon>CP_Popup_EditEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_EditMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_EditMenu.Designer.cs">
+      <DependentUpon>CP_Popup_EditMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="CP_Popup_NewEmployee.cs">
       <SubType>Form</SubType>
@@ -94,6 +124,10 @@
     <Compile Include="CP_Popup_Sure.Designer.cs">
       <DependentUpon>CP_Popup_Sure.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailForm.cs" />
+    <Compile Include="DetailForm.Designer.cs">
+      <DependentUpon>DetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +135,18 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginState.cs" />
+    <Compile Include="LunchMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LunchMenuForm.Designer.cs">
+      <DependentUpon>LunchMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +158,9 @@
     <EmbeddedResource Include="BarForm.resx">
       <DependentUpon>BarForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BestelLijstFrom.resx">
+      <DependentUpon>BestelLijstFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BillForm.resx">
       <DependentUpon>BillForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,8 +170,20 @@
     <EmbeddedResource Include="ControlPanelForm.resx">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_AddToDrinksMenu.resx">
+      <DependentUpon>CP_Popup_AddToDrinksMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_AddToMenu.resx">
+      <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_EditDrinksMenu.resx">
+      <DependentUpon>CP_Popup_EditDrinksMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CP_Popup_EditEmployee.resx">
       <DependentUpon>CP_Popup_EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_EditMenu.resx">
+      <DependentUpon>CP_Popup_EditMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CP_Popup_NewEmployee.resx">
       <DependentUpon>CP_Popup_NewEmployee.cs</DependentUpon>
@@ -133,8 +194,17 @@
     <EmbeddedResource Include="CP_Popup_Sure.resx">
       <DependentUpon>CP_Popup_Sure.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DetailForm.resx">
+      <DependentUpon>DetailForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LunchMenuForm.resx">
+      <DependentUpon>LunchMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>

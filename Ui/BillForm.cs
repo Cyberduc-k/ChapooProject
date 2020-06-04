@@ -45,15 +45,20 @@ namespace Ui
             Bill_lvTables.Show();
             Bill bills = bill_service.GetBillByTableId(tableId);
             
-            foreach(Order orders in bills.Order)
+            foreach(Order orders in bills.Orders)
             {
                 foreach(Dish dish in orders.Dishes)
                 {
                     Bill_lvBillOverview.Items.Add(dish.Name.ToString());
                     Bill_lvBillOverview.Items.Add(dish.Price.ToString());
                 }
-            }
 
+                foreach (Drink drink in orders.Drinks)
+                {
+                    Bill_lvBillOverview.Items.Add(drink.Name.ToString());
+                    Bill_lvBillOverview.Items.Add(drink.Price.ToString());
+                }
+            }
 
         }
 
@@ -68,7 +73,8 @@ namespace Ui
         }
         private void ShowOccupiedTables()
         {
-            tables = table_service.GetAllTables().ToList();
+            tables = table_service.GetAllTables();
+
             Button[] btnArray = new Button[]
             {
                 Bill_btnTable1, Bill_btnTable2, Bill_btnTable3, Bill_btnTable4, Bill_btnTable5, Bill_btnTable6, Bill_btnTable7, Bill_btnTable8, Bill_btnTable9, Bill_btnTable10
