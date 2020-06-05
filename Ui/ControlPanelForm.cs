@@ -371,20 +371,10 @@ namespace Ui
                 popup.SetAsEmptyStock(CP_Voorraad_listView.SelectedItems.Count);
             else
             {
-                if (shownMenu == MenuType.Drinksmenu)
-                {
-                    if (((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Stock == 0)
-                        return;
+                if (((Item)CP_Voorraad_listView.SelectedItems[0].Tag).Stock == 0)
+                    return;
 
-                    popup.SetAsEmptyStock(((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Name);
-                }
-                else
-                {
-                    if (((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Stock == 0)
-                        return;
-
-                    popup.SetAsEmptyStock(((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Name);
-                }
+                popup.SetAsEmptyStock(((Item)CP_Voorraad_listView.SelectedItems[0].Tag).Name);              
             }
 
             popup.ShowDialog();
