@@ -18,11 +18,13 @@ namespace Ui
         private Order_Service order_service = new Order_Service();
         private Dish_Service dish_service = new Dish_Service();
         private List<Order> orders;
+        private Timer timer = new Timer();
 
         public ChefForm()
         {
             InitializeComponent();
             InitializeSorting();
+            InitializeTimer();
             Chef_btnOverzicht_Click(null, null);
         }
 
@@ -30,6 +32,13 @@ namespace Ui
         {
             Chef_lvVoorraad.View = View.Details;
             Chef_lvVoorraad.ListViewItemSorter = lvwColumnSorter;
+        }
+
+        private void InitializeTimer()
+        {
+            timer.Interval = 10000;
+            timer.Tick += OnTimedEvent;
+            timer.Stop();
         }
 
         // Highlight a button
@@ -43,6 +52,7 @@ namespace Ui
 
         private void HideAllPanels()
         {
+            timer.Stop();
             Chef_pnlOverzicht.Hide();
             Chef_lblGeenBestellingen.Hide();
             Chef_pnlOpmerkingen.Hide();
@@ -89,6 +99,14 @@ namespace Ui
                     ShowOverflow(orders.Count - 4);
                     goto case 4;
             }
+
+            timer.Start();
+        }
+
+        void OnTimedEvent(Object source, EventArgs e)
+        {
+            // every 10 seconds the "Overzicht" panel will be refreshed
+            Chef_btnOverzicht_Click(null, null);
         }
 
         private void FillFirstOrder(Order order)
