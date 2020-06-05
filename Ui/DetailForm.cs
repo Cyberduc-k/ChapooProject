@@ -73,6 +73,11 @@ namespace Ui
             List<Drink> drinks = new List<Drink>();
             if (product.Dish != null)
             {
+                if (product.Dish.Stock == 0)
+                {
+                    MessageBox.Show("Niet op voorraad", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 if (order.Dishes == null)
                 {
                     order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started, "");
@@ -85,6 +90,11 @@ namespace Ui
             }
             else if (product.Drink != null)
             {
+                if (product.Drink.Stock == 0)
+                {
+                    MessageBox.Show("Niet op voorraad", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 if (order.Drinks == null)
                 {
                     order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started, "");
@@ -111,8 +121,6 @@ namespace Ui
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LunchMenuForm form = new LunchMenuForm(tafel, order, maaltijd);
-            form.Show();
         }
     }
 }

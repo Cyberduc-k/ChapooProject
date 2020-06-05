@@ -37,6 +37,8 @@ namespace Ui
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+            MenuForm form = new MenuForm(tafel, order);
+            form.Show();
         }
 
         private void bestelBtn_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace Ui
             Reservation reservation = new Reservation(1, "testreservation", DateTime.Today, DateTime.Now, DateTime.Today.AddDays(1), 5, tafel);
             reservationService = new Reservation_Service();
             reservationService.AddReservation(reservation);
-            MessageBox.Show("Attentie", "Reservatie is geplaatst.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Reservatie is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

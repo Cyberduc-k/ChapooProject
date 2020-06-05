@@ -45,17 +45,40 @@ namespace Ui
             {
                 //get lunchmenu
                 lunch = dishService.GetAllLunch();
-
+                
+                if (lunch == null)
+                {
+                    label1.Text = "Er is niets in db";
+                    label2.Text = "Er is niets in db";
+                    label3.Text = "Er is niets in db";
+                    return;
+                }
             }
             else if (maaltijd == "Dinermenu")
             {
                 //get dinermenu
                 diner = dishService.GetAllDinner();
+
+                if (diner == null)
+                {
+                    label1.Text = "Er is niets in db";
+                    label2.Text = "Er is niets in db";
+                    label3.Text = "Er is niets in db";
+                    return;
+                }
             }
             else if (maaltijd == "Drankenlijst")
             {
                 //get drankenlijst
                 drinks = drinkService.GetAllDrinks();
+
+                if (drinks == null)
+                {
+                    label1.Text = "Er is niets in db";
+                    label2.Text = "Er is niets in db";
+                    label3.Text = "Er is niets in db";
+                    return;
+                }
             }
 
             List<Button> list = new List<Button>();
@@ -63,16 +86,14 @@ namespace Ui
             List<Button> voorgerechten = new List<Button>();
             List<Button> hoofdgerechten = new List<Button>();
             List<Button> nagerechten = new List<Button>();
-            if (lunch == null)
-            {
-                label1.Text = "Er is niets in db";
-                label2.Text = "Er is niets in db";
-                label3.Text = "Er is niets in db";
-                return;
-            }
+            
 
             if (maaltijd == "Drankenlijst")
             {
+                label1.Text = "Frisdranken";
+                label2.Text = "Alcoholische dranken";
+                label3.Text = "Koffie/Thee";
+
                 foreach (Drink t in drinks)
                 {
                     Button btn = new Button();
@@ -86,13 +107,29 @@ namespace Ui
                     btn.PointToClient(point);
                     btn.Show();
                     list.Add(btn);
+                    if (t.Alcoholic)
+                    {
+                        hoofdgerechten.Add(btn);
+                    }
+                    else if (t.Id > 21)
+                    {
+                        nagerechten.Add(btn);
+                    }
+                    else
+                    {
+                        voorgerechten.Add(btn);
+                    }
                     i++;
-                    voorgerechten.Add(btn);
                     
                     this.Controls.Add(btn);
                 }
-                Button[] btns5 = voorgerechten.ToArray();
-                voorgerechtFlow.Controls.AddRange(btns5);
+                Button[] btns1 = voorgerechten.ToArray();
+                Button[] btns2 = hoofdgerechten.ToArray();
+                Button[] btns3 = nagerechten.ToArray();
+
+                voorgerechtFlow.Controls.AddRange(btns1);
+                hoofdgerechtFlow.Controls.AddRange(btns2);
+                nagerechtFlow.Controls.AddRange(btns3);
             }
             else if(maaltijd == "Lunchmenu")
             {
@@ -162,6 +199,7 @@ namespace Ui
                     }
                     this.Controls.Add(btn);
                 }
+
                 Button[] btns1 = voorgerechten.ToArray();
                 Button[] btns2 = hoofdgerechten.ToArray();
                 Button[] btns3 = nagerechten.ToArray();
