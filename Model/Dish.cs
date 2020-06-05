@@ -6,41 +6,27 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Dish
+    public class Dish : Item
     {
-        public int Id { get; }
-        public string Name { get; }
         public string Description { get; }
         public string Ingredients { get; }
-        public double Price { get; }
-        public int Stock { get; }
         public DishCategory Category { get; }
 
-        public Dish(int id, string name, string description, string ingredients, double price, int stock, DishCategory category)
+        public Dish(int id, string name, string description, string ingredients, double price, int stock, DishCategory category) : base(id, name, price, stock)
         {
-            Id = id;
-            Name = name;
             Description = description;
             Ingredients = ingredients;
-            Price = price;
-            Stock = stock;
             Category = category;
         }
 
         //Constructor for when an ID isn't necessary
-        public Dish(string name, string description, string ingredients, double price, int stock, DishCategory category)
+        public Dish(string name, string description, string ingredients, double price, int stock, DishCategory category) : base(name, price, stock)
         {
-            Name = name;
             Description = description;
             Ingredients = ingredients;
-            Price = price;
-            Stock = stock;
             Category = category;
         }
 
-        public Dish()
-        {
-
-        }
+        public Dish() : base() { }
     }
 }

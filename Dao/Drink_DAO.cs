@@ -43,6 +43,12 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        //@TODO implement
+        public List<Drink> OrderByStock()
+        {
+            return null;
+        }
+
         // Add a new drink to the database
         public void Add(Drink drink)
         {
@@ -81,6 +87,19 @@ namespace Dao
                 new SqlParameter("@price", drink.Price),
                 new SqlParameter("@stock", drink.Stock),
                 new SqlParameter("@id", drink.Id),
+            };
+            
+            ExecuteEditQuery(query, parameters);
+        }
+
+        // Modify the stock of a drink in the database
+        public void ModifyStock(int id, int stock)
+        {
+            string query = "UPDATE [dbo].[Drinks] SET [stock] = @stock WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[2]
+            {
+                new SqlParameter("@stock", stock),
+                new SqlParameter("@id", id),
             };
             
             ExecuteEditQuery(query, parameters);

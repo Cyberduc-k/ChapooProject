@@ -18,6 +18,12 @@ namespace Logic
             return drink_DAO.GetAll();
         }
 
+        //Get a list of all the drinks ordered by stock
+        public List<Drink> OrderByStock()
+        {
+            return drink_DAO.OrderByStock();
+        }
+
         //Add a new drink
         public void AddDrink(Drink drink)
         {
@@ -34,6 +40,11 @@ namespace Logic
         public void ModifyDrink(Drink drink)
         {
             drink_DAO.Modify(drink);
+        }
+
+        public void ModifyStock(int id, int stock)
+        {
+            drink_DAO.ModifyStock(id, stock);
         }
 
         //Empty the stock of a drink

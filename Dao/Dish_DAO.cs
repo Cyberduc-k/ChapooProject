@@ -61,6 +61,12 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        //@TODO implement
+        public List<Dish> OrderByStock()
+        {
+            return null;
+        }
+
         // Add a new dish to the database
         public void Add(Dish dish, MenuType menu)
         {
@@ -114,6 +120,19 @@ namespace Dao
                 new SqlParameter("@stock", dish.Stock),
                 new SqlParameter("@category", dish.Category),
                 new SqlParameter("@id", dish.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
+        // Modify the stock of a dish in the database
+        public void ModifyStock(int id, int stock)
+        {
+            string query = "UPDATE [dbo].[Dishes] SET [stock] = @stock WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[2]
+            {
+                new SqlParameter("@stock", stock),
+                new SqlParameter("@id", id),
             };
 
             ExecuteEditQuery(query, parameters);

@@ -104,7 +104,7 @@ namespace Dao
             int employeeId = int.Parse(dataRow["employeeId"].ToString());
             int tableId = int.Parse(dataRow["tableId"].ToString());
             OrderState state = (OrderState)int.Parse(dataRow["orderState"].ToString());
-            string comment = (string)dataRow["comment"];
+            string comment = dataRow["comment"].ToString();
 
             DateTime timeOrdering;
             DateTime.TryParse(dataRow["timeOrdering"].ToString(), out timeOrdering);
