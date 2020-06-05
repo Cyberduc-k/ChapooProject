@@ -352,7 +352,10 @@ namespace Ui
             popup.ShowDialog();
 
             if (popup.DialogResult == DialogResult.OK)
+            {
+                new CP_Feedback(((Item)CP_Voorraad_listView.SelectedItems[0].Tag).Name + " is succesvol geweizigd", 2500).Show();
                 LoadListViewVoorraad();
+            }
         }
 
         private void CP_Voorraad_btnEmptyItem_Click(object sender, EventArgs e)
@@ -395,8 +398,8 @@ namespace Ui
                 }
 
             //Reload the voorraad list
-            if (popup.DialogResult == DialogResult.OK)
-                LoadListViewVoorraad();          
+            new CP_Feedback("Voorraad(en) succesvol geleegd", 2500).Show();
+            LoadListViewVoorraad();
         }
 
         private void CP_Voorraad_listView_SelectedIndexChanged(object sender, EventArgs e)
@@ -548,6 +551,9 @@ namespace Ui
                     employeeService.DeleteEmployee(id);
             }
 
+            //Show the succesfull bar
+            new CP_Feedback("Medewerker(s) succesvol verwijderd", 2500).Show();
+
             //Reload the employee list
             LoadEmployeeList();
         }
@@ -561,13 +567,16 @@ namespace Ui
                     MessageBox.Show("U kunt maar 1 medewerker tegelijk aanpassen", "Selecteer 1 medewerker", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
-            }          
+            }
 
             CP_Popup_EditEmployee popup = new CP_Popup_EditEmployee((Employee)CP_Medewerkers_listView.SelectedItems[0].Tag);
             popup.ShowDialog();
 
             if (popup.DialogResult == DialogResult.OK)
+            {
+                new CP_Feedback(((Employee)CP_Medewerkers_listView.SelectedItems[0].Tag).FirstName + " is succesvol geweizigd", 2500).Show();
                 LoadEmployeeList();
+            }
         }
 
         private void CP_Medewerkers_btnNieuweMedewerker_Click(object sender, EventArgs e)
@@ -576,7 +585,10 @@ namespace Ui
             popup.ShowDialog();
 
             if (popup.DialogResult == DialogResult.OK)
+            {
+                new CP_Feedback("Nieuwe medewerker succesvol toegevoegd", 2500).Show();
                 LoadEmployeeList();
+            }
         }
         #endregion
         #endregion
@@ -814,7 +826,10 @@ namespace Ui
 
             //Reload the menu list
             if (popup.DialogResult == DialogResult.OK)
+            {
+                new CP_Feedback("Nieuw item succesvol toegevoegd", 2500).Show();
                 LoadListViewMenus();
+            }
         }
 
         private void CP_Menukaarten_btnEditItem_Click(object sender, EventArgs e)
@@ -839,7 +854,10 @@ namespace Ui
 
             //Reload the menu list
             if (popup.DialogResult == DialogResult.OK)
+            {
+                new CP_Feedback(((Item)CP_Menukaarten_listView.SelectedItems[0].Tag).Name + " is succesvol geweizigd", 2500).Show();
                 LoadListViewMenus();
+            }
         }
 
         private void CP_Menukaarten_btnDeleteItem_Click(object sender, EventArgs e)
@@ -886,8 +904,8 @@ namespace Ui
                 }
 
             //Reload the menu list
-            if (popup.DialogResult == DialogResult.OK)
-                LoadListViewMenus();
+            new CP_Feedback("Item(s) succesvol verwijderd", 2500).Show();
+            LoadListViewMenus();
         }
         #endregion
         #endregion
