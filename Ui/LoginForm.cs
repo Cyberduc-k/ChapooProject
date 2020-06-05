@@ -32,6 +32,9 @@ namespace Ui
 
             // Also show the order panel on startup
             new OrderForm().Show();
+
+            // Also show the bill panel on startup
+            new BillForm().Show();
         }
 
         private void CheckCredentials()

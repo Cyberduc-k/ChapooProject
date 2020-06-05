@@ -17,6 +17,12 @@ namespace Logic
             return bill_DAO.GetAll();
         }
 
+        // Get bill by tableId
+        public Bill GetBillByTableId(int tableId)
+        {
+            return bill_DAO.GetBillByTableId(tableId);
+        }
+
         //Add a new bill
         public void AddBill(Bill bill)
         {

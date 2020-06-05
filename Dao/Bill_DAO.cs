@@ -18,6 +18,20 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        // Get bill by tableId
+        public Bill GetBillByTableId(int tableId)
+        {
+            string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills] WHERE [tableId] = @tableId";
+
+            SqlParameter[] parameters = new SqlParameter[1] {
+
+                new SqlParameter("@tableId", tableId),
+
+            };
+
+            return Read(ExecuteSelectQuery(query, parameters).Rows[0]);
+        }
+
         // Add a new bill to the database
         public void Add(Bill bill)
         {
@@ -76,12 +90,12 @@ namespace Dao
         private Bill Read(DataRow dataRow)
         {
             int id = (int)dataRow["Id"];
-            DateTime date = (DateTime)dataRow["id"];
-            Table tableId = (Table)dataRow["tableId"];
+            DateTime date = (DateTime)dataRow["date"];
+            Table table = new Table_DAO().GetWithId((int)dataRow["tableId"]);
             List<Order> orders = new Order_DAO().GetAllForBill(id);
-            Employee employeeId = (Employee)dataRow["employeeId"];
-
-            return new Bill(id, date, tableId, orders, employeeId);
+            Employee employee = new Employee_DAO().GetWithId((int)dataRow["employeeId"]);
+            
+            return new Bill(id, date, table, orders, employee);
         }
     }
 }

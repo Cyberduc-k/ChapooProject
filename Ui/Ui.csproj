@@ -58,6 +58,12 @@
     <Compile Include="BestelLijstFrom.Designer.cs">
       <DependentUpon>BestelLijstFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="BillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillForm.Designer.cs">
+      <DependentUpon>BillForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChefForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,7 +79,7 @@
     <Compile Include="CP_Popup_AddToDrinksMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CP_Popup_AddToDrinksMenu.designer.cs">
+    <Compile Include="CP_Popup_AddToDrinksMenu.Designer.cs">
       <DependentUpon>CP_Popup_AddToDrinksMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="CP_Popup_AddToMenu.cs">
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="CP_Popup_AddToMenu.Designer.cs">
       <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_ChangeStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_ChangeStock.Designer.cs">
+      <DependentUpon>CP_Popup_ChangeStock.cs</DependentUpon>
     </Compile>
     <Compile Include="CP_Popup_EditDrinksMenu.cs">
       <SubType>Form</SubType>
@@ -157,6 +169,9 @@
     <EmbeddedResource Include="BestelLijstFrom.resx">
       <DependentUpon>BestelLijstFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BillForm.resx">
+      <DependentUpon>BillForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChefForm.resx">
       <DependentUpon>ChefForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CP_Popup_AddToMenu.resx">
       <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_ChangeStock.resx">
+      <DependentUpon>CP_Popup_ChangeStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CP_Popup_EditDrinksMenu.resx">
       <DependentUpon>CP_Popup_EditDrinksMenu.cs</DependentUpon>

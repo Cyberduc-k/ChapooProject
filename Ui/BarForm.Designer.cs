@@ -30,9 +30,10 @@
         {
             this.Bar_btnOverzicht = new System.Windows.Forms.Button();
             this.Bar_btnVoorraad = new System.Windows.Forms.Button();
-            this.Bar_btnBestellen = new System.Windows.Forms.Button();
             this.Bar_pnlVoorraad = new System.Windows.Forms.Panel();
+            this.Bar_lvVoorraad = new System.Windows.Forms.ListView();
             this.Bar_pnlOverzicht = new System.Windows.Forms.Panel();
+            this.Bar_lblGeenBestellingen = new System.Windows.Forms.Label();
             this.Bar_pnlOpmerkingen = new System.Windows.Forms.Panel();
             this.Bar_lblOpmerkingenContent = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -46,9 +47,7 @@
             this.Bar_lvSecond = new System.Windows.Forms.ListView();
             this.Bar_pnlFirstOrder = new System.Windows.Forms.Panel();
             this.Bar_btnFirstKlaar = new System.Windows.Forms.Button();
-            this.Bar_lblGeenBestellingen = new System.Windows.Forms.Label();
             this.Bar_lvFirstOrder = new System.Windows.Forms.ListView();
-            this.Bar_lvVoorraad = new System.Windows.Forms.ListView();
             this.Bar_lblActivePanel = new System.Windows.Forms.Label();
             this.Bar_pnlVoorraad.SuspendLayout();
             this.Bar_pnlOverzicht.SuspendLayout();
@@ -80,16 +79,6 @@
             this.Bar_btnVoorraad.UseVisualStyleBackColor = true;
             this.Bar_btnVoorraad.Click += new System.EventHandler(this.Bar_btnVoorraad_Click);
             // 
-            // Bar_btnBestellen
-            // 
-            this.Bar_btnBestellen.Location = new System.Drawing.Point(12, 104);
-            this.Bar_btnBestellen.Name = "Bar_btnBestellen";
-            this.Bar_btnBestellen.Size = new System.Drawing.Size(75, 23);
-            this.Bar_btnBestellen.TabIndex = 4;
-            this.Bar_btnBestellen.Text = "Bestellen";
-            this.Bar_btnBestellen.UseVisualStyleBackColor = true;
-            this.Bar_btnBestellen.Click += new System.EventHandler(this.Bar_btnBestellen_Click_1);
-            // 
             // Bar_pnlVoorraad
             // 
             this.Bar_pnlVoorraad.Controls.Add(this.Bar_lvVoorraad);
@@ -97,6 +86,16 @@
             this.Bar_pnlVoorraad.Name = "Bar_pnlVoorraad";
             this.Bar_pnlVoorraad.Size = new System.Drawing.Size(694, 392);
             this.Bar_pnlVoorraad.TabIndex = 5;
+            // 
+            // Bar_lvVoorraad
+            // 
+            this.Bar_lvVoorraad.HideSelection = false;
+            this.Bar_lvVoorraad.Location = new System.Drawing.Point(3, 3);
+            this.Bar_lvVoorraad.Name = "Bar_lvVoorraad";
+            this.Bar_lvVoorraad.Size = new System.Drawing.Size(688, 386);
+            this.Bar_lvVoorraad.TabIndex = 0;
+            this.Bar_lvVoorraad.UseCompatibleStateImageBehavior = false;
+            this.Bar_lvVoorraad.View = System.Windows.Forms.View.Details;
             // 
             // Bar_pnlOverzicht
             // 
@@ -107,10 +106,19 @@
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlThirdOrder);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlSecondOrder);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlFirstOrder);
-            this.Bar_pnlOverzicht.Location = new System.Drawing.Point(94, 46);
+            this.Bar_pnlOverzicht.Location = new System.Drawing.Point(93, 46);
             this.Bar_pnlOverzicht.Name = "Bar_pnlOverzicht";
             this.Bar_pnlOverzicht.Size = new System.Drawing.Size(694, 392);
             this.Bar_pnlOverzicht.TabIndex = 1;
+            // 
+            // Bar_lblGeenBestellingen
+            // 
+            this.Bar_lblGeenBestellingen.AutoSize = true;
+            this.Bar_lblGeenBestellingen.Location = new System.Drawing.Point(305, 189);
+            this.Bar_lblGeenBestellingen.Name = "Bar_lblGeenBestellingen";
+            this.Bar_lblGeenBestellingen.Size = new System.Drawing.Size(92, 13);
+            this.Bar_lblGeenBestellingen.TabIndex = 1;
+            this.Bar_lblGeenBestellingen.Text = "Geen bestellingen";
             // 
             // Bar_pnlOpmerkingen
             // 
@@ -226,15 +234,6 @@
             this.Bar_btnFirstKlaar.UseVisualStyleBackColor = true;
             this.Bar_btnFirstKlaar.Click += new System.EventHandler(this.Bar_btnFirstKlaar_Click_1);
             // 
-            // Bar_lblGeenBestellingen
-            // 
-            this.Bar_lblGeenBestellingen.AutoSize = true;
-            this.Bar_lblGeenBestellingen.Location = new System.Drawing.Point(312, 183);
-            this.Bar_lblGeenBestellingen.Name = "Bar_lblGeenBestellingen";
-            this.Bar_lblGeenBestellingen.Size = new System.Drawing.Size(92, 13);
-            this.Bar_lblGeenBestellingen.TabIndex = 1;
-            this.Bar_lblGeenBestellingen.Text = "Geen bestellingen";
-            // 
             // Bar_lvFirstOrder
             // 
             this.Bar_lvFirstOrder.HideSelection = false;
@@ -243,16 +242,6 @@
             this.Bar_lvFirstOrder.Size = new System.Drawing.Size(306, 154);
             this.Bar_lvFirstOrder.TabIndex = 0;
             this.Bar_lvFirstOrder.UseCompatibleStateImageBehavior = false;
-            // 
-            // Bar_lvVoorraad
-            // 
-            this.Bar_lvVoorraad.HideSelection = false;
-            this.Bar_lvVoorraad.Location = new System.Drawing.Point(3, 3);
-            this.Bar_lvVoorraad.Name = "Bar_lvVoorraad";
-            this.Bar_lvVoorraad.Size = new System.Drawing.Size(688, 386);
-            this.Bar_lvVoorraad.TabIndex = 0;
-            this.Bar_lvVoorraad.UseCompatibleStateImageBehavior = false;
-            this.Bar_lvVoorraad.View = System.Windows.Forms.View.Details;
             // 
             // Bar_lblActivePanel
             // 
@@ -271,7 +260,6 @@
             this.Controls.Add(this.Bar_pnlOverzicht);
             this.Controls.Add(this.Bar_lblActivePanel);
             this.Controls.Add(this.Bar_pnlVoorraad);
-            this.Controls.Add(this.Bar_btnBestellen);
             this.Controls.Add(this.Bar_btnVoorraad);
             this.Controls.Add(this.Bar_btnOverzicht);
             this.Name = "BarForm";
@@ -296,7 +284,6 @@
 
         private System.Windows.Forms.Button Bar_btnOverzicht;
         private System.Windows.Forms.Button Bar_btnVoorraad;
-        private System.Windows.Forms.Button Bar_btnBestellen;
         private System.Windows.Forms.Panel Bar_pnlVoorraad;
         private System.Windows.Forms.ListView Bar_lvVoorraad;
         private System.Windows.Forms.Label Bar_lblActivePanel;

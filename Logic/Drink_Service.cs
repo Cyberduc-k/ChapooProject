@@ -36,6 +36,11 @@ namespace Logic
             drink_DAO.Modify(drink);
         }
 
+        public void ModifyStock(int id, int stock)
+        {
+            drink_DAO.ModifyStock(id, stock);
+        }
+
         //Empty the stock of a drink
         public void EmptyStock(int id)
         {

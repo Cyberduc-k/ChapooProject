@@ -16,6 +16,17 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        public Table GetWithId(int id)
+        {
+            string query = "SELECT [id], [occupied], [seats] FROM [dbo].[Tables] WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", id),
+            };
+
+            return ReadAll(ExecuteSelectQuery(query, parameters))[0];
+        }
+
         // Add a new table to the database
         public void Add(Table table)
         {

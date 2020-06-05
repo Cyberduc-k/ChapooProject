@@ -14,6 +14,12 @@ namespace Logic
             return table_DAO.GetAll();
         }
 
+        //Get the corresponding table with an id
+        public Table GetWithId(int id)
+        {
+            return table_DAO.GetWithId(id);
+        }
+
         // Add a new table
         public void AddTable(Table table)
         {

@@ -16,7 +16,16 @@ namespace Dao
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
+        public Employee GetWithId(int id)
+        {
+            string query = "SELECT [id], [dateOfBirth], [dateOfEmployment], [firstname], [lastname], [password], [employeeType], [gender] FROM [dbo].[Employees] WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", id),
+            };
 
+            return ReadAll(ExecuteSelectQuery(query, parameters))[0];
+        }
         public Employee GetWithPassword(int id, string password)
         {
             string query = "SELECT [id], [dateOfBirth], [dateOfEmployment], [firstname], [lastname], [password], [employeeType], [gender] FROM [dbo].[Employees] WHERE [id] = @id AND [password] = @password";

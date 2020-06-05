@@ -339,7 +339,26 @@ namespace Ui
 
         private void CP_Voorraad_btnEditItem_Click(object sender, EventArgs e)
         {
+            //Make sure a single item is selected
+            if (CP_Voorraad_listView.SelectedItems.Count != 1)
+            {
+                if (CP_Voorraad_listView.SelectedItems.Count > 1)
+                    MessageBox.Show("U kunt maar van 1 item de voorraad tegelijk aanpassen", "Selecteer 1 item", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                return;
+            }
+
+            //@TODO Interface
+            CP_Popup_ChangeStock popup;
+            if (shownMenu == MenuType.Drinksmenu)
+                popup = new CP_Popup_ChangeStock(((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Id, ((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Stock, ((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Name);
+            else
+                popup = new CP_Popup_ChangeStock(((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Id, ((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Stock, ((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Name);
+
+            popup.ShowDialog();
+
+            if (popup.DialogResult == DialogResult.OK)
+                LoadListViewVoorraad();
         }
 
         private void CP_Voorraad_btnEmptyItem_Click(object sender, EventArgs e)
