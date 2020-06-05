@@ -15,7 +15,18 @@ namespace Dao
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
-        
+        // Get the last drink id
+        public int GetLastId()
+        {
+            string query = "SELECT IDENT_CURRENT('Drinks') as nextId";
+            SqlParameter[] parameters = new SqlParameter[0];
+
+            DataTable table = ExecuteSelectQuery(query, parameters);
+            DataRow row = table.Rows[0];
+
+            return int.Parse(row["nextId"].ToString());
+        }
+
         // Get a list of all drinks for the specified order
         public List<Drink> GetAllForOrder(int orderId)
         {

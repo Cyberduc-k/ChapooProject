@@ -20,6 +20,7 @@ namespace Ui
         private List<Bill> bills;
         private List<Table> tables;
         private int tableId = 1;
+        private double totalprice = 0;
 
         public BillForm()
         {
@@ -34,7 +35,6 @@ namespace Ui
             Bill_lblActivePanel.Text = "Afrekenen";
             Bill_pnlAfrekenen.Show();
             Bill_btnBillOverview.Show();
-            Bill_lblTableNumber.Show();
             Bill_lvTables.Show();
             ShowOccupiedTables();
 
@@ -43,29 +43,38 @@ namespace Ui
         private void Bill_btnRekeningOverzicht_Click(object sender, EventArgs e)
         {
             HideAllPanels();
-            Bill_lvTables.Show();
-            Bill bills = bill_service.GetBillByTableId(tableId);
             
-            foreach(Order orders in bills.Orders)
+            Bill_lvBillOverview.Show();
+
+            Bill bills = bill_service.GetBillByTableId(tableId);
+
+            for (int i = 0; i < bills.Orders.Count; i++)
             {
-                foreach(Dish dish in orders.Dishes)
-                {
-                    Bill_lvBillOverview.Items.Add(dish.Name.ToString());
-                    Bill_lvBillOverview.Items.Add(dish.Price.ToString());
-                }
+                ListViewItem li = new ListViewItem(tableId.ToString());
+                li.SubItems.Add(bills.Orders[i].Id.ToString());
+                li.SubItems.Add(bills.Orders[i].Comment);
+                li.SubItems.Add(bills.Orders[i].State.ToString());
 
-                foreach (Drink drink in orders.Drinks)
-                {
-                    Bill_lvBillOverview.Items.Add(drink.Name.ToString());
-                    Bill_lvBillOverview.Items.Add(drink.Price.ToString());
-                }
+                Bill_lvBillOverview.Items.Add(li);
+
+                totalprice = totalprice + bills.Orders[i].TotalPrice;
             }
+            Bill_lblTotalPrice.Text = totalprice.ToString("€ 00,00");
 
+            Bill_lblTotalPrice.Show();
+            Bill_btnFooi.Show();
+            Bill_btnKiesBetaalmethode.Show();
         }
 
-        private void Bill_btnKiesBetaalmethode_Click(object sender, EventArgs e)
+        private void Bill_btnKiesBetaalmethode_Click_1(object sender, EventArgs e)
         {
-
+            Bill_pnlFooi.Hide();
+            Bill_pnlBetaalMethode.Show();
+            Bill_rbCash.Show();
+            Bill_rbMastercard.Show();
+            Bill_rbPaypal.Show();
+            Bill_rbVisa.Show();
+            Bill_btnPay.Show();
         }
         private void SetHightlight(Button btn)
         {
@@ -100,11 +109,18 @@ namespace Ui
         {
             Bill_btnBillOverview.Hide();
             Bill_btnKiesBetaalmethode.Hide();
+            Bill_btnFooi.Hide();
             Bill_lblRekeningNietBeschikbaar.Hide();
-            Bill_lblTableNumber.Hide();
             Bill_lvTables.Hide();
             Bill_pnlAfrekenen.Hide();
-            Bill_lvBetaalMethode.Hide();
+            Bill_pnlBetaalMethode.Hide();
+            Bill_rbCash.Hide();
+            Bill_rbMastercard.Hide();
+            Bill_rbPaypal.Hide();
+            Bill_rbVisa.Hide();
+            Bill_btnPay.Hide();
+            Bill_pnlFooi.Hide();
+            Bill_lblTotalPrice.Hide();
         }
 
         private void Bill_btnTable1_Click(object sender, EventArgs e)
@@ -165,6 +181,27 @@ namespace Ui
         {
             Bill_lblTableNumber.Text = "Tafel nummer: 10";
             tableId = 10;
+        }
+
+        private void Bill_btnPay_Click(object sender, EventArgs e)
+        {
+            //bill_service.RemoveBill();
+        }
+
+        private void Bill_btnBetaalmethodeX_Click(object sender, EventArgs e)
+        {
+            Bill_pnlBetaalMethode.Hide();
+        }
+
+        private void Bill_btnFooiX_Click(object sender, EventArgs e)
+        {
+            Bill_pnlFooi.Hide();
+        }
+
+        private void Bill_btnFooi_Click(object sender, EventArgs e)
+        {
+            Bill_pnlBetaalMethode.Hide();
+            Bill_pnlFooi.Show();
         }
     }
 }
