@@ -50,5 +50,11 @@ namespace Logic
         {
             dish_DAO.Modify(dish);
         }
+
+        //Modify the stock of a dish
+        public void ModifyStock(int id, int stock)
+        {
+            dish_DAO.ModifyStock(id, stock);
+        }
     }
 }
