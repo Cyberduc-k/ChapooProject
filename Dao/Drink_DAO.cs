@@ -32,6 +32,12 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        //@TODO implement
+        public List<Drink> OrderByStock()
+        {
+            return null;
+        }
+
         // Add a new drink to the database
         public void Add(Drink drink)
         {

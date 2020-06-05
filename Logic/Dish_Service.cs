@@ -27,6 +27,12 @@ namespace Logic
             return dish_DAO.GetAllLunch();
         }
 
+        //Get a list of all the dishes ordered by stock
+        public List<Dish> OrderByStock()
+        {
+            return dish_DAO.OrderByStock();
+        }
+
         //Add a new dish
         public void AddDish(Dish dish, MenuType menuType)
         {

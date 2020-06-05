@@ -61,6 +61,12 @@ namespace Dao
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
+        //@TODO implement
+        public List<Dish> OrderByStock()
+        {
+            return null;
+        }
+
         // Add a new dish to the database
         public void Add(Dish dish, MenuType menu)
         {
