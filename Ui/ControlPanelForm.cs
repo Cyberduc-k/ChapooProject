@@ -348,13 +348,7 @@ namespace Ui
                 return;
             }
 
-            //@TODO Interface
-            CP_Popup_ChangeStock popup;
-            if (shownMenu == MenuType.Drinksmenu)
-                popup = new CP_Popup_ChangeStock(((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Id, ((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Stock, ((Drink)CP_Voorraad_listView.SelectedItems[0].Tag).Name);
-            else
-                popup = new CP_Popup_ChangeStock(((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Id, ((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Stock, ((Dish)CP_Voorraad_listView.SelectedItems[0].Tag).Name);
-
+            CP_Popup_ChangeStock popup = new CP_Popup_ChangeStock((Item)CP_Voorraad_listView.SelectedItems[0].Tag);
             popup.ShowDialog();
 
             if (popup.DialogResult == DialogResult.OK)

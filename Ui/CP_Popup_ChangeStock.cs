@@ -18,21 +18,20 @@ namespace Ui
         private bool stockFilledIn = false;
 
         //The int of the item to change
-        private int id;
-        private string name;
+        private Item item;
 
-        public CP_Popup_ChangeStock(int id, int stock, string name)
+        public CP_Popup_ChangeStock(Item item)
         {
             InitializeComponent();
 
             //Load an icon for the form
             LoadIcon("Resources/pencil-icon.ico");
 
-            //Store the id of the item to change the stock off
-            this.id = id;
+            //Store the item to change the stock off
+            this.item = item;
 
             //Show the current stock in the textbox
-            CP_Popup_ChangeStock_txtStock.Text = stock.ToString();
+            CP_Popup_ChangeStock_txtStock.Text = item.Stock.ToString();
         }
 
         private void CP_Popup_ChangeStock_txtStock_TextChanged(object sender, EventArgs e)
@@ -62,7 +61,7 @@ namespace Ui
         public override void OnClickOK(object sender, EventArgs e)
         {
             CP_Popup_Sure popup = new CP_Popup_Sure();
-            popup.SetAsChangeStock(name);
+            popup.SetAsChangeStock(item.Name);
             popup.ShowDialog();
 
             if (!(popup.DialogResult == DialogResult.OK))
@@ -71,26 +70,46 @@ namespace Ui
                 Close();
             }
 
-            Drink_Service drinkService = new Drink_Service();
-
             //Store the value of the input
             bool stockParsed = int.TryParse(CP_Popup_ChangeStock_txtStock.Text, out int stock);
 
             if (!stockParsed)
                 Close();
-
-            //Modify the stock
-            try
+            
+            if(item.GetType() == typeof(Dish))
             {
-                drinkService.ModifyStock(id, stock);
-            }
-            catch (Exception ex)
-            {
-                ErrorHandler.Instance.HandleError("Voorraad kon niet aangepast worden!", "Voorraad niet aangepast", ex);
+                Dish_Service dishService = new Dish_Service();
 
-                //Tell the ControlPanel form that the action didn't succeed
-                DialogResult = DialogResult.Cancel;
+                //Modify the stock
+                try
+                {
+                    dishService.ModifyStock(item.Id, stock);
+                }
+                catch (Exception ex)
+                {
+                    ErrorHandler.Instance.HandleError("Voorraad van " + item.Id + " kon niet aangepast worden!", "Voorraad niet aangepast", ex);
+
+                    //Tell the ControlPanel form that the action didn't succeed
+                    DialogResult = DialogResult.Cancel;
+                }
             }
+            else
+            {
+                Drink_Service drinkService = new Drink_Service();
+
+                //Modify the stock
+                try
+                {
+                    drinkService.ModifyStock(item.Id, stock);
+                }
+                catch (Exception ex)
+                {
+                    ErrorHandler.Instance.HandleError("Voorraad van " + item.Id + " kon niet aangepast worden!", "Voorraad niet aangepast", ex);
+
+                    //Tell the ControlPanel form that the action didn't succeed
+                    DialogResult = DialogResult.Cancel;
+                }
+            }        
         }
 
         public override void OnClickCancel(object sender, EventArgs e)
