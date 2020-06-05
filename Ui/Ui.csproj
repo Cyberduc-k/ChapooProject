@@ -148,7 +148,6 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginState.cs" />
     <Compile Include="LunchMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>

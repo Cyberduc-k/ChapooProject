@@ -48,6 +48,7 @@
     <Compile Include="Error.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="LoginState.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuType.cs" />
     <Compile Include="Order.cs" />
