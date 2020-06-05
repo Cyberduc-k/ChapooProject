@@ -37,7 +37,6 @@ namespace Ui
             Bill_lblTableNumber.Show();
             Bill_lvTables.Show();
             ShowOccupiedTables();
-
         }
 
         private void Bill_btnRekeningOverzicht_Click(object sender, EventArgs e)
@@ -60,7 +59,6 @@ namespace Ui
                     Bill_lvBillOverview.Items.Add(drink.Price.ToString());
                 }
             }
-
         }
 
         private void Bill_btnKiesBetaalmethode_Click(object sender, EventArgs e)

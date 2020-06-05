@@ -12,7 +12,6 @@ namespace Dao
         public List<Bill> GetAll()
         {
             string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills]";
-
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -22,14 +21,17 @@ namespace Dao
         public Bill GetBillByTableId(int tableId)
         {
             string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills] WHERE [tableId] = @tableId";
-
             SqlParameter[] parameters = new SqlParameter[1] {
-
                 new SqlParameter("@tableId", tableId),
-
             };
 
             return Read(ExecuteSelectQuery(query, parameters).Rows[0]);
+        }
+
+        //@TODO Implement
+        public List<Bill> GetAllBetweenDates(DateTime from, DateTime to)
+        {
+            return null;
         }
 
         // Add a new bill to the database
