@@ -11,14 +11,23 @@ namespace Model
         public int Id { get; }
         public string Name { get; }
         public double Price { get; }
-        public int NumberInStock { get; }
+        public int Stock { get; }
 
-        public Item(int id, string name, double price, int numberInStock)
+        public Item(int id, string name, double price, int stock)
         {
             Id = id;
             Name = name;
             Price = price;
-            NumberInStock = numberInStock;
+            Stock = stock;
         }
+
+        public Item(string name, double price, int stock)
+        {
+            Name = name;
+            Price = price;
+            Stock = stock;
+        }
+
+        public Item() { }
     }
 }
