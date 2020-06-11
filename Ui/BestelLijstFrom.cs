@@ -15,10 +15,7 @@ namespace Ui
     public partial class BestelLijstFrom : Form
     {
         private Order order;
-        private Order_Service orderService;
-        private List<Order> orders;
-        private Bill bill;
-        private Bill_Service billService;
+        private Reservation_Service reservationService;
         private Table tafel;
         public BestelLijstFrom(Table tafel, Order order)
         {
@@ -46,10 +43,10 @@ namespace Ui
 
         private void bestelBtn_Click(object sender, EventArgs e)
         {
-            orderService = new Order_Service();
-            order.EmployeeId = 1021;
-            orderService.AddOrder(order);
-            MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Reservation reservation = new Reservation(1, "testreservation", DateTime.Today, DateTime.Now, DateTime.Today.AddDays(1), 5, tafel);
+            reservationService = new Reservation_Service();
+            reservationService.AddReservation(reservation);
+            MessageBox.Show("Reservatie is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
