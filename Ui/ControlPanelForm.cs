@@ -422,6 +422,11 @@ namespace Ui
             CP_Voorraad_btnEditItem.BackColor = Color.FromArgb(0, 184, 255);
             CP_Voorraad_btnEmptyItem.BackColor = Color.Red;
         }
+
+        private void CP_Voorraad_listView_ColumnClick_1(object sender, ColumnClickEventArgs e)
+        {
+            SortListView(e, CP_Voorraad_listView);
+        }
         #endregion
         #endregion
 
@@ -917,12 +922,23 @@ namespace Ui
         #endregion
         #endregion
 
+        #region Inkomsten
         //Code used for the Inkomsten panel
-        private void LoadRevenue() 
+        private void LoadRevenueBetweenDates(DateTime from, DateTime to)
+        {
+            LoadRevenueFromList(billService.GetAllBetweenDates(from, to));
+        }
+
+        //Function is unnecesary but helps with readability
+        private void LoadRevenue()
+        {
+            LoadRevenueFromList(billService.GetAllBills());
+        }
+
+        private void LoadRevenueFromList(List<Bill> billList) 
         {
             CP_Inkomsten_listView.Clear();
 
-            List<Bill> billList = billService.GetAllBills();
             Dictionary<DateTime, RevenueRow> rows = new Dictionary<DateTime, RevenueRow>();
 
             List<Dish> dinnerDishes = dishService.GetAllDinner();
@@ -981,12 +997,12 @@ namespace Ui
 
             foreach(KeyValuePair<DateTime, RevenueRow> kvp in rows)
             {
-                ListViewItem li = new ListViewItem(kvp.Key.Date.ToString());
+                ListViewItem li = new ListViewItem(kvp.Key.Date.ToString("dd/MM/yyyy"));
                 li.SubItems.Add(kvp.Value.OrderCount.ToString());
-                li.SubItems.Add(kvp.Value.TotalDrinks.ToString());
-                li.SubItems.Add(kvp.Value.TotalLunch.ToString());
-                li.SubItems.Add(kvp.Value.TotalDinner.ToString());
-                li.SubItems.Add(kvp.Value.Total.ToString());
+                li.SubItems.Add("€" + kvp.Value.TotalDrinks.ToString("0.00"));
+                li.SubItems.Add("€" + kvp.Value.TotalLunch.ToString("0.00"));
+                li.SubItems.Add("€" + kvp.Value.TotalDinner.ToString("0.00"));
+                li.SubItems.Add("€" + kvp.Value.Total.ToString("0.00"));
 
                 CP_Inkomsten_listView.Items.Add(li);
             }          
@@ -1022,11 +1038,19 @@ namespace Ui
                 ch.Width = -2;
             }
         }
-        
+
+        #region OnClicks
         private void CP_Inkomsten_btnApply_Click(object sender, EventArgs e)
         {
-
+            LoadRevenueBetweenDates(CP_Inkomsten_dtpVan.Value, CP_Inkomsten_dtpTot.Value);
         }
+
+        private void CP_Inkomsten_listView_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            SortListView(e, CP_Inkomsten_listView);
+        }
+        #endregion
+        #endregion
 
         //Code used by multiple panels
         #region General
