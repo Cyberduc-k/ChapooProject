@@ -59,7 +59,7 @@ namespace Ui
             billService = new Bill_Service();
             Bill bill = billService.GetBillByTableId(tafel.Number);
 
-            if (bill != null)
+            if (!bill.Payed)
             {
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
