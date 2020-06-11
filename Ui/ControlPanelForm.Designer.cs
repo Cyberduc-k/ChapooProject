@@ -303,6 +303,7 @@
             this.CP_Voorraad_listView.Size = new System.Drawing.Size(838, 344);
             this.CP_Voorraad_listView.TabIndex = 11;
             this.CP_Voorraad_listView.UseCompatibleStateImageBehavior = false;
+            this.CP_Voorraad_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Voorraad_listView_ColumnClick_1);
             this.CP_Voorraad_listView.SelectedIndexChanged += new System.EventHandler(this.CP_Voorraad_listView_SelectedIndexChanged);
             // 
             // CP_Voorraad_btnLunchgerechten
@@ -597,6 +598,7 @@
             this.CP_Inkomsten_listView.Size = new System.Drawing.Size(838, 403);
             this.CP_Inkomsten_listView.TabIndex = 0;
             this.CP_Inkomsten_listView.UseCompatibleStateImageBehavior = false;
+            this.CP_Inkomsten_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Inkomsten_listView_ColumnClick);
             // 
             // label1
             // 
