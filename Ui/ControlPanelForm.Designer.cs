@@ -34,7 +34,6 @@
             this.CP_btnUitloggen = new System.Windows.Forms.Button();
             this.CP_btnMenukaarten = new System.Windows.Forms.Button();
             this.CP_btnVoorraad = new System.Windows.Forms.Button();
-            this.CP_btnHome = new System.Windows.Forms.Button();
             this.CP_imgLogo = new System.Windows.Forms.PictureBox();
             this.CP_pnlHeader = new System.Windows.Forms.Panel();
             this.CP_lblActivePanel = new System.Windows.Forms.Label();
@@ -82,7 +81,6 @@
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnUitloggen);
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnMenukaarten);
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnVoorraad);
-            this.CP_pnlNavMenu.Controls.Add(this.CP_btnHome);
             this.CP_pnlNavMenu.Controls.Add(this.CP_imgLogo);
             this.CP_pnlNavMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.CP_pnlNavMenu.Location = new System.Drawing.Point(0, 0);
@@ -99,7 +97,7 @@
             this.CP_btnMedewerkers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_btnMedewerkers.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnMedewerkers.ForeColor = System.Drawing.Color.White;
-            this.CP_btnMedewerkers.Location = new System.Drawing.Point(0, 266);
+            this.CP_btnMedewerkers.Location = new System.Drawing.Point(0, 216);
             this.CP_btnMedewerkers.Name = "CP_btnMedewerkers";
             this.CP_btnMedewerkers.Size = new System.Drawing.Size(151, 50);
             this.CP_btnMedewerkers.TabIndex = 7;
@@ -116,7 +114,7 @@
             this.CP_btnInkomsten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_btnInkomsten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnInkomsten.ForeColor = System.Drawing.Color.White;
-            this.CP_btnInkomsten.Location = new System.Drawing.Point(0, 216);
+            this.CP_btnInkomsten.Location = new System.Drawing.Point(0, 166);
             this.CP_btnInkomsten.Name = "CP_btnInkomsten";
             this.CP_btnInkomsten.Size = new System.Drawing.Size(151, 50);
             this.CP_btnInkomsten.TabIndex = 6;
@@ -150,7 +148,7 @@
             this.CP_btnMenukaarten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_btnMenukaarten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnMenukaarten.ForeColor = System.Drawing.Color.White;
-            this.CP_btnMenukaarten.Location = new System.Drawing.Point(0, 166);
+            this.CP_btnMenukaarten.Location = new System.Drawing.Point(0, 116);
             this.CP_btnMenukaarten.Name = "CP_btnMenukaarten";
             this.CP_btnMenukaarten.Size = new System.Drawing.Size(151, 50);
             this.CP_btnMenukaarten.TabIndex = 3;
@@ -167,30 +165,13 @@
             this.CP_btnVoorraad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_btnVoorraad.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnVoorraad.ForeColor = System.Drawing.Color.White;
-            this.CP_btnVoorraad.Location = new System.Drawing.Point(0, 116);
+            this.CP_btnVoorraad.Location = new System.Drawing.Point(0, 66);
             this.CP_btnVoorraad.Name = "CP_btnVoorraad";
             this.CP_btnVoorraad.Size = new System.Drawing.Size(151, 50);
             this.CP_btnVoorraad.TabIndex = 2;
             this.CP_btnVoorraad.Text = "Voorraad";
             this.CP_btnVoorraad.UseVisualStyleBackColor = false;
             this.CP_btnVoorraad.Click += new System.EventHandler(this.CP_btnVoorraad_Click);
-            // 
-            // CP_btnHome
-            // 
-            this.CP_btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_btnHome.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CP_btnHome.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_btnHome.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_btnHome.ForeColor = System.Drawing.Color.White;
-            this.CP_btnHome.Location = new System.Drawing.Point(0, 66);
-            this.CP_btnHome.Name = "CP_btnHome";
-            this.CP_btnHome.Size = new System.Drawing.Size(151, 50);
-            this.CP_btnHome.TabIndex = 0;
-            this.CP_btnHome.Text = "Home";
-            this.CP_btnHome.UseVisualStyleBackColor = false;
-            this.CP_btnHome.Click += new System.EventHandler(this.CP_btnHome_Click);
             // 
             // CP_imgLogo
             // 
@@ -221,9 +202,9 @@
             this.CP_lblActivePanel.ForeColor = System.Drawing.Color.White;
             this.CP_lblActivePanel.Location = new System.Drawing.Point(366, 7);
             this.CP_lblActivePanel.Name = "CP_lblActivePanel";
-            this.CP_lblActivePanel.Size = new System.Drawing.Size(113, 42);
+            this.CP_lblActivePanel.Size = new System.Drawing.Size(160, 42);
             this.CP_lblActivePanel.TabIndex = 0;
-            this.CP_lblActivePanel.Text = "Home";
+            this.CP_lblActivePanel.Text = "Voorraad";
             // 
             // CP_pnlVoorraad
             // 
@@ -648,7 +629,6 @@
         #endregion
 
         private System.Windows.Forms.Panel CP_pnlNavMenu;
-        private System.Windows.Forms.Button CP_btnHome;
         private System.Windows.Forms.Panel CP_pnlHeader;
         private System.Windows.Forms.PictureBox CP_imgLogo;
         private System.Windows.Forms.Button CP_btnVoorraad;
