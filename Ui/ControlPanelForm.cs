@@ -39,16 +39,13 @@ namespace Ui
 
         //Code for the navmenu
         #region NavMenu
-        //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
         private void CP_btnHome_Click(object sender, EventArgs e)
         {
-            //@TODO Add or remove Home
             SetHightlight(CP_btnHome);
             CP_lblActivePanel.Text = "Home";
             HideAllPanels();
         }
 
-        //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
         private void CP_btnVoorraad_Click(object sender, EventArgs e)
         {
             LoadVoorraadDrinks();
@@ -59,7 +56,6 @@ namespace Ui
             CP_pnlVoorraad.Show();
         }
 
-        //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
         private void CP_btnMenukaarten_Click(object sender, EventArgs e)
         {
             LoadMenukaartenDrinks();
@@ -70,7 +66,13 @@ namespace Ui
             CP_pnlMenukaarten.Show();
         }
 
-        //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
+        private void CP_btnBestellingen_Click(object sender, EventArgs e)
+        {
+            SetHightlight(CP_btnBestellingen);
+            CP_lblActivePanel.Text = "Bestellingen";
+            HideAllPanels();
+        }
+
         private void CP_btnInkomsten_Click(object sender, EventArgs e)
         {
             LoadRevenue();
@@ -81,7 +83,6 @@ namespace Ui
             CP_pnlInkomsten.Show();
         }
 
-        //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
         private void CP_btnMedewerkers_Click(object sender, EventArgs e)
         {
             LoadEmployeeList();
@@ -104,21 +105,19 @@ namespace Ui
 
         //Code for the Voorraad panel
         #region Voorraad
-        //Load all drinks into the vooraad ListView
         private void LoadVoorraadDrinks()
         {
-            //Empty the listview
             CP_Voorraad_listView.Clear();
 
-            //Create a list of all the drinks
             List<Drink> drinkList = drinkService.GetAllDrinks();
 
-            //Add all drinks to the listview
             for (int i = 0; i < drinkList.Count; i++)
             {
-                ListViewItem li = new ListViewItem(drinkList[i].Name);
+                ListViewItem li = new ListViewItem(drinkList[i].Id.ToString());
+                li.SubItems.Add(drinkList[i].Name);
                 li.SubItems.Add(drinkList[i].Alcoholic.ToString());
-                li.SubItems.Add(drinkList[i].Stock.ToString() + "x");
+                li.SubItems.Add(drinkList[i].Price.ToString());
+                li.SubItems.Add(drinkList[i].Stock.ToString());
 
                 //Tag is used to store the drink object
                 li.Tag = drinkList[i];
@@ -128,11 +127,19 @@ namespace Ui
 
             // Create some column headers for the data. 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Naam";
-
+            columnheader.Text = "ID";
             CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Naam";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
             columnheader = new ColumnHeader();
             columnheader.Text = "Alcoholisch";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Prijs";
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
@@ -157,21 +164,22 @@ namespace Ui
             CP_Voorraad_btnEmptyItem.Text = "Voorraad van drank legen";
         }
 
-        //Load all lunch dishes into the Voorraad ListView
         private void LoadVoorraadLunch()
         {
-            //Empty the ListView
             CP_Voorraad_listView.Clear();
 
-            //Create a list of all the drinks
             List<Dish> lunchList = dishService.GetAllLunch();
 
-            //Add all dishes to the listView
             for (int i = 0; i < lunchList.Count; i++)
             {
-                ListViewItem li = new ListViewItem(lunchList[i].Name);
+                //@TODO: Add category
+                ListViewItem li = new ListViewItem(lunchList[i].Id.ToString());
+                li.SubItems.Add(lunchList[i].Name);
+                li.SubItems.Add(lunchList[i].Description);
+                li.SubItems.Add(lunchList[i].Ingredients);
+                li.SubItems.Add(lunchList[i].Price.ToString());
+                li.SubItems.Add(lunchList[i].Stock.ToString());
                 li.SubItems.Add(lunchList[i].Category.ToString());
-                li.SubItems.Add(lunchList[i].Stock.ToString() + "x");
 
                 //Tag is used to store the dish object
                 li.Tag = lunchList[i];
@@ -181,15 +189,31 @@ namespace Ui
 
             // Create some column headers for the data. 
             columnheader = new ColumnHeader();
+            columnheader.Text = "ID";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
             columnheader.Text = "Naam";
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Categorie";
+            columnheader.Text = "Omschrijving";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Ingredienten";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Prijs";
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
             columnheader.Text = "Voorraad";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Categorie";
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             // Loop through and size each column header to fit the column header text.
@@ -210,21 +234,22 @@ namespace Ui
             CP_Voorraad_btnEmptyItem.Text = "Voorraad van gerecht legen";
         }
 
-        //Load all dinner dishes into the Voorraad ListView
         private void LoadVoorraadDinner()
         {
-            //Empty the listView
             CP_Voorraad_listView.Clear();
 
-            //Create a list of dinner dishes
             List<Dish> dinnerList = dishService.GetAllDinner();
 
-            //Add all dishes to the listView
             for (int i = 0; i < dinnerList.Count; i++)
             {
-                ListViewItem li = new ListViewItem(dinnerList[i].Name);
+                //@TODO: Add category
+                ListViewItem li = new ListViewItem(dinnerList[i].Id.ToString());
+                li.SubItems.Add(dinnerList[i].Name);
+                li.SubItems.Add(dinnerList[i].Description);
+                li.SubItems.Add(dinnerList[i].Ingredients);
+                li.SubItems.Add(dinnerList[i].Price.ToString());
+                li.SubItems.Add(dinnerList[i].Stock.ToString());
                 li.SubItems.Add(dinnerList[i].Category.ToString());
-                li.SubItems.Add(dinnerList[i].Stock.ToString() + "x");
 
                 //Tag is used to store the dish object
                 li.Tag = dinnerList[i];
@@ -234,15 +259,31 @@ namespace Ui
 
             // Create some column headers for the data. 
             columnheader = new ColumnHeader();
+            columnheader.Text = "ID";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
             columnheader.Text = "Naam";
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Categorie";
+            columnheader.Text = "Omschrijving";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Ingredienten";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Prijs";
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
             columnheader.Text = "Voorraad";
+            CP_Voorraad_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Categorie";
             CP_Voorraad_listView.Columns.Add(columnheader);
 
             // Loop through and size each column header to fit the column header text.
@@ -263,10 +304,8 @@ namespace Ui
             CP_Voorraad_btnEmptyItem.Text = "Voorraad van gerecht legen";
         }
 
-        //Determine what type of items to load
         private void LoadListViewVoorraad()
         {
-            //Fill the list according to the shown menu
             if (shownMenu == MenuType.Dinnermenu)
                 LoadVoorraadDinner();
             else if (shownMenu == MenuType.Lunchmenu)
@@ -276,7 +315,6 @@ namespace Ui
         }
 
         #region OnClicks
-        //Show all drinks 
         private void CP_Voorraad_btnDranken_Click(object sender, EventArgs e)
         {
             CP_Voorraad_btnDranken.BackColor = Color.FromArgb(0, 184, 255);
@@ -285,7 +323,6 @@ namespace Ui
             LoadVoorraadDrinks();
         }
 
-        //Show all lunch dishes
         private void CP_Voorraad_btnLunchgerechten_Click(object sender, EventArgs e)
         {
             CP_Voorraad_btnLunchgerechten.BackColor = Color.FromArgb(0, 184, 255);
@@ -294,7 +331,6 @@ namespace Ui
             LoadVoorraadLunch();
         }
 
-        //Show all diner dishes
         private void CP_Voorraad_btnDinergerechten_Click(object sender, EventArgs e)
         {
             CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 184, 255);
@@ -303,13 +339,11 @@ namespace Ui
             LoadVoorraadDinner();
         }
 
-        //Sort the listview on a column when it is clicked
         private void CP_Voorraad_listView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             SortListView(e, CP_Voorraad_listView);
         }
 
-        //Edit the stock of an item
         private void CP_Voorraad_btnEditItem_Click(object sender, EventArgs e)
         {
             //Make sure a single item is selected
@@ -321,11 +355,9 @@ namespace Ui
                 return;
             }
 
-            //Show the popup for changing the stock
             CP_Popup_ChangeStock popup = new CP_Popup_ChangeStock((Item)CP_Voorraad_listView.SelectedItems[0].Tag);
             popup.ShowDialog();
 
-            //When popup has been succesfully executed show feedback to the user and reload the listView
             if (popup.DialogResult == DialogResult.OK)
             {
                 new CP_Feedback(((Item)CP_Voorraad_listView.SelectedItems[0].Tag).Name + " is succesvol geweizigd", 2500).Show();
@@ -333,7 +365,6 @@ namespace Ui
             }
         }
 
-        //Clear the stocks of an item
         private void CP_Voorraad_btnEmptyItem_Click(object sender, EventArgs e)
         {
             //Make sure a item is selected
@@ -356,13 +387,12 @@ namespace Ui
                 popup.SetAsEmptyStock(((Item)CP_Voorraad_listView.SelectedItems[0].Tag).Name);              
             }
 
-            //Show the popup and check if Ok is clickec
             popup.ShowDialog();
 
             if (!(popup.DialogResult == DialogResult.OK))
                 return;
 
-            //Empty all selected stocks of the shown menu
+            //Empty all selected stocks
             if (shownMenu == MenuType.Drinksmenu)
                 foreach (ListViewItem item in CP_Voorraad_listView.SelectedItems)
                 {
@@ -374,12 +404,11 @@ namespace Ui
                     dishService.EmptyStock(((Dish)item.Tag).Id);
                 }
 
-            //Reload the voorraad list and give the user feedback
+            //Reload the voorraad list
             new CP_Feedback("Voorraad(en) succesvol geleegd", 2500).Show();
             LoadListViewVoorraad();
         }
 
-        //Gets called when the selected item in the listView changes
         private void CP_Voorraad_listView_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Make sure an item is selected
@@ -387,7 +416,6 @@ namespace Ui
             if (!(CP_Voorraad_listView.SelectedItems.Count > 0))
                 return;
 
-            //If it is selected, enable the buttons
             CP_Voorraad_btnEditItem.Enabled = true;
             CP_Voorraad_btnEmptyItem.Enabled = true;
 
@@ -395,7 +423,6 @@ namespace Ui
             CP_Voorraad_btnEmptyItem.BackColor = Color.Red;
         }
 
-        //Sort the listview on a column when it is clicked
         private void CP_Voorraad_listView_ColumnClick_1(object sender, ColumnClickEventArgs e)
         {
             SortListView(e, CP_Voorraad_listView);
@@ -489,7 +516,6 @@ namespace Ui
             if (!(CP_Medewerkers_listView.SelectedItems.Count > 0))
                 return;
 
-            //Enable the buttons when an item is selected in the listView
             CP_Medewerkers_btnEdit.Enabled = true;
             CP_Medewerkers_btnVerwijderen.Enabled = true;
 
@@ -497,7 +523,7 @@ namespace Ui
             CP_Medewerkers_btnVerwijderen.BackColor = Color.Red;
         }
 
-        //Sort the listview on a column when it is clicked
+        //Sort the selected column
         private void CP_Medewerkers_listView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             SortListView(e, CP_Medewerkers_listView);
@@ -539,7 +565,6 @@ namespace Ui
             LoadEmployeeList();
         }
 
-        //Edit the selected employee
         private void CP_Medewerkers_btnEdit_Click(object sender, EventArgs e)
         {
             //Make sure a single item is selected
@@ -551,11 +576,9 @@ namespace Ui
                 return;
             }
 
-            //Show the popup for editing an employee
             CP_Popup_EditEmployee popup = new CP_Popup_EditEmployee((Employee)CP_Medewerkers_listView.SelectedItems[0].Tag);
             popup.ShowDialog();
 
-            //If the user presses Ok show feedback and reload the listView
             if (popup.DialogResult == DialogResult.OK)
             {
                 new CP_Feedback(((Employee)CP_Medewerkers_listView.SelectedItems[0].Tag).FirstName + " is succesvol geweizigd", 2500).Show();
@@ -563,14 +586,11 @@ namespace Ui
             }
         }
 
-        //Add a new employee
         private void CP_Medewerkers_btnNieuweMedewerker_Click(object sender, EventArgs e)
         {
-            //Show the popup for adding an employee
             CP_Popup_NewEmployee popup = new CP_Popup_NewEmployee();
             popup.ShowDialog();
 
-            //If the user presses Ok in the popup show feedback and reload the listView
             if (popup.DialogResult == DialogResult.OK)
             {
                 new CP_Feedback("Nieuwe medewerker succesvol toegevoegd", 2500).Show();
@@ -582,21 +602,17 @@ namespace Ui
 
         //Code for the Menukaarten panel
         #region Menukaarten
-        //Load all drinks into the menukaarten listView
         private void LoadMenukaartenDrinks()
         {
-            //Empty the listView
             CP_Menukaarten_listView.Clear();
 
-            //Get a list of all drinks
             List<Drink> drinkList = drinkService.GetAllDrinks();
 
-            //Fill the listView with drinks
             for (int i = 0; i < drinkList.Count; i++)
             {
                 ListViewItem li = new ListViewItem(drinkList[i].Name);
                 li.SubItems.Add(drinkList[i].Alcoholic.ToString());
-                li.SubItems.Add(drinkList[i].Price.ToString("0.00"));
+                li.SubItems.Add(drinkList[i].Price.ToString());
 
                 //Tag is used to store the Drink Object
                 li.Tag = drinkList[i];
@@ -635,23 +651,20 @@ namespace Ui
             CP_Menukaarten_btnEditItem.Text = "Drank aanpassen";
         }
 
-        //Load all lunch dishes into the menukaarten listView
         private void LoadMenukaartenLunch()
         {
-            //Empty the listView
             CP_Menukaarten_listView.Clear();
 
-            //Get a list of all lunch dishes
             List<Dish> lunchList = dishService.GetAllLunch();
 
-            //Fill the listView with lunchDishes
             for (int i = 0; i < lunchList.Count; i++)
             {
+                //@TODO: Add category
                 ListViewItem li = new ListViewItem(lunchList[i].Name);
                 li.SubItems.Add(lunchList[i].Description);
                 li.SubItems.Add(lunchList[i].Ingredients);
+                li.SubItems.Add(lunchList[i].Price.ToString());
                 li.SubItems.Add(lunchList[i].Category.ToString());
-                li.SubItems.Add(lunchList[i].Price.ToString("0.00"));
 
                 //Tag is used to store the Dish Object
                 li.Tag = lunchList[i];
@@ -698,23 +711,20 @@ namespace Ui
             CP_Menukaarten_btnEditItem.Text = "Gerecht aanpassen";
         }
 
-        //Load all dinner dishes into the menukaarten listView
         private void LoadMenukaartenDinner()
         {
-            //Clear the listView
             CP_Menukaarten_listView.Clear();
 
-            //Get a list of all dinner dishes
             List<Dish> dinnerList = dishService.GetAllDinner();
 
-            //Fill the listview with the dinnerlist
             for (int i = 0; i < dinnerList.Count; i++)
             {
+                //@TODO: Add category
                 ListViewItem li = new ListViewItem(dinnerList[i].Name);
                 li.SubItems.Add(dinnerList[i].Description);
                 li.SubItems.Add(dinnerList[i].Ingredients);
+                li.SubItems.Add(dinnerList[i].Price.ToString());
                 li.SubItems.Add(dinnerList[i].Category.ToString());
-                li.SubItems.Add(dinnerList[i].Price.ToString("0.00"));
 
                 //Tag is used to store the Dish Object
                 li.Tag = dinnerList[i];
@@ -761,7 +771,6 @@ namespace Ui
             CP_Menukaarten_btnEditItem.Text = "Gerecht aanpassen";
         }
 
-        //Determine what type of items to load
         private void LoadListViewMenus()
         {
             if (shownMenu == MenuType.Dinnermenu)
@@ -780,7 +789,6 @@ namespace Ui
             if (!(CP_Menukaarten_listView.SelectedItems.Count > 0))
                 return;
 
-            //Enable the buttons when an item is selected
             CP_Menukaarten_btnEditItem.Enabled = true;
             CP_Menukaarten_btnDeleteItem.Enabled = true;
 
@@ -1032,7 +1040,6 @@ namespace Ui
             LoadRevenueBetweenDates(CP_Inkomsten_dtpVan.Value, CP_Inkomsten_dtpTot.Value);
         }
 
-        //Sort the listview on a column when it is clicked
         private void CP_Inkomsten_listView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             SortListView(e, CP_Inkomsten_listView);
