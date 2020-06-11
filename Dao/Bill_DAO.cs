@@ -11,7 +11,16 @@ namespace Dao
         // Get a list of all the billes
         public List<Bill> GetAll()
         {
-            string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills]";
+            string query = "SELECT [id], [date], [tableId], [employeeId], [Payed] FROM [dbo].[Bills]";
+            SqlParameter[] parameters = new SqlParameter[0];
+
+            return ReadAll(ExecuteSelectQuery(query, parameters));
+        }        
+        
+        // Get a list of all payed bills
+        public List<Bill> GetAllPayed()
+        {
+            string query = "SELECT [id], [date], [tableId], [employeeId], [Payed] FROM [dbo].[Bills] WHERE [Payed]='true'";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
@@ -20,7 +29,7 @@ namespace Dao
         // Get bill by tableId
         public Bill GetBillByTableId(int tableId)
         {
-            string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills] WHERE [tableId] = @tableId";
+            string query = "SELECT [id], [date], [tableId], [employeeId], [Payed] FROM [dbo].[Bills] WHERE [tableId] = @tableId";
             SqlParameter[] parameters = new SqlParameter[1] {
                 new SqlParameter("@tableId", tableId),
             };
@@ -31,9 +40,9 @@ namespace Dao
         }
 
         //Get bills between 2 dates
-        public List<Bill> GetAllBetweenDates(DateTime from, DateTime to)
+        public List<Bill> GetAllPayedBetweenDates(DateTime from, DateTime to)
         {
-            string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills] WHERE [date] BETWEEN @from AND @to";
+            string query = "SELECT [id], [date], [tableId], [employeeId], [Payed] FROM [dbo].[Bills] WHERE ([date] BETWEEN @from AND @to) AND [Payed] = 'true'";
             SqlParameter[] parameters = new SqlParameter[2]
             {
                 new SqlParameter("@from", from.Date.ToString()),
@@ -46,12 +55,13 @@ namespace Dao
         // Add a new bill to the database
         public void Add(Bill bill)
         {
-            string query = "INSERT INTO [dbo].[Bills] ([date], [tableId], [employeeId]) VALUES (@date, @tableId, @employeeId)";
-            SqlParameter[] parameters = new SqlParameter[3]
+            string query = "INSERT INTO [dbo].[Bills] ([date], [tableId], [employeeId], [Payed]) VALUES (@date, @tableId, @employeeId, @payed)";
+            SqlParameter[] parameters = new SqlParameter[4]
             {
                 new SqlParameter("@date", bill.Date),
                 new SqlParameter("@tableId", bill.Table.Number),
                 new SqlParameter("@employeeId", bill.Employee.Id),
+                new SqlParameter("@payed", bill.Payed),
             };
 
             foreach (Order order in bill.Orders)
@@ -121,13 +131,14 @@ namespace Dao
         public void Modify(Bill bill)
         {
             string query = "UPDATE [dbo].[Bills] SET " +
-                "[date] = @date, [tableId] = @table, [employeeId] = @employeeId " +
+                "[date] = @date, [tableId] = @table, [employeeId] = @employeeId, [Payed] = @payed " +
                 "WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[4]
+            SqlParameter[] parameters = new SqlParameter[5]
             {
                 new SqlParameter("@date", bill.Date),
                 new SqlParameter("@tableId", bill.Table),
                 new SqlParameter("@employeeId", bill.Employee),
+                new SqlParameter("@payed", bill.Payed),
                 new SqlParameter("@id", bill.Id),
             };
 
