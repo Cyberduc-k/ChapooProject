@@ -25,6 +25,7 @@ namespace Ui
             InitializeComponent();
             InitializeSorting();
             InitializeTimer();
+            FormClosed += OnClosed;
             Chef_btnOverzicht_Click(null, null);
         }
 
@@ -69,14 +70,16 @@ namespace Ui
         {
             SetHightlight(Chef_btnOverzicht);
             Chef_lblActivePanel.Text = "Overzicht";
-            HideAllPanels();
-            Chef_pnlOverzicht.Show();
+            Refresh();
 
             // Get all unprocessed orders
             orders = order_service
                 .GetAllOrders()
                 .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
                 .ToList();
+
+            HideAllPanels();
+            Chef_pnlOverzicht.Show();
 
             switch (orders.Count)
             {
@@ -161,8 +164,7 @@ namespace Ui
         {
             SetHightlight(Chef_btnGereed);
             Chef_lblActivePanel.Text = "Gereed";
-            HideAllPanels();
-            Chef_pnlGereed.Show();
+            Refresh();
 
             // Get all orders that are ready/served
             List<Order> orders = order_service
@@ -170,35 +172,30 @@ namespace Ui
                 .Where(order => order.State == OrderState.Done || order.State == OrderState.Served)
                 .ToList();
 
+            HideAllPanels();
+            Chef_pnlGereed.Show();
             Chef_pnlOrders.Controls.Clear();
 
             int y = 0;
 
+            // Create a new panel and list view for each order and add them to Chef_pnlOrders
             for (int i = 0; i < orders.Count; i++)
             {
                 Order order = orders[i];
-                Panel pnl_order = new Panel();
-                ListView lv_order = new ListView();
+                Panel pnl_order = CreateOrderPanel(i, y);
+                ListView lv_order = CreateOrderListView(i);
 
-                pnl_order.BackColor = Color.FromArgb(250, 253, 255);
-                pnl_order.BorderStyle = BorderStyle.FixedSingle;
                 pnl_order.Controls.Add(lv_order);
-                pnl_order.Location = new Point(0, y);
-                pnl_order.Name = $"Chef_pnlOrder_{i}";
-                pnl_order.Size = new Size(666, 483);
-
-                lv_order.BackColor = Color.FromArgb(250, 253, 255);
-                lv_order.BorderStyle = BorderStyle.None;
-                lv_order.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-                lv_order.HideSelection = false;
-                lv_order.Location = new Point(0, 0);
-                lv_order.Margin = new Padding(0);
-                lv_order.Name = $"Chef_lvOrder_{i}";
-                lv_order.Size = new Size(664, 481);
-                lv_order.View = View.List;
 
                 foreach (Dish dish in order.Dishes)
-                    lv_order.Items.Add(dish.Name);
+                {
+                    ListViewItem li = new ListViewItem(dish.Name);
+
+                    li.Tag = order;
+                    lv_order.Items.Add(li);
+                }
+
+                lv_order.SelectedIndexChanged += ListViewGereed_IndexChanged;
 
                 Chef_pnlOrders.Controls.Add(pnl_order);
 
@@ -206,15 +203,60 @@ namespace Ui
             }
         }
 
+        // Create a new panel for the "Gereed" tab.
+        private Panel CreateOrderPanel(int i, int y)
+        {
+            return new Panel
+            {
+                BackColor = Color.FromArgb(250, 253, 255),
+                BorderStyle = BorderStyle.FixedSingle,
+                Location = new Point(0, y),
+                Name = $"Chef_pnlOrder_{i}",
+                Size = new Size(456, 483)
+            };
+        }
+
+        // Create a new list view for the "Gereed" tab.
+        private ListView CreateOrderListView(int i)
+        {
+            return new ListView()
+            {
+                BackColor = Color.FromArgb(250, 253, 255),
+                BorderStyle = BorderStyle.None,
+                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                HideSelection = false,
+                Location = new Point(0, 0),
+                Margin = new Padding(0),
+                Name = $"Chef_lvOrder_{i}",
+                Size = new Size(454, 481),
+                View = View.List,
+            };
+        }
+
+        private void ListViewGereed_IndexChanged(object sender, EventArgs e)
+        {
+            ListView lv_order = (ListView)sender;
+
+            if (lv_order.SelectedItems.Count > 0)
+            {
+                ListViewItem li = lv_order.SelectedItems[0];
+                Order order = (Order)li.Tag;
+
+                Chef_lblOpmerkingenContent2.Text = order.Comment;
+            }
+        }
+
         private void Chef_btnVoorraad_Click(object sender, EventArgs e)
         {
             SetHightlight(Chef_btnVoorraad);
             Chef_lblActivePanel.Text = "Voorraad";
+            Refresh();
+
+            List<Dish> dishes = dish_service.GetAllDishes();
+
             HideAllPanels();
             Chef_pnlVoorraad.Show();
             Chef_lvVoorraad.Items.Clear();
-
-            List<Dish> dishes = dish_service.GetAllDishes();
 
             foreach (Dish dish in dishes)
             {
@@ -227,6 +269,7 @@ namespace Ui
             }
         }
 
+        // Only the first order can be marked as ready.
         private void Chef_btnFirstKlaar_Click(object sender, EventArgs e)
         {
             Order order = orders[0];
@@ -260,6 +303,12 @@ namespace Ui
             }
 
             lv.Sort();
+        }
+
+        private void OnClosed(object sender, FormClosedEventArgs e)
+        {
+            timer.Stop();
+            timer.Dispose();
         }
     }
 }
