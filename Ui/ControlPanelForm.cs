@@ -445,13 +445,12 @@ namespace Ui
             for (int i = 0; i < employeeList.Count; i++)
             {
                 ListViewItem li = new ListViewItem(employeeList[i].Id.ToString());
-                li.SubItems.Add(employeeList[i].FirstName.ToString());
-                li.SubItems.Add(employeeList[i].LastName.ToString());
-                li.SubItems.Add(employeeList[i].BirthDate.ToString());
-                li.SubItems.Add(employeeList[i].Gender.ToString());
-                li.SubItems.Add(employeeList[i].DateEmployment.ToString());
+                li.SubItems.Add(employeeList[i].FirstName.ToString() + " " + employeeList[i].LastName.ToString());
+                li.SubItems.Add(employeeList[i].Age.ToString());
+                li.SubItems.Add(employeeList[i].Gender.ToShortString());
+                li.SubItems.Add(employeeList[i].DateEmployment.ToString("dd-MM-yyyy"));
                 li.SubItems.Add(employeeList[i].Password.ToString());
-                li.SubItems.Add(employeeList[i].EmployeeType.ToString());
+                li.SubItems.Add(employeeList[i].EmployeeType.ToDutchString());
 
                 //Tag is used to store the employee object
                 li.Tag = employeeList[i];
@@ -465,15 +464,11 @@ namespace Ui
             CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Voornaam";
+            columnheader.Text = "Naam";
             CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Achternaam";
-            CP_Medewerkers_listView.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Geboortedatum";
+            columnheader.Text = "Leeftijd";
             CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();

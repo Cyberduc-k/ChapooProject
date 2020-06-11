@@ -10,4 +10,24 @@ namespace Model
     {
         Owner, Waiter, Bartender, Chef
     }
+
+    public static class EmployeeTypeExtensions
+    {
+        public static string ToDutchString(this EmployeeType employeeType)
+        {
+            switch (employeeType)
+            {
+                case EmployeeType.Owner:
+                        return "Eigenaar";
+                case EmployeeType.Waiter:
+                        return "Bediening";
+                case EmployeeType.Bartender:
+                        return "Barpersoneel";
+                case EmployeeType.Chef:
+                        return "Keukenpersoneel";
+                default:
+                    return "Onbekend";
+            }
+        }
+    }
 }
