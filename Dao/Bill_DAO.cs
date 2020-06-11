@@ -52,6 +52,13 @@ namespace Dao
                 new SqlParameter("@employeeId", bill.Employee),
             };
 
+            foreach (Order order in bill.Orders)
+            {
+                Order_DAO order_dao = new Order_DAO();
+
+                order_dao.Add(order);
+            }
+
             ExecuteEditQuery(query, parameters);
         }
 
