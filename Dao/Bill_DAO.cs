@@ -31,8 +31,12 @@ namespace Dao
         //Get bills between 2 dates
         public List<Bill> GetAllBetweenDates(DateTime from, DateTime to)
         {
-            string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills]";
-            SqlParameter[] parameters = new SqlParameter[0];
+            string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills] WHERE [date] BETWEEN @from AND @to";
+            SqlParameter[] parameters = new SqlParameter[2]
+            {
+                new SqlParameter("@from", from.Date.ToString()),
+                new SqlParameter("@to", to.Date.ToString()),
+            };
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
