@@ -14,10 +14,8 @@ namespace Ui
 {
     public partial class BillForm : Form
     {
-        private ListViewColumnSorter lvwColumnSorter = new ListViewColumnSorter();
         private Bill_Service bill_service = new Bill_Service();
         private Table_Service table_service = new Table_Service();
-        private List<Bill> bills;
         private List<Table> tables;
         private ColumnHeader columnheader;
         private int tableId = 1;
@@ -40,7 +38,6 @@ namespace Ui
             Bill_btnBillOverview.Show();
             Bill_lvTables.Show();
             ShowOccupiedTables();
-
         }
 
         private void Bill_btnRekeningOverzicht_Click(object sender, EventArgs e)
@@ -209,7 +206,8 @@ namespace Ui
 
         private void Bill_btnPay_Click(object sender, EventArgs e)
         {
-            //bill_service.RemoveBill();
+            Bill bills = bill_service.GetBillByTableId(tableId);
+            bill_service.RemoveBill(bills); 
             Bill_btnAfrekenen_Click(null, null);
         }
 
