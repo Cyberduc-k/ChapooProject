@@ -20,21 +20,6 @@ namespace Ui
         public LoginForm()
         {
             InitializeComponent();
-
-            // Also show the control panel on startup
-            new ControlPanelForm().Show();
-
-            // Also show the chef panel on startup
-            new ChefForm().Show();
-
-            // Also show the bar panel on startup
-            new BarForm().Show();
-
-            // Also show the order panel on startup
-            new OrderForm().Show();
-
-            // Also show the bill panel on startup
-            new BillForm().Show();
         }
 
         private void CheckCredentials()
@@ -69,7 +54,7 @@ namespace Ui
                         OpenForm(new BarForm());
                         break;
                     case EmployeeType.Waiter:
-                        OpenForm(new OrderForm());
+                        OpenForm(new OrderForm(employee));
                         break;
                 }
 

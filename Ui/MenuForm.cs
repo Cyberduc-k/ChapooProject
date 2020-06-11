@@ -19,11 +19,13 @@ namespace Ui
         private Drink_Service drinkServive = new Drink_Service();
         private Dish_Service dishService = new Dish_Service();
         private Table_Service tableService = new Table_Service();
+        private Employee employee;
 
-        public MenuForm(Table tafel, Order order)
+        public MenuForm(Table tafel, Order order, Employee employee)
         {
             this.tafel = tafel;
             this.order = order;
+            this.employee = employee;
             InitializeComponent();
         }
 
@@ -32,7 +34,7 @@ namespace Ui
             Button btn = (Button)sender;
             string maaltijd = btn.Text;
             this.Hide();
-            LunchMenuForm form = new LunchMenuForm (tafel, order, maaltijd);
+            LunchMenuForm form = new LunchMenuForm (tafel, order, employee, maaltijd);
             form.Show();
         }
 
@@ -41,7 +43,7 @@ namespace Ui
             Button btn = (Button)sender;
             string maaltijd = btn.Text;
             this.Hide();
-            LunchMenuForm form = new LunchMenuForm(tafel, order, maaltijd);
+            LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
             form.Show();
         }
 
@@ -50,14 +52,14 @@ namespace Ui
             Button btn = (Button)sender;
             string maaltijd = btn.Text;
             this.Hide();
-            LunchMenuForm form = new LunchMenuForm(tafel, order, maaltijd);
+            LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
             form.Show();
         }
 
         private void bestellijstBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            BestelLijstFrom form = new BestelLijstFrom(tafel, order);
+            BestelLijstFrom form = new BestelLijstFrom(tafel, order, employee);
             form.Show();
         }
     }

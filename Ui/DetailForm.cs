@@ -18,12 +18,15 @@ namespace Ui
         private DetailViewModel product;
         private Order order;
         private string maaltijd;
-        public DetailForm(Table tafel, DetailViewModel product, Order order, string maaltijd)
+        private Employee employee;
+
+        public DetailForm(Table tafel, DetailViewModel product, Order order, Employee employee, string maaltijd)
         {
             this.tafel = tafel;
             this.product = product;
             this.order = order;
             this.maaltijd = maaltijd;
+            this.employee = employee;
             InitializeComponent();
         }
 
@@ -106,14 +109,14 @@ namespace Ui
                 }
             }
             this.Close();
-            BestelLijstFrom form = new BestelLijstFrom(tafel, order);
+            BestelLijstFrom form = new BestelLijstFrom(tafel, order, employee);
             form.Show();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LunchMenuForm form = new LunchMenuForm(tafel, order, maaltijd);
+            LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
             form.Show();
         }
     }
