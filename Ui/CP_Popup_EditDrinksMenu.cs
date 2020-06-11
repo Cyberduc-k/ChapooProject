@@ -19,6 +19,7 @@ namespace Ui
         private bool priceFilledIn = false;
         private bool stockFilledIn = false;
 
+        //Reference to the id of the drink being edited
         private int id;
 
         public CP_Popup_EditDrinksMenu(Drink drink)
@@ -38,9 +39,11 @@ namespace Ui
             else
                 CP_Popup_EditDrinksMenu_cboxAlcoholic.Checked = false;
 
+            //Store the reference
             id = drink.Id;
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popop_EditDrinksMenu_txtName_TextChanged(object sender, EventArgs e)
         {
             if (CP_Popop_EditDrinksMenu_txtName.Text != "")
@@ -51,12 +54,14 @@ namespace Ui
             UpdateOKbtn(nameFilledIn, priceFilledIn, stockFilledIn);
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popop_EditDrinksMenu_txtPrice_TextChanged(object sender, EventArgs e)
         {
             if(CP_Popop_EditDrinksMenu_txtPrice.Text != "")
             {
                 if (double.TryParse(CP_Popop_EditDrinksMenu_txtPrice.Text, out _))
                 {
+                    //Show the user an error if the parse fails
                     CP_Popup_EditDrinksMenu_lblPrijsError.Hide();
                     priceFilledIn = true;
                 }

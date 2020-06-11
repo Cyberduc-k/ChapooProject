@@ -14,6 +14,7 @@ namespace Ui
     {
         public CP_Feedback(string message, int delay)
         {
+            //Show the green feedback form placed on the center top of the parent form
             InitializeComponent();
             Left = 336;
             Top = 40;

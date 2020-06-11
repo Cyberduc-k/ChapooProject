@@ -12,6 +12,7 @@ namespace Model
         Female,
     }
 
+    //Extension class to add ToShortString() function so it shows M/V instead of Male/Female
     public static class GenderExtensions
     {
         public static string ToShortString(this Gender gender)

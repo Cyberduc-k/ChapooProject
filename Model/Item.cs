@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    //Base class for dishes and drinks
     public abstract class Item
     {
         public int Id { get; }

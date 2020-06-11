@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    //Class to hold data for the rows in the Revenue ListView.
     public class RevenueRow
     {
         public int OrderCount { get; set; }

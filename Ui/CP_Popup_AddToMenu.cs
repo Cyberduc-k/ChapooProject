@@ -31,6 +31,7 @@ namespace Ui
             LoadIcon("Resources/pencil-icon.ico");
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popop_AddToMenu_txtName_TextChanged(object sender, EventArgs e)
         {
             if (CP_Popop_AddToMenu_txtName.Text != "")
@@ -41,6 +42,7 @@ namespace Ui
             UpdateOKbtn(nameFilledIn, priceFilledIn, ingredientsFilledIn, stockFilledIn);
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popop_AddToMenu_txtPrice_TextChanged(object sender, EventArgs e)
         {
             if (CP_Popop_AddToMenu_txtPrice.Text != "")
@@ -51,6 +53,7 @@ namespace Ui
             UpdateOKbtn(nameFilledIn, priceFilledIn, ingredientsFilledIn, stockFilledIn);
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popop_AddToMenu_txtIngredients_TextChanged(object sender, EventArgs e)
         {
             if (CP_Popop_AddToMenu_txtIngredients.Text != "")
@@ -61,6 +64,7 @@ namespace Ui
             UpdateOKbtn(nameFilledIn, priceFilledIn, ingredientsFilledIn, stockFilledIn);
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popup_AddToMenu_txtStock_TextChanged(object sender, EventArgs e)
         {
             if (CP_Popup_AddToMenu_txtStock.Text != "")
@@ -110,6 +114,7 @@ namespace Ui
             }
         }
 
+        //Close the form
         public override void OnClickCancel(object sender, EventArgs e)
         {
             Close();

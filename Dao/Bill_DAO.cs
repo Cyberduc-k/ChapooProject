@@ -77,6 +77,7 @@ namespace Dao
             AddBillHasOrder(bill);
         }
 
+        //Get the id of the last added bill
         private int GetLastBillId()
         {
             string query = "SELECT [id] FROM [dbo].[Bills] ORDER BY [id] DESC";
@@ -87,6 +88,7 @@ namespace Dao
             return (int)row["id"];
         }
 
+        //Add order to the bill_has_order table
         private void AddBillHasOrder(Bill bill)
         {
             foreach (Order order in bill.Orders)

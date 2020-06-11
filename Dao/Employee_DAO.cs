@@ -16,6 +16,8 @@ namespace Dao
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
         }
+
+        //Get an employee with a specific id
         public Employee GetWithId(int id)
         {
             string query = "SELECT [id], [dateOfBirth], [dateOfEmployment], [firstname], [lastname], [password], [employeeType], [gender] FROM [dbo].[Employees] WHERE [id] = @id";
@@ -26,6 +28,8 @@ namespace Dao
 
             return ReadAll(ExecuteSelectQuery(query, parameters))[0];
         }
+
+        //Get an employee with a specific password
         public Employee GetWithPassword(int id, string password)
         {
             string query = "SELECT [id], [dateOfBirth], [dateOfEmployment], [firstname], [lastname], [password], [employeeType], [gender] FROM [dbo].[Employees] WHERE [id] = @id AND [password] = @password";
@@ -73,6 +77,7 @@ namespace Dao
             ExecuteEditQuery(query, parameters);
         }
 
+        //Remove employee by id
         public void Remove(int id)
         {
             string query = "DELETE FROM [dbo].[Employees] WHERE [id] = @id";
