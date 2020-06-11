@@ -25,7 +25,9 @@ namespace Dao
                 new SqlParameter("@tableId", tableId),
             };
 
-            return Read(ExecuteSelectQuery(query, parameters).Rows[0]);
+            DataTable dt = ExecuteSelectQuery(query, parameters);
+
+            return Read(dt.Rows[dt.Rows.Count - 1]);
         }
 
         //Get bills between 2 dates
