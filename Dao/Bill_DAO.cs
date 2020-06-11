@@ -48,7 +48,7 @@ namespace Dao
             SqlParameter[] parameters = new SqlParameter[3]
             {
                 new SqlParameter("@date", bill.Date),
-                new SqlParameter("@tableId", bill.Table),
+                new SqlParameter("@tableId", bill.Table.Number),
                 new SqlParameter("@employeeId", bill.Employee),
             };
 
