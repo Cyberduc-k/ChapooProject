@@ -66,7 +66,7 @@ namespace Dao
 
             foreach (Drink drink in order.Drinks)
             {
-                string query2 = "INSERT INTO [dbo].[Order_has_drink] ([orderId], [drinkId]) VALUES (@orderId, @drinkIk)";
+                string query2 = "INSERT INTO [dbo].[Order_has_drink] ([orderId], [drinkId]) VALUES (@orderId, @drinkID)";
                 SqlParameter[] parameters2 = new SqlParameter[2]
                 {
                     new SqlParameter("@orderId", order.Id),
