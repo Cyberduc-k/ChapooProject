@@ -61,10 +61,5 @@ namespace Ui
             BestelLijstFrom form = new BestelLijstFrom(tafel, order);
             form.Show();
         }
-
-        private void besteloverzichtBtn_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

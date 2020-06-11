@@ -43,10 +43,20 @@
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.backBtn = new System.Windows.Forms.Button();
             this.bestelBtn = new System.Windows.Forms.Button();
+            this.Bill_GridDrinks = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.drinkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bill_GridDrinks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drinkBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // CP_imgLogo
@@ -84,9 +94,9 @@
             this.stockDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.dishBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(32, 137);
+            this.dataGridView.Location = new System.Drawing.Point(32, 146);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(745, 150);
+            this.dataGridView.Size = new System.Drawing.Size(745, 161);
             this.dataGridView.TabIndex = 13;
             // 
             // idDataGridViewTextBoxColumn
@@ -148,7 +158,7 @@
             // 
             // backBtn
             // 
-            this.backBtn.Location = new System.Drawing.Point(32, 357);
+            this.backBtn.Location = new System.Drawing.Point(32, 538);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(75, 23);
             this.backBtn.TabIndex = 14;
@@ -158,7 +168,7 @@
             // 
             // bestelBtn
             // 
-            this.bestelBtn.Location = new System.Drawing.Point(702, 357);
+            this.bestelBtn.Location = new System.Drawing.Point(702, 538);
             this.bestelBtn.Name = "bestelBtn";
             this.bestelBtn.Size = new System.Drawing.Size(75, 23);
             this.bestelBtn.TabIndex = 15;
@@ -166,11 +176,79 @@
             this.bestelBtn.UseVisualStyleBackColor = true;
             this.bestelBtn.Click += new System.EventHandler(this.bestelBtn_Click);
             // 
+            // Bill_GridDrinks
+            // 
+            this.Bill_GridDrinks.AutoGenerateColumns = false;
+            this.Bill_GridDrinks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Bill_GridDrinks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.Bill_GridDrinks.DataSource = this.drinkBindingSource;
+            this.Bill_GridDrinks.Location = new System.Drawing.Point(32, 359);
+            this.Bill_GridDrinks.Name = "Bill_GridDrinks";
+            this.Bill_GridDrinks.Size = new System.Drawing.Size(445, 164);
+            this.Bill_GridDrinks.TabIndex = 16;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Stock";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Stock";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 130);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Gerechten:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 343);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Dranken:";
+            // 
+            // drinkBindingSource
+            // 
+            this.drinkBindingSource.DataSource = typeof(Model.Drink);
+            // 
             // BestelLijstFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 406);
+            this.ClientSize = new System.Drawing.Size(859, 573);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Bill_GridDrinks);
             this.Controls.Add(this.bestelBtn);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.dataGridView);
@@ -183,6 +261,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bill_GridDrinks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drinkBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +284,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button bestelBtn;
+        private System.Windows.Forms.DataGridView Bill_GridDrinks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource drinkBindingSource;
     }
 }

@@ -30,7 +30,7 @@ namespace Ui
         private void DetailForm_Load(object sender, EventArgs e)
         {
             int[] items = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            if (product.Dish != null)
+            if (product.Dish.Name != null)
             {
                 nameLbl.Text = product.Dish.Name;
                 ingredientTxt.Text = product.Dish.Ingredients;
@@ -40,7 +40,7 @@ namespace Ui
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Dish.Price * quantity).ToString();
             }
-            else if (product.Drink != null)
+            else if (product.Drink.Name != null)
             {
                 ingredientTxt.Visible = false;
                 nameLbl.Text = product.Drink.Name;
@@ -55,12 +55,12 @@ namespace Ui
 
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (product.Dish != null)
+            if (product.Dish.Name != null)
             {
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Dish.Price * quantity).ToString();
             }
-            else if (product.Drink != null)
+            else if (product.Drink.Name != null)
             {
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Drink.Price * quantity).ToString();
@@ -71,7 +71,7 @@ namespace Ui
         {
             List<Dish> dishes = new List<Dish>();
             List<Drink> drinks = new List<Drink>();
-            if (product.Dish != null)
+            if (product.Dish.Name != null)
             {
                 if (product.Dish.Stock == 0)
                 {
@@ -88,7 +88,7 @@ namespace Ui
                     order.Dishes.Add(product.Dish);
                 }
             }
-            else if (product.Drink != null)
+            else if (product.Drink.Name != null)
             {
                 if (product.Drink.Stock == 0)
                 {
@@ -105,15 +105,7 @@ namespace Ui
                     order.Drinks.Add(product.Drink);
                 }
             }
-            //order.TableId = tafelnr;
-            //order.State = OrderState.Started;
-            //order.TimeOrdering = DateTime.Now;
-
-            
-            
-            
-
-            this.Hide();
+            this.Close();
             BestelLijstFrom form = new BestelLijstFrom(tafel, order);
             form.Show();
         }
@@ -121,6 +113,8 @@ namespace Ui
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+            LunchMenuForm form = new LunchMenuForm(tafel, order, maaltijd);
+            form.Show();
         }
     }
 }
