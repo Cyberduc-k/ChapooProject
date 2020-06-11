@@ -59,12 +59,20 @@
             this.CP_Menukaarten_btnDeleteItem = new System.Windows.Forms.Button();
             this.CP_Menukaarten_btnEditItem = new System.Windows.Forms.Button();
             this.CP_Menukaarten_btnNewItem = new System.Windows.Forms.Button();
+            this.CP_pnlInkomsten = new System.Windows.Forms.Panel();
+            this.CP_Inkomsten_btnApply = new System.Windows.Forms.Button();
+            this.CP_Inkomsten_listView = new System.Windows.Forms.ListView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CP_Inkomsten_dtpVan = new System.Windows.Forms.DateTimePicker();
+            this.CP_Inkomsten_dtpTot = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.CP_pnlNavMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.CP_pnlHeader.SuspendLayout();
             this.CP_pnlVoorraad.SuspendLayout();
             this.CP_pnlMedewerkers.SuspendLayout();
             this.CP_pnlMenukaarten.SuspendLayout();
+            this.CP_pnlInkomsten.SuspendLayout();
             this.SuspendLayout();
             // 
             // CP_pnlNavMenu
@@ -295,6 +303,7 @@
             this.CP_Voorraad_listView.Size = new System.Drawing.Size(838, 344);
             this.CP_Voorraad_listView.TabIndex = 11;
             this.CP_Voorraad_listView.UseCompatibleStateImageBehavior = false;
+            this.CP_Voorraad_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Voorraad_listView_ColumnClick_1);
             this.CP_Voorraad_listView.SelectedIndexChanged += new System.EventHandler(this.CP_Voorraad_listView_SelectedIndexChanged);
             // 
             // CP_Voorraad_btnLunchgerechten
@@ -548,10 +557,92 @@
             this.CP_Menukaarten_btnNewItem.UseVisualStyleBackColor = false;
             this.CP_Menukaarten_btnNewItem.Click += new System.EventHandler(this.CP_Menukaarten_btnNewItem_Click);
             // 
+            // CP_pnlInkomsten
+            // 
+            this.CP_pnlInkomsten.BackColor = System.Drawing.Color.White;
+            this.CP_pnlInkomsten.Controls.Add(this.CP_Inkomsten_dtpTot);
+            this.CP_pnlInkomsten.Controls.Add(this.label2);
+            this.CP_pnlInkomsten.Controls.Add(this.CP_Inkomsten_dtpVan);
+            this.CP_pnlInkomsten.Controls.Add(this.label1);
+            this.CP_pnlInkomsten.Controls.Add(this.CP_Inkomsten_btnApply);
+            this.CP_pnlInkomsten.Controls.Add(this.CP_Inkomsten_listView);
+            this.CP_pnlInkomsten.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlInkomsten.Location = new System.Drawing.Point(1014, 543);
+            this.CP_pnlInkomsten.Name = "CP_pnlInkomsten";
+            this.CP_pnlInkomsten.Size = new System.Drawing.Size(857, 471);
+            this.CP_pnlInkomsten.TabIndex = 13;
+            // 
+            // CP_Inkomsten_btnApply
+            // 
+            this.CP_Inkomsten_btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Inkomsten_btnApply.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Inkomsten_btnApply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Inkomsten_btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CP_Inkomsten_btnApply.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Inkomsten_btnApply.ForeColor = System.Drawing.Color.White;
+            this.CP_Inkomsten_btnApply.Location = new System.Drawing.Point(643, 3);
+            this.CP_Inkomsten_btnApply.Name = "CP_Inkomsten_btnApply";
+            this.CP_Inkomsten_btnApply.Size = new System.Drawing.Size(199, 50);
+            this.CP_Inkomsten_btnApply.TabIndex = 8;
+            this.CP_Inkomsten_btnApply.Text = "Toepassen";
+            this.CP_Inkomsten_btnApply.UseVisualStyleBackColor = false;
+            this.CP_Inkomsten_btnApply.Click += new System.EventHandler(this.CP_Inkomsten_btnApply_Click);
+            // 
+            // CP_Inkomsten_listView
+            // 
+            this.CP_Inkomsten_listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.CP_Inkomsten_listView.FullRowSelect = true;
+            this.CP_Inkomsten_listView.HideSelection = false;
+            this.CP_Inkomsten_listView.Location = new System.Drawing.Point(4, 59);
+            this.CP_Inkomsten_listView.Name = "CP_Inkomsten_listView";
+            this.CP_Inkomsten_listView.Size = new System.Drawing.Size(838, 403);
+            this.CP_Inkomsten_listView.TabIndex = 0;
+            this.CP_Inkomsten_listView.UseCompatibleStateImageBehavior = false;
+            this.CP_Inkomsten_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Inkomsten_listView_ColumnClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 15F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.label1.Location = new System.Drawing.Point(5, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 24);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Van:";
+            // 
+            // CP_Inkomsten_dtpVan
+            // 
+            this.CP_Inkomsten_dtpVan.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Inkomsten_dtpVan.Location = new System.Drawing.Point(61, 18);
+            this.CP_Inkomsten_dtpVan.Name = "CP_Inkomsten_dtpVan";
+            this.CP_Inkomsten_dtpVan.Size = new System.Drawing.Size(217, 23);
+            this.CP_Inkomsten_dtpVan.TabIndex = 10;
+            // 
+            // CP_Inkomsten_dtpTot
+            // 
+            this.CP_Inkomsten_dtpTot.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Inkomsten_dtpTot.Location = new System.Drawing.Point(356, 18);
+            this.CP_Inkomsten_dtpTot.Name = "CP_Inkomsten_dtpTot";
+            this.CP_Inkomsten_dtpTot.Size = new System.Drawing.Size(217, 23);
+            this.CP_Inkomsten_dtpTot.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Roboto", 15F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.label2.Location = new System.Drawing.Point(308, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 24);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Tot:";
+            // 
             // ControlPanelForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1868, 1021);
+            this.Controls.Add(this.CP_pnlInkomsten);
             this.Controls.Add(this.CP_pnlMenukaarten);
             this.Controls.Add(this.CP_pnlMedewerkers);
             this.Controls.Add(this.CP_pnlVoorraad);
@@ -567,6 +658,8 @@
             this.CP_pnlVoorraad.ResumeLayout(false);
             this.CP_pnlMedewerkers.ResumeLayout(false);
             this.CP_pnlMenukaarten.ResumeLayout(false);
+            this.CP_pnlInkomsten.ResumeLayout(false);
+            this.CP_pnlInkomsten.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -604,6 +697,13 @@
         private System.Windows.Forms.ListView CP_Voorraad_listView;
         private System.Windows.Forms.Button CP_Voorraad_btnEmptyItem;
         private System.Windows.Forms.Button CP_Voorraad_btnEditItem;
+        private System.Windows.Forms.Panel CP_pnlInkomsten;
+        private System.Windows.Forms.DateTimePicker CP_Inkomsten_dtpVan;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button CP_Inkomsten_btnApply;
+        private System.Windows.Forms.ListView CP_Inkomsten_listView;
+        private System.Windows.Forms.DateTimePicker CP_Inkomsten_dtpTot;
+        private System.Windows.Forms.Label label2;
     }
 }
 
