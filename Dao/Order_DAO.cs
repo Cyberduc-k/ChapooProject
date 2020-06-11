@@ -50,6 +50,55 @@ namespace Dao
             };
 
             ExecuteEditQuery(query, parameters);
+            order.Id = GetLastOrderId();
+
+            foreach (Dish dish in order.Dishes)
+            {
+                string query2 = "INSERT INTO [dbo].[Order_has_dish] ([orderId], [dishId]) VALUES (@orderId, @dishId)";
+                SqlParameter[] parameters2 = new SqlParameter[2]
+                {
+                    new SqlParameter("@orderId", order.Id),
+                    new SqlParameter("@dishId", dish.Id),
+                };
+
+                ExecuteEditQuery(query2, parameters2);
+            }
+
+            foreach (Drink drink in order.Drinks)
+            {
+                string query2 = "INSERT INTO [dbo].[Order_has_drink] ([orderId], [drinkId]) VALUES (@orderId, @drinkIk)";
+                SqlParameter[] parameters2 = new SqlParameter[2]
+                {
+                    new SqlParameter("@orderId", order.Id),
+                    new SqlParameter("@drinkId", drink.Id),
+                };
+
+                ExecuteEditQuery(query2, parameters2);
+            }
+        }
+
+        public void AddOrderWhereBillIdIs(Order order, int billId)
+        {
+            Add(order);
+
+            string query = "INSERT INTO [dbo].[Bill_has_order] ([billId], [orderId]) VALUES (@billId, @orderId)";
+            SqlParameter[] parameters = new SqlParameter[2]
+            {
+                new SqlParameter("@billId", billId),
+                new SqlParameter("@orderId", order.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
+        private int GetLastOrderId()
+        {
+            string query = "SELECT [id] FROM [dbo].[Orders] ORDER BY [id] DESC";
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable result = ExecuteSelectQuery(query, parameters);
+            DataRow row = result.Rows[0];
+
+            return (int)row["id"];
         }
 
         // Remove an order from the database

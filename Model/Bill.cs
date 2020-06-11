@@ -8,7 +8,7 @@ namespace Model
 {
     public class Bill
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public DateTime Date { get; }
         public Table Table { get; }
 	    public List<Order> Orders { get; }
