@@ -55,13 +55,6 @@ namespace Ui
         {
             timer.Stop();
             Chef_pnlOverzicht.Hide();
-            Chef_lblGeenBestellingen.Hide();
-            Chef_pnlOpmerkingen.Hide();
-            Chef_pnlFirstOrder.Hide();
-            Chef_pnlSecondOrder.Hide();
-            Chef_pnlThirdOrder.Hide();
-            Chef_pnlFourthOrder.Hide();
-            Chef_pnlOverflow.Hide();
             Chef_pnlGereed.Hide();
             Chef_pnlVoorraad.Hide();
         }
@@ -70,46 +63,71 @@ namespace Ui
         {
             SetHightlight(Chef_btnOverzicht);
             Chef_lblActivePanel.Text = "Overzicht";
-            Refresh();
-
-            // Get all unprocessed orders
-            orders = order_service
-                .GetAllOrders()
-                .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
-                .ToList();
-
             HideAllPanels();
             Chef_pnlOverzicht.Show();
-
-            switch (orders.Count)
-            {
-                case 0:
-                    Chef_lblGeenBestellingen.Show();
-                    break;
-                case 1:
-                    FillFirstOrder(orders[0]);
-                    break;
-                case 2:
-                    FillSecondOrder(orders[1]);
-                    goto case 1;
-                case 3:
-                    FillThirdOrder(orders[2]);
-                    goto case 2;
-                case 4:
-                    FillFourthOrder(orders[3]);
-                    goto case 3;
-                default:
-                    ShowOverflow(orders.Count - 4);
-                    goto case 4;
-            }
-
+            OnTimedEvent(null, null);
             timer.Start();
+        }
+
+        // Code taken from: https://stackoverflow.com/questions/10775367/cross-thread-operation-not-valid-control-textbox1-accessed-from-a-thread-othe
+        // to modify the ui from a different thread to avoid blocking on database access.
+
+        delegate void RefreshOrdersCallback();
+
+        private void RefreshOrders()
+        {
+            if (Chef_pnlOverzicht.InvokeRequired)
+            {
+                RefreshOrdersCallback d = new RefreshOrdersCallback(RefreshOrders);
+
+                Invoke(d, new object[] { });
+            } else
+            {
+                Chef_lblGeenBestellingen.Hide();
+                Chef_pnlOpmerkingen.Hide();
+                Chef_pnlFirstOrder.Hide();
+                Chef_pnlSecondOrder.Hide();
+                Chef_pnlThirdOrder.Hide();
+                Chef_pnlFourthOrder.Hide();
+                Chef_pnlOverflow.Hide();
+
+                switch (orders.Count)
+                {
+                    case 0:
+                        Chef_lblGeenBestellingen.Show();
+                        break;
+                    case 1:
+                        FillFirstOrder(orders[0]);
+                        break;
+                    case 2:
+                        FillSecondOrder(orders[1]);
+                        goto case 1;
+                    case 3:
+                        FillThirdOrder(orders[2]);
+                        goto case 2;
+                    case 4:
+                        FillFourthOrder(orders[3]);
+                        goto case 3;
+                    default:
+                        ShowOverflow(orders.Count - 4);
+                        goto case 4;
+                }
+            }
         }
 
         void OnTimedEvent(Object source, EventArgs e)
         {
             // every 10 seconds the "Overzicht" panel will be refreshed
-            Chef_btnOverzicht_Click(null, null);
+            new System.Threading.Thread(() =>
+            {
+                // Get all unprocessed orders
+                orders = order_service
+                        .GetAllOrders()
+                        .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
+                        .ToList();
+
+                RefreshOrders();
+            }).Start();
         }
 
         private void FillFirstOrder(Order order)

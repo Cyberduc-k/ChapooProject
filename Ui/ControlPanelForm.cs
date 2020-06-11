@@ -715,7 +715,7 @@ namespace Ui
                 li.SubItems.Add(dinnerList[i].Description);
                 li.SubItems.Add(dinnerList[i].Ingredients);
                 li.SubItems.Add(dinnerList[i].Category.ToString());
-                li.SubItems.Add(dinnerList[i].Price.ToString("0.00"));
+                li.SubItems.Add("€" + dinnerList[i].Price.ToString("0.00"));
 
                 //Tag is used to store the Dish Object
                 li.Tag = dinnerList[i];
@@ -737,11 +737,11 @@ namespace Ui
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Prijs";
+            columnheader.Text = "Categorie";
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Categorie";
+            columnheader.Text = "Prijs";
             CP_Menukaarten_listView.Columns.Add(columnheader);
 
             // Loop through and size each column header to fit the column header text.
@@ -789,6 +789,7 @@ namespace Ui
             CP_Menukaarten_btnDeleteItem.BackColor = Color.Red;
         }
 
+        //Show all drinks
         private void CP_Menukaarten_btnDranken_Click(object sender, EventArgs e)
         {
             CP_Menukaarten_btnDranken.BackColor = Color.FromArgb(0, 184, 255);
@@ -797,6 +798,7 @@ namespace Ui
             LoadMenukaartenDrinks();
         }
 
+        //Show all lunch dishes
         private void CP_Menukaarten_btnLunchgerechten_Click(object sender, EventArgs e)
         {
             CP_Menukaarten_btnLunchgerechten.BackColor = Color.FromArgb(0, 184, 255);
@@ -805,6 +807,7 @@ namespace Ui
             LoadMenukaartenLunch();
         }
 
+        //Show all dinner dishes
         private void CP_Menukaarten_btnDinergerechten_Click(object sender, EventArgs e)
         {
             CP_Menukaarten_btnDinergerechten.BackColor = Color.FromArgb(0, 184, 255);
@@ -813,6 +816,7 @@ namespace Ui
             LoadMenukaartenDinner();
         }
 
+        //Add a new dish to the menu
         private void CP_Menukaarten_btnNewItem_Click(object sender, EventArgs e)
         {
             //Show a popup for adding a drink or adding a dish in the shown menu
@@ -824,7 +828,7 @@ namespace Ui
 
             popup.ShowDialog();
 
-            //Reload the menu list
+            //Reload the menu list when the dialog is succesful
             if (popup.DialogResult == DialogResult.OK)
             {
                 new CP_Feedback("Nieuw item succesvol toegevoegd", 2500).Show();
@@ -832,6 +836,7 @@ namespace Ui
             }
         }
 
+        //Edit a dish in the menu
         private void CP_Menukaarten_btnEditItem_Click(object sender, EventArgs e)
         {
             //Make sure a single item is selected
@@ -852,7 +857,7 @@ namespace Ui
 
             popup.ShowDialog();
 
-            //Reload the menu list
+            //Reload the menu list when the dialog is succesful
             if (popup.DialogResult == DialogResult.OK)
             {
                 new CP_Feedback(((Item)CP_Menukaarten_listView.SelectedItems[0].Tag).Name + " is succesvol geweizigd", 2500).Show();
@@ -860,6 +865,7 @@ namespace Ui
             }
         }
 
+        //Remove 1 or more items from the menu
         private void CP_Menukaarten_btnDeleteItem_Click(object sender, EventArgs e)
         {
             //Make sure a single item is selected
@@ -923,12 +929,16 @@ namespace Ui
             LoadRevenueFromList(billService.GetAllBills());
         }
 
+        //Load the revenue from these bills
         private void LoadRevenueFromList(List<Bill> billList)
         {
+            //Clear the listview
             CP_Inkomsten_listView.Clear();
 
+            //A dictionary is used for each row, the key is the date of the order
             Dictionary<DateTime, RevenueRow> rows = new Dictionary<DateTime, RevenueRow>();
 
+            //Get all dinner and lunch dishes
             List<Dish> dinnerDishes = dishService.GetAllDinner();
             List<Dish> lunchDishes = dishService.GetAllLunch();
 
@@ -938,10 +948,12 @@ namespace Ui
                 //Check there already is an orde for this date
                 if (rows.ContainsKey(billList[i].Date))
                 {
+                    //Loop through all the orders of the bill
                     foreach (Order order in billList[i].Orders)
                     {
                         rows[billList[i].Date].OrderCount++;
 
+                        //Loop through all the dishes and drinks, and add their prices to the total values
                         foreach (Dish dish in order.Dishes)
                         {
                             if (dinnerDishes.Contains(dish))
@@ -955,15 +967,17 @@ namespace Ui
                             rows[billList[i].Date].TotalDrinks += drink.Price;
                         }
                     }
-                }
+                } //If there is not yet a row with this date try to add a new one
                 else
                 {
                     RevenueRow revenueRow = new RevenueRow();
 
+                    //Loop through all the orders of the bill
                     foreach (Order order in billList[i].Orders)
                     {
                         revenueRow.OrderCount++;
 
+                        //Loop through all the dishes and drinks, and add their prices to the total values
                         foreach (Dish dish in order.Dishes)
                         {
                             if (dinnerDishes.Contains(dish))
@@ -978,11 +992,13 @@ namespace Ui
                         }
                     }
 
-                    if (revenueRow.OrderCount > 0)
+                    //Only add a new row if the orders actually contained items
+                    if (revenueRow.Total > 0)
                         rows.Add(billList[i].Date, revenueRow);
                 }
             }
 
+            //Create a new list item for each row
             foreach (KeyValuePair<DateTime, RevenueRow> kvp in rows)
             {
                 ListViewItem li = new ListViewItem(kvp.Key.Date.ToString("dd/MM/yyyy"));
@@ -1028,6 +1044,7 @@ namespace Ui
         }
 
         #region OnClicks
+        //Apply the date filter
         private void CP_Inkomsten_btnApply_Click(object sender, EventArgs e)
         {
             LoadRevenueBetweenDates(CP_Inkomsten_dtpVan.Value, CP_Inkomsten_dtpTot.Value);
