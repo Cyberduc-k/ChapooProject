@@ -17,7 +17,6 @@ namespace Ui
         private Order order;
         private Order_Service orderService;
         private List<Order> orders;
-        private Bill bill;
         private Bill_Service billService;
         private Table tafel;
         public BestelLijstFrom(Table tafel, Order order)
@@ -32,9 +31,14 @@ namespace Ui
             if (order.Dishes == null && order.Drinks == null)
             {
                 dataGridView.Visible = false;
+                Bill_GridDrinks.Visible = false;
                 label1.Text = "Er is nog niets besteld!";
+                bestelBtn.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
             }
             dataGridView.DataSource = order.Dishes;
+            Bill_GridDrinks.DataSource = order.Drinks;
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -49,6 +53,18 @@ namespace Ui
             orderService = new Order_Service();
             order.EmployeeId = 1021;
             orderService.AddOrder(order);
+            billService = new Bill_Service();
+            Bill bill = billService.GetBillByTableId(tafel.Number);
+
+            if (bill != null)
+            {
+                billService.AddBill(bill);
+                MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            Employee employee = new Employee("Piet", "Jansen", DateTime.Now.AddDays(-7300), DateTime.Now.AddDays(-70), Gender.Male, "Pa$$w0rd", EmployeeType.Waiter);
+            bill = new Bill(DateTime.Now, tafel, orders, employee);
+            billService.AddBill(bill);
             MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

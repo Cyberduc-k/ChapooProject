@@ -247,6 +247,7 @@ namespace Ui
                     dish = d;
                 }
             }
+            this.Close();
             DetailViewModel product = new DetailViewModel(dish, drink);
             DetailForm form = new DetailForm(tafel, product, order, maaltijd);
             form.Show();

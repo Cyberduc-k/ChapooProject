@@ -32,7 +32,6 @@
             this.dinerBtn = new System.Windows.Forms.Button();
             this.drankBtn = new System.Windows.Forms.Button();
             this.bestellijstBtn = new System.Windows.Forms.Button();
-            this.besteloverzichtBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.CP_imgLogo = new System.Windows.Forms.PictureBox();
@@ -87,18 +86,6 @@
             this.bestellijstBtn.UseVisualStyleBackColor = false;
             this.bestellijstBtn.Click += new System.EventHandler(this.bestellijstBtn_Click);
             // 
-            // besteloverzichtBtn
-            // 
-            this.besteloverzichtBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.besteloverzichtBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.besteloverzichtBtn.Location = new System.Drawing.Point(128, 483);
-            this.besteloverzichtBtn.Name = "besteloverzichtBtn";
-            this.besteloverzichtBtn.Size = new System.Drawing.Size(235, 66);
-            this.besteloverzichtBtn.TabIndex = 6;
-            this.besteloverzichtBtn.Text = "Besteloverzicht";
-            this.besteloverzichtBtn.UseVisualStyleBackColor = false;
-            this.besteloverzichtBtn.Click += new System.EventHandler(this.besteloverzichtBtn_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -111,7 +98,7 @@
             // 
             // backBtn
             // 
-            this.backBtn.Location = new System.Drawing.Point(17, 603);
+            this.backBtn.Location = new System.Drawing.Point(12, 507);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(75, 23);
             this.backBtn.TabIndex = 11;
@@ -134,11 +121,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 647);
+            this.ClientSize = new System.Drawing.Size(484, 546);
             this.Controls.Add(this.CP_imgLogo);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.besteloverzichtBtn);
             this.Controls.Add(this.bestellijstBtn);
             this.Controls.Add(this.drankBtn);
             this.Controls.Add(this.dinerBtn);
@@ -157,7 +143,6 @@
         private System.Windows.Forms.Button dinerBtn;
         private System.Windows.Forms.Button drankBtn;
         private System.Windows.Forms.Button bestellijstBtn;
-        private System.Windows.Forms.Button besteloverzichtBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.PictureBox CP_imgLogo;

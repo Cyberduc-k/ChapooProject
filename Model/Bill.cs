@@ -23,6 +23,14 @@ namespace Model
             Employee = employee;
         }
 
+        public Bill(DateTime date, Table table, List<Order> orders, Employee employee)
+        {
+            Date = date;
+            Table = table;
+            Orders = orders;
+            Employee = employee;
+        }
+
         public double Price
         {
             get
