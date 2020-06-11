@@ -37,7 +37,7 @@ namespace Ui
 
         private void InitializeTimer()
         {
-            timer.Interval = 10000;
+            timer.Interval = 20000;
             timer.Tick += OnTimedEvent;
             timer.Stop();
         }
@@ -117,7 +117,7 @@ namespace Ui
 
         void OnTimedEvent(Object source, EventArgs e)
         {
-            // every 10 seconds the "Overzicht" panel will be refreshed
+            // every 20 seconds the "Overzicht" panel will be refreshed
             new System.Threading.Thread(() =>
             {
                 // Get all unprocessed orders
@@ -295,6 +295,7 @@ namespace Ui
             order.TimeFinished = DateTime.Now;
             order.State = OrderState.Done;
             order_service.ModifyOrder(order);
+            OnTimedEvent(null, null);
         }
 
         private void Chef_lvVoorraad_ColumnClicck(object sender, ColumnClickEventArgs e)
@@ -327,6 +328,12 @@ namespace Ui
         {
             timer.Stop();
             timer.Dispose();
+            timer = null;
+        }
+
+        private void Chef_btnUitloggen_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -110,14 +110,14 @@ namespace Ui
             }
             this.Close();
             BestelLijstFrom form = new BestelLijstFrom(tafel, order, employee);
-            form.Show();
+            form.ShowDialog(Owner);
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
-            form.Show();
+            form.ShowDialog(Owner);
         }
     }
 }

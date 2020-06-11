@@ -48,7 +48,7 @@ namespace Ui
         {
             this.Hide();
             MenuForm form = new MenuForm(tafel, order, employee);
-            form.Show();
+            form.ShowDialog(Owner);
         }
 
         private void bestelBtn_Click(object sender, EventArgs e)

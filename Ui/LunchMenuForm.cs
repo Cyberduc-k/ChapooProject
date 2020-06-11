@@ -253,14 +253,14 @@ namespace Ui
             this.Close();
             DetailViewModel product = new DetailViewModel(dish, drink);
             DetailForm form = new DetailForm(tafel, product, order, employee, maaltijd);
-            form.Show();
+            form.ShowDialog(Owner);
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             MenuForm form = new MenuForm(tafel, order, employee);
-            form.Show();
+            form.ShowDialog(Owner);
         }
     }
 }

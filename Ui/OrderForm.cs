@@ -26,8 +26,9 @@ namespace Ui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
+
         private void OrderForm_Load(object sender, EventArgs e)
         {
             tafels = tableService.GetAllTables();
@@ -82,7 +83,7 @@ namespace Ui
             
             this.Hide();
             MenuForm menu = new MenuForm(tafel, order, employee);
-            menu.Show();
+            menu.ShowDialog(Owner);
         }
     }
 }

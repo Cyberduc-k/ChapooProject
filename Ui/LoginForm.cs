@@ -20,6 +20,7 @@ namespace Ui
         public LoginForm()
         {
             InitializeComponent();
+            FormClosed += new FormClosedEventHandler(OnClosed);
         }
 
         private void CheckCredentials()
@@ -68,7 +69,7 @@ namespace Ui
             Hide();
             form.Location = Location;
             form.ShowDialog(this);
-            form.FormClosed += (s, a) => Show();
+            Show();
         }
 
         // Clear all text boxes and show the incorrect info message
@@ -120,6 +121,11 @@ namespace Ui
         private void Login_btnAnnuleren_Click(object sender, EventArgs e)
         {
             ResetState();
+        }
+
+        private void OnClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

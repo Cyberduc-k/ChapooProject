@@ -109,6 +109,7 @@
             this.Chef_btnUitloggen.TabIndex = 1;
             this.Chef_btnUitloggen.Text = "Uitloggen";
             this.Chef_btnUitloggen.UseVisualStyleBackColor = true;
+            this.Chef_btnUitloggen.Click += new System.EventHandler(this.Chef_btnUitloggen_Click);
             // 
             // Chef_btnVoorraad
             // 
@@ -245,10 +246,10 @@
             // 
             this.Chef_pnlOverflow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_pnlOverflow.Controls.Add(this.Chef_lblOverflow);
-            this.Chef_pnlOverflow.Location = new System.Drawing.Point(1919, 770);
+            this.Chef_pnlOverflow.Location = new System.Drawing.Point(1899, 770);
             this.Chef_pnlOverflow.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_pnlOverflow.Name = "Chef_pnlOverflow";
-            this.Chef_pnlOverflow.Size = new System.Drawing.Size(147, 123);
+            this.Chef_pnlOverflow.Size = new System.Drawing.Size(187, 123);
             this.Chef_pnlOverflow.TabIndex = 2;
             this.Chef_pnlOverflow.Visible = false;
             // 
@@ -261,7 +262,7 @@
             this.Chef_lblOverflow.Location = new System.Drawing.Point(0, 0);
             this.Chef_lblOverflow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Chef_lblOverflow.Name = "Chef_lblOverflow";
-            this.Chef_lblOverflow.Size = new System.Drawing.Size(147, 123);
+            this.Chef_lblOverflow.Size = new System.Drawing.Size(187, 123);
             this.Chef_lblOverflow.TabIndex = 0;
             this.Chef_lblOverflow.Text = "+ 1";
             this.Chef_lblOverflow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
