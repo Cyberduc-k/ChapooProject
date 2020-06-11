@@ -28,10 +28,13 @@ namespace Dao
             return Read(ExecuteSelectQuery(query, parameters).Rows[0]);
         }
 
-        //@TODO Implement
+        //Get bills between 2 dates
         public List<Bill> GetAllBetweenDates(DateTime from, DateTime to)
         {
-            return null;
+            string query = "SELECT [id], [date], [tableId], [employeeId] FROM [dbo].[Bills]";
+            SqlParameter[] parameters = new SqlParameter[0];
+
+            return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
         // Add a new bill to the database
