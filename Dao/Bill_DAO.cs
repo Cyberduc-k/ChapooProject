@@ -140,8 +140,9 @@ namespace Dao
             Table table = new Table_DAO().GetWithId((int)dataRow["tableId"]);
             List<Order> orders = new Order_DAO().GetAllForBill(id);
             Employee employee = new Employee_DAO().GetWithId((int)dataRow["employeeId"]);
-            
-            return new Bill(id, date, table, orders, employee);
+            bool payed = (bool)dataRow["Payed"];
+
+            return new Bill(id, date, table, orders, employee, payed);
         }
     }
 }

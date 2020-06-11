@@ -64,7 +64,7 @@ namespace Ui
                 return;
             }
             Employee employee = new Employee("Piet", "Jansen", DateTime.Now.AddDays(-7300), DateTime.Now.AddDays(-70), Gender.Male, "Pa$$w0rd", EmployeeType.Waiter);
-            bill = new Bill(DateTime.Now, tafel, orders, employee);
+            bill = new Bill(DateTime.Now, tafel, orders, employee, false);
             billService.AddBill(bill);
             MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
             order = new Order();

@@ -35,61 +35,55 @@ namespace Ui
             HideAllPanels();
             //Make sure all the listviews are setup properly
             InitializeSorting();
+
+            //Show voorraad by default
+            CP_btnVoorraad_Click(null, null);
         }
 
         //Code for the navmenu
         #region NavMenu
         //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
-        private void CP_btnHome_Click(object sender, EventArgs e)
-        {
-            //@TODO Add or remove Home
-            SetHightlight(CP_btnHome);
-            CP_lblActivePanel.Text = "Home";
-            HideAllPanels();
-        }
-
-        //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
         private void CP_btnVoorraad_Click(object sender, EventArgs e)
         {
-            LoadVoorraadDrinks();
-
             SetHightlight(CP_btnVoorraad);
             CP_lblActivePanel.Text = "Voorraad";
             HideAllPanels();
             CP_pnlVoorraad.Show();
+
+            LoadVoorraadDrinks();
         }
 
         //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
         private void CP_btnMenukaarten_Click(object sender, EventArgs e)
         {
-            LoadMenukaartenDrinks();
-
             SetHightlight(CP_btnMenukaarten);
             CP_lblActivePanel.Text = "Menukaarten";
             HideAllPanels();
             CP_pnlMenukaarten.Show();
+
+            LoadMenukaartenDrinks();
         }
 
         //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
         private void CP_btnInkomsten_Click(object sender, EventArgs e)
         {
-            LoadRevenue();
-
             SetHightlight(CP_btnInkomsten);
             CP_lblActivePanel.Text = "Inkomsten";
             HideAllPanels();
             CP_pnlInkomsten.Show();
+
+            LoadRevenue();
         }
 
         //Highlight the button, set the text in the top bar, hide all other panels, show correct panel
         private void CP_btnMedewerkers_Click(object sender, EventArgs e)
         {
-            LoadEmployeeList();
-
             HideAllPanels();
             SetHightlight(CP_btnMedewerkers);
             CP_lblActivePanel.Text = "Medewerkers";
             CP_pnlMedewerkers.Show();
+            
+            LoadEmployeeList();
         }
 
         private void CP_btnUitloggen_Click(object sender, EventArgs e)
@@ -1112,7 +1106,7 @@ namespace Ui
         //Highlight the selected button
         private void SetHightlight(Button btn)
         {
-            CP_btnHome.BackColor = CP_btnVoorraad.BackColor = CP_btnMenukaarten.BackColor
+            CP_btnVoorraad.BackColor = CP_btnMenukaarten.BackColor
             = CP_btnInkomsten.BackColor = CP_btnMedewerkers.BackColor = CP_btnUitloggen.BackColor = Color.FromArgb(0, 165, 229);
 
             btn.BackColor = Color.FromArgb(0, 184, 255);
