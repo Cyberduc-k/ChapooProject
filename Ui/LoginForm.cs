@@ -42,7 +42,7 @@ namespace Ui
             // Parse the user Id into a number
             if (!int.TryParse(Login_textBoxNummer.Text, out int id))
             {
-                ErrorHandler.Instance.HandleError("Ongeldig personeelsnummer ingevoerd", "Ongeldig personeelsnummer", new Exception("Invalid employee number"));
+                ErrorHandler.Instance.HandleError("Ongeldig personeelsnummer ingevoerd", "Ongeldig personeelsnummer", new Exception());
                 ErrorState();
                 return;
             }
@@ -60,30 +60,41 @@ namespace Ui
                 switch (employee.EmployeeType)
                 {
                     case EmployeeType.Owner:
-                        OpenForm(new ControlPanelForm());
+                        ControlPanelForm cp_form = new ControlPanelForm();
+
+                        Hide();
+                        cp_form.Location = Location;
+                        cp_form.ShowDialog(this);
+                        cp_form.FormClosed += (s, a) => Show();
                         break;
                     case EmployeeType.Chef:
-                        OpenForm(new ChefForm());
+                        ChefForm chef_form = new ChefForm();
+
+                        Hide();
+                        chef_form.Location = Location;
+                        chef_form.ShowDialog(this);
+                        chef_form.FormClosed += (s, a) => Show();
                         break;
                     case EmployeeType.Bartender:
-                        OpenForm(new BarForm());
+                        BarForm bar_form = new BarForm();
+
+                        Hide();
+                        bar_form.Location = Location;
+                        bar_form.ShowDialog(this);
+                        bar_form.FormClosed += (s, a) => Show();
                         break;
                     case EmployeeType.Waiter:
-                        OpenForm(new OrderForm());
+                        OrderForm order_form = new OrderForm();
+
+                        Hide();
+                        order_form.Location = Location;
+                        order_form.ShowDialog(this);
+                        order_form.FormClosed += (s, a) => Show();
                         break;
                 }
 
                 ResetState();
             }
-        }
-
-        // Open a new form after logging in
-        private void OpenForm(Form form)
-        {
-            Hide();
-            form.Location = Location;
-            form.ShowDialog(this);
-            form.FormClosed += (s, a) => Show();
         }
 
         // Clear all text boxes and show the incorrect info message
