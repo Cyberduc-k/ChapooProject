@@ -87,7 +87,7 @@
             this.CP_pnlNavMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.CP_pnlNavMenu.Location = new System.Drawing.Point(0, 0);
             this.CP_pnlNavMenu.Name = "CP_pnlNavMenu";
-            this.CP_pnlNavMenu.Size = new System.Drawing.Size(151, 1021);
+            this.CP_pnlNavMenu.Size = new System.Drawing.Size(151, 536);
             this.CP_pnlNavMenu.TabIndex = 1;
             // 
             // CP_btnMedewerkers
@@ -133,7 +133,7 @@
             this.CP_btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_btnUitloggen.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnUitloggen.ForeColor = System.Drawing.Color.White;
-            this.CP_btnUitloggen.Location = new System.Drawing.Point(0, 959);
+            this.CP_btnUitloggen.Location = new System.Drawing.Point(0, 474);
             this.CP_btnUitloggen.Name = "CP_btnUitloggen";
             this.CP_btnUitloggen.Size = new System.Drawing.Size(151, 62);
             this.CP_btnUitloggen.TabIndex = 4;
@@ -211,7 +211,7 @@
             this.CP_pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.CP_pnlHeader.Location = new System.Drawing.Point(151, 0);
             this.CP_pnlHeader.Name = "CP_pnlHeader";
-            this.CP_pnlHeader.Size = new System.Drawing.Size(1717, 66);
+            this.CP_pnlHeader.Size = new System.Drawing.Size(858, 66);
             this.CP_pnlHeader.TabIndex = 2;
             // 
             // CP_lblActivePanel
@@ -356,7 +356,7 @@
             this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnNieuweMedewerker);
             this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_listView);
             this.CP_pnlMedewerkers.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_pnlMedewerkers.Location = new System.Drawing.Point(1014, 66);
+            this.CP_pnlMedewerkers.Location = new System.Drawing.Point(151, 66);
             this.CP_pnlMedewerkers.Name = "CP_pnlMedewerkers";
             this.CP_pnlMedewerkers.Size = new System.Drawing.Size(857, 471);
             this.CP_pnlMedewerkers.TabIndex = 11;
@@ -435,7 +435,7 @@
             this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_btnNewItem);
             this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_listView);
             this.CP_pnlMenukaarten.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_pnlMenukaarten.Location = new System.Drawing.Point(151, 543);
+            this.CP_pnlMenukaarten.Location = new System.Drawing.Point(151, 66);
             this.CP_pnlMenukaarten.Name = "CP_pnlMenukaarten";
             this.CP_pnlMenukaarten.Size = new System.Drawing.Size(857, 471);
             this.CP_pnlMenukaarten.TabIndex = 12;
@@ -548,7 +548,7 @@
             this.CP_pnlInkomsten.Controls.Add(this.CP_Inkomsten_btnApply);
             this.CP_pnlInkomsten.Controls.Add(this.CP_Inkomsten_listView);
             this.CP_pnlInkomsten.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_pnlInkomsten.Location = new System.Drawing.Point(1014, 543);
+            this.CP_pnlInkomsten.Location = new System.Drawing.Point(151, 66);
             this.CP_pnlInkomsten.Name = "CP_pnlInkomsten";
             this.CP_pnlInkomsten.Size = new System.Drawing.Size(857, 471);
             this.CP_pnlInkomsten.TabIndex = 13;
@@ -622,7 +622,7 @@
             // ControlPanelForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1868, 1021);
+            this.ClientSize = new System.Drawing.Size(1009, 536);
             this.Controls.Add(this.CP_pnlInkomsten);
             this.Controls.Add(this.CP_pnlMenukaarten);
             this.Controls.Add(this.CP_pnlMedewerkers);
