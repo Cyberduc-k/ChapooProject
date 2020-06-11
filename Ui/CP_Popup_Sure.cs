@@ -54,7 +54,7 @@ namespace Ui
         
         public void SetAsChangeStock(string name)
         {
-            CP_Popup_Sure_lblText.Text = "Weet u zeker dat u van" + name + " de voorraad wilt weizigen?";
+            CP_Popup_Sure_lblText.Text = "Weet u zeker dat u van " + name + " de voorraad wilt weizigen?";
         }
 
         public void SetAsEdit(string name)
