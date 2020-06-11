@@ -60,6 +60,7 @@ namespace Dao
             }
 
             ExecuteEditQuery(query, parameters);
+            bill.Id = GetLastBillId();
 
             AddBillHasOrder(bill);
         }
@@ -76,14 +77,12 @@ namespace Dao
 
         private void AddBillHasOrder(Bill bill)
         {
-            int billId = GetLastBillId();
-
             foreach (Order order in bill.Orders)
             {
                 string query = "INSERT INTO [dbo].[Bill_hasorder] ([billId], [orderId]) VALUES (@billId, @orderId)";
                 SqlParameter[] parameters = new SqlParameter[2]
                 {
-                    new SqlParameter("@billId", billId),
+                    new SqlParameter("@billId", bill.Id),
                     new SqlParameter("@orderId", order.Id),
                 };
 

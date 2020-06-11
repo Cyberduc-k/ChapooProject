@@ -50,6 +50,17 @@ namespace Dao
             };
 
             ExecuteEditQuery(query, parameters);
+            order.Id = GetLastOrderId();
+        }
+
+        private int GetLastOrderId()
+        {
+            string query = "SELECT [id] FROM [dbo].[Orders] ORDER BY [id] DESC";
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable result = ExecuteSelectQuery(query, parameters);
+            DataRow row = result.Rows[0];
+
+            return (int)row["id"];
         }
 
         // Remove an order from the database
