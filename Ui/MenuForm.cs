@@ -18,7 +18,6 @@ namespace Ui
         private Order order;
         private Drink_Service drinkServive = new Drink_Service();
         private Dish_Service dishService = new Dish_Service();
-        private Menu_Service menuService = new Menu_Service();
         private Table_Service tableService = new Table_Service();
 
         public MenuForm(Table tafel, Order order)
