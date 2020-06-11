@@ -49,7 +49,7 @@ namespace Dao
             {
                 new SqlParameter("@date", bill.Date),
                 new SqlParameter("@tableId", bill.Table.Number),
-                new SqlParameter("@employeeId", bill.Employee),
+                new SqlParameter("@employeeId", bill.Employee.Id),
             };
 
             foreach (Order order in bill.Orders)
