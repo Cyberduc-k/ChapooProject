@@ -19,8 +19,11 @@ namespace Ui
         private Table_Service table_service = new Table_Service();
         private List<Bill> bills;
         private List<Table> tables;
+        private ColumnHeader columnheader;
         private int tableId = 1;
-        private double totalprice = 0;
+        private double totalprice;
+        private string items;
+        private double fooi;
 
         public BillForm()
         {
@@ -50,16 +53,37 @@ namespace Ui
 
             for (int i = 0; i < bills.Orders.Count; i++)
             {
-                ListViewItem li = new ListViewItem(tableId.ToString());
-                li.SubItems.Add(bills.Orders[i].Id.ToString());
-                li.SubItems.Add(bills.Orders[i].Comment);
-                li.SubItems.Add(bills.Orders[i].State.ToString());
+                foreach (Dish dish in bills.Orders[i].Dishes)
+                {
+                    items = dish.Name;
+                    totalprice = totalprice + dish.Price;
 
-                Bill_lvBillOverview.Items.Add(li);
+                    ListViewItem li = new ListViewItem(items);
+                    li.SubItems.Add(dish.Price.ToString("€0.00"));
+                    Bill_lvBillOverview.Items.Add(li);
+                }
 
-                totalprice = totalprice + bills.Orders[i].TotalPrice;
+                foreach (Drink drink in bills.Orders[i].Drinks)
+                {
+                    items = drink.Name;
+                    totalprice = totalprice + drink.Price;
+
+                    ListViewItem li = new ListViewItem(items);
+                    li.SubItems.Add(drink.Price.ToString("€0.00"));
+                    Bill_lvBillOverview.Items.Add(li);
+                }
             }
-            Bill_lblTotalPrice.Text = totalprice.ToString("€ 00,00");
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Item";
+            columnheader.Width = 400;
+            Bill_lvBillOverview.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Prijs";
+            columnheader.Width = 100;
+            Bill_lvBillOverview.Columns.Add(columnheader);
+
+            Bill_lblTotalPrice.Text = totalprice.ToString("€0.00");
 
             Bill_lblTotalPrice.Show();
             Bill_btnFooi.Show();
@@ -186,6 +210,7 @@ namespace Ui
         private void Bill_btnPay_Click(object sender, EventArgs e)
         {
             //bill_service.RemoveBill();
+            Bill_btnAfrekenen_Click(null, null);
         }
 
         private void Bill_btnBetaalmethodeX_Click(object sender, EventArgs e)
@@ -202,6 +227,38 @@ namespace Ui
         {
             Bill_pnlBetaalMethode.Hide();
             Bill_pnlFooi.Show();
+        }
+
+        private void Bill_btnPasAan_Click(object sender, EventArgs e)
+        {
+            if (Bill_txbAanvullenTot.Text.Length == 0)
+            {
+                totalprice += fooi;
+            }
+            else
+            {
+                if (double.Parse(Bill_txbAanvullenTot.Text) <= totalprice)
+                {
+                    return;
+                }
+                totalprice = double.Parse(Bill_txbAanvullenTot.Text);
+            }
+            Bill_lblTotalPrice.Text = totalprice.ToString("€0.00");
+        }
+
+        private void Bill_btnFooiPlus5_Click(object sender, EventArgs e)
+        {
+            fooi = 5;
+        }
+
+        private void Bill_btnFooiPlus10_Click(object sender, EventArgs e)
+        {
+            fooi = 10;
+        }
+
+        private void Bill_btnFooiPlus20_Click(object sender, EventArgs e)
+        {
+            fooi = 20;
         }
     }
 }
