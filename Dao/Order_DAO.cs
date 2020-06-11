@@ -53,6 +53,20 @@ namespace Dao
             order.Id = GetLastOrderId();
         }
 
+        public void AddOrderWhereBillIdIs(Order order, int billId)
+        {
+            Add(order);
+
+            string query = "INSERT INTO [dbo].[Bill_has_order] ([billId], [orderId]) VALUES (@billId, @orderId)";
+            SqlParameter[] parameters = new SqlParameter[2]
+            {
+                new SqlParameter("@billId", billId),
+                new SqlParameter("@orderId", order.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
         private int GetLastOrderId()
         {
             string query = "SELECT [id] FROM [dbo].[Orders] ORDER BY [id] DESC";
