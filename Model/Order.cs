@@ -8,7 +8,7 @@ namespace Model
 {
     public class Order
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public DateTime TimeOrdering { get; set; }
         public DateTime TimeFinished { get; set; }
         public List<Dish> Dishes { get; }
