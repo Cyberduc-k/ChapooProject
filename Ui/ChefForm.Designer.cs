@@ -30,6 +30,7 @@
         {
             this.Chef_pnlLeft = new System.Windows.Forms.Panel();
             this.Chef_btnUitloggen = new System.Windows.Forms.Button();
+            this.Chef_btnVoorraad = new System.Windows.Forms.Button();
             this.Chef_btnGereed = new System.Windows.Forms.Button();
             this.Chef_btnOverzicht = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -59,7 +60,6 @@
             this.Chef_chGerecht = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Chef_chAantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Chef_chPrijs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Chef_btnVoorraad = new System.Windows.Forms.Button();
             this.Chef_pnlGereed = new System.Windows.Forms.Panel();
             this.Chef_pnlOpmerkingen2 = new System.Windows.Forms.Panel();
             this.Chef_lblOpmerkingenContent2 = new System.Windows.Forms.Label();
@@ -103,12 +103,28 @@
             this.Chef_btnUitloggen.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_btnUitloggen.ForeColor = System.Drawing.Color.White;
             this.Chef_btnUitloggen.Location = new System.Drawing.Point(1, 1166);
-            this.Chef_btnUitloggen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_btnUitloggen.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_btnUitloggen.Name = "Chef_btnUitloggen";
             this.Chef_btnUitloggen.Size = new System.Drawing.Size(380, 113);
             this.Chef_btnUitloggen.TabIndex = 1;
             this.Chef_btnUitloggen.Text = "Uitloggen";
             this.Chef_btnUitloggen.UseVisualStyleBackColor = true;
+            // 
+            // Chef_btnVoorraad
+            // 
+            this.Chef_btnVoorraad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.Chef_btnVoorraad.FlatAppearance.BorderSize = 2;
+            this.Chef_btnVoorraad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Chef_btnVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_btnVoorraad.ForeColor = System.Drawing.Color.White;
+            this.Chef_btnVoorraad.Location = new System.Drawing.Point(0, 377);
+            this.Chef_btnVoorraad.Margin = new System.Windows.Forms.Padding(4);
+            this.Chef_btnVoorraad.Name = "Chef_btnVoorraad";
+            this.Chef_btnVoorraad.Size = new System.Drawing.Size(380, 113);
+            this.Chef_btnVoorraad.TabIndex = 1;
+            this.Chef_btnVoorraad.Text = "Voorraad";
+            this.Chef_btnVoorraad.UseVisualStyleBackColor = true;
+            this.Chef_btnVoorraad.Click += new System.EventHandler(this.Chef_btnVoorraad_Click);
             // 
             // Chef_btnGereed
             // 
@@ -118,7 +134,7 @@
             this.Chef_btnGereed.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_btnGereed.ForeColor = System.Drawing.Color.White;
             this.Chef_btnGereed.Location = new System.Drawing.Point(0, 266);
-            this.Chef_btnGereed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_btnGereed.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_btnGereed.Name = "Chef_btnGereed";
             this.Chef_btnGereed.Size = new System.Drawing.Size(380, 113);
             this.Chef_btnGereed.TabIndex = 1;
@@ -135,7 +151,7 @@
             this.Chef_btnOverzicht.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_btnOverzicht.ForeColor = System.Drawing.Color.White;
             this.Chef_btnOverzicht.Location = new System.Drawing.Point(0, 155);
-            this.Chef_btnOverzicht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_btnOverzicht.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_btnOverzicht.Name = "Chef_btnOverzicht";
             this.Chef_btnOverzicht.Size = new System.Drawing.Size(380, 113);
             this.Chef_btnOverzicht.TabIndex = 1;
@@ -147,7 +163,7 @@
             // 
             this.pictureBox1.Image = global::Ui.Properties.Resources.Logo;
             this.pictureBox1.Location = new System.Drawing.Point(63, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(259, 124);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -159,7 +175,7 @@
             this.Chef_pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
             this.Chef_pnlTop.Controls.Add(this.Chef_lblActivePanel);
             this.Chef_pnlTop.Location = new System.Drawing.Point(381, 0);
-            this.Chef_pnlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_pnlTop.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_pnlTop.Name = "Chef_pnlTop";
             this.Chef_pnlTop.Size = new System.Drawing.Size(2157, 154);
             this.Chef_pnlTop.TabIndex = 1;
@@ -199,7 +215,7 @@
             this.Chef_pnlOpmerkingen.Controls.Add(this.Chef_lblOpmerkingenContent);
             this.Chef_pnlOpmerkingen.Controls.Add(this.Chef_lblOpmerkingen);
             this.Chef_pnlOpmerkingen.Location = new System.Drawing.Point(868, 66);
-            this.Chef_pnlOpmerkingen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_pnlOpmerkingen.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_pnlOpmerkingen.Name = "Chef_pnlOpmerkingen";
             this.Chef_pnlOpmerkingen.Size = new System.Drawing.Size(967, 483);
             this.Chef_pnlOpmerkingen.TabIndex = 3;
@@ -230,7 +246,7 @@
             this.Chef_pnlOverflow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_pnlOverflow.Controls.Add(this.Chef_lblOverflow);
             this.Chef_pnlOverflow.Location = new System.Drawing.Point(1919, 770);
-            this.Chef_pnlOverflow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_pnlOverflow.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_pnlOverflow.Name = "Chef_pnlOverflow";
             this.Chef_pnlOverflow.Size = new System.Drawing.Size(147, 123);
             this.Chef_pnlOverflow.TabIndex = 2;
@@ -257,7 +273,7 @@
             this.Chef_pnlFourthOrder.Controls.Add(this.Chef_lvFourth);
             this.Chef_pnlFourthOrder.Controls.Add(this.Chef_btnFourthKlaar);
             this.Chef_pnlFourthOrder.Location = new System.Drawing.Point(1281, 636);
-            this.Chef_pnlFourthOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_pnlFourthOrder.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_pnlFourthOrder.Name = "Chef_pnlFourthOrder";
             this.Chef_pnlFourthOrder.Size = new System.Drawing.Size(554, 402);
             this.Chef_pnlFourthOrder.TabIndex = 1;
@@ -300,7 +316,7 @@
             this.Chef_pnlThirdOrder.Controls.Add(this.Chef_lvThird);
             this.Chef_pnlThirdOrder.Controls.Add(this.Chef_btnThirdKlaar);
             this.Chef_pnlThirdOrder.Location = new System.Drawing.Point(676, 636);
-            this.Chef_pnlThirdOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_pnlThirdOrder.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_pnlThirdOrder.Name = "Chef_pnlThirdOrder";
             this.Chef_pnlThirdOrder.Size = new System.Drawing.Size(554, 402);
             this.Chef_pnlThirdOrder.TabIndex = 1;
@@ -343,7 +359,7 @@
             this.Chef_pnlSecondOrder.Controls.Add(this.Chef_lvSecond);
             this.Chef_pnlSecondOrder.Controls.Add(this.Chef_btnSecondKlaar);
             this.Chef_pnlSecondOrder.Location = new System.Drawing.Point(72, 636);
-            this.Chef_pnlSecondOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_pnlSecondOrder.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_pnlSecondOrder.Name = "Chef_pnlSecondOrder";
             this.Chef_pnlSecondOrder.Size = new System.Drawing.Size(554, 402);
             this.Chef_pnlSecondOrder.TabIndex = 1;
@@ -386,7 +402,7 @@
             this.Chef_pnlFirstOrder.Controls.Add(this.Chef_lvFirst);
             this.Chef_pnlFirstOrder.Controls.Add(this.Chef_btnFirstKlaar);
             this.Chef_pnlFirstOrder.Location = new System.Drawing.Point(72, 66);
-            this.Chef_pnlFirstOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_pnlFirstOrder.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_pnlFirstOrder.Name = "Chef_pnlFirstOrder";
             this.Chef_pnlFirstOrder.Size = new System.Drawing.Size(666, 483);
             this.Chef_pnlFirstOrder.TabIndex = 1;
@@ -459,7 +475,7 @@
             this.Chef_lvVoorraad.ForeColor = System.Drawing.Color.Black;
             this.Chef_lvVoorraad.HideSelection = false;
             this.Chef_lvVoorraad.Location = new System.Drawing.Point(40, 37);
-            this.Chef_lvVoorraad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Chef_lvVoorraad.Margin = new System.Windows.Forms.Padding(4);
             this.Chef_lvVoorraad.Name = "Chef_lvVoorraad";
             this.Chef_lvVoorraad.Size = new System.Drawing.Size(2079, 1058);
             this.Chef_lvVoorraad.TabIndex = 0;
@@ -481,22 +497,6 @@
             // 
             this.Chef_chPrijs.Text = "Prijs";
             this.Chef_chPrijs.Width = 190;
-            // 
-            // Chef_btnVoorraad
-            // 
-            this.Chef_btnVoorraad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.Chef_btnVoorraad.FlatAppearance.BorderSize = 2;
-            this.Chef_btnVoorraad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Chef_btnVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_btnVoorraad.ForeColor = System.Drawing.Color.White;
-            this.Chef_btnVoorraad.Location = new System.Drawing.Point(0, 377);
-            this.Chef_btnVoorraad.Margin = new System.Windows.Forms.Padding(4);
-            this.Chef_btnVoorraad.Name = "Chef_btnVoorraad";
-            this.Chef_btnVoorraad.Size = new System.Drawing.Size(380, 113);
-            this.Chef_btnVoorraad.TabIndex = 1;
-            this.Chef_btnVoorraad.Text = "Voorraad";
-            this.Chef_btnVoorraad.UseVisualStyleBackColor = true;
-            this.Chef_btnVoorraad.Click += new System.EventHandler(this.Chef_btnVoorraad_Click);
             // 
             // Chef_pnlGereed
             // 
@@ -561,7 +561,7 @@
             this.Controls.Add(this.Chef_pnlVoorraad);
             this.Controls.Add(this.Chef_pnlTop);
             this.Controls.Add(this.Chef_pnlLeft);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChefForm";
             this.Text = "Overzicht";
             this.Chef_pnlLeft.ResumeLayout(false);

@@ -52,13 +52,13 @@ namespace Logic
             listviewX = (ListViewItem)x;
             listviewY = (ListViewItem)y;
 
-            //Probeer om de inhoudt van de column naar een int te parsen. Als dit lukt sorten we als int
+            //Probeer om de inhoudt van de column naar een double te parsen. Als dit lukt sorten we als double
             //Anders als string
             double number;
-            bool success = Double.TryParse(listviewX.SubItems[ColumnToSort].Text, out number);
+            bool success = double.TryParse(listviewX.SubItems[ColumnToSort].Text, out number);
 
             if (success)
-                compareResult = Double.Parse(listviewX.SubItems[ColumnToSort].Text).CompareTo(Double.Parse(listviewY.SubItems[ColumnToSort].Text));
+                compareResult = double.Parse(listviewX.SubItems[ColumnToSort].Text).CompareTo(double.Parse(listviewY.SubItems[ColumnToSort].Text));
             else
                 compareResult = ObjectCompare.Compare(listviewX.SubItems[ColumnToSort].Text, listviewY.SubItems[ColumnToSort].Text);
 

@@ -19,6 +19,7 @@ namespace Ui
         private Drink_Service drinkService = new Drink_Service();
         private Dish_Service dishService = new Dish_Service();
         private Employee_Service employeeService = new Employee_Service();
+        private Bill_Service billService = new Bill_Service();
 
         //Var used to create new columnHeader for the listView sorter
         private ColumnHeader columnheader;
@@ -74,25 +75,31 @@ namespace Ui
 
         private void CP_btnInkomsten_Click(object sender, EventArgs e)
         {
+            LoadRevenue();
+
             SetHightlight(CP_btnInkomsten);
             CP_lblActivePanel.Text = "Inkomsten";
             HideAllPanels();
+            CP_pnlInkomsten.Show();
         }
 
         private void CP_btnMedewerkers_Click(object sender, EventArgs e)
         {
+            LoadEmployeeList();
+
             HideAllPanels();
             SetHightlight(CP_btnMedewerkers);
             CP_lblActivePanel.Text = "Medewerkers";
             CP_pnlMedewerkers.Show();
-            LoadEmployeeList();
         }
 
         private void CP_btnUitloggen_Click(object sender, EventArgs e)
         {
+            //@TODO uitloggen
             SetHightlight(CP_btnUitloggen);
-            Close();
             Owner.Show();
+
+            Close();
         }
         #endregion
 
@@ -415,6 +422,11 @@ namespace Ui
             CP_Voorraad_btnEditItem.BackColor = Color.FromArgb(0, 184, 255);
             CP_Voorraad_btnEmptyItem.BackColor = Color.Red;
         }
+
+        private void CP_Voorraad_listView_ColumnClick_1(object sender, ColumnClickEventArgs e)
+        {
+            SortListView(e, CP_Voorraad_listView);
+        }
         #endregion
         #endregion
 
@@ -433,13 +445,12 @@ namespace Ui
             for (int i = 0; i < employeeList.Count; i++)
             {
                 ListViewItem li = new ListViewItem(employeeList[i].Id.ToString());
-                li.SubItems.Add(employeeList[i].FirstName.ToString());
-                li.SubItems.Add(employeeList[i].LastName.ToString());
-                li.SubItems.Add(employeeList[i].BirthDate.ToString());
-                li.SubItems.Add(employeeList[i].Gender.ToString());
-                li.SubItems.Add(employeeList[i].DateEmployment.ToString());
+                li.SubItems.Add(employeeList[i].FirstName.ToString() + " " + employeeList[i].LastName.ToString());
+                li.SubItems.Add(employeeList[i].Age.ToString());
+                li.SubItems.Add(employeeList[i].Gender.ToShortString());
+                li.SubItems.Add(employeeList[i].DateEmployment.ToString("dd-MM-yyyy"));
                 li.SubItems.Add(employeeList[i].Password.ToString());
-                li.SubItems.Add(employeeList[i].EmployeeType.ToString());
+                li.SubItems.Add(employeeList[i].EmployeeType.ToDutchString());
 
                 //Tag is used to store the employee object
                 li.Tag = employeeList[i];
@@ -453,15 +464,11 @@ namespace Ui
             CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Voornaam";
+            columnheader.Text = "Naam";
             CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
-            columnheader.Text = "Achternaam";
-            CP_Medewerkers_listView.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Geboortedatum";
+            columnheader.Text = "Leeftijd";
             CP_Medewerkers_listView.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
@@ -910,6 +917,136 @@ namespace Ui
         #endregion
         #endregion
 
+        #region Inkomsten
+        //Code used for the Inkomsten panel
+        private void LoadRevenueBetweenDates(DateTime from, DateTime to)
+        {
+            LoadRevenueFromList(billService.GetAllBetweenDates(from, to));
+        }
+
+        //Function is unnecesary but helps with readability
+        private void LoadRevenue()
+        {
+            LoadRevenueFromList(billService.GetAllBills());
+        }
+
+        private void LoadRevenueFromList(List<Bill> billList) 
+        {
+            CP_Inkomsten_listView.Clear();
+
+            Dictionary<DateTime, RevenueRow> rows = new Dictionary<DateTime, RevenueRow>();
+
+            List<Dish> dinnerDishes = dishService.GetAllDinner();
+            List<Dish> lunchDishes = dishService.GetAllLunch();
+
+            //Merge the bills into the format for the Revenue listView
+            for (int i = 0; i < billList.Count; i++)
+            {
+                //Check there already is an orde for this date
+                if (rows.ContainsKey(billList[i].Date))
+                {
+                    foreach (Order order in billList[i].Orders)
+                    {
+                        rows[billList[i].Date].OrderCount++;
+
+                        foreach (Dish dish in order.Dishes)
+                        {
+                            if (dinnerDishes.Contains(dish))
+                                rows[billList[i].Date].TotalDinner += dish.Price;
+                            else if (lunchDishes.Contains(dish))
+                                rows[billList[i].Date].TotalLunch += dish.Price;
+                        }
+
+                        foreach (Drink drink in order.Drinks)
+                        {
+                            rows[billList[i].Date].TotalDrinks += drink.Price;
+                        }
+                    }
+                }
+                else
+                {
+                    RevenueRow revenueRow = new RevenueRow();
+
+                    foreach (Order order in billList[i].Orders)
+                    {
+                        revenueRow.OrderCount++;
+
+                        foreach (Dish dish in order.Dishes)
+                        {
+                            if (dinnerDishes.Contains(dish))
+                                revenueRow.TotalDinner += dish.Price;
+                            else if (lunchDishes.Contains(dish))
+                                revenueRow.TotalLunch += dish.Price;
+                        }
+
+                        foreach (Drink drink in order.Drinks)
+                        {
+                            revenueRow.TotalDrinks += drink.Price;
+                        }
+                    }
+
+                    if(revenueRow.OrderCount > 0)
+                        rows.Add(billList[i].Date, revenueRow);
+                }
+            }
+
+            foreach(KeyValuePair<DateTime, RevenueRow> kvp in rows)
+            {
+                ListViewItem li = new ListViewItem(kvp.Key.Date.ToString("dd/MM/yyyy"));
+                li.SubItems.Add(kvp.Value.OrderCount.ToString());
+                li.SubItems.Add("€" + kvp.Value.TotalDrinks.ToString("0.00"));
+                li.SubItems.Add("€" + kvp.Value.TotalLunch.ToString("0.00"));
+                li.SubItems.Add("€" + kvp.Value.TotalDinner.ToString("0.00"));
+                li.SubItems.Add("€" + kvp.Value.Total.ToString("0.00"));
+
+                CP_Inkomsten_listView.Items.Add(li);
+            }          
+
+            // Create some column headers for the data. 
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Datum";
+            CP_Inkomsten_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Aantal orders";
+            CP_Inkomsten_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Totaal dranken";
+            CP_Inkomsten_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Totaal lunch";
+            CP_Inkomsten_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Totaal diner";
+            CP_Inkomsten_listView.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Totaal";
+            CP_Inkomsten_listView.Columns.Add(columnheader);
+
+            // Loop through and size each column header to fit the column header text.
+            foreach (ColumnHeader ch in CP_Inkomsten_listView.Columns)
+            {
+                ch.Width = -2;
+            }
+        }
+
+        #region OnClicks
+        private void CP_Inkomsten_btnApply_Click(object sender, EventArgs e)
+        {
+            LoadRevenueBetweenDates(CP_Inkomsten_dtpVan.Value, CP_Inkomsten_dtpTot.Value);
+        }
+
+        private void CP_Inkomsten_listView_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            SortListView(e, CP_Inkomsten_listView);
+        }
+        #endregion
+        #endregion
+
         //Code used by multiple panels
         #region General
         //Sort the items of this list view based on the selected column
@@ -937,6 +1074,8 @@ namespace Ui
         //Makes sure all the listviews are setup properly
         private void InitializeSorting()
         {
+            //View has to be set to details in order to show column headers
+            //The sorter has to be set to our custom sorter
             CP_Voorraad_listView.View = View.Details;
             CP_Voorraad_listView.ListViewItemSorter = lvwColumnSorter;
 
@@ -945,6 +1084,9 @@ namespace Ui
 
             CP_Menukaarten_listView.View = View.Details;
             CP_Menukaarten_listView.ListViewItemSorter = lvwColumnSorter;
+
+            CP_Inkomsten_listView.View = View.Details;
+            CP_Inkomsten_listView.ListViewItemSorter = lvwColumnSorter;
         }
 
         //Hide all the panels
@@ -953,6 +1095,7 @@ namespace Ui
             CP_pnlVoorraad.Hide();
             CP_pnlMedewerkers.Hide();
             CP_pnlMenukaarten.Hide();
+            CP_pnlInkomsten.Hide();
         }
 
         //Highlight the selected button
