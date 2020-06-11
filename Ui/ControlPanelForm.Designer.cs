@@ -31,7 +31,6 @@
             this.CP_pnlNavMenu = new System.Windows.Forms.Panel();
             this.CP_btnMedewerkers = new System.Windows.Forms.Button();
             this.CP_btnInkomsten = new System.Windows.Forms.Button();
-            this.CP_btnBestellingen = new System.Windows.Forms.Button();
             this.CP_btnUitloggen = new System.Windows.Forms.Button();
             this.CP_btnMenukaarten = new System.Windows.Forms.Button();
             this.CP_btnVoorraad = new System.Windows.Forms.Button();
@@ -60,12 +59,12 @@
             this.CP_Menukaarten_btnEditItem = new System.Windows.Forms.Button();
             this.CP_Menukaarten_btnNewItem = new System.Windows.Forms.Button();
             this.CP_pnlInkomsten = new System.Windows.Forms.Panel();
-            this.CP_Inkomsten_btnApply = new System.Windows.Forms.Button();
-            this.CP_Inkomsten_listView = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CP_Inkomsten_dtpVan = new System.Windows.Forms.DateTimePicker();
             this.CP_Inkomsten_dtpTot = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.CP_Inkomsten_dtpVan = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CP_Inkomsten_btnApply = new System.Windows.Forms.Button();
+            this.CP_Inkomsten_listView = new System.Windows.Forms.ListView();
             this.CP_pnlNavMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.CP_pnlHeader.SuspendLayout();
@@ -80,7 +79,6 @@
             this.CP_pnlNavMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnMedewerkers);
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnInkomsten);
-            this.CP_pnlNavMenu.Controls.Add(this.CP_btnBestellingen);
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnUitloggen);
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnMenukaarten);
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnVoorraad);
@@ -101,7 +99,7 @@
             this.CP_btnMedewerkers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_btnMedewerkers.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnMedewerkers.ForeColor = System.Drawing.Color.White;
-            this.CP_btnMedewerkers.Location = new System.Drawing.Point(0, 316);
+            this.CP_btnMedewerkers.Location = new System.Drawing.Point(0, 266);
             this.CP_btnMedewerkers.Name = "CP_btnMedewerkers";
             this.CP_btnMedewerkers.Size = new System.Drawing.Size(151, 50);
             this.CP_btnMedewerkers.TabIndex = 7;
@@ -118,30 +116,13 @@
             this.CP_btnInkomsten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CP_btnInkomsten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnInkomsten.ForeColor = System.Drawing.Color.White;
-            this.CP_btnInkomsten.Location = new System.Drawing.Point(0, 266);
+            this.CP_btnInkomsten.Location = new System.Drawing.Point(0, 216);
             this.CP_btnInkomsten.Name = "CP_btnInkomsten";
             this.CP_btnInkomsten.Size = new System.Drawing.Size(151, 50);
             this.CP_btnInkomsten.TabIndex = 6;
             this.CP_btnInkomsten.Text = "Inkomsten";
             this.CP_btnInkomsten.UseVisualStyleBackColor = false;
             this.CP_btnInkomsten.Click += new System.EventHandler(this.CP_btnInkomsten_Click);
-            // 
-            // CP_btnBestellingen
-            // 
-            this.CP_btnBestellingen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
-            this.CP_btnBestellingen.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CP_btnBestellingen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_btnBestellingen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.CP_btnBestellingen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_btnBestellingen.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CP_btnBestellingen.ForeColor = System.Drawing.Color.White;
-            this.CP_btnBestellingen.Location = new System.Drawing.Point(0, 216);
-            this.CP_btnBestellingen.Name = "CP_btnBestellingen";
-            this.CP_btnBestellingen.Size = new System.Drawing.Size(151, 50);
-            this.CP_btnBestellingen.TabIndex = 5;
-            this.CP_btnBestellingen.Text = "Bestellingen";
-            this.CP_btnBestellingen.UseVisualStyleBackColor = false;
-            this.CP_btnBestellingen.Click += new System.EventHandler(this.CP_btnBestellingen_Click);
             // 
             // CP_btnUitloggen
             // 
@@ -572,6 +553,44 @@
             this.CP_pnlInkomsten.Size = new System.Drawing.Size(857, 471);
             this.CP_pnlInkomsten.TabIndex = 13;
             // 
+            // CP_Inkomsten_dtpTot
+            // 
+            this.CP_Inkomsten_dtpTot.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Inkomsten_dtpTot.Location = new System.Drawing.Point(356, 18);
+            this.CP_Inkomsten_dtpTot.Name = "CP_Inkomsten_dtpTot";
+            this.CP_Inkomsten_dtpTot.Size = new System.Drawing.Size(217, 23);
+            this.CP_Inkomsten_dtpTot.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Roboto", 15F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.label2.Location = new System.Drawing.Point(308, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 24);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Tot:";
+            // 
+            // CP_Inkomsten_dtpVan
+            // 
+            this.CP_Inkomsten_dtpVan.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Inkomsten_dtpVan.Location = new System.Drawing.Point(61, 18);
+            this.CP_Inkomsten_dtpVan.Name = "CP_Inkomsten_dtpVan";
+            this.CP_Inkomsten_dtpVan.Size = new System.Drawing.Size(217, 23);
+            this.CP_Inkomsten_dtpVan.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 15F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.label1.Location = new System.Drawing.Point(5, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 24);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Van:";
+            // 
             // CP_Inkomsten_btnApply
             // 
             this.CP_Inkomsten_btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -599,44 +618,6 @@
             this.CP_Inkomsten_listView.TabIndex = 0;
             this.CP_Inkomsten_listView.UseCompatibleStateImageBehavior = false;
             this.CP_Inkomsten_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Inkomsten_listView_ColumnClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 15F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.label1.Location = new System.Drawing.Point(5, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 24);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Van:";
-            // 
-            // CP_Inkomsten_dtpVan
-            // 
-            this.CP_Inkomsten_dtpVan.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_Inkomsten_dtpVan.Location = new System.Drawing.Point(61, 18);
-            this.CP_Inkomsten_dtpVan.Name = "CP_Inkomsten_dtpVan";
-            this.CP_Inkomsten_dtpVan.Size = new System.Drawing.Size(217, 23);
-            this.CP_Inkomsten_dtpVan.TabIndex = 10;
-            // 
-            // CP_Inkomsten_dtpTot
-            // 
-            this.CP_Inkomsten_dtpTot.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.CP_Inkomsten_dtpTot.Location = new System.Drawing.Point(356, 18);
-            this.CP_Inkomsten_dtpTot.Name = "CP_Inkomsten_dtpTot";
-            this.CP_Inkomsten_dtpTot.Size = new System.Drawing.Size(217, 23);
-            this.CP_Inkomsten_dtpTot.TabIndex = 12;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 15F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.label2.Location = new System.Drawing.Point(308, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 24);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Tot:";
             // 
             // ControlPanelForm
             // 
@@ -677,7 +658,6 @@
         private System.Windows.Forms.Button CP_btnUitloggen;
         private System.Windows.Forms.Button CP_btnMedewerkers;
         private System.Windows.Forms.Button CP_btnInkomsten;
-        private System.Windows.Forms.Button CP_btnBestellingen;
         private System.Windows.Forms.ListView CP_Menukaarten_listView;
         private System.Windows.Forms.Button CP_Voorraad_btnLunchgerechten;
         private System.Windows.Forms.Button CP_Voorraad_btnDinergerechten;
