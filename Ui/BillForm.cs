@@ -48,43 +48,51 @@ namespace Ui
 
             Bill bills = bill_service.GetBillByTableId(tableId);
 
-            for (int i = 0; i < bills.Orders.Count; i++)
+            if (bills.Payed == false)
             {
-                foreach (Dish dish in bills.Orders[i].Dishes)
+
+                for (int i = 0; i < bills.Orders.Count; i++)
                 {
-                    items = dish.Name;
-                    totalprice = totalprice + dish.Price;
+                    foreach (Dish dish in bills.Orders[i].Dishes)
+                    {
+                        items = dish.Name;
+                        totalprice = totalprice + dish.Price;
 
-                    ListViewItem li = new ListViewItem(items);
-                    li.SubItems.Add(dish.Price.ToString("€0.00"));
-                    Bill_lvBillOverview.Items.Add(li);
+                        ListViewItem li = new ListViewItem(items);
+                        li.SubItems.Add(dish.Price.ToString("€0.00"));
+                        Bill_lvBillOverview.Items.Add(li);
+                    }
+
+                    foreach (Drink drink in bills.Orders[i].Drinks)
+                    {
+                        items = drink.Name;
+                        totalprice = totalprice + drink.Price;
+
+                        ListViewItem li = new ListViewItem(items);
+                        li.SubItems.Add(drink.Price.ToString("€0.00"));
+                        Bill_lvBillOverview.Items.Add(li);
+                    }
                 }
+                columnheader = new ColumnHeader();
+                columnheader.Text = "Item";
+                columnheader.Width = 400;
+                Bill_lvBillOverview.Columns.Add(columnheader);
 
-                foreach (Drink drink in bills.Orders[i].Drinks)
-                {
-                    items = drink.Name;
-                    totalprice = totalprice + drink.Price;
+                columnheader = new ColumnHeader();
+                columnheader.Text = "Prijs";
+                columnheader.Width = 100;
+                Bill_lvBillOverview.Columns.Add(columnheader);
 
-                    ListViewItem li = new ListViewItem(items);
-                    li.SubItems.Add(drink.Price.ToString("€0.00"));
-                    Bill_lvBillOverview.Items.Add(li);
-                }
+                Bill_lblTotalPrice.Text = totalprice.ToString("€0.00");
+
+                Bill_lblTotalPrice.Show();
+                Bill_btnFooi.Show();
+                Bill_btnKiesBetaalmethode.Show();
             }
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Item";
-            columnheader.Width = 400;
-            Bill_lvBillOverview.Columns.Add(columnheader);
-
-            columnheader = new ColumnHeader();
-            columnheader.Text = "Prijs";
-            columnheader.Width = 100;
-            Bill_lvBillOverview.Columns.Add(columnheader);
-
-            Bill_lblTotalPrice.Text = totalprice.ToString("€0.00");
-
-            Bill_lblTotalPrice.Show();
-            Bill_btnFooi.Show();
-            Bill_btnKiesBetaalmethode.Show();
+            else
+            {
+                Bill_lblBetaald.Show();
+            }
         }
 
         private void Bill_btnKiesBetaalmethode_Click_1(object sender, EventArgs e)
@@ -142,6 +150,7 @@ namespace Ui
             Bill_btnPay.Hide();
             Bill_pnlFooi.Hide();
             Bill_lblTotalPrice.Hide();
+            Bill_lblBetaald.Hide();
         }
 
         private void Bill_btnTable1_Click(object sender, EventArgs e)
@@ -207,7 +216,7 @@ namespace Ui
         private void Bill_btnPay_Click(object sender, EventArgs e)
         {
             Bill bills = bill_service.GetBillByTableId(tableId);
-            bill_service.RemoveBill(bills); 
+            bill_service.ModifyBillToPayed(bills); 
             Bill_btnAfrekenen_Click(null, null);
         }
 
