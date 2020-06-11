@@ -14,21 +14,25 @@ namespace Model
 	    public List<Order> Orders { get; }
         public Employee Employee { get; }
 
-        public Bill(int id, DateTime date, Table table, List<Order> orders, Employee employee)
+        public bool Payed { get; }
+
+        public Bill(int id, DateTime date, Table table, List<Order> orders, Employee employee, bool payed)
         {
             Id = id;
             Date = date;
             Table = table;
             Orders = orders;
             Employee = employee;
+            Payed = payed;
         }
 
-        public Bill(DateTime date, Table table, List<Order> orders, Employee employee)
+        public Bill(DateTime date, Table table, List<Order> orders, Employee employee, bool payed)
         {
             Date = date;
             Table = table;
             Orders = orders;
             Employee = employee;
+            Payed = payed;
         }
 
         public double Price
