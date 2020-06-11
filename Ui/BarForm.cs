@@ -18,6 +18,8 @@ namespace Ui
         private Order_Service order_service = new Order_Service();
         private Drink_Service drink_service = new Drink_Service();
         private List<Order> orders;
+        private Timer timer = new Timer();
+        private ColumnHeader columnheader;
 
         public BarForm()
         {
@@ -36,12 +38,14 @@ namespace Ui
         private void SetHightlight(Button btn)
         {
             Bar_btnOverzicht.BackColor = Color.FromArgb(0, 165, 229);
+            Bar_btnGereed.BackColor = Color.FromArgb(0, 165, 229);
             Bar_btnVoorraad.BackColor = Color.FromArgb(0, 165, 229);
             btn.BackColor = Color.FromArgb(0, 184, 255);
         }
 
         private void HideAllPanels()
         {
+            timer.Stop();
             Bar_pnlOverzicht.Hide();
             Bar_lblGeenBestellingen.Hide();
             Bar_pnlOpmerkingen.Hide();
@@ -50,6 +54,7 @@ namespace Ui
             Bar_pnlThirdOrder.Hide();
             Bar_pnlFourthOrder.Hide();
             Bar_pnlOverflow.Hide();
+            Bar_pnlGereed.Hide();
             Bar_pnlVoorraad.Hide();
         }
 
@@ -156,6 +161,17 @@ namespace Ui
 
                 Bar_lvVoorraad.Items.Add(li);
             }
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Item";
+            Bar_lvVoorraad.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Voorraad";
+            Bar_lvVoorraad.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Prijs";
+            Bar_lvVoorraad.Columns.Add(columnheader);
         }
 
         private void Bar_btnFirstKlaar_Click_1(object sender, EventArgs e)
@@ -191,6 +207,55 @@ namespace Ui
             }
 
             lv.Sort();
+        }
+
+        private void Bar_btnGereed_Click(object sender, EventArgs e)
+        {
+            SetHightlight(Bar_btnGereed);
+            Bar_lblActivePanel.Text = "Gereed";
+            HideAllPanels();
+            Bar_pnlGereed.Show();
+
+            // Get all orders that are ready/served
+            List<Order> orders = order_service
+                .GetAllOrders()
+                .Where(order => order.State == OrderState.Done || order.State == OrderState.Served)
+                .ToList();
+
+            Bar_pnlOrders.Controls.Clear();
+
+            int y = 0;
+
+            for (int i = 0; i < orders.Count; i++)
+            {
+                Order order = orders[i];
+                Panel pnl_order = new Panel();
+                ListView lv_order = new ListView();
+
+                pnl_order.BackColor = Color.FromArgb(250, 253, 255);
+                pnl_order.BorderStyle = BorderStyle.FixedSingle;
+                pnl_order.Controls.Add(lv_order);
+                pnl_order.Location = new Point(0, y);
+                pnl_order.Name = $"Bar_pnlOrder_{i}";
+                pnl_order.Size = new Size(666, 483);
+
+                lv_order.BackColor = Color.FromArgb(250, 253, 255);
+                lv_order.BorderStyle = BorderStyle.None;
+                lv_order.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                lv_order.HideSelection = false;
+                lv_order.Location = new Point(0, 0);
+                lv_order.Margin = new Padding(0);
+                lv_order.Name = $"Bar_lvOrder_{i}";
+                lv_order.Size = new Size(664, 481);
+                lv_order.View = View.List;
+
+                foreach (Drink drink in order.Drinks)
+                    lv_order.Items.Add(drink.Name);
+
+                Bar_pnlOrders.Controls.Add(pnl_order);
+
+                y += 503;
+            }
         }
     }
 }
