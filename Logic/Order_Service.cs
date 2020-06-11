@@ -34,5 +34,10 @@ namespace Logic
         {
             order_DAO.Modify(order);
         }
+
+        public void AddOrderWhereBillIdIs(Order order, int billId)
+        {
+            order_DAO.AddOrderWhereBillIdIs(order, billId);
+        }
     }
 }

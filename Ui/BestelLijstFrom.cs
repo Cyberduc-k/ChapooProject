@@ -58,7 +58,7 @@ namespace Ui
 
             if (bill != null)
             {
-                billService.AddBill(bill);
+                orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
