@@ -914,13 +914,13 @@ namespace Ui
         //Code used for the Inkomsten panel
         private void LoadRevenueBetweenDates(DateTime from, DateTime to)
         {
-            LoadRevenueFromList(billService.GetAllBetweenDates(from, to));
+            LoadRevenueFromList(billService.GetAllPayedBetweenDates(from, to));
         }
 
         //Function is unnecesary but helps with readability
         private void LoadRevenue()
         {
-            LoadRevenueFromList(billService.GetAllBills());
+            LoadRevenueFromList(billService.GetAllPayed());
         }
 
         //Load the revenue from these bills

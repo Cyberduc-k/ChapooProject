@@ -15,6 +15,15 @@ namespace Dao
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));
+        }        
+        
+        // Get a list of all payed bills
+        public List<Bill> GetAllPayed()
+        {
+            string query = "SELECT [id], [date], [tableId], [employeeId], [Payed] FROM [dbo].[Bills] WHERE [Payed]='true'";
+            SqlParameter[] parameters = new SqlParameter[0];
+
+            return ReadAll(ExecuteSelectQuery(query, parameters));
         }
 
         // Get bill by tableId
@@ -31,9 +40,9 @@ namespace Dao
         }
 
         //Get bills between 2 dates
-        public List<Bill> GetAllBetweenDates(DateTime from, DateTime to)
+        public List<Bill> GetAllPayedBetweenDates(DateTime from, DateTime to)
         {
-            string query = "SELECT [id], [date], [tableId], [employeeId], [Payed] FROM [dbo].[Bills] WHERE [date] BETWEEN @from AND @to";
+            string query = "SELECT [id], [date], [tableId], [employeeId], [Payed] FROM [dbo].[Bills] WHERE ([date] BETWEEN @from AND @to) AND [Payed] = 'true'";
             SqlParameter[] parameters = new SqlParameter[2]
             {
                 new SqlParameter("@from", from.Date.ToString()),
