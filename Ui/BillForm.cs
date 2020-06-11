@@ -19,8 +19,11 @@ namespace Ui
         private Table_Service table_service = new Table_Service();
         private List<Bill> bills;
         private List<Table> tables;
+        private ColumnHeader columnheader;
+        private ListViewItem listviewitem;
         private int tableId = 1;
-        private double totalprice = 0;
+        private double totalprice;
+        private double fooi;
 
         public BillForm()
         {
@@ -43,23 +46,37 @@ namespace Ui
         private void Bill_btnRekeningOverzicht_Click(object sender, EventArgs e)
         {
             HideAllPanels();
-            
             Bill_lvBillOverview.Show();
 
             Bill bills = bill_service.GetBillByTableId(tableId);
 
-            for (int i = 0; i < bills.Orders.Count; i++)
+            for(int i = 0; i < bills.Orders.Count; i++)
             {
                 ListViewItem li = new ListViewItem(tableId.ToString());
-                li.SubItems.Add(bills.Orders[i].Id.ToString());
+
+                foreach (Dish dish in bills.Orders[i].Dishes)
+                {
+                    li.SubItems.Add(bills.Orders[i].Dishes.ToString());
+                }
+                foreach (Drink drink in bills.Orders[i].Drinks)
+                {
+                    li.SubItems.Add(bills.Orders[i].Drinks.ToString());
+                }
+
                 li.SubItems.Add(bills.Orders[i].Comment);
-                li.SubItems.Add(bills.Orders[i].State.ToString());
+                li.SubItems.Add(bills.Orders[i].TotalPrice.ToString());
 
                 Bill_lvBillOverview.Items.Add(li);
 
-                totalprice = totalprice + bills.Orders[i].TotalPrice;
+
             }
-            Bill_lblTotalPrice.Text = totalprice.ToString("€ 00,00");
+
+            foreach (Order o in bills.Orders)
+            {
+                totalprice += o.TotalPrice;
+            }
+
+            UpdatePrice();
 
             Bill_lblTotalPrice.Show();
             Bill_btnFooi.Show();
@@ -105,8 +122,14 @@ namespace Ui
             }
         }
 
+        private void UpdatePrice()
+        {
+            Bill_lblTotalPrice.Text = "€" + totalprice.ToString();
+        }
+
         private void HideAllPanels()
         {
+            Bill_lvBillOverview.Hide();
             Bill_btnBillOverview.Hide();
             Bill_btnKiesBetaalmethode.Hide();
             Bill_btnFooi.Hide();
@@ -202,6 +225,43 @@ namespace Ui
         {
             Bill_pnlBetaalMethode.Hide();
             Bill_pnlFooi.Show();
+        }
+
+        private void BillForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fooi = 5;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fooi = 10;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            fooi = 20;
+        }
+
+        private void Bill_btnPasAan_Click_1(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length == 0)
+            {
+                totalprice += fooi;
+            }
+            else
+            {
+                if (double.Parse(textBox1.Text) <= totalprice)
+                {
+                    return;
+                }
+                totalprice = double.Parse(textBox1.Text);
+            }
+            UpdatePrice();
         }
     }
 }

@@ -25,6 +25,7 @@ namespace Ui
             InitializeComponent();
             InitializeSorting();
             InitializeTimer();
+            FormClosed += OnClosed;
             Chef_btnOverzicht_Click(null, null);
         }
 
@@ -69,14 +70,16 @@ namespace Ui
         {
             SetHightlight(Chef_btnOverzicht);
             Chef_lblActivePanel.Text = "Overzicht";
-            HideAllPanels();
-            Chef_pnlOverzicht.Show();
+            Refresh();
 
             // Get all unprocessed orders
             orders = order_service
                 .GetAllOrders()
                 .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
                 .ToList();
+
+            HideAllPanels();
+            Chef_pnlOverzicht.Show();
 
             switch (orders.Count)
             {
@@ -161,8 +164,7 @@ namespace Ui
         {
             SetHightlight(Chef_btnGereed);
             Chef_lblActivePanel.Text = "Gereed";
-            HideAllPanels();
-            Chef_pnlGereed.Show();
+            Refresh();
 
             // Get all orders that are ready/served
             List<Order> orders = order_service
@@ -170,6 +172,8 @@ namespace Ui
                 .Where(order => order.State == OrderState.Done || order.State == OrderState.Served)
                 .ToList();
 
+            HideAllPanels();
+            Chef_pnlGereed.Show();
             Chef_pnlOrders.Controls.Clear();
 
             int y = 0;
@@ -246,11 +250,13 @@ namespace Ui
         {
             SetHightlight(Chef_btnVoorraad);
             Chef_lblActivePanel.Text = "Voorraad";
+            Refresh();
+
+            List<Dish> dishes = dish_service.GetAllDishes();
+
             HideAllPanels();
             Chef_pnlVoorraad.Show();
             Chef_lvVoorraad.Items.Clear();
-
-            List<Dish> dishes = dish_service.GetAllDishes();
 
             foreach (Dish dish in dishes)
             {
@@ -297,6 +303,12 @@ namespace Ui
             }
 
             lv.Sort();
+        }
+
+        private void OnClosed(object sender, FormClosedEventArgs e)
+        {
+            timer.Stop();
+            timer.Dispose();
         }
     }
 }
