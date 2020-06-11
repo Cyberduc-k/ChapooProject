@@ -60,6 +60,35 @@ namespace Dao
             }
 
             ExecuteEditQuery(query, parameters);
+
+            AddBillHasOrder(bill);
+        }
+
+        private int GetLastBillId()
+        {
+            string query = "SELECT [id] FROM [dbo].[Bills] ORDER BY [id] DESC";
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable result = ExecuteSelectQuery(query, parameters);
+            DataRow row = result.Rows[0];
+
+            return (int)row["id"];
+        }
+
+        private void AddBillHasOrder(Bill bill)
+        {
+            int billId = GetLastBillId();
+
+            foreach (Order order in bill.Orders)
+            {
+                string query = "INSERT INTO [dbo].[Bill_hasorder] ([billId], [orderId]) VALUES (@billId, @orderId)";
+                SqlParameter[] parameters = new SqlParameter[2]
+                {
+                    new SqlParameter("@billId", billId),
+                    new SqlParameter("@orderId", order.Id),
+                };
+
+                ExecuteEditQuery(query, parameters);
+            }
         }
 
         // Remove a bill from the database
