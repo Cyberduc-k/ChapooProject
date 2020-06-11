@@ -17,12 +17,6 @@ namespace Logic
             return bill_DAO.GetAll();
         }
 
-        //Get a list of all the bills between two dates from the DAO
-        public List<Bill> GetAllBetweenDates(DateTime from, DateTime to)
-        {
-            return bill_DAO.GetAllBetweenDates(from, to);
-        }
-
         // Get bill by tableId
         public Bill GetBillByTableId(int tableId)
         {

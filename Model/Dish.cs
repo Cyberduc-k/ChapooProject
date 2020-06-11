@@ -28,27 +28,5 @@ namespace Model
         }
 
         public Dish() : base() { }
-
-        #region Compare Override
-        //This region is used to compare id's instead of the reference identity
-        protected bool Equals(Dish other)
-        {
-            return Id == other.Id;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
-
-            return Equals((Dish)obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return Id;
-        }
-        #endregion
     }
 }

@@ -37,7 +37,7 @@ namespace Dao
 
             DataTable results = ExecuteSelectQuery(query, parameters);
 
-            if (results == null || results.Rows.Count == 0)
+            if (results == null)
                 return null;
             else
                 return Read(results.Rows[0]);
