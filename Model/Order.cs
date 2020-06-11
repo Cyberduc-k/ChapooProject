@@ -13,7 +13,7 @@ namespace Model
         public DateTime TimeFinished { get; set; }
         public List<Dish> Dishes { get; }
         public List<Drink> Drinks { get; }
-        public int EmployeeId { get; }
+        public int EmployeeId { get; set; }
         public int TableId { get; set; }
         public OrderState State { get; set; }
         public string Comment { get; }
