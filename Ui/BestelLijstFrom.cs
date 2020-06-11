@@ -51,7 +51,7 @@ namespace Ui
         private void bestelBtn_Click(object sender, EventArgs e)
         {
             orderService = new Order_Service();
-            order.EmployeeId = 1021;
+            order.EmployeeId = 1221;
             orderService.AddOrder(order);
             billService = new Bill_Service();
             Bill bill = billService.GetBillByTableId(tafel.Number);
