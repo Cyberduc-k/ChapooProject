@@ -8,7 +8,7 @@ namespace Model
 {
     public class Dish : Item
     {
-        public string Description { get; }
+        public string Description { get; set; }
         public string Ingredients { get; }
         public DishCategory Category { get; }
 
