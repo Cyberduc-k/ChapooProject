@@ -5,6 +5,9 @@ namespace Ui
 {
     public partial class CP_Popup_Sure : CP_Popup_Parent
     {
+        //This class has lots of functions to show the correct text when asking whether or not the user is sure.
+        //This could be in the consturctor, but this is more readable and it would be a problem to use the right text
+        //because of dishes and drinks and how many
         public CP_Popup_Sure()
         {
             InitializeComponent();

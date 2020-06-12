@@ -11,8 +11,10 @@ namespace Model
         Owner, Waiter, Bartender, Chef
     }
 
+    //Extension class
     public static class EmployeeTypeExtensions
     {
+        //Function to show a correct dutch string
         public static string ToDutchString(this EmployeeType employeeType)
         {
             switch (employeeType)
