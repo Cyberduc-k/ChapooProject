@@ -105,6 +105,7 @@
             this.backBtn.TabIndex = 11;
             this.backBtn.Text = "Terug";
             this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // CP_imgLogo
             // 

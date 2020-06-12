@@ -69,5 +69,12 @@ namespace Ui
             BillForm form = new BillForm();
             form.ShowDialog(Owner);
         }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            OrderForm form = new OrderForm(employee);
+            form.ShowDialog(Owner);
+        }
     }
 }
