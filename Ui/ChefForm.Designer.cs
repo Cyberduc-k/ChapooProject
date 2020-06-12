@@ -65,6 +65,14 @@
             this.Chef_lblOpmerkingenContent2 = new System.Windows.Forms.Label();
             this.Chef_lblOpmerkingeng2 = new System.Windows.Forms.Label();
             this.Chef_pnlOrders = new System.Windows.Forms.Panel();
+            this.Chef_lblTafelFirst = new System.Windows.Forms.Label();
+            this.Chef_lblBesteldOpFirst = new System.Windows.Forms.Label();
+            this.Chef_lblTafelSecond = new System.Windows.Forms.Label();
+            this.Chef_lblBesteldOpSecond = new System.Windows.Forms.Label();
+            this.Chef_lblTafelThird = new System.Windows.Forms.Label();
+            this.Chef_lblBesteldOpThird = new System.Windows.Forms.Label();
+            this.Chef_lblTafelFourth = new System.Windows.Forms.Label();
+            this.Chef_lblBesteldOpFourth = new System.Windows.Forms.Label();
             this.Chef_pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Chef_pnlTop.SuspendLayout();
@@ -271,7 +279,9 @@
             // 
             this.Chef_pnlFourthOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_pnlFourthOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Chef_pnlFourthOrder.Controls.Add(this.Chef_lblBesteldOpFourth);
             this.Chef_pnlFourthOrder.Controls.Add(this.Chef_lvFourth);
+            this.Chef_pnlFourthOrder.Controls.Add(this.Chef_lblTafelFourth);
             this.Chef_pnlFourthOrder.Controls.Add(this.Chef_btnFourthKlaar);
             this.Chef_pnlFourthOrder.Location = new System.Drawing.Point(1281, 636);
             this.Chef_pnlFourthOrder.Margin = new System.Windows.Forms.Padding(4);
@@ -314,7 +324,9 @@
             // 
             this.Chef_pnlThirdOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_pnlThirdOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Chef_pnlThirdOrder.Controls.Add(this.Chef_lblBesteldOpThird);
             this.Chef_pnlThirdOrder.Controls.Add(this.Chef_lvThird);
+            this.Chef_pnlThirdOrder.Controls.Add(this.Chef_lblTafelThird);
             this.Chef_pnlThirdOrder.Controls.Add(this.Chef_btnThirdKlaar);
             this.Chef_pnlThirdOrder.Location = new System.Drawing.Point(676, 636);
             this.Chef_pnlThirdOrder.Margin = new System.Windows.Forms.Padding(4);
@@ -357,7 +369,9 @@
             // 
             this.Chef_pnlSecondOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_pnlSecondOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Chef_pnlSecondOrder.Controls.Add(this.Chef_lblBesteldOpSecond);
             this.Chef_pnlSecondOrder.Controls.Add(this.Chef_lvSecond);
+            this.Chef_pnlSecondOrder.Controls.Add(this.Chef_lblTafelSecond);
             this.Chef_pnlSecondOrder.Controls.Add(this.Chef_btnSecondKlaar);
             this.Chef_pnlSecondOrder.Location = new System.Drawing.Point(72, 636);
             this.Chef_pnlSecondOrder.Margin = new System.Windows.Forms.Padding(4);
@@ -400,6 +414,8 @@
             // 
             this.Chef_pnlFirstOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_pnlFirstOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Chef_pnlFirstOrder.Controls.Add(this.Chef_lblBesteldOpFirst);
+            this.Chef_pnlFirstOrder.Controls.Add(this.Chef_lblTafelFirst);
             this.Chef_pnlFirstOrder.Controls.Add(this.Chef_lvFirst);
             this.Chef_pnlFirstOrder.Controls.Add(this.Chef_btnFirstKlaar);
             this.Chef_pnlFirstOrder.Location = new System.Drawing.Point(72, 66);
@@ -552,6 +568,86 @@
             this.Chef_pnlOrders.Size = new System.Drawing.Size(666, 994);
             this.Chef_pnlOrders.TabIndex = 3;
             // 
+            // Chef_lblTafelFirst
+            // 
+            this.Chef_lblTafelFirst.AutoSize = true;
+            this.Chef_lblTafelFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblTafelFirst.Location = new System.Drawing.Point(365, 427);
+            this.Chef_lblTafelFirst.Name = "Chef_lblTafelFirst";
+            this.Chef_lblTafelFirst.Size = new System.Drawing.Size(62, 25);
+            this.Chef_lblTafelFirst.TabIndex = 2;
+            this.Chef_lblTafelFirst.Text = "Tafel:";
+            // 
+            // Chef_lblBesteldOpFirst
+            // 
+            this.Chef_lblBesteldOpFirst.AutoSize = true;
+            this.Chef_lblBesteldOpFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblBesteldOpFirst.Location = new System.Drawing.Point(469, 427);
+            this.Chef_lblBesteldOpFirst.Name = "Chef_lblBesteldOpFirst";
+            this.Chef_lblBesteldOpFirst.Size = new System.Drawing.Size(110, 25);
+            this.Chef_lblBesteldOpFirst.TabIndex = 2;
+            this.Chef_lblBesteldOpFirst.Text = "Besteld op:";
+            // 
+            // Chef_lblTafelSecond
+            // 
+            this.Chef_lblTafelSecond.AutoSize = true;
+            this.Chef_lblTafelSecond.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblTafelSecond.Location = new System.Drawing.Point(261, 358);
+            this.Chef_lblTafelSecond.Name = "Chef_lblTafelSecond";
+            this.Chef_lblTafelSecond.Size = new System.Drawing.Size(62, 25);
+            this.Chef_lblTafelSecond.TabIndex = 2;
+            this.Chef_lblTafelSecond.Text = "Tafel:";
+            // 
+            // Chef_lblBesteldOpSecond
+            // 
+            this.Chef_lblBesteldOpSecond.AutoSize = true;
+            this.Chef_lblBesteldOpSecond.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblBesteldOpSecond.Location = new System.Drawing.Point(365, 358);
+            this.Chef_lblBesteldOpSecond.Name = "Chef_lblBesteldOpSecond";
+            this.Chef_lblBesteldOpSecond.Size = new System.Drawing.Size(110, 25);
+            this.Chef_lblBesteldOpSecond.TabIndex = 2;
+            this.Chef_lblBesteldOpSecond.Text = "Besteld op:";
+            // 
+            // Chef_lblTafelThird
+            // 
+            this.Chef_lblTafelThird.AutoSize = true;
+            this.Chef_lblTafelThird.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblTafelThird.Location = new System.Drawing.Point(266, 358);
+            this.Chef_lblTafelThird.Name = "Chef_lblTafelThird";
+            this.Chef_lblTafelThird.Size = new System.Drawing.Size(62, 25);
+            this.Chef_lblTafelThird.TabIndex = 2;
+            this.Chef_lblTafelThird.Text = "Tafel:";
+            // 
+            // Chef_lblBesteldOpThird
+            // 
+            this.Chef_lblBesteldOpThird.AutoSize = true;
+            this.Chef_lblBesteldOpThird.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblBesteldOpThird.Location = new System.Drawing.Point(370, 358);
+            this.Chef_lblBesteldOpThird.Name = "Chef_lblBesteldOpThird";
+            this.Chef_lblBesteldOpThird.Size = new System.Drawing.Size(110, 25);
+            this.Chef_lblBesteldOpThird.TabIndex = 2;
+            this.Chef_lblBesteldOpThird.Text = "Besteld op:";
+            // 
+            // Chef_lblTafelFourth
+            // 
+            this.Chef_lblTafelFourth.AutoSize = true;
+            this.Chef_lblTafelFourth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblTafelFourth.Location = new System.Drawing.Point(268, 358);
+            this.Chef_lblTafelFourth.Name = "Chef_lblTafelFourth";
+            this.Chef_lblTafelFourth.Size = new System.Drawing.Size(62, 25);
+            this.Chef_lblTafelFourth.TabIndex = 2;
+            this.Chef_lblTafelFourth.Text = "Tafel:";
+            // 
+            // Chef_lblBesteldOpFourth
+            // 
+            this.Chef_lblBesteldOpFourth.AutoSize = true;
+            this.Chef_lblBesteldOpFourth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblBesteldOpFourth.Location = new System.Drawing.Point(372, 358);
+            this.Chef_lblBesteldOpFourth.Name = "Chef_lblBesteldOpFourth";
+            this.Chef_lblBesteldOpFourth.Size = new System.Drawing.Size(110, 25);
+            this.Chef_lblBesteldOpFourth.TabIndex = 2;
+            this.Chef_lblBesteldOpFourth.Text = "Besteld op:";
+            // 
             // ChefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -574,9 +670,13 @@
             this.Chef_pnlOpmerkingen.PerformLayout();
             this.Chef_pnlOverflow.ResumeLayout(false);
             this.Chef_pnlFourthOrder.ResumeLayout(false);
+            this.Chef_pnlFourthOrder.PerformLayout();
             this.Chef_pnlThirdOrder.ResumeLayout(false);
+            this.Chef_pnlThirdOrder.PerformLayout();
             this.Chef_pnlSecondOrder.ResumeLayout(false);
+            this.Chef_pnlSecondOrder.PerformLayout();
             this.Chef_pnlFirstOrder.ResumeLayout(false);
+            this.Chef_pnlFirstOrder.PerformLayout();
             this.Chef_pnlVoorraad.ResumeLayout(false);
             this.Chef_pnlGereed.ResumeLayout(false);
             this.Chef_pnlOpmerkingen2.ResumeLayout(false);
@@ -624,5 +724,13 @@
         private System.Windows.Forms.Label Chef_lblOpmerkingenContent2;
         private System.Windows.Forms.Label Chef_lblOpmerkingeng2;
         private System.Windows.Forms.Panel Chef_pnlOrders;
+        private System.Windows.Forms.Label Chef_lblBesteldOpFirst;
+        private System.Windows.Forms.Label Chef_lblTafelFirst;
+        private System.Windows.Forms.Label Chef_lblBesteldOpFourth;
+        private System.Windows.Forms.Label Chef_lblTafelFourth;
+        private System.Windows.Forms.Label Chef_lblBesteldOpThird;
+        private System.Windows.Forms.Label Chef_lblTafelThird;
+        private System.Windows.Forms.Label Chef_lblBesteldOpSecond;
+        private System.Windows.Forms.Label Chef_lblTafelSecond;
     }
 }
