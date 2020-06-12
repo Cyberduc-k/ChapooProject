@@ -72,16 +72,18 @@ namespace Ui
 
         private void Afrekenenbtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Hide();
             BillForm form = new BillForm();
             form.ShowDialog(Owner);
+            Close();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             OrderForm form = new OrderForm(employee);
             form.ShowDialog(Owner);
+            Close();
         }
     }
 }
