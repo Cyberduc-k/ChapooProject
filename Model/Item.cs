@@ -12,7 +12,7 @@ namespace Model
         public int Id { get; }
         public string Name { get; }
         public double Price { get; }
-        public int Stock { get; }
+        public int Stock { get; set; }
 
         public Item(int id, string name, double price, int stock)
         {

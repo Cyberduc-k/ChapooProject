@@ -19,6 +19,8 @@ namespace Ui
         private Order_Service orderService;
         private List<Order> orders;
         private Bill_Service billService;
+        private Dish_Service dishService;
+        private Drink_Service drinkService;
         private Table tafel;
         private Table_Service tableService;
         private Employee employee;
@@ -74,7 +76,6 @@ namespace Ui
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 tafel.Occupied = true;
                 tableService.ModifyTable(tafel);
-                order = new Order();
                 return;
             }
 
@@ -82,7 +83,6 @@ namespace Ui
             {
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                order = new Order();
                 return;
             }
             else
@@ -94,9 +94,21 @@ namespace Ui
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 tafel.Occupied = true;
                 tableService.ModifyTable(tafel);
-                order = new Order();
             }
-            
+
+            foreach(Dish dish in order.Dishes)
+            {
+                dishService = new Dish_Service();
+                dishService.ModifyStock(dish.Id, dish.Stock - 1);
+            }
+
+            foreach(Drink drink in order.Drinks)
+            {
+                drinkService = new Drink_Service();
+                drinkService.ModifyStock(drink.Id, drink.Stock - 1);
+            }
+
+            order = new Order();
         }
     }
 }
