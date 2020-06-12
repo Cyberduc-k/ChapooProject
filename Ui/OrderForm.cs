@@ -79,11 +79,13 @@ namespace Ui
                     tafel = t;
                 }
             }
+
             Order order = new Order();
-            
-            this.Hide();
             MenuForm menu = new MenuForm(tafel, order, employee);
+
+            Hide();
             menu.ShowDialog(Owner);
+            Close();
         }
     }
 }

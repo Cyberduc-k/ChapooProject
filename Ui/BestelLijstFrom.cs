@@ -46,9 +46,11 @@ namespace Ui
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
             MenuForm form = new MenuForm(tafel, order, employee);
+
+            Hide();
             form.ShowDialog(Owner);
+            Close();
         }
 
         private void bestelBtn_Click(object sender, EventArgs e)

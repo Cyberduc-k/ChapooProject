@@ -33,34 +33,41 @@ namespace Ui
         {
             Button btn = (Button)sender;
             string maaltijd = btn.Text;
-            this.Close();
-            LunchMenuForm form = new LunchMenuForm (tafel, order, employee, maaltijd);
+            LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
+
+            Hide();
             form.ShowDialog(Owner);
+            Close();
         }
 
         private void dinerBtn_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             string maaltijd = btn.Text;
-            this.Close();
             LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
+
+            Hide();
             form.ShowDialog(Owner);
+            Close();
         }
 
         private void drankBtn_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             string maaltijd = btn.Text;
-            this.Close();
             LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
+
+            Hide();
             form.ShowDialog(Owner);
+            Close();
         }
 
         private void bestellijstBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
             BestelLijstFrom form = new BestelLijstFrom(tafel, order, employee);
+            Hide();
             form.ShowDialog(Owner);
+            Close();
         }
     }
 }

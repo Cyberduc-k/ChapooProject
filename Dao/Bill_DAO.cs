@@ -66,9 +66,12 @@ namespace Dao
 
             foreach (Order order in bill.Orders)
             {
-                Order_DAO order_dao = new Order_DAO();
+                if (order.Id == 0)
+                {
+                    Order_DAO order_dao = new Order_DAO();
 
-                order_dao.Add(order);
+                    order_dao.Add(order);
+                }
             }
 
             ExecuteEditQuery(query, parameters);
