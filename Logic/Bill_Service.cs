@@ -33,6 +33,10 @@ namespace Logic
         {
             return bill_DAO.GetBillByTableId(tableId);
         }
+        public void ModifyBillToPayed(Bill bill)
+        {
+            bill_DAO.ModifyBillToPayed(bill);
+        }
 
         //Add a new bill
         public void AddBill(Bill bill)

@@ -64,6 +64,7 @@
             this.Bill_btnPasAan = new System.Windows.Forms.Button();
             this.Bill_btnFooi = new System.Windows.Forms.Button();
             this.Bill_lblTotalPrice = new System.Windows.Forms.Label();
+            this.Bill_lblBetaald = new System.Windows.Forms.Label();
             this.Bill_pnlAfrekenen.SuspendLayout();
             this.Bill_pnlBetaalMethode.SuspendLayout();
             this.Bill_pnlFooi.SuspendLayout();
@@ -466,11 +467,21 @@
             this.Bill_lblTotalPrice.Text = "€ 000,00";
             this.Bill_lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Bill_lblBetaald
+            // 
+            this.Bill_lblBetaald.AutoSize = true;
+            this.Bill_lblBetaald.Location = new System.Drawing.Point(523, 361);
+            this.Bill_lblBetaald.Name = "Bill_lblBetaald";
+            this.Bill_lblBetaald.Size = new System.Drawing.Size(183, 20);
+            this.Bill_lblBetaald.TabIndex = 29;
+            this.Bill_lblBetaald.Text = "De rekening is al betaald";
+            // 
             // BillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1299, 698);
+            this.Controls.Add(this.Bill_lblBetaald);
             this.Controls.Add(this.Bill_lblTotalPrice);
             this.Controls.Add(this.Bill_btnFooi);
             this.Controls.Add(this.Bill_pnlFooi);
@@ -532,5 +543,6 @@
         private System.Windows.Forms.Button Bill_btnBetaalmethodeX;
         private System.Windows.Forms.Button Bill_btnFooiX;
         private System.Windows.Forms.Label Bill_lblTotalPrice;
+        private System.Windows.Forms.Label Bill_lblBetaald;
     }
 }

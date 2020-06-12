@@ -107,6 +107,19 @@ namespace Dao
             }
         }
 
+        public void ModifyBillToPayed(Bill bill)
+        {
+            string query = "UPDATE [dbo].[Bills] SET " +
+                "[payed] = true " +
+                "WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", bill.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
         // Remove a bill from the database
         public void Remove(Bill bill)
         {
