@@ -72,6 +72,7 @@ namespace Ui
                 billService.AddBill(bill);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
+                tafel.Occupied = true;
                 tableService.ModifyTable(tafel);
                 order = new Order();
                 return;
@@ -91,6 +92,7 @@ namespace Ui
                 billService.AddBill(bill);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
+                tafel.Occupied = true;
                 tableService.ModifyTable(tafel);
                 order = new Order();
             }
