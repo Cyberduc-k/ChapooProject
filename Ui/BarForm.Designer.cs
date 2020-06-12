@@ -49,6 +49,7 @@
             this.Bar_btnFirstKlaar = new System.Windows.Forms.Button();
             this.Bar_lvFirstOrder = new System.Windows.Forms.ListView();
             this.Bar_lblActivePanel = new System.Windows.Forms.Label();
+            this.Bar_lblTafelFirst = new System.Windows.Forms.Label();
             this.Bar_pnlVoorraad.SuspendLayout();
             this.Bar_pnlOverzicht.SuspendLayout();
             this.Bar_pnlOpmerkingen.SuspendLayout();
@@ -217,6 +218,7 @@
             // 
             // Bar_pnlFirstOrder
             // 
+            this.Bar_pnlFirstOrder.Controls.Add(this.Bar_lblTafelFirst);
             this.Bar_pnlFirstOrder.Controls.Add(this.Bar_btnFirstKlaar);
             this.Bar_pnlFirstOrder.Controls.Add(this.Bar_lvFirstOrder);
             this.Bar_pnlFirstOrder.Location = new System.Drawing.Point(3, 3);
@@ -252,6 +254,15 @@
             this.Bar_lblActivePanel.TabIndex = 6;
             this.Bar_lblActivePanel.Text = "label1";
             // 
+            // Bar_lblTafelFirst
+            // 
+            this.Bar_lblTafelFirst.AutoSize = true;
+            this.Bar_lblTafelFirst.Location = new System.Drawing.Point(219, 139);
+            this.Bar_lblTafelFirst.Name = "Bar_lblTafelFirst";
+            this.Bar_lblTafelFirst.Size = new System.Drawing.Size(74, 13);
+            this.Bar_lblTafelFirst.TabIndex = 3;
+            this.Bar_lblTafelFirst.Text = "Tafelnummer: ";
+            // 
             // BarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,6 +286,7 @@
             this.Bar_pnlThirdOrder.ResumeLayout(false);
             this.Bar_pnlSecondOrder.ResumeLayout(false);
             this.Bar_pnlFirstOrder.ResumeLayout(false);
+            this.Bar_pnlFirstOrder.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +315,6 @@
         private System.Windows.Forms.Label Bar_lblOpmerkingenContent;
         private System.Windows.Forms.Label Bar_lblGeenBestellingen;
         private System.Windows.Forms.Button Bar_btnFirstKlaar;
+        private System.Windows.Forms.Label Bar_lblTafelFirst;
     }
 }

@@ -94,6 +94,7 @@ namespace Ui
             Bar_lblOpmerkingenContent.Text = order.Comment;
             Bar_pnlOpmerkingen.Show();
             Bar_lvFirstOrder.Clear();
+            Bar_lblTafelFirst.Text = $"Tafel: {order.TableId}";
 
             foreach (Drink drink in order.Drinks)
                 Bar_lvFirstOrder.Items.Add(new ListViewItem(drink.Name));
