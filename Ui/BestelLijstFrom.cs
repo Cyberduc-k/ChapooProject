@@ -66,11 +66,15 @@ namespace Ui
                 order = new Order();
                 return;
             }
-
-            bill = new Bill(DateTime.Now, tafel, orders, employee, false);
-            billService.AddBill(bill);
-            MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            order = new Order();
+            else
+            {
+                orders = new List<Order>();
+                bill = new Bill(DateTime.Now, tafel, orders, employee, false);
+                billService.AddBill(bill);
+                MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                order = new Order();
+            }
+            
         }
     }
 }

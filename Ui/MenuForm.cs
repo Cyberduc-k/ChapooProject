@@ -33,7 +33,7 @@ namespace Ui
         {
             Button btn = (Button)sender;
             string maaltijd = btn.Text;
-            this.Hide();
+            this.Close();
             LunchMenuForm form = new LunchMenuForm (tafel, order, employee, maaltijd);
             form.ShowDialog(Owner);
         }
@@ -42,7 +42,7 @@ namespace Ui
         {
             Button btn = (Button)sender;
             string maaltijd = btn.Text;
-            this.Hide();
+            this.Close();
             LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
             form.ShowDialog(Owner);
         }
@@ -51,14 +51,14 @@ namespace Ui
         {
             Button btn = (Button)sender;
             string maaltijd = btn.Text;
-            this.Hide();
+            this.Close();
             LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
             form.ShowDialog(Owner);
         }
 
         private void bestellijstBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             BestelLijstFrom form = new BestelLijstFrom(tafel, order, employee);
             form.ShowDialog(Owner);
         }
