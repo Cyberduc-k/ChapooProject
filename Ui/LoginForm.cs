@@ -20,21 +20,7 @@ namespace Ui
         public LoginForm()
         {
             InitializeComponent();
-
-            // Also show the control panel on startup
-            new ControlPanelForm().Show();
-
-            // Also show the chef panel on startup
-            new ChefForm().Show();
-
-            // Also show the bar panel on startup
-            new BarForm().Show();
-
-            // Also show the order panel on startup
-            new OrderForm().Show();
-
-            // Also show the bill panel on startup
-            new BillForm().Show();
+            FormClosed += new FormClosedEventHandler(OnClosed);
         }
 
         private void CheckCredentials()
@@ -69,7 +55,7 @@ namespace Ui
                         OpenForm(new BarForm());
                         break;
                     case EmployeeType.Waiter:
-                        OpenForm(new OrderForm());
+                        OpenForm(new OrderForm(employee));
                         break;
                 }
 
@@ -83,7 +69,7 @@ namespace Ui
             Hide();
             form.Location = Location;
             form.ShowDialog(this);
-            form.FormClosed += (s, a) => Show();
+            Show();
         }
 
         // Clear all text boxes and show the incorrect info message
@@ -135,6 +121,11 @@ namespace Ui
         private void Login_btnAnnuleren_Click(object sender, EventArgs e)
         {
             ResetState();
+        }
+
+        private void OnClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

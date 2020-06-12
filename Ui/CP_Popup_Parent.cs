@@ -44,6 +44,7 @@ namespace Ui
             }
         }
 
+        //
         public void UpdateOKbtn(params bool[] vars)
         {
             foreach (bool var in vars)

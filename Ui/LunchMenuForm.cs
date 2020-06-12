@@ -24,11 +24,14 @@ namespace Ui
         private List<Drink> drinks;
         private Dish_Service dishService = new Dish_Service();
         private Drink_Service drinkService = new Drink_Service();
-        public LunchMenuForm(Table tafel, Order order, string maaltijd)
+        private Employee employee;
+
+        public LunchMenuForm(Table tafel, Order order, Employee employee, string maaltijd)
         {
             this.tafel = tafel;
             this.order = order;
             this.maaltijd = maaltijd;
+            this.employee = employee;
             InitializeComponent();
         }
 
@@ -249,15 +252,15 @@ namespace Ui
             }
             this.Close();
             DetailViewModel product = new DetailViewModel(dish, drink);
-            DetailForm form = new DetailForm(tafel, product, order, maaltijd);
-            form.Show();
+            DetailForm form = new DetailForm(tafel, product, order, employee, maaltijd);
+            form.ShowDialog(Owner);
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MenuForm form = new MenuForm(tafel, order);
-            form.Show();
+            MenuForm form = new MenuForm(tafel, order, employee);
+            form.ShowDialog(Owner);
         }
     }
 }

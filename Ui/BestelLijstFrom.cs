@@ -19,10 +19,13 @@ namespace Ui
         private List<Order> orders;
         private Bill_Service billService;
         private Table tafel;
-        public BestelLijstFrom(Table tafel, Order order)
+        private Employee employee;
+
+        public BestelLijstFrom(Table tafel, Order order, Employee employee)
         {
             this.tafel = tafel;
             this.order = order;
+            this.employee = employee;
             InitializeComponent();
         }
 
@@ -44,26 +47,26 @@ namespace Ui
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MenuForm form = new MenuForm(tafel, order);
-            form.Show();
+            MenuForm form = new MenuForm(tafel, order, employee);
+            form.ShowDialog(Owner);
         }
 
         private void bestelBtn_Click(object sender, EventArgs e)
         {
             orderService = new Order_Service();
-            order.EmployeeId = 1021;
+            order.EmployeeId = employee.Id;
             orderService.AddOrder(order);
             billService = new Bill_Service();
             Bill bill = billService.GetBillByTableId(tafel.Number);
 
-            if (bill != null)
+            if (!bill.Payed)
             {
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 order = new Order();
                 return;
             }
-            Employee employee = new Employee("Piet", "Jansen", DateTime.Now.AddDays(-7300), DateTime.Now.AddDays(-70), Gender.Male, "Pa$$w0rd", EmployeeType.Waiter);
+
             bill = new Bill(DateTime.Now, tafel, orders, employee, false);
             billService.AddBill(bill);
             MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -27,6 +27,7 @@ namespace Ui
             LoadIcon("Resources/pencil-icon.ico");
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popop_AddToDrinksMenu_txtName_TextChanged(object sender, EventArgs e)
         {
             if (CP_Popop_AddToDrinksMenu_txtName.Text != "")
@@ -37,6 +38,7 @@ namespace Ui
             UpdateOKbtn(nameFilledIn, priceFilledIn, stockFilledIn);
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popop_AddToDrinksMenu_txtPrice_TextChanged(object sender, EventArgs e)
         {
             if(CP_Popop_AddToDrinksMenu_txtPrice.Text != "")
@@ -48,6 +50,7 @@ namespace Ui
                 }
                 else
                 {
+                    //Show the user an error when the parse fails
                     CP_Popup_AddToDrinksMenu_lblPrijsError.Show();
                     priceFilledIn = false;
                 }
@@ -61,12 +64,14 @@ namespace Ui
             UpdateOKbtn(nameFilledIn, priceFilledIn, stockFilledIn);
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popup_AddToDrinksMenu_txtStock_TextChanged(object sender, EventArgs e)
         {
             if (CP_Popup_AddToDrinksMenu_txtStock.Text != "") 
             {
                 if(int.TryParse(CP_Popup_AddToDrinksMenu_txtStock.Text, out _))
                 {
+                    //Show the user an error when the parse fails
                     CP_Popup_AddToDrinksMenu_lblErrorStock.Hide();
                     stockFilledIn = true;
                 }
@@ -118,6 +123,7 @@ namespace Ui
             }
         }
 
+        //Close the form
         public override void OnClickCancel(object sender, EventArgs e)
         {
             Close();

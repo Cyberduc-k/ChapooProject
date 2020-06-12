@@ -8,10 +8,10 @@ namespace Model
 {
     public class Error
     {
-        public string Type { get; }
-        public DateTime Time { get; }
-        public string Message { get; }
-        public string Trace { get; }
+        public string Type { get; } //The type of error
+        public DateTime Time { get; } //The time the error occured
+        public string Message { get; } //What the message of the error was
+        public string Trace { get; } //The trace of the error
 
         public Error(string type, DateTime time, string message, string trace)
         {

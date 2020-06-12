@@ -16,15 +16,19 @@ namespace Ui
     {
         private Table_Service tableService = new Table_Service();
         private List<Table> tafels;
-        public OrderForm()
+        private Employee employee;
+
+        public OrderForm(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
+
         private void OrderForm_Load(object sender, EventArgs e)
         {
             tafels = tableService.GetAllTables();
@@ -78,8 +82,8 @@ namespace Ui
             Order order = new Order();
             
             this.Hide();
-            MenuForm menu = new MenuForm(tafel, order);
-            menu.Show();
+            MenuForm menu = new MenuForm(tafel, order, employee);
+            menu.ShowDialog(Owner);
         }
     }
 }
