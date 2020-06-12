@@ -80,12 +80,14 @@ namespace Ui
             UpdateOKbtn(nameFilledIn, priceFilledIn, stockFilledIn);
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_Popup_EditDrinksMenu_txtStock_TextChanged(object sender, EventArgs e)
         {
             if (CP_Popup_EditDrinksMenu_txtStock.Text != "") 
             {
                 if(int.TryParse(CP_Popup_EditDrinksMenu_txtStock.Text, out _))
                 {
+                    //Show the user an error if the parse fails
                     CP_Popup_EditDrinksMenu_lblErrorStock.Hide();
                     stockFilledIn = true;
                 }

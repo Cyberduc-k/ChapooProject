@@ -18,6 +18,7 @@ namespace Ui
             InitializeComponent();
         }
 
+        //Call the methods that will be overridden 
         private void CP_Popup_Parent_btnOK_Click(object sender, EventArgs e)
         {
             OnClickOK(sender, e);
@@ -28,10 +29,12 @@ namespace Ui
             OnClickCancel(sender, e);
         }
 
+        //Will be overwritten
         public abstract void OnClickOK(object sender, EventArgs e);
 
         public abstract void OnClickCancel(object sender, EventArgs e);
 
+        //Try to load the icon
         public void LoadIcon(string icon)
         {
             try
@@ -44,9 +47,10 @@ namespace Ui
             }
         }
 
-        //
+        //If all the parameters are true (function specific) the OK button will be enabled
         public void UpdateOKbtn(params bool[] vars)
         {
+            //Loop through all of the parameters
             foreach (bool var in vars)
             {
                 if (!var)

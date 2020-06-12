@@ -14,6 +14,7 @@ namespace Ui
 {
     public partial class CP_Popup_EditEmployee : CP_Popup_Parent
     {
+        //Reference to the id of the employee that is being edited
         private int id;
 
         //Bools to store if the text boxes are filled in
@@ -40,20 +41,30 @@ namespace Ui
             else
                 CP_PopopEditEmployee_rbtnFemale.Checked = true;
 
-            if (employee.EmployeeType == EmployeeType.Waiter)
-                CP_PopupEditEmployee_rbtnWaiter.Checked = true;
-            else if (employee.EmployeeType == EmployeeType.Bartender)
-                CP_PopupEditEmployee_rbtnBartender.Checked = true;
-            else if (employee.EmployeeType == EmployeeType.Chef)
-                CP_PopupEditEmployee_rbtnChef.Checked = true;
-            else
-                CP_PopupEditEmployee_rbtnOwner.Checked = true;
+            switch (employee.EmployeeType)
+            {
+                case EmployeeType.Waiter:
+                    CP_PopupEditEmployee_rbtnWaiter.Checked = true;
+                    break;
+                case EmployeeType.Bartender:
+                    CP_PopupEditEmployee_rbtnBartender.Checked = true;
+                    break;
+                case EmployeeType.Chef:
+                    CP_PopupEditEmployee_rbtnChef.Checked = true;
+                    break;
+                default:
+                    CP_PopupEditEmployee_rbtnOwner.Checked = true;
+                    break;
+            }
 
+            //Store the id of the employee that is being edited
             id = employee.Id;
         }
 
+        //When the user presses OK, modify the employee
         public override void OnClickOK(object sender, EventArgs e)
         {
+            //Check that the user really wants to edit
             CP_Popup_Sure popup = new CP_Popup_Sure();
             popup.SetAsEdit(CP_PopopEditEmployee_txtFirstName.Text);
             popup.ShowDialog();
@@ -64,6 +75,7 @@ namespace Ui
                 Close();
             }
 
+            //Edit the employee. Use the values from the input boxes
             Employee_Service employeeService = new Employee_Service();
 
             string firstName = CP_PopopEditEmployee_txtFirstName.Text;
@@ -91,11 +103,13 @@ namespace Ui
             employeeService.ModifyEmployee(new Employee(id, firstName, lastName, birthDate, employment, gender, password, employeeType));
         }
 
+        //Close the form
         public override void OnClickCancel(object sender, EventArgs e)
         {
             Close();
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_PopopEditEmployee_txtFirstName_TextChanged(object sender, EventArgs e)
         {
             if (CP_PopopEditEmployee_txtFirstName.Text != "")
@@ -105,7 +119,8 @@ namespace Ui
 
             UpdateOKbtn(firstNameFilledIn, lastNameFilledIn, passwordFilledIn);
         }
-
+        
+        //Update the state of the OK button when the textbox value changes
         private void CP_PopupEditEmployee_txtLastName_TextChanged(object sender, EventArgs e)
         {
             if (CP_PopupEditEmployee_txtLastName.Text != "")
@@ -116,6 +131,7 @@ namespace Ui
             UpdateOKbtn(firstNameFilledIn, lastNameFilledIn, passwordFilledIn);
         }
 
+        //Update the state of the OK button when the textbox value changes
         private void CP_PopopEditEmployee_txtPassword_TextChanged(object sender, EventArgs e)
         {
             if (CP_PopopEditEmployee_txtPassword.Text != "")
