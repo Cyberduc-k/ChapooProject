@@ -62,5 +62,12 @@ namespace Ui
             BestelLijstFrom form = new BestelLijstFrom(tafel, order, employee);
             form.ShowDialog(Owner);
         }
+
+        private void Afrekenenbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            BillForm form = new BillForm();
+            form.ShowDialog(Owner);
+        }
     }
 }

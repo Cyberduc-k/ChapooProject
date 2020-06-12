@@ -72,6 +72,7 @@ namespace Ui
                 bill = new Bill(DateTime.Now, tafel, orders, employee, false);
                 billService.AddBill(bill);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 order = new Order();
             }
             
