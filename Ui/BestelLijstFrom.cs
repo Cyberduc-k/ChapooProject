@@ -58,7 +58,6 @@ namespace Ui
         {
             orderService = new Order_Service();
             order.EmployeeId = employee.Id;
-            orderService.AddOrder(order);
             billService = new Bill_Service();
             try
             {
