@@ -52,6 +52,19 @@ namespace Dao
             ExecuteEditQuery(query, parameters);
         }
 
+        public void SetTableToOccupiedFalse(Bill bill)
+        {
+            string query = "UPDATE [dbo].[Table] SET " +
+                "[occupied] = false " +
+                "WHERE [id] = @id";
+            SqlParameter[] parameters = new SqlParameter[1]
+            {
+                new SqlParameter("@id", bill.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
         // Modify the properties of a drink in the database
         public void Modify(Table table)
         {
