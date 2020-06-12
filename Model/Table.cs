@@ -10,7 +10,7 @@ namespace Model
     {
         public int Number { get; }
         public int Seats { get; }
-        public bool Occupied { get; }
+        public bool Occupied { get; set; }
 
         public Table(int number, int seats, bool occupied)
         {

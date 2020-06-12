@@ -20,6 +20,7 @@ namespace Ui
         private List<Order> orders;
         private Bill_Service billService;
         private Table tafel;
+        private Table_Service tableService;
         private Employee employee;
 
         public BestelLijstFrom(Table tafel, Order order, Employee employee)
@@ -57,8 +58,8 @@ namespace Ui
         private void bestelBtn_Click(object sender, EventArgs e)
         {
             orderService = new Order_Service();
+            tableService = new Table_Service();
             order.EmployeeId = employee.Id;
-            orderService.AddOrder(order);
             billService = new Bill_Service();
             try
             {
@@ -71,6 +72,8 @@ namespace Ui
                 billService.AddBill(bill);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
+                tafel.Occupied = true;
+                tableService.ModifyTable(tafel);
                 order = new Order();
                 return;
             }
@@ -89,6 +92,8 @@ namespace Ui
                 billService.AddBill(bill);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
+                tafel.Occupied = true;
+                tableService.ModifyTable(tafel);
                 order = new Order();
             }
             

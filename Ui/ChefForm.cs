@@ -135,6 +135,8 @@ namespace Ui
             Chef_lblOpmerkingenContent.Text = order.Comment;
             Chef_pnlOpmerkingen.Show();
             Chef_lvFirst.Clear();
+            Chef_lblTafelFirst.Text = $"Tafel: {order.TableId}";
+            Chef_lblBesteldOpFirst.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Dish dish in order.Dishes)
                 Chef_lvFirst.Items.Add(new ListViewItem(dish.Name));
@@ -145,6 +147,8 @@ namespace Ui
         private void FillSecondOrder(Order order)
         {
             Chef_lvSecond.Clear();
+            Chef_lblTafelSecond.Text = $"Tafel: {order.TableId}";
+            Chef_lblBesteldOpSecond.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Dish dish in order.Dishes)
                 Chef_lvSecond.Items.Add(new ListViewItem(dish.Name));
@@ -155,6 +159,8 @@ namespace Ui
         private void FillThirdOrder(Order order)
         {
             Chef_lvThird.Clear();
+            Chef_lblTafelThird.Text = $"Tafel: {order.TableId}";
+            Chef_lblBesteldOpThird.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Dish dish in order.Dishes)
                 Chef_lvThird.Items.Add(new ListViewItem(dish.Name));
@@ -165,6 +171,8 @@ namespace Ui
         private void FillFourthOrder(Order order)
         {
             Chef_lvFourth.Clear();
+            Chef_lblTafelFourth.Text = $"Tafel: {order.TableId}";
+            Chef_lblBesteldOpFourth.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Dish dish in order.Dishes)
                 Chef_lvFourth.Items.Add(new ListViewItem(dish.Name));
@@ -296,6 +304,8 @@ namespace Ui
             order.State = OrderState.Done;
             order_service.ModifyOrder(order);
             OnTimedEvent(null, null);
+
+            MessageBox.Show("De bestelling is gereed gemeld", "Gereed gemeld!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Chef_lvVoorraad_ColumnClicck(object sender, ColumnClickEventArgs e)
