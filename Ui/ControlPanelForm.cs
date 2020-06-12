@@ -591,7 +591,7 @@ namespace Ui
             {
                 ListViewItem li = new ListViewItem(drinkList[i].Name);
                 li.SubItems.Add(drinkList[i].Alcoholic.ToString());
-                li.SubItems.Add(drinkList[i].Price.ToString("0.00"));
+                li.SubItems.Add("€" + drinkList[i].Price.ToString("0.00"));
 
                 //Tag is used to store the Drink Object
                 li.Tag = drinkList[i];
@@ -646,7 +646,7 @@ namespace Ui
                 li.SubItems.Add(lunchList[i].Description);
                 li.SubItems.Add(lunchList[i].Ingredients);
                 li.SubItems.Add(lunchList[i].Category.ToString());
-                li.SubItems.Add(lunchList[i].Price.ToString("0.00"));
+                li.SubItems.Add("€" + lunchList[i].Price.ToString("0.00"));
 
                 //Tag is used to store the Dish Object
                 li.Tag = lunchList[i];
