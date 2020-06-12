@@ -115,7 +115,7 @@ namespace Ui
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
             form.ShowDialog(Owner);
         }

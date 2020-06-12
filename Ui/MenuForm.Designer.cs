@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.CP_imgLogo = new System.Windows.Forms.PictureBox();
+            this.Afrekenenbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,12 +99,13 @@
             // 
             // backBtn
             // 
-            this.backBtn.Location = new System.Drawing.Point(12, 507);
+            this.backBtn.Location = new System.Drawing.Point(12, 564);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(75, 23);
             this.backBtn.TabIndex = 11;
             this.backBtn.Text = "Terug";
             this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // CP_imgLogo
             // 
@@ -117,11 +119,24 @@
             this.CP_imgLogo.TabIndex = 12;
             this.CP_imgLogo.TabStop = false;
             // 
+            // Afrekenenbtn
+            // 
+            this.Afrekenenbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Afrekenenbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.Afrekenenbtn.Location = new System.Drawing.Point(128, 487);
+            this.Afrekenenbtn.Name = "Afrekenenbtn";
+            this.Afrekenenbtn.Size = new System.Drawing.Size(235, 66);
+            this.Afrekenenbtn.TabIndex = 13;
+            this.Afrekenenbtn.Text = "Afrekenen";
+            this.Afrekenenbtn.UseVisualStyleBackColor = false;
+            this.Afrekenenbtn.Click += new System.EventHandler(this.Afrekenenbtn_Click);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 546);
+            this.ClientSize = new System.Drawing.Size(484, 599);
+            this.Controls.Add(this.Afrekenenbtn);
             this.Controls.Add(this.CP_imgLogo);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.label1);
@@ -146,5 +161,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.PictureBox CP_imgLogo;
+        private System.Windows.Forms.Button Afrekenenbtn;
     }
 }

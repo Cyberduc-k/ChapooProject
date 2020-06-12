@@ -15,6 +15,7 @@ namespace Ui
     public partial class BestelLijstFrom : Form
     {
         private Order order;
+        private Bill bill;
         private Order_Service orderService;
         private List<Order> orders;
         private Bill_Service billService;
@@ -46,9 +47,11 @@ namespace Ui
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
             MenuForm form = new MenuForm(tafel, order, employee);
+
+            Hide();
             form.ShowDialog(Owner);
+            Close();
         }
 
         private void bestelBtn_Click(object sender, EventArgs e)
@@ -57,20 +60,38 @@ namespace Ui
             order.EmployeeId = employee.Id;
             orderService.AddOrder(order);
             billService = new Bill_Service();
-            Bill bill = billService.GetBillByTableId(tafel.Number);
+            try
+            {
+                bill = billService.GetBillByTableId(tafel.Number);
+            }
+            catch (Exception d)
+            {
+                orders = new List<Order>();
+                bill = new Bill(DateTime.Now, tafel, orders, employee, false);
+                billService.AddBill(bill);
+                MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                orderService.AddOrderWhereBillIdIs(order, bill.Id);
+                order = new Order();
+                return;
+            }
 
-            if (!bill.Payed)
+            if (bill.Payed == false)
             {
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 order = new Order();
                 return;
             }
-
-            bill = new Bill(DateTime.Now, tafel, orders, employee, false);
-            billService.AddBill(bill);
-            MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            order = new Order();
+            else
+            {
+                orders = new List<Order>();
+                bill = new Bill(DateTime.Now, tafel, orders, employee, false);
+                billService.AddBill(bill);
+                MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                orderService.AddOrderWhereBillIdIs(order, bill.Id);
+                order = new Order();
+            }
+            
         }
     }
 }

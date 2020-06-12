@@ -250,17 +250,22 @@ namespace Ui
                     dish = d;
                 }
             }
-            this.Close();
+
             DetailViewModel product = new DetailViewModel(dish, drink);
             DetailForm form = new DetailForm(tafel, product, order, employee, maaltijd);
+
+            Hide();
             form.ShowDialog(Owner);
+            Close();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
             MenuForm form = new MenuForm(tafel, order, employee);
+
+            Hide();
             form.ShowDialog(Owner);
+            Close();
         }
     }
 }
