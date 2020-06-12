@@ -19,6 +19,7 @@ namespace Ui
         private List<Table> tables;
         private List<Bill> bills; 
         private ColumnHeader columnheader;
+        private Table table;
         private int tableId = 1;
         private double totalprice;
         private string items;
@@ -224,7 +225,8 @@ namespace Ui
         {
             Bill bill = bill_service.GetBillByTableId(tableId);
             bill_service.ModifyBillToPayed(bill);
-            table_service.SetTableToOccupiedFalse(bill);
+            table.Occupied = false;
+            table_service.ModifyTable(table);
             Bill_btnAfrekenen_Click(null, null);
         }
 
