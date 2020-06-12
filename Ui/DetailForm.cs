@@ -88,6 +88,7 @@ namespace Ui
                 }
                 else
                 {
+                    product.Dish.Description = opmerkingenTxt.Text;
                     order.Dishes.Add(product.Dish);
                 }
             }
