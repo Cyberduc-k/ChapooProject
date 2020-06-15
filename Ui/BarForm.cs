@@ -17,6 +17,7 @@ namespace Ui
         private ListViewColumnSorter lvwColumnSorter = new ListViewColumnSorter();
         private Order_Service order_service = new Order_Service();
         private Drink_Service drink_service = new Drink_Service();
+        private ColumnHeader columnheader;
         private List<Order> orders;
 
         public BarForm()
@@ -93,11 +94,12 @@ namespace Ui
         {
             Bar_lblOpmerkingenContent.Text = order.Comment;
             Bar_pnlOpmerkingen.Show();
-            Bar_lvFirstOrder.Clear();
-            Bar_lblTafelFirst.Text = $"Tafel: {order.TableId}";
+            Bar_lvFirst.Clear();
+            Bar_lblTafelSecond.Text = $"Tafel: {order.TableId}";
+            Bar_lblBesteldOpSecond.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Drink drink in order.Drinks)
-                Bar_lvFirstOrder.Items.Add(new ListViewItem(drink.Name));
+                Bar_lvFirst.Items.Add(new ListViewItem(drink.Name));
 
             Bar_pnlFirstOrder.Show();
         }
@@ -105,6 +107,8 @@ namespace Ui
         private void FillSecondOrder(Order order)
         {
             Bar_lvSecond.Clear();
+            Bar_lblTafelThird.Text = $"Tafel: {order.TableId}";
+            Bar_lblBesteldOpThird.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Drink drink in order.Drinks)
                 Bar_lvSecond.Items.Add(new ListViewItem(drink.Name));
@@ -115,6 +119,8 @@ namespace Ui
         private void FillThirdOrder(Order order)
         {
             Bar_lvThird.Clear();
+            Bar_lblTafelFourth.Text = $"Tafel: {order.TableId}";
+            Bar_lblBesteldOpFourth.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Drink drink in order.Drinks)
                 Bar_lvThird.Items.Add(new ListViewItem(drink.Name));
@@ -125,6 +131,8 @@ namespace Ui
         private void FillFourthOrder(Order order)
         {
             Bar_lvFourth.Clear();
+            Bar_lblTafelFourth.Text = $"Tafel: {order.TableId}";
+            Bar_lblBesteldOpFourth.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Drink drink in order.Drinks)
                 Bar_lvFourth.Items.Add(new ListViewItem(drink.Name));
@@ -157,6 +165,22 @@ namespace Ui
 
                 Bar_lvVoorraad.Items.Add(li);
             }
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Drankje";
+            columnheader.Width = 350;
+            Bar_lvVoorraad.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Voorraad";
+            columnheader.Width = 100;
+            Bar_lvVoorraad.Columns.Add(columnheader);
+
+            columnheader = new ColumnHeader();
+            columnheader.Text = "Prijs";
+            columnheader.Width = 100;
+            Bar_lvVoorraad.Columns.Add(columnheader);
+
         }
 
         private void Bar_btnFirstKlaar_Click_1(object sender, EventArgs e)
@@ -166,32 +190,6 @@ namespace Ui
             order.TimeFinished = DateTime.Now;
             order.State = OrderState.Done;
             order_service.ModifyOrder(order);
-        }
-
-        private void Bar_lvVoorraad_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-            SortListView(e, Bar_lvVoorraad);
-        }
-
-        private void SortListView(ColumnClickEventArgs e, ListView lv)
-        {
-            // Determine if clicked column is already the column that is being sorted.
-            if (e.Column == lvwColumnSorter.SortColumn)
-            {
-                // Reverse the current sort direction for this column.
-                if (lvwColumnSorter.Order == SortOrder.Ascending)
-                    lvwColumnSorter.Order = SortOrder.Descending;
-                else
-                    lvwColumnSorter.Order = SortOrder.Ascending;
-            }
-            else
-            {
-                // Set the column number that is to be sorted; default to ascending.
-                lvwColumnSorter.SortColumn = e.Column;
-                lvwColumnSorter.Order = SortOrder.Ascending;
-            }
-
-            lv.Sort();
         }
     }
 }
