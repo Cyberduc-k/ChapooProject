@@ -61,20 +61,8 @@ namespace Ui
         {
             orderService = new Order_Service();
             tableService = new Table_Service();
+            order.EmployeeId = employee.Id;
             billService = new Bill_Service();
-            dishService = new Dish_Service();
-            drinkService = new Drink_Service();
-
-            foreach (Dish dish in order.Dishes)
-            {
-                dishService.ModifyStock(dish.Id, dish.Stock - 1);
-            }
-
-            foreach (Drink drink in order.Drinks)
-            {
-                drinkService.ModifyStock(drink.Id, drink.Stock - 1);
-            }
-
             try
             {
                 bill = billService.GetBillByTableId(tafel.Number);
@@ -88,8 +76,6 @@ namespace Ui
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 tafel.Occupied = true;
                 tableService.ModifyTable(tafel);
-                order.Dishes.Clear();
-                order.Drinks.Clear();
                 return;
             }
 
@@ -97,8 +83,6 @@ namespace Ui
             {
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                order.Dishes.Clear();
-                order.Drinks.Clear();
                 return;
             }
             else
@@ -112,8 +96,19 @@ namespace Ui
                 tableService.ModifyTable(tafel);
             }
 
-            order.Dishes.Clear();
-            order.Drinks.Clear();
+            foreach(Dish dish in order.Dishes)
+            {
+                dishService = new Dish_Service();
+                dishService.ModifyStock(dish.Id, dish.Stock - 1);
+            }
+
+            foreach(Drink drink in order.Drinks)
+            {
+                drinkService = new Drink_Service();
+                drinkService.ModifyStock(drink.Id, drink.Stock - 1);
+            }
+
+            order = new Order();
         }
     }
 }
