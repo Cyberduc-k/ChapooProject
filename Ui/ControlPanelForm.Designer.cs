@@ -326,7 +326,7 @@
             this.CP_Menukaarten_listView.Size = new System.Drawing.Size(838, 344);
             this.CP_Menukaarten_listView.TabIndex = 0;
             this.CP_Menukaarten_listView.UseCompatibleStateImageBehavior = false;
-            this.CP_Menukaarten_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Voorraad_listView_ColumnClick);
+            this.CP_Menukaarten_listView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.CP_Menukaarten_listView_ColumnClick);
             this.CP_Menukaarten_listView.SelectedIndexChanged += new System.EventHandler(this.CP_Menukaarten_listView_SelectedIndexChanged);
             // 
             // CP_pnlMedewerkers
@@ -537,6 +537,7 @@
             // CP_Inkomsten_dtpTot
             // 
             this.CP_Inkomsten_dtpTot.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Inkomsten_dtpTot.CustomFormat = "MM/dd/yyy";
             this.CP_Inkomsten_dtpTot.Location = new System.Drawing.Point(356, 18);
             this.CP_Inkomsten_dtpTot.Name = "CP_Inkomsten_dtpTot";
             this.CP_Inkomsten_dtpTot.Size = new System.Drawing.Size(217, 23);
@@ -556,6 +557,7 @@
             // CP_Inkomsten_dtpVan
             // 
             this.CP_Inkomsten_dtpVan.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.CP_Inkomsten_dtpVan.CustomFormat = "MM/dd/yyyy";
             this.CP_Inkomsten_dtpVan.Location = new System.Drawing.Point(61, 18);
             this.CP_Inkomsten_dtpVan.Name = "CP_Inkomsten_dtpVan";
             this.CP_Inkomsten_dtpVan.Size = new System.Drawing.Size(217, 23);
