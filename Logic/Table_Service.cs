@@ -37,9 +37,5 @@ namespace Logic
         {
             table_DAO.Modify(table);
         }
-        public void SetTableToOccupiedFalse(Bill bill)
-        {
-            table_DAO.SetTableToOccupiedFalse(bill);
-        }
     }
 }

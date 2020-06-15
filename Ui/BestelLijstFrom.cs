@@ -76,6 +76,8 @@ namespace Ui
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 tafel.Occupied = true;
                 tableService.ModifyTable(tafel);
+                order.Dishes.Clear();
+                order.Drinks.Clear();
                 return;
             }
 
@@ -83,6 +85,8 @@ namespace Ui
             {
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                order.Dishes.Clear();
+                order.Drinks.Clear();
                 return;
             }
             else
@@ -107,7 +111,8 @@ namespace Ui
                 drinkService = new Drink_Service();
                 drinkService.ModifyStock(drink.Id, drink.Stock - 1);
             }
-
+            order.Dishes.Clear();
+            order.Drinks.Clear();
             order = new Order();
         }
     }

@@ -1112,5 +1112,10 @@ namespace Ui
             btn.BackColor = Color.FromArgb(0, 184, 255);
         }
         #endregion
+
+        private void CP_Menukaarten_listView_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            SortListView(e, CP_Menukaarten_listView);
+        }
     }
 }

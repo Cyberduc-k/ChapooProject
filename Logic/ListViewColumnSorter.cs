@@ -55,7 +55,16 @@ namespace Logic
             //Probeer om de inhoudt van de column naar een double te parsen. Als dit lukt sorten we als double
             //Anders als string
             double number;
-            bool success = double.TryParse(listviewX.SubItems[ColumnToSort].Text, out number);
+            bool success = false;
+
+            try
+            {
+                success = double.TryParse(listviewX.SubItems[ColumnToSort].Text, out number);
+            }
+            catch (Exception e)
+            {
+                ErrorHandler.Instance.HandleError("Kolom kon niet gesorteerd worden", "Niet gesorteerd", e);
+            }
 
             if (success)
                 compareResult = double.Parse(listviewX.SubItems[ColumnToSort].Text).CompareTo(double.Parse(listviewY.SubItems[ColumnToSort].Text));

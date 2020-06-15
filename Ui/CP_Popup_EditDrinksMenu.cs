@@ -31,7 +31,7 @@ namespace Ui
 
             //Show the current values of the dish
             CP_Popop_EditDrinksMenu_txtName.Text = drink.Name;
-            CP_Popop_EditDrinksMenu_txtPrice.Text = drink.Price.ToString();
+            CP_Popop_EditDrinksMenu_txtPrice.Text = drink.Price.ToString("0.00");
             CP_Popup_EditDrinksMenu_txtStock.Text = drink.Stock.ToString();
 
             if (drink.Alcoholic)

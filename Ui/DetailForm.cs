@@ -109,16 +109,18 @@ namespace Ui
                     order.Drinks.Add(product.Drink);
                 }
             }
-            this.Close();
+            Hide();
             BestelLijstFrom form = new BestelLijstFrom(tafel, order, employee);
             form.ShowDialog(Owner);
+            Close();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Hide();
             LunchMenuForm form = new LunchMenuForm(tafel, order, employee, maaltijd);
             form.ShowDialog(Owner);
+            Close();
         }
     }
 }
