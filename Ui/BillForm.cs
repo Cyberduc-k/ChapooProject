@@ -86,6 +86,8 @@ namespace Ui
                 columnheader.Width = 100;
                 Bill_lvBillOverview.Columns.Add(columnheader);
 
+                Bill_lblBtw.Text = (totalprice * btw).ToString("€0.00");
+
                 Bill_lblTotalPrice.Text = totalprice.ToString("€0.00");
 
                 Bill_lblTotalPrice.Show();
@@ -225,8 +227,11 @@ namespace Ui
         {
             Bill bill = bill_service.GetBillByTableId(tableId);
             bill_service.ModifyBillToPayed(bill);
+
+            Table table = table_service.GetWithId(tableId);
             table.Occupied = false;
             table_service.ModifyTable(table);
+
             Bill_btnAfrekenen_Click(null, null);
         }
 
