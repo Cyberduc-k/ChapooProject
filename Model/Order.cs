@@ -11,8 +11,8 @@ namespace Model
         public int Id { get; set; }
         public DateTime TimeOrdering { get; set; }
         public DateTime TimeFinished { get; set; }
-        public List<Dish> Dishes { get; }
-        public List<Drink> Drinks { get; }
+        public List<Dish> Dishes { get; set; }
+        public List<Drink> Drinks { get; set; }
         public int EmployeeId { get; set; }
         public int TableId { get; set; }
         public OrderState State { get; set; }
