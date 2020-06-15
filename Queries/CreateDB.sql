@@ -1,0 +1,116 @@
+CREATE TABLE [dbo].[Errors] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [type] VARCHAR(100) NOT NULL,
+  [time] DATETIME2 NOT NULL,
+  [message] VARCHAR(100) NULL,
+  [trace] TEXT NOT NULL,
+)
+
+CREATE TABLE [dbo].[Tables] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [occupied] BIT NOT NULL,
+  [seats] TINYINT NOT NULL,
+)
+
+CREATE TABLE [dbo].[Employees] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY(1000,1),
+  [dateOfBirth] DATE NOT NULL,
+  [dateOfEmployment] DATE NOT NULL,
+  [firstname] VARCHAR(100) NOT NULL,
+  [lastname] VARCHAR(100) NOT NULL,
+  [password] VARCHAR(100) NOT NULL,
+  [employeeType] TINYINT NOT NULL,
+  [gender] TINYINT NOT NULL,
+)
+
+CREATE TABLE [dbo].[Dishes] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [name] VARCHAR(100) NOT NULL,
+  [description] TEXT,
+  [ingredients] TEXT,
+  [price] FLOAT NOT NULL,
+  [stock] INT NOT NULL,
+  [category] TINYINT NOT NULL,
+)
+
+CREATE TABLE [dbo].[Drinks] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [name] VARCHAR(100) NOT NULL,
+  [alcoholic] BIT NOT NULL,
+  [price] FLOAT NOT NULL,
+  [stock] INT NOT NULL
+)
+
+CREATE TABLE [dbo].[Menus] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [menuType] TINYINT NOT NULL
+)
+
+CREATE TABLE [dbo].[Reservations] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [date] DATE NOT NULL,
+  [from] TIME NOT NULL,
+  [to] TIME NOT NULL,
+  [name] VARCHAR(100) NOT NULL,
+  [numberOfPeople] TINYINT NOT NULL,
+  [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON UPDATE CASCADE NOT NULL
+)  
+
+CREATE TABLE [dbo].[Bills] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON UPDATE CASCADE NOT NULL,
+  [date] DATE NOT NULL,
+  [employeeId] INT FOREIGN KEY REFERENCES Employees(id) ON UPDATE CASCADE NOT NULL,
+)  
+
+CREATE TABLE [dbo].[Orders] (
+  [id] INT NOT NULL PRIMARY KEY IDENTITY,
+  [comment] VARCHAR(100) NULL,
+  [orderState] TINYINT NOT NULL,
+  [timeOrdering] TIME NOT NULL,
+  [timeFinished] TIME NULL,
+  [tableId] INT FOREIGN KEY REFERENCES Tables(id) ON DELETE CASCADE NOT NULL,
+  [employeeId] INT FOREIGN KEY REFERENCES Employees(id) ON DELETE CASCADE NOT NULL,
+)
+	
+CREATE TABLE [dbo].[Bill_has_order]
+(
+    [billId] INT FOREIGN KEY REFERENCES Bills(id) ON DELETE CASCADE NOT NULL,
+    [orderId] INT FOREIGN KEY REFERENCES Orders(id) ON DELETE CASCADE NOT NULL
+)
+
+CREATE TABLE [dbo].[Menu_has_dish]
+(
+    [menuId] INT FOREIGN KEY REFERENCES Menus(id) ON DELETE CASCADE NOT NULL,
+    [dishId] INT FOREIGN KEY REFERENCES Dishes(id) ON DELETE CASCADE NOT NULL
+)
+
+CREATE TABLE [dbo].[Menu_has_drink]
+(
+    [menuId] INT FOREIGN KEY REFERENCES Menus(id) ON DELETE CASCADE NOT NULL,
+    [drinkId] INT FOREIGN KEY REFERENCES Drinks(id) ON DELETE CASCADE NOT NULL
+)
+
+CREATE TABLE [dbo].[Order_has_dish]
+(
+    [orderId] INT FOREIGN KEY REFERENCES Orders(id) ON DELETE CASCADE NOT NULL,
+    [dishId] INT FOREIGN KEY REFERENCES Dishes(id) ON DELETE CASCADE NOT NULL
+)
+
+CREATE TABLE [dbo].[Order_has_drink]
+(
+    [orderId] INT FOREIGN KEY REFERENCES Orders(id) ON DELETE CASCADE NOT NULL,
+    [drinkId] INT FOREIGN KEY REFERENCES Drinks(id) ON DELETE CASCADE NOT NULL
+)
+
+--Datagen
+INSERT INTO [Employees] ([dateOfBirth],[dateOfEmployment],[firstname],[lastname],[password],[employeeType],[gender]) VALUES ('1998-01-31T12:41:07-08:00','2018-11-18T15:15:00-08:00','Ivory','Navarro',6514,2,1),('1998-03-17T14:06:01-08:00','2018-09-22T03:12:21-07:00','Shaeleigh','Boyle',2998,2,1),('1998-02-27T18:26:18-08:00','2018-06-10T17:50:03-07:00','Griffith','Kirkland',9925,1,1),('1999-02-23T06:04:56-08:00','2019-01-01T23:16:34-08:00','Brady','Lang',5378,1,0),('2001-10-09T13:40:32-07:00','2017-12-20T02:29:37-08:00','Melodie','Lynn',3059,2,0),('1997-06-10T03:44:14-07:00','2020-06-03T08:53:59-07:00','Tara','Lyons',1661,3,0),('1997-08-22T22:32:56-07:00','2019-07-12T03:08:10-07:00','Tanek','Walsh',8794,1,0),('1999-05-17T16:11:11-07:00','2018-08-28T10:56:15-07:00','Quincy','Ingram',5636,3,0),('2001-03-21T19:47:30-08:00','2019-10-24T06:54:16-07:00','Alika','Brewer',5788,3,1),('1998-06-03T15:10:51-07:00','2017-10-26T09:37:44-07:00','Hayfa','Dyer',5966,2,1),('2001-03-16T01:31:35-08:00','2018-06-07T01:49:45-07:00','Sage','Valentine',8487,2,1),('2000-06-22T09:25:34-07:00','2018-10-20T15:42:02-07:00','Eliana','Gregory',5108,3,0),('1997-09-22T20:47:48-07:00','2019-12-23T04:42:35-08:00','Uriel','James',4804,3,0),('1998-10-03T06:57:28-07:00','2017-09-21T09:52:31-07:00','Barry','Heath',4564,2,0),('2000-09-29T13:03:15-07:00','2020-04-29T11:04:47-07:00','Merrill','Griffin',4293,2,0),('2000-05-12T03:58:12-07:00','2017-10-07T14:33:23-07:00','Maile','Reynolds',6566,3,1),('2002-03-27T18:16:38-08:00','2020-05-11T16:34:24-07:00','Felix','Pierce',6511,2,0),('2001-02-14T08:30:56-08:00','2020-01-23T10:59:53-08:00','Zephr','Dixon',9484,3,0),('2000-05-30T03:40:35-07:00','2020-02-29T14:24:35-08:00','Rhoda','Young',2926,2,0),('2002-03-07T15:05:18-08:00','2020-05-23T04:00:18-07:00','Barbara','Fowler',7732,2,0),('2001-01-14T01:06:28-08:00','2017-07-07T17:22:32-07:00','Linus','Ross',9942,1,1),('1998-07-06T22:18:53-07:00','2017-08-27T01:28:29-07:00','Callie','Grimes',8221,1,1),('1999-01-24T11:45:33-08:00','2017-11-30T04:35:56-08:00','Kane','Lambert',2948,3,0),('1999-02-13T04:18:36-08:00','2020-03-04T07:38:30-08:00','Liberty','Gibbs',7404,1,1),('2002-02-02T06:53:18-08:00','2019-03-25T12:29:16-07:00','Candace','Valencia',1336,2,1),('1999-11-20T20:28:10-08:00','2017-11-26T20:35:34-08:00','Lael','Smith',8853,2,1),('2001-01-22T22:35:20-08:00','2017-06-18T15:27:39-07:00','Sasha','Little',1836,3,0),('1999-09-07T02:55:48-07:00','2020-04-03T13:08:54-07:00','Rhea','Crane',1943,2,1),('1998-10-15T03:15:03-07:00','2018-01-22T01:12:33-08:00','Charity','Kline',3361,2,0),('1998-07-06T05:51:19-07:00','2019-02-13T22:24:08-08:00','Signe','Nielsen',1294,3,1),('1999-05-26T12:36:21-07:00','2017-09-02T15:18:42-07:00','Neve','Murphy',8214,2,0),('1999-04-14T01:38:35-07:00','2020-02-18T15:46:14-08:00','Ursa','Beasley',7441,3,1),('2001-01-30T23:37:32-08:00','2020-06-11T18:58:58-07:00','Rowan','Simon',4307,2,1),('1999-12-18T01:53:46-08:00','2017-08-17T16:03:23-07:00','Shaine','Rogers',5695,1,0),('1998-03-18T07:36:35-08:00','2019-04-10T16:11:29-07:00','Kelsey','Glover',9102,3,1),('2001-10-08T05:32:43-07:00','2019-10-18T12:58:10-07:00','Dominic','Bolton',9924,2,1),('1998-09-15T02:08:50-07:00','2019-01-10T04:10:30-08:00','Aspen','Brady',9883,3,1),('2002-04-15T17:40:58-07:00','2018-02-13T18:40:52-08:00','Cecilia','Kim',1509,2,0),('1999-09-18T11:18:18-07:00','2018-08-19T15:06:36-07:00','Craig','Roberson',1877,1,1),('2000-12-03T06:30:39-08:00','2019-06-25T08:56:55-07:00','Gregory','Kirby',7466,3,1),('1999-09-30T01:57:53-07:00','2019-10-01T16:35:14-07:00','Giselle','Tillman',7690,1,1),('2001-11-15T08:51:45-08:00','2019-08-04T22:17:41-07:00','Callum','Estrada',2394,3,1),('2001-11-05T13:55:43-08:00','2020-04-09T13:55:12-07:00','Dalton','Jones',8909,1,1),('2001-03-23T15:42:02-08:00','2020-02-12T11:12:57-08:00','Tamekah','Puckett',9419,1,1),('2001-11-29T11:44:29-08:00','2019-03-22T03:36:59-07:00','Ethan','Hardy',9036,1,1),('1998-12-10T21:53:18-08:00','2020-04-12T12:03:58-07:00','Reese','Lopez',1043,2,0),('1997-10-18T14:40:24-07:00','2017-08-25T06:22:07-07:00','Cameron','Mathews',9968,3,1),('1997-10-02T06:43:36-07:00','2017-07-12T01:39:48-07:00','Irma','Shelton',2108,2,1),('2000-08-15T06:34:08-07:00','2020-03-02T15:07:29-08:00','Cameron','Sexton',8773,2,1),('1999-12-10T02:06:40-08:00','2019-01-16T12:29:11-08:00','Mary','Burns',3786,3,0),('1998-07-31T05:08:06-07:00','2019-12-03T11:05:55-08:00','Louis','Copeland',3660,1,0),('2001-11-10T02:40:02-08:00','2018-07-19T05:51:55-07:00','Tarik','Leblanc',5400,1,1),('1997-10-24T02:59:49-07:00','2019-12-16T10:37:51-08:00','Kyra','Norman',1288,3,0),('2000-06-21T22:29:57-07:00','2020-03-07T08:46:06-08:00','Nathan','Knowles',7610,3,1),('1998-08-07T18:08:21-07:00','2020-03-17T21:49:05-07:00','Wallace','Nicholson',5530,2,1),('2001-08-21T11:10:38-07:00','2018-07-15T00:57:18-07:00','Leah','Horne',6011,2,0),('2001-07-29T18:11:19-07:00','2019-09-17T04:31:45-07:00','Patricia','Huber',3672,3,0),('2000-01-12T11:29:03-08:00','2018-10-17T18:26:50-07:00','Chaney','Alvarez',7044,1,1),('2000-01-07T22:22:36-08:00','2017-08-03T14:38:31-07:00','Wanda','Obrien',3161,1,0),('1999-04-20T05:10:16-07:00','2018-11-02T18:58:01-07:00','Meghan','Webb',9729,1,1),('1997-08-24T12:39:21-07:00','2020-01-18T21:24:37-08:00','Patience','Mueller',3003,3,0),('1999-11-30T19:34:21-08:00','2019-04-12T00:01:11-07:00','Violet','Prince',7399,2,0),('1999-01-10T01:54:46-08:00','2019-11-22T22:50:53-08:00','Marsden','Mccray',5945,1,1),('2002-03-20T22:40:56-08:00','2017-09-07T00:29:58-07:00','Uriel','Valencia',8348,2,0),('2002-03-29T01:38:34-08:00','2017-07-09T23:19:15-07:00','Uriel','Collins',5728,3,1),('1999-06-05T00:29:24-07:00','2020-06-03T20:13:34-07:00','Candice','Gates',2692,1,0),('1998-11-21T13:32:56-08:00','2017-08-22T12:30:53-07:00','Althea','Crosby',2072,3,0),('1998-02-04T06:11:31-08:00','2019-06-24T02:27:07-07:00','Elliott','Knight',1974,2,1),('1999-06-30T23:57:27-07:00','2017-09-22T15:31:17-07:00','Constance','Burgess',3312,1,0),('2002-01-03T18:09:57-08:00','2019-10-23T07:36:44-07:00','Burke','Berry',1151,3,1),('2001-10-08T11:37:59-07:00','2018-07-25T03:30:30-07:00','Hope','Charles',6291,2,1),('2001-03-03T17:09:05-08:00','2020-05-30T00:04:03-07:00','Sean','Hayes',9112,2,0),('1998-12-05T05:07:22-08:00','2020-05-27T03:44:00-07:00','Otto','Hawkins',2526,3,0),('1998-10-13T12:54:12-07:00','2018-11-21T09:54:48-08:00','Amir','Cross',5077,3,1),('1997-09-03T14:36:06-07:00','2018-10-01T23:58:17-07:00','Connor','Mccormick',6310,2,1),('1999-07-23T07:43:36-07:00','2019-02-26T18:08:29-08:00','Fritz','Mcmahon',7448,3,1),('1998-12-19T19:11:17-08:00','2019-08-30T02:53:51-07:00','Clio','Bush',3659,3,0),('1998-06-07T17:52:29-07:00','2018-09-03T08:00:39-07:00','Alec','Morales',1766,2,0),('1999-11-23T09:02:36-08:00','2017-12-04T00:29:30-08:00','Lane','Hancock',4084,3,1),('2002-03-31T13:26:33-08:00','2018-10-01T05:04:59-07:00','Austin','Beck',4194,3,0),('2002-05-12T05:50:20-07:00','2018-10-31T16:00:25-07:00','Mallory','Vincent',1790,2,1),('1998-02-03T03:34:51-08:00','2018-09-11T20:02:46-07:00','Kennan','Velazquez',5238,3,0),('1999-02-20T18:14:52-08:00','2019-05-25T16:03:03-07:00','Tanek','Mcintyre',1659,2,1),('2001-10-09T11:56:21-07:00','2019-11-08T04:54:07-08:00','Davis','Wyatt',9124,1,1),('1997-06-05T21:59:45-07:00','2019-07-14T11:29:10-07:00','Lydia','Carey',2366,1,1),('1999-12-22T16:37:26-08:00','2018-08-09T06:07:45-07:00','Kaden','Hewitt',1838,2,0),('1999-05-17T12:51:46-07:00','2019-09-03T09:43:39-07:00','Jordan','Strickland',8787,3,0),('2000-09-07T21:17:46-07:00','2017-12-18T10:31:34-08:00','Michael','Wilkinson',5313,2,0),('2001-11-17T10:44:48-08:00','2018-02-26T18:13:34-08:00','Sylvester','Velazquez',1950,2,0),('2002-04-29T18:29:37-07:00','2019-04-23T19:57:05-07:00','Chastity','Blanchard',9813,3,0),('2000-09-24T16:36:32-07:00','2018-08-13T07:36:32-07:00','Dean','Perry',1003,2,1),('2001-11-16T17:00:38-08:00','2019-02-04T12:45:05-08:00','Idola','Gilliam',1792,1,0),('2001-07-02T12:42:59-07:00','2018-04-28T18:32:59-07:00','Barclay','Manning',2244,1,1),('2001-07-06T04:03:53-07:00','2020-03-11T23:06:57-07:00','Quynn','Cummings',3545,1,0),('2002-04-22T15:42:22-07:00','2019-01-20T03:35:05-08:00','Amal','Carr',2430,1,1),('1997-12-10T14:29:26-08:00','2018-12-29T01:18:19-08:00','Upton','Lucas',3315,1,1),('1999-12-31T00:57:30-08:00','2017-07-20T08:38:26-07:00','Lillith','Ward',3534,1,1),('1999-12-06T17:16:39-08:00','2020-04-28T23:47:17-07:00','Travis','Murray',5218,1,0),('1999-07-28T21:36:05-07:00','2017-09-13T12:11:09-07:00','Cally','Mathews',3671,1,0),('1998-02-06T22:38:14-08:00','2019-04-28T16:19:00-07:00','Roary','Golden',8183,1,0);
+
+
+INSERT INTO Dishes([name],[ingredients],[price],[stock],[category]) VALUES ('Kalfstartaar met tonijnmayonaise en gefrituurde mosselen','Tonijn, mayonaise, mosselen','8.50','10','0'),('Paté van fazant met Monegaskische uitjes','Fazant, ui, knoflook','8.50','12','0'),('Provençaalse vissoep met rouille en croutons','Vis, mayonaise, mosselen','8.50','10','1'),('Krab-zalm koekjes met zoetzure-chilisaus','Zalm, krab, chili','9.00','13','1');INSERT INTO Drinks([name],[alcoholic],[price],[stock]) VALUES ('Spa rood',0,'2.50',20),('Spa groen',0,'2.50',22),('Hertog Jan',1,'3.00',25);
+INSERT INTO Menus([menuType]) VALUES(0),(1),(2);
+INSERT INTO Tables([occupied],[seats]) VALUES (0, 5),(1, 7),(0, 3),(0, 4); 
+INSERT INTO Reservations([date],[from],[to],[name],[numberOfPeople],[tableId]) VALUES ('2020-05-24', '18:00:00', '22:00:00', 'Sierhuis', 5, 1),('2020-05-24', '17:00:00', '23:00:00', 'Ooijevaar', 3, 3);
+INSERT INTO Menu_has_dish([menuId],[dishId]) VALUES (1,1),(1,2),(2,3);
+INSERT INTO Menu_has_drink([menuId],[dishId]) VALUES (3,1),(3,2),(3,3);
+INSERT INTO Orders([comment],[orderState],[timeOrdering],[timeFinished],[tableId],[employeeId]) VALUES ('Graag zonder saus','0','12:00:00','13:00:00','1','1001');

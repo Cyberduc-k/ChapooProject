@@ -46,14 +46,188 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BarForm.Designer.cs">
+      <DependentUpon>BarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BestelLijstFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BestelLijstFrom.Designer.cs">
+      <DependentUpon>BestelLijstFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillForm.Designer.cs">
+      <DependentUpon>BillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChefForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChefForm.Designer.cs">
+      <DependentUpon>ChefForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlPanelForm.Designer.cs">
+      <DependentUpon>ControlPanelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Feedback.Designer.cs">
+      <DependentUpon>CP_Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_AddToDrinksMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_AddToDrinksMenu.Designer.cs">
+      <DependentUpon>CP_Popup_AddToDrinksMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_AddToMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_AddToMenu.Designer.cs">
+      <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_ChangeStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_ChangeStock.Designer.cs">
+      <DependentUpon>CP_Popup_ChangeStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_EditDrinksMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_EditDrinksMenu.Designer.cs">
+      <DependentUpon>CP_Popup_EditDrinksMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_EditEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_EditEmployee.Designer.cs">
+      <DependentUpon>CP_Popup_EditEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_EditMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_EditMenu.Designer.cs">
+      <DependentUpon>CP_Popup_EditMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_NewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_NewEmployee.Designer.cs">
+      <DependentUpon>CP_Popup_NewEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_Parent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_Parent.Designer.cs">
+      <DependentUpon>CP_Popup_Parent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP_Popup_Sure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Popup_Sure.Designer.cs">
+      <DependentUpon>CP_Popup_Sure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailForm.Designer.cs">
+      <DependentUpon>DetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LunchMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LunchMenuForm.Designer.cs">
+      <DependentUpon>LunchMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BarForm.resx">
+      <DependentUpon>BarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BestelLijstFrom.resx">
+      <DependentUpon>BestelLijstFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillForm.resx">
+      <DependentUpon>BillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChefForm.resx">
+      <DependentUpon>ChefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlPanelForm.resx">
+      <DependentUpon>ControlPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Feedback.resx">
+      <DependentUpon>CP_Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_AddToDrinksMenu.resx">
+      <DependentUpon>CP_Popup_AddToDrinksMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_AddToMenu.resx">
+      <DependentUpon>CP_Popup_AddToMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_ChangeStock.resx">
+      <DependentUpon>CP_Popup_ChangeStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_EditDrinksMenu.resx">
+      <DependentUpon>CP_Popup_EditDrinksMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_EditEmployee.resx">
+      <DependentUpon>CP_Popup_EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_EditMenu.resx">
+      <DependentUpon>CP_Popup_EditMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_NewEmployee.resx">
+      <DependentUpon>CP_Popup_NewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_Parent.resx">
+      <DependentUpon>CP_Popup_Parent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP_Popup_Sure.resx">
+      <DependentUpon>CP_Popup_Sure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailForm.resx">
+      <DependentUpon>DetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LunchMenuForm.resx">
+      <DependentUpon>LunchMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +236,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Model.Drink.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +251,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{f813eeaf-3645-4bf0-838f-2b41d0ccd118}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{849bdfdf-3c0e-4f15-82a6-cb4602cac248}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Logo Login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

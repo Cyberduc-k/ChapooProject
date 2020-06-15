@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dao
+namespace Model
 {
-    public class Class1
+    public enum OrderState
     {
+        None,
+        Started,
+        Done,
+        Served,
+        Payed,
     }
 }

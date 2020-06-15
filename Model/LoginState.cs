@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Ui
 {
-    public class Class1
+    public enum LoginState
     {
+        Start,
+        EnterCredentials,
     }
 }

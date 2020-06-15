@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic
+namespace Model
 {
-    public class Class1
+    public enum DishCategory
     {
+        Voorgerechten, Tussengerechten, Hoofdgerechten, Nagerechten
     }
 }
