@@ -161,6 +161,7 @@ namespace Ui
             Bill_lblTotalPrice.Hide();
             Bill_lblBetaald.Hide();
             Bill_lblBtwLinks.Hide();
+            Bill_lblTotaalBedrag.Hide();
         }
 
         private void Bill_btnTable1_Click(object sender, EventArgs e)
@@ -266,7 +267,6 @@ namespace Ui
                 }
                 totalprice = double.Parse(Bill_txbAanvullenTot.Text);
             }
-            Bill_lblBtw.Text = (totalprice * btw).ToString("€0.00");
 
             Bill_lblTotalPrice.Text = totalprice.ToString("€0.00");
         }
