@@ -141,8 +141,8 @@ namespace Dao
             SqlParameter[] parameters = new SqlParameter[5]
             {
                 new SqlParameter("@date", bill.Date),
-                new SqlParameter("@tableId", bill.Table),
-                new SqlParameter("@employeeId", bill.Employee),
+                new SqlParameter("@tableId", bill.Table.Number),
+                new SqlParameter("@employeeId", bill.Employee.Id),
                 new SqlParameter("@payed", bill.Payed),
                 new SqlParameter("@id", bill.Id),
             };
