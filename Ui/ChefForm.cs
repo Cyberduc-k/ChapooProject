@@ -124,6 +124,7 @@ namespace Ui
                 orders = order_service
                         .GetAllOrders()
                         .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
+                        .Where(order => order.Dishes.Count > 0)
                         .ToList();
 
                 RefreshOrders();

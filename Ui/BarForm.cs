@@ -65,6 +65,7 @@ namespace Ui
             orders = order_service
                 .GetAllOrders()
                 .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
+                .Where(order => order.Drinks.Count > 0)
                 .ToList();
 
             switch (orders.Count)
