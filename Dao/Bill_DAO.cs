@@ -29,7 +29,7 @@ namespace Dao
         // Get bill by tableId
         public Bill GetBillByTableId(int tableId)
         {
-            string query = "SELECT [id], [date], [tableId], [employeeId], [Payed] FROM [dbo].[Bills] WHERE [tableId] = @tableId";
+            string query = "SELECT * FROM [dbo].[Bills] WHERE [tableId] = @tableId";
             SqlParameter[] parameters = new SqlParameter[1] {
                 new SqlParameter("@tableId", tableId),
             };

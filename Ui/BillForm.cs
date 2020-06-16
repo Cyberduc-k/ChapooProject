@@ -17,9 +17,9 @@ namespace Ui
         private Bill_Service bill_service = new Bill_Service();
         private Table_Service table_service = new Table_Service();
         private List<Table> tables;
-        private List<Bill> bills; 
         private ColumnHeader columnheader;
         private Table table;
+        private Bill bill;
         private int tableId = 1;
         private double totalprice;
         private string items;
@@ -225,10 +225,11 @@ namespace Ui
 
         private void Bill_btnPay_Click(object sender, EventArgs e)
         {
-            Bill bill = bill_service.GetBillByTableId(tableId);
-            bill_service.ModifyBillToPayed(bill);
+            bill = bill_service.GetBillByTableId(tableId);
+            bill.Payed = true;
+            bill_service.ModifyBill(bill);
 
-            Table table = table_service.GetWithId(tableId);
+            table = table_service.GetWithId(tableId);
             table.Occupied = false;
             table_service.ModifyTable(table);
 

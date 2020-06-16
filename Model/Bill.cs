@@ -14,8 +14,7 @@ namespace Model
 	    public List<Order> Orders { get; }
         public Employee Employee { get; }
 
-        public bool Payed { get; }
-
+        public bool Payed { get; set; }
         public Bill(int id, DateTime date, Table table, List<Order> orders, Employee employee, bool payed)
         {
             Id = id;
