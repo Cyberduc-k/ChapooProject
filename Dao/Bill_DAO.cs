@@ -110,7 +110,7 @@ namespace Dao
         public void ModifyBillToPayed(Bill bill)
         {
             string query = "UPDATE [dbo].[Bills] SET " +
-                "[payed] = true " +
+                "[payed] = 'true' " +
                 "WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[1]
             {
