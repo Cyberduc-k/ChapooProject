@@ -32,8 +32,6 @@ namespace Ui
             Bar_lvVoorraad.View = View.Details;
             Bar_lvVoorraad.ListViewItemSorter = lvwColumnSorter;
         }
-
-        // Highlight a button
         private void SetHightlight(Button btn)
         {
             Bar_btnOverzicht.BackColor = Color.FromArgb(0, 165, 229);
@@ -61,7 +59,6 @@ namespace Ui
             HideAllPanels();
             Bar_pnlOverzicht.Show();
 
-            // Get all unprocessed orders
             orders = order_service
                 .GetAllOrders()
                 .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
@@ -96,8 +93,8 @@ namespace Ui
             Bar_lblOpmerkingenContent.Text = order.Comment;
             Bar_pnlOpmerkingen.Show();
             Bar_lvFirst.Clear();
-            Bar_lblTafelSecond.Text = $"Tafel: {order.TableId}";
-            Bar_lblBesteldOpSecond.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
+            Bar_lblTafelFirst.Text = $"Tafel: {order.TableId}";
+            Bar_lblBesteldOpFirst.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Drink drink in order.Drinks)
                 Bar_lvFirst.Items.Add(new ListViewItem(drink.Name));
@@ -108,8 +105,8 @@ namespace Ui
         private void FillSecondOrder(Order order)
         {
             Bar_lvSecond.Clear();
-            Bar_lblTafelThird.Text = $"Tafel: {order.TableId}";
-            Bar_lblBesteldOpThird.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
+            Bar_lblTafelSecond.Text = $"Tafel: {order.TableId}";
+            Bar_lblBesteldOpSecond.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Drink drink in order.Drinks)
                 Bar_lvSecond.Items.Add(new ListViewItem(drink.Name));
@@ -120,8 +117,8 @@ namespace Ui
         private void FillThirdOrder(Order order)
         {
             Bar_lvThird.Clear();
-            Bar_lblTafelFourth.Text = $"Tafel: {order.TableId}";
-            Bar_lblBesteldOpFourth.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
+            Bar_lblTafelThird.Text = $"Tafel: {order.TableId}";
+            Bar_lblBesteldOpThird.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Drink drink in order.Drinks)
                 Bar_lvThird.Items.Add(new ListViewItem(drink.Name));
