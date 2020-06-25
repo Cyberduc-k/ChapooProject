@@ -71,7 +71,6 @@ namespace Ui
 
         // Code taken from: https://stackoverflow.com/questions/10775367/cross-thread-operation-not-valid-control-textbox1-accessed-from-a-thread-othe
         // to modify the ui from a different thread to avoid blocking on database access.
-
         delegate void RefreshOrdersCallback();
 
         private void RefreshOrders()

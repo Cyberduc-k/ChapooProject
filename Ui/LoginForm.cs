@@ -14,7 +14,6 @@ namespace Ui
 {
     public partial class LoginForm : Form
     {
-        private LoginState state = LoginState.Start;
         private Employee_Service employee_service = new Employee_Service();
 
         public LoginForm()
@@ -23,13 +22,33 @@ namespace Ui
             FormClosed += new FormClosedEventHandler(OnClosed);
         }
 
-        private void CheckCredentials()
+        // Open a new form after logging in
+        private void OpenForm(Form form)
+        {
+            Hide();
+            form.Location = Location;
+            form.ShowDialog(this);
+            Show();
+        }
+
+        // Clear the textboxes and show the incorrect info message
+        private void IncorrectInfo(bool clearPassword, string message)
+        {
+            Login_textBoxNummer.Clear();
+            Login_textBoxNummer.Focus();
+            Login_lblIncorrect.Text = message;
+            Login_lblIncorrect.Show();
+
+            if (clearPassword)
+                Login_textBoxWachtwoord.Clear();
+        }
+
+        private void Login_btnInloggen_Click(object sender, EventArgs e)
         {
             // Parse the user Id into a number
             if (!int.TryParse(Login_textBoxNummer.Text, out int id))
             {
-                ErrorHandler.Instance.HandleError("Ongeldig personeelsnummer ingevoerd", "Ongeldig personeelsnummer", new Exception("Invalid employee number"));
-                ErrorState();
+                IncorrectInfo(false, "Incorrect personeelsnummer");
                 return;
             }
 
@@ -39,7 +58,7 @@ namespace Ui
             // Check if the employee was found
             if (employee == null)
             {
-                ErrorState();
+                IncorrectInfo(true, "Incorrect wachtwoord of personeelsnummer");
             }
             else
             {
@@ -59,68 +78,10 @@ namespace Ui
                         break;
                 }
 
-                ResetState();
+                Login_textBoxNummer.Clear();
+                Login_textBoxWachtwoord.Clear();
+                Login_lblIncorrect.Hide();
             }
-        }
-
-        // Open a new form after logging in
-        private void OpenForm(Form form)
-        {
-            Hide();
-            form.Location = Location;
-            form.ShowDialog(this);
-            Show();
-        }
-
-        // Clear all text boxes and show the incorrect info message
-        private void ErrorState()
-        {
-            Login_textBoxNummer.Clear();
-            Login_textBoxWachtwoord.Clear();
-            Login_lblIncorrect.Show();
-            Login_textBoxNummer.Focus();
-        }
-
-        // Reset the form back to the Start state
-        private void ResetState()
-        {
-            Login_Logo.Top = 285;
-            Login_btnInloggen.Top = 631;
-            Login_btnAnnuleren.Hide();
-            Login_lblNummer.Hide();
-            Login_textBoxNummer.Hide();
-            Login_lblWachtwoord.Hide();
-            Login_textBoxWachtwoord.Hide();
-            Login_textBoxNummer.Clear();
-            Login_lblIncorrect.Hide();
-            Login_textBoxWachtwoord.Clear();
-            state = LoginState.Start;
-        }
-
-        private void Login_btnInloggen_Click(object sender, EventArgs e)
-        {
-            if (state == LoginState.Start)
-            {
-                // Change the form to the EnterCredentials state
-                Login_Logo.Top = 118;
-                Login_btnInloggen.Top = 792;
-                Login_btnAnnuleren.Show();
-                Login_lblNummer.Show();
-                Login_textBoxNummer.Show();
-                Login_lblWachtwoord.Show();
-                Login_textBoxWachtwoord.Show();
-                Login_textBoxNummer.Focus();
-                state = LoginState.EnterCredentials;
-            }
-            else
-            {
-                CheckCredentials();
-            }
-        }
-
-        private void Login_btnAnnuleren_Click(object sender, EventArgs e)
-        {
-            ResetState();
         }
 
         private void OnClosed(object sender, FormClosedEventArgs e)
