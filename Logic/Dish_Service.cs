@@ -11,7 +11,7 @@ namespace Logic
     {
         Dish_DAO dish_DAO = new Dish_DAO();
 
-        //Get a list of all the dishes from the DAO
+        // Get a list of all the dishes from the DAO
         public List<Dish> GetAllDishes()
         {
             return dish_DAO.GetAll();
@@ -27,40 +27,46 @@ namespace Logic
             return dish_DAO.GetAllLunch();
         }
 
-        //Get a list of all the dishes ordered by stock
+        // Get a list of all the dishes ordered by stock
         public List<Dish> OrderByStock()
         {
             return dish_DAO.OrderByStock();
         }
 
-        //Add a new dish
+        // Add a new dish
         public void AddDish(Dish dish, MenuType menuType)
         {
             dish_DAO.Add(dish, menuType);
         }
 
-        //Remove a dish
+        // Remove a dish
         public void RemoveDish(int id)
         {
             dish_DAO.Remove(id);
         }
 
-        //Empty stock of a dish
+        // Empty stock of a dish
         public void EmptyStock(int id)
         {
             dish_DAO.EmptyStock(id);
         }
 
-        //Modify the properties of a dish
+        // Modify the properties of a dish
         public void ModifyDish(Dish dish)
         {
             dish_DAO.Modify(dish);
         }
 
-        //Modify the stock of a dish
+        // Modify the stock of a dish
         public void ModifyStock(int id, int stock)
         {
             dish_DAO.ModifyStock(id, stock);
+        }
+
+        // Modify the finished proeprty of the Order_has_dish table
+        public void ModifyFinished(Order order, Dish dish, bool finished)
+        {
+            dish_DAO.ModifyFinished(order, dish, finished);
         }
     }
 }

@@ -13,7 +13,8 @@ namespace Dao
         {
             string query =
                 "SELECT [id], [orderState], [timeOrdering], [timeFinished], [tableId], [employeeId] " +
-                "FROM [dbo].[Orders]";
+                "FROM [dbo].[Orders] " +
+                "ORDER BY [timeOrdering], [timeFinished] DESC";
             SqlParameter[] parameters = new SqlParameter[0];
 
             return ReadAll(ExecuteSelectQuery(query, parameters));

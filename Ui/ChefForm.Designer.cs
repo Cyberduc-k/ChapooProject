@@ -64,17 +64,22 @@
             this.Chef_btnFirstKlaar = new System.Windows.Forms.Button();
             this.Chef_lblGeenBestellingen = new System.Windows.Forms.Label();
             this.Chef_pnlVoorraad = new System.Windows.Forms.Panel();
+            this.Chef_btnDiner = new System.Windows.Forms.Button();
+            this.Chef_btnLunch = new System.Windows.Forms.Button();
             this.Chef_lvVoorraad = new System.Windows.Forms.ListView();
             this.Chef_chGerecht = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Chef_chAantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Chef_chPrijs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Chef_pnlGereed = new System.Windows.Forms.Panel();
-            this.Chef_pnlOpmerkingen2 = new System.Windows.Forms.Panel();
-            this.Chef_lblOpmerkingenContent2 = new System.Windows.Forms.Label();
-            this.Chef_lblOpmerkingeng2 = new System.Windows.Forms.Label();
-            this.Chef_pnlOrders = new System.Windows.Forms.Panel();
-            this.Chef_btnLunch = new System.Windows.Forms.Button();
-            this.Chef_btnDiner = new System.Windows.Forms.Button();
+            this.Chef_lvGereed = new System.Windows.Forms.ListView();
+            this.Chef_chTafel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Chef_chTijdKlaar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Chef_pnlOrderGereed = new System.Windows.Forms.Panel();
+            this.Chef_btnTerugzetten = new System.Windows.Forms.Button();
+            this.Chef_lvOrderGereed = new System.Windows.Forms.ListView();
+            this.Chef_pnlOpmerkingenGereed = new System.Windows.Forms.Panel();
+            this.Chef_lblOpmerkingenContentGereed = new System.Windows.Forms.Label();
+            this.Chef_lblOpmerkingengGereed = new System.Windows.Forms.Label();
             this.Chef_pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Chef_pnlTop.SuspendLayout();
@@ -87,7 +92,8 @@
             this.Chef_pnlFirstOrder.SuspendLayout();
             this.Chef_pnlVoorraad.SuspendLayout();
             this.Chef_pnlGereed.SuspendLayout();
-            this.Chef_pnlOpmerkingen2.SuspendLayout();
+            this.Chef_pnlOrderGereed.SuspendLayout();
+            this.Chef_pnlOpmerkingenGereed.SuspendLayout();
             this.SuspendLayout();
             // 
             // Chef_pnlLeft
@@ -303,6 +309,7 @@
             this.Chef_lvFourth.TabIndex = 1;
             this.Chef_lvFourth.UseCompatibleStateImageBehavior = false;
             this.Chef_lvFourth.View = System.Windows.Forms.View.List;
+            this.Chef_lvFourth.SelectedIndexChanged += new System.EventHandler(this.Chef_order_SelectedIndexChanged);
             // 
             // Chef_lblTafelFourth
             // 
@@ -369,6 +376,7 @@
             this.Chef_lvThird.TabIndex = 1;
             this.Chef_lvThird.UseCompatibleStateImageBehavior = false;
             this.Chef_lvThird.View = System.Windows.Forms.View.List;
+            this.Chef_lvThird.SelectedIndexChanged += new System.EventHandler(this.Chef_order_SelectedIndexChanged);
             // 
             // Chef_lblTafelThird
             // 
@@ -435,6 +443,7 @@
             this.Chef_lvSecond.TabIndex = 1;
             this.Chef_lvSecond.UseCompatibleStateImageBehavior = false;
             this.Chef_lvSecond.View = System.Windows.Forms.View.List;
+            this.Chef_lvSecond.SelectedIndexChanged += new System.EventHandler(this.Chef_order_SelectedIndexChanged);
             // 
             // Chef_lblTafelSecond
             // 
@@ -512,6 +521,7 @@
             this.Chef_lvFirst.TabIndex = 1;
             this.Chef_lvFirst.UseCompatibleStateImageBehavior = false;
             this.Chef_lvFirst.View = System.Windows.Forms.View.List;
+            this.Chef_lvFirst.SelectedIndexChanged += new System.EventHandler(this.Chef_order_SelectedIndexChanged);
             // 
             // Chef_btnFirstKlaar
             // 
@@ -555,6 +565,38 @@
             this.Chef_pnlVoorraad.Size = new System.Drawing.Size(1618, 915);
             this.Chef_pnlVoorraad.TabIndex = 2;
             // 
+            // Chef_btnDiner
+            // 
+            this.Chef_btnDiner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.Chef_btnDiner.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.Chef_btnDiner.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Chef_btnDiner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Chef_btnDiner.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_btnDiner.ForeColor = System.Drawing.Color.White;
+            this.Chef_btnDiner.Location = new System.Drawing.Point(820, 30);
+            this.Chef_btnDiner.Name = "Chef_btnDiner";
+            this.Chef_btnDiner.Size = new System.Drawing.Size(770, 60);
+            this.Chef_btnDiner.TabIndex = 1;
+            this.Chef_btnDiner.Text = "Dinergerechten";
+            this.Chef_btnDiner.UseVisualStyleBackColor = false;
+            this.Chef_btnDiner.Click += new System.EventHandler(this.Chef_btnDiner_Click);
+            // 
+            // Chef_btnLunch
+            // 
+            this.Chef_btnLunch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Chef_btnLunch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
+            this.Chef_btnLunch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Chef_btnLunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Chef_btnLunch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_btnLunch.ForeColor = System.Drawing.Color.White;
+            this.Chef_btnLunch.Location = new System.Drawing.Point(30, 30);
+            this.Chef_btnLunch.Name = "Chef_btnLunch";
+            this.Chef_btnLunch.Size = new System.Drawing.Size(770, 60);
+            this.Chef_btnLunch.TabIndex = 1;
+            this.Chef_btnLunch.Text = "Lunchgerechten";
+            this.Chef_btnLunch.UseVisualStyleBackColor = false;
+            this.Chef_btnLunch.Click += new System.EventHandler(this.Chef_btnLunch_Click);
+            // 
             // Chef_lvVoorraad
             // 
             this.Chef_lvVoorraad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
@@ -593,92 +635,117 @@
             // Chef_pnlGereed
             // 
             this.Chef_pnlGereed.BackColor = System.Drawing.Color.White;
-            this.Chef_pnlGereed.Controls.Add(this.Chef_pnlOpmerkingen2);
-            this.Chef_pnlGereed.Controls.Add(this.Chef_pnlOrders);
+            this.Chef_pnlGereed.Controls.Add(this.Chef_lvGereed);
+            this.Chef_pnlGereed.Controls.Add(this.Chef_pnlOrderGereed);
+            this.Chef_pnlGereed.Controls.Add(this.Chef_pnlOpmerkingenGereed);
             this.Chef_pnlGereed.Location = new System.Drawing.Point(286, 125);
             this.Chef_pnlGereed.Margin = new System.Windows.Forms.Padding(0);
             this.Chef_pnlGereed.Name = "Chef_pnlGereed";
             this.Chef_pnlGereed.Size = new System.Drawing.Size(1618, 915);
             this.Chef_pnlGereed.TabIndex = 3;
             // 
-            // Chef_pnlOpmerkingen2
+            // Chef_lvGereed
             // 
-            this.Chef_pnlOpmerkingen2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.Chef_pnlOpmerkingen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Chef_pnlOpmerkingen2.Controls.Add(this.Chef_lblOpmerkingenContent2);
-            this.Chef_pnlOpmerkingen2.Controls.Add(this.Chef_lblOpmerkingeng2);
-            this.Chef_pnlOpmerkingen2.Location = new System.Drawing.Point(651, 54);
-            this.Chef_pnlOpmerkingen2.Name = "Chef_pnlOpmerkingen2";
-            this.Chef_pnlOpmerkingen2.Size = new System.Drawing.Size(726, 393);
-            this.Chef_pnlOpmerkingen2.TabIndex = 4;
+            this.Chef_lvGereed.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Chef_chTafel,
+            this.Chef_chTijdKlaar});
+            this.Chef_lvGereed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvGereed.FullRowSelect = true;
+            this.Chef_lvGereed.HideSelection = false;
+            this.Chef_lvGereed.Location = new System.Drawing.Point(30, 30);
+            this.Chef_lvGereed.Name = "Chef_lvGereed";
+            this.Chef_lvGereed.Size = new System.Drawing.Size(764, 855);
+            this.Chef_lvGereed.TabIndex = 0;
+            this.Chef_lvGereed.UseCompatibleStateImageBehavior = false;
+            this.Chef_lvGereed.View = System.Windows.Forms.View.Details;
+            this.Chef_lvGereed.SelectedIndexChanged += new System.EventHandler(this.Chef_lvGereed_SelectedIndexChanged);
             // 
-            // Chef_lblOpmerkingenContent2
+            // Chef_chTafel
             // 
-            this.Chef_lblOpmerkingenContent2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lblOpmerkingenContent2.Location = new System.Drawing.Point(15, 70);
-            this.Chef_lblOpmerkingenContent2.Name = "Chef_lblOpmerkingenContent2";
-            this.Chef_lblOpmerkingenContent2.Size = new System.Drawing.Size(694, 308);
-            this.Chef_lblOpmerkingenContent2.TabIndex = 1;
+            this.Chef_chTafel.Text = "Tafel";
+            this.Chef_chTafel.Width = 380;
             // 
-            // Chef_lblOpmerkingeng2
+            // Chef_chTijdKlaar
             // 
-            this.Chef_lblOpmerkingeng2.AutoSize = true;
-            this.Chef_lblOpmerkingeng2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lblOpmerkingeng2.Location = new System.Drawing.Point(11, 10);
-            this.Chef_lblOpmerkingeng2.Name = "Chef_lblOpmerkingeng2";
-            this.Chef_lblOpmerkingeng2.Size = new System.Drawing.Size(176, 31);
-            this.Chef_lblOpmerkingeng2.TabIndex = 0;
-            this.Chef_lblOpmerkingeng2.Text = "Opmerkingen";
+            this.Chef_chTijdKlaar.Text = "Tijd Klaar";
+            this.Chef_chTijdKlaar.Width = 380;
             // 
-            // Chef_pnlOrders
+            // Chef_pnlOrderGereed
             // 
-            this.Chef_pnlOrders.AutoScroll = true;
-            this.Chef_pnlOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.Chef_pnlOrders.Location = new System.Drawing.Point(54, 54);
-            this.Chef_pnlOrders.Name = "Chef_pnlOrders";
-            this.Chef_pnlOrders.Size = new System.Drawing.Size(500, 808);
-            this.Chef_pnlOrders.TabIndex = 3;
+            this.Chef_pnlOrderGereed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Chef_pnlOrderGereed.Controls.Add(this.Chef_btnTerugzetten);
+            this.Chef_pnlOrderGereed.Controls.Add(this.Chef_lvOrderGereed);
+            this.Chef_pnlOrderGereed.Location = new System.Drawing.Point(824, 30);
+            this.Chef_pnlOrderGereed.Name = "Chef_pnlOrderGereed";
+            this.Chef_pnlOrderGereed.Size = new System.Drawing.Size(764, 412);
+            this.Chef_pnlOrderGereed.TabIndex = 5;
             // 
-            // Chef_btnLunch
+            // Chef_btnTerugzetten
             // 
-            this.Chef_btnLunch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.Chef_btnLunch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.Chef_btnLunch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.Chef_btnLunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Chef_btnLunch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_btnLunch.ForeColor = System.Drawing.Color.White;
-            this.Chef_btnLunch.Location = new System.Drawing.Point(30, 30);
-            this.Chef_btnLunch.Name = "Chef_btnLunch";
-            this.Chef_btnLunch.Size = new System.Drawing.Size(770, 60);
-            this.Chef_btnLunch.TabIndex = 1;
-            this.Chef_btnLunch.Text = "Lunchgerechten";
-            this.Chef_btnLunch.UseVisualStyleBackColor = false;
-            this.Chef_btnLunch.Click += new System.EventHandler(this.Chef_btnLunch_Click);
+            this.Chef_btnTerugzetten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Chef_btnTerugzetten.FlatAppearance.BorderSize = 0;
+            this.Chef_btnTerugzetten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Chef_btnTerugzetten.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_btnTerugzetten.ForeColor = System.Drawing.Color.White;
+            this.Chef_btnTerugzetten.Location = new System.Drawing.Point(10, 355);
+            this.Chef_btnTerugzetten.Margin = new System.Windows.Forms.Padding(0);
+            this.Chef_btnTerugzetten.Name = "Chef_btnTerugzetten";
+            this.Chef_btnTerugzetten.Size = new System.Drawing.Size(200, 46);
+            this.Chef_btnTerugzetten.TabIndex = 1;
+            this.Chef_btnTerugzetten.Text = "Terugzetten";
+            this.Chef_btnTerugzetten.UseVisualStyleBackColor = false;
+            this.Chef_btnTerugzetten.Click += new System.EventHandler(this.Chef_btnTerugzetten_Click);
             // 
-            // Chef_btnDiner
+            // Chef_lvOrderGereed
             // 
-            this.Chef_btnDiner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
-            this.Chef_btnDiner.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
-            this.Chef_btnDiner.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.Chef_btnDiner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Chef_btnDiner.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_btnDiner.ForeColor = System.Drawing.Color.White;
-            this.Chef_btnDiner.Location = new System.Drawing.Point(820, 30);
-            this.Chef_btnDiner.Name = "Chef_btnDiner";
-            this.Chef_btnDiner.Size = new System.Drawing.Size(770, 60);
-            this.Chef_btnDiner.TabIndex = 1;
-            this.Chef_btnDiner.Text = "Dinergerechten";
-            this.Chef_btnDiner.UseVisualStyleBackColor = false;
-            this.Chef_btnDiner.Click += new System.EventHandler(this.Chef_btnDiner_Click);
+            this.Chef_lvOrderGereed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Chef_lvOrderGereed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvOrderGereed.HideSelection = false;
+            this.Chef_lvOrderGereed.Location = new System.Drawing.Point(0, 0);
+            this.Chef_lvOrderGereed.Name = "Chef_lvOrderGereed";
+            this.Chef_lvOrderGereed.Size = new System.Drawing.Size(762, 344);
+            this.Chef_lvOrderGereed.TabIndex = 0;
+            this.Chef_lvOrderGereed.UseCompatibleStateImageBehavior = false;
+            this.Chef_lvOrderGereed.View = System.Windows.Forms.View.List;
+            this.Chef_lvOrderGereed.SelectedIndexChanged += new System.EventHandler(this.Chef_lvOrderGereed_SelectedIndexChanged);
+            // 
+            // Chef_pnlOpmerkingenGereed
+            // 
+            this.Chef_pnlOpmerkingenGereed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.Chef_pnlOpmerkingenGereed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Chef_pnlOpmerkingenGereed.Controls.Add(this.Chef_lblOpmerkingenContentGereed);
+            this.Chef_pnlOpmerkingenGereed.Controls.Add(this.Chef_lblOpmerkingengGereed);
+            this.Chef_pnlOpmerkingenGereed.Location = new System.Drawing.Point(824, 473);
+            this.Chef_pnlOpmerkingenGereed.Name = "Chef_pnlOpmerkingenGereed";
+            this.Chef_pnlOpmerkingenGereed.Size = new System.Drawing.Size(764, 412);
+            this.Chef_pnlOpmerkingenGereed.TabIndex = 4;
+            // 
+            // Chef_lblOpmerkingenContentGereed
+            // 
+            this.Chef_lblOpmerkingenContentGereed.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblOpmerkingenContentGereed.Location = new System.Drawing.Point(15, 70);
+            this.Chef_lblOpmerkingenContentGereed.Name = "Chef_lblOpmerkingenContentGereed";
+            this.Chef_lblOpmerkingenContentGereed.Size = new System.Drawing.Size(694, 308);
+            this.Chef_lblOpmerkingenContentGereed.TabIndex = 1;
+            // 
+            // Chef_lblOpmerkingengGereed
+            // 
+            this.Chef_lblOpmerkingengGereed.AutoSize = true;
+            this.Chef_lblOpmerkingengGereed.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lblOpmerkingengGereed.Location = new System.Drawing.Point(11, 10);
+            this.Chef_lblOpmerkingengGereed.Name = "Chef_lblOpmerkingengGereed";
+            this.Chef_lblOpmerkingengGereed.Size = new System.Drawing.Size(176, 31);
+            this.Chef_lblOpmerkingengGereed.TabIndex = 0;
+            this.Chef_lblOpmerkingengGereed.Text = "Opmerkingen";
             // 
             // ChefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.Chef_pnlVoorraad);
             this.Controls.Add(this.Chef_pnlOverzicht);
             this.Controls.Add(this.Chef_pnlGereed);
+            this.Controls.Add(this.Chef_pnlVoorraad);
             this.Controls.Add(this.Chef_pnlTop);
             this.Controls.Add(this.Chef_pnlLeft);
             this.Name = "ChefForm";
@@ -701,8 +768,9 @@
             this.Chef_pnlFirstOrder.PerformLayout();
             this.Chef_pnlVoorraad.ResumeLayout(false);
             this.Chef_pnlGereed.ResumeLayout(false);
-            this.Chef_pnlOpmerkingen2.ResumeLayout(false);
-            this.Chef_pnlOpmerkingen2.PerformLayout();
+            this.Chef_pnlOrderGereed.ResumeLayout(false);
+            this.Chef_pnlOpmerkingenGereed.ResumeLayout(false);
+            this.Chef_pnlOpmerkingenGereed.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -742,10 +810,9 @@
         private System.Windows.Forms.Label Chef_lblOpmerkingenContent;
         private System.Windows.Forms.Button Chef_btnVoorraad;
         private System.Windows.Forms.Panel Chef_pnlGereed;
-        private System.Windows.Forms.Panel Chef_pnlOpmerkingen2;
-        private System.Windows.Forms.Label Chef_lblOpmerkingenContent2;
-        private System.Windows.Forms.Label Chef_lblOpmerkingeng2;
-        private System.Windows.Forms.Panel Chef_pnlOrders;
+        private System.Windows.Forms.Panel Chef_pnlOpmerkingenGereed;
+        private System.Windows.Forms.Label Chef_lblOpmerkingenContentGereed;
+        private System.Windows.Forms.Label Chef_lblOpmerkingengGereed;
         private System.Windows.Forms.Label Chef_lblBesteldOpFirst;
         private System.Windows.Forms.Label Chef_lblTafelFirst;
         private System.Windows.Forms.Label Chef_lblBesteldOpFourth;
@@ -756,5 +823,11 @@
         private System.Windows.Forms.Label Chef_lblTafelSecond;
         private System.Windows.Forms.Button Chef_btnDiner;
         private System.Windows.Forms.Button Chef_btnLunch;
+        private System.Windows.Forms.Panel Chef_pnlOrderGereed;
+        private System.Windows.Forms.ListView Chef_lvGereed;
+        private System.Windows.Forms.ColumnHeader Chef_chTafel;
+        private System.Windows.Forms.ColumnHeader Chef_chTijdKlaar;
+        private System.Windows.Forms.ListView Chef_lvOrderGereed;
+        private System.Windows.Forms.Button Chef_btnTerugzetten;
     }
 }

@@ -96,16 +96,18 @@ namespace Ui
                         Chef_lblGeenBestellingen.Show();
                         break;
                     case 1:
-                        FillFirstOrder(orders[0]);
+                        FillOrder(orders[0], Chef_pnlFirstOrder, Chef_lvFirst, Chef_lblTafelFirst, Chef_lblBesteldOpFirst);
+                        Chef_lvFirst.Items[0].Selected = true;
+                        Chef_pnlOpmerkingen.Show();
                         break;
                     case 2:
-                        FillSecondOrder(orders[1]);
+                        FillOrder(orders[1], Chef_pnlSecondOrder, Chef_lvSecond, Chef_lblTafelSecond, Chef_lblBesteldOpSecond);
                         goto case 1;
                     case 3:
-                        FillThirdOrder(orders[2]);
+                        FillOrder(orders[2], Chef_pnlThirdOrder, Chef_lvThird, Chef_lblTafelThird, Chef_lblBesteldOpThird);
                         goto case 2;
                     case 4:
-                        FillFourthOrder(orders[3]);
+                        FillOrder(orders[3], Chef_pnlFourthOrder, Chef_lvFourth, Chef_lblTafelFourth, Chef_lblBesteldOpFourth);
                         goto case 3;
                     default:
                         ShowOverflow(orders.Count - 4);
@@ -122,7 +124,7 @@ namespace Ui
                 // Get all unprocessed orders
                 orders = order_service
                         .GetAllOrders()
-                        .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
+                        .Where(order => order.Dishes.Any(dish => !dish.Finished))
                         .Where(order => order.Dishes.Count > 0)
                         .ToList();
 
@@ -130,54 +132,22 @@ namespace Ui
             }).Start();
         }
 
-        private void FillFirstOrder(Order order)
+        private void FillOrder(Order order, Panel panel, ListView lv, Label table, Label ordered)
         {
-            Chef_lblOpmerkingenContent.Text = order.Dishes[0].Comment;
-            Chef_pnlOpmerkingen.Show();
-            Chef_lvFirst.Clear();
-            Chef_lblTafelFirst.Text = $"Tafel: {order.TableId}";
-            Chef_lblBesteldOpFirst.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
+            lv.Items.Clear();
+            table.Text = $"Tafel: {order.TableId}";
+            ordered.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Dish dish in order.Dishes)
-                Chef_lvFirst.Items.Add(new ListViewItem(dish.Name));
+                if (!dish.Finished)
+                {
+                    ListViewItem li = new ListViewItem(dish.Name);
 
-            Chef_pnlFirstOrder.Show();
-        }
+                    li.Tag = dish;
+                    lv.Items.Add(li);
+                }
 
-        private void FillSecondOrder(Order order)
-        {
-            Chef_lvSecond.Clear();
-            Chef_lblTafelSecond.Text = $"Tafel: {order.TableId}";
-            Chef_lblBesteldOpSecond.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
-
-            foreach (Dish dish in order.Dishes)
-                Chef_lvSecond.Items.Add(new ListViewItem(dish.Name));
-
-            Chef_pnlSecondOrder.Show();
-        }
-
-        private void FillThirdOrder(Order order)
-        {
-            Chef_lvThird.Clear();
-            Chef_lblTafelThird.Text = $"Tafel: {order.TableId}";
-            Chef_lblBesteldOpThird.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
-
-            foreach (Dish dish in order.Dishes)
-                Chef_lvThird.Items.Add(new ListViewItem(dish.Name));
-
-            Chef_pnlThirdOrder.Show();
-        }
-
-        private void FillFourthOrder(Order order)
-        {
-            Chef_lvFourth.Clear();
-            Chef_lblTafelFourth.Text = $"Tafel: {order.TableId}";
-            Chef_lblBesteldOpFourth.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
-
-            foreach (Dish dish in order.Dishes)
-                Chef_lvFourth.Items.Add(new ListViewItem(dish.Name));
-
-            Chef_pnlFourthOrder.Show();
+            panel.Show();
         }
 
         private void ShowOverflow(int count)
@@ -186,89 +156,112 @@ namespace Ui
             Chef_lblOverflow.Text = string.Format("+ {0}", count);
         }
 
+        // Only the first order can be marked as ready.
+        private void Chef_btnFirstKlaar_Click(object sender, EventArgs e)
+        {
+            Order order = orders[0];
+
+            foreach (int idx in Chef_lvFirst.SelectedIndices)
+            {
+                Dish dish = order.Dishes[idx];
+
+                dish_service.ModifyFinished(order, dish, true);
+            }
+
+            order.TimeFinished = DateTime.Now;
+            order_service.ModifyOrder(order);
+            OnTimedEvent(null, null);
+
+            MessageBox.Show("De bestelling is gereed gemeld", "Gereed gemeld!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Chef_order_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView lv = (ListView)sender;
+
+            if (lv.SelectedItems.Count != 0)
+            {
+                Dish dish = (Dish)lv.SelectedItems[0].Tag;
+
+                if (dish.Comment.Length != 0)
+                    Chef_lblOpmerkingenContent.Text = dish.Comment;
+                else
+                    Chef_lblOpmerkingenContent.Text = "Geen opmerkingen";
+            }
+        }
+
         private void Chef_btnGereed_Click(object sender, EventArgs e)
         {
             SetHightlight(Chef_btnGereed);
             Chef_lblActivePanel.Text = "Gereed";
             Refresh();
-
-            // Get all orders that are ready/served
-            List<Order> orders = order_service
-                .GetAllOrders()
-                .Where(order => order.State == OrderState.Done || order.State == OrderState.Served)
-                .ToList();
-
             HideAllPanels();
             Chef_pnlGereed.Show();
-            Chef_pnlOrders.Controls.Clear();
+            Chef_lvGereed.Items.Clear();
 
-            int y = 0;
+            List<Order> orders = order_service
+                .GetAllOrders()
+                .Where(order => order.Dishes.Any(dish => dish.Finished))
+                .ToList();
 
-            // Create a new panel and list view for each order and add them to Chef_pnlOrders
-            for (int i = 0; i < orders.Count; i++)
+            foreach (Order order in orders)
             {
-                Order order = orders[i];
-                Panel pnl_order = CreateOrderPanel(i, y);
-                ListView lv_order = CreateOrderListView(i);
+                ListViewItem li = new ListViewItem(order.TableId.ToString());
 
-                pnl_order.Controls.Add(lv_order);
+                li.SubItems.Add(order.TimeFinished.ToString("hh:mm"));
+                li.Tag = order;
+
+                Chef_lvGereed.Items.Add(li);
+            }
+
+            if (orders.Count != 0)
+                Chef_lvGereed.Items[0].Selected = true;
+        }
+
+        private void Chef_lvGereed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Chef_lvGereed.SelectedItems.Count != 0)
+            {
+                Order order = (Order)Chef_lvGereed.SelectedItems[0].Tag;
+
+                Chef_lvOrderGereed.Items.Clear();
 
                 foreach (Dish dish in order.Dishes)
-                {
-                    ListViewItem li = new ListViewItem(dish.Name);
+                    if (dish.Finished)
+                    {
+                        ListViewItem li = new ListViewItem(dish.Name);
 
-                    li.Tag = dish;
-                    lv_order.Items.Add(li);
-                }
+                        li.Tag = dish;
+                        Chef_lvOrderGereed.Items.Add(li);
+                    }
 
-                lv_order.SelectedIndexChanged += ListViewGereed_IndexChanged;
-                Chef_pnlOrders.Controls.Add(pnl_order);
-
-                y += 503;
+                if (order.Dishes.Count != 0)
+                    Chef_lvOrderGereed.Items[0].Selected = true;
             }
         }
 
-        // Create a new panel for the "Gereed" tab.
-        private Panel CreateOrderPanel(int i, int y)
+        private void Chef_lvOrderGereed_SelectedIndexChanged(object sender, EventArgs e)
         {
-            return new Panel
+            if (Chef_lvOrderGereed.SelectedItems.Count != 0)
             {
-                BackColor = Color.FromArgb(250, 253, 255),
-                BorderStyle = BorderStyle.FixedSingle,
-                Location = new Point(0, y),
-                Name = $"Chef_pnlOrder_{i}",
-                Size = new Size(456, 483)
-            };
-        }
+                Dish dish = (Dish)Chef_lvOrderGereed.SelectedItems[0].Tag;
 
-        // Create a new list view for the "Gereed" tab.
-        private ListView CreateOrderListView(int i)
-        {
-            return new ListView()
-            {
-                BackColor = Color.FromArgb(250, 253, 255),
-                BorderStyle = BorderStyle.None,
-                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0),
-                HideSelection = false,
-                Location = new Point(0, 0),
-                Margin = new Padding(0),
-                Name = $"Chef_lvOrder_{i}",
-                Size = new Size(454, 481),
-                View = View.List,
-            };
-        }
-
-        private void ListViewGereed_IndexChanged(object sender, EventArgs e)
-        {
-            ListView lv_order = (ListView)sender;
-
-            if (lv_order.SelectedItems.Count > 0)
-            {
-                ListViewItem li = lv_order.SelectedItems[0];
-                Dish dish = (Dish)li.Tag;
-
-                Chef_lblOpmerkingenContent2.Text = dish.Comment;
+                if (dish.Comment.Length != 0)
+                    Chef_lblOpmerkingenContentGereed.Text = dish.Comment;
+                else
+                    Chef_lblOpmerkingenContentGereed.Text = "Geen opmerkingen";
             }
+        }
+
+        private void Chef_btnTerugzetten_Click(object sender, EventArgs e)
+        {
+            Order order = (Order)Chef_lvGereed.SelectedItems[0].Tag;
+
+            foreach (Dish dish in order.Dishes)
+                if (dish.Finished)
+                    dish_service.ModifyFinished(order, dish, false);
+
+            Chef_btnGereed_Click(null, null);
         }
 
         private void Chef_btnVoorraad_Click(object sender, EventArgs e)
@@ -280,19 +273,6 @@ namespace Ui
             Refresh();
 
             Chef_btnLunch_Click(null, null);
-        }
-
-        // Only the first order can be marked as ready.
-        private void Chef_btnFirstKlaar_Click(object sender, EventArgs e)
-        {
-            Order order = orders[0];
-
-            order.TimeFinished = DateTime.Now;
-            order.State = OrderState.Done;
-            order_service.ModifyOrder(order);
-            OnTimedEvent(null, null);
-
-            MessageBox.Show("De bestelling is gereed gemeld", "Gereed gemeld!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Chef_lvVoorraad_ColumnClicck(object sender, ColumnClickEventArgs e)
@@ -319,18 +299,6 @@ namespace Ui
             }
 
             lv.Sort();
-        }
-
-        private void OnClosed(object sender, FormClosedEventArgs e)
-        {
-            timer.Stop();
-            timer.Dispose();
-            timer = null;
-        }
-
-        private void Chef_btnUitloggen_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void Chef_btnLunch_Click(object sender, EventArgs e)
@@ -373,6 +341,18 @@ namespace Ui
 
                 Chef_lvVoorraad.Items.Add(li);
             }
+        }
+
+        private void OnClosed(object sender, FormClosedEventArgs e)
+        {
+            timer.Stop();
+            timer.Dispose();
+            timer = null;
+        }
+
+        private void Chef_btnUitloggen_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

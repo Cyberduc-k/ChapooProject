@@ -49,7 +49,7 @@ namespace Dao
         public List<Dish> GetAllForOrder(int orderId)
         {
             string query =
-                "SELECT D.[id], D.[name], D.[description], D.[ingredients], D.[price], D.[stock], D.[category] " +
+                "SELECT D.[id], D.[name], D.[description], D.[ingredients], D.[price], D.[stock], D.[category], OD.[finished], OD.[comment] " +
                 "FROM [dbo].[Dishes] AS D " +
                 "JOIN [dbo].[Order_has_dish] AS OD ON OD.[dishId] = D.[id] " +
                 "WHERE OD.[orderId] = @orderId";
@@ -150,6 +150,22 @@ namespace Dao
             ExecuteEditQuery(query, parameters);
         }
 
+        public void ModifyFinished(Order order, Dish dish, bool finished)
+        {
+            string query =
+                "UPDATE [dbo].[Order_has_dish] " +
+                "SET [finished] = @finished " +
+                "WHERE [orderId] = @orderId AND [dishId] = @dishId";
+            SqlParameter[] parameters = new SqlParameter[3]
+            {
+                new SqlParameter("@finished", finished),
+                new SqlParameter("@orderId", order.Id),
+                new SqlParameter("@dishId", dish.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
         // Convert the raw database data into a list of Dish objects
         private List<Dish> ReadAll(DataTable dataTable)
         {
@@ -171,8 +187,16 @@ namespace Dao
             double price = (double)dataRow["price"];
             int stock = (int)dataRow["stock"];
             DishCategory category = (DishCategory)int.Parse(dataRow["category"].ToString());
+            
+            if (dataRow.Table.Columns.Contains("finished") && !dataRow.IsNull("finished"))
+            {
+                bool finished = (bool)dataRow["finished"];
+                string comment = dataRow.IsNull("comment") ? "" : (string)dataRow["comment"];
 
-            return new Dish(id, name, description, ingredients, price, stock, category);
+                return new Dish(id, name, description, ingredients, price, stock, category, finished, comment);
+            }
+            else
+                return new Dish(id, name, description, ingredients, price, stock, category);
         }
     }
 }
