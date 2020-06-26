@@ -90,7 +90,7 @@ namespace Ui
 
         private void FillFirstOrder(Order order)
         {
-            Bar_lblOpmerkingenContent.Text = order.Comment;
+            Bar_lblOpmerkingenContent.Text = order.Drinks[0].Comment;
             Bar_pnlOpmerkingen.Show();
             Bar_lvFirst.Clear();
             Bar_lblTafelFirst.Text = $"Tafel: {order.TableId}";

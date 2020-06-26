@@ -16,7 +16,6 @@ namespace Model
         public int EmployeeId { get; set; }
         public int TableId { get; set; }
         public OrderState State { get; set; }
-        public string Comment { get; }
 
         public double TotalPrice
         {

@@ -22,7 +22,7 @@ namespace Dao
         public List<Order> GetAllForBill(int billId)
         {
             string query =
-                "SELECT [D].[id], [D].[comment], [D].[orderState], [D].[timeOrdering], [D].[timeFinished], [D].[tableId], [D].[employeeId] " +
+                "SELECT [D].[id], [D].[orderState], [D].[timeOrdering], [D].[timeFinished], [D].[tableId], [D].[employeeId] " +
                 "FROM [dbo].[Orders] AS D " +
                 "JOIN [dbo].[Bill_has_Order] AS B ON B.[orderId] = D.[id] " +
                 "WHERE B.[billId] = @billId";
@@ -38,10 +38,9 @@ namespace Dao
         public void Add(Order order)
         {
             string query = "INSERT INTO [dbo].[Orders] " +
-                "([comment],[orderState],[timeOrdering], [timeFinished], [tableId], [employeeId]) VALUES (@comment, @orderState, @timeOrdering, @timeFinished, @tableId, @employeeId)";
-            SqlParameter[] parameters = new SqlParameter[6]
+                "([orderState], [timeOrdering], [timeFinished], [tableId], [employeeId]) VALUES (@orderState, @timeOrdering, @timeFinished, @tableId, @employeeId)";
+            SqlParameter[] parameters = new SqlParameter[5]
             {
-                new SqlParameter("@comment", order.Comment),
                 new SqlParameter("@orderState", order.State),
                 new SqlParameter("@timeOrdering", order.TimeOrdering.TimeOfDay),
                 new SqlParameter("@timeFinished", order.TimeFinished.TimeOfDay),
@@ -117,11 +116,10 @@ namespace Dao
         public void Modify(Order order)
         {
             string query = "UPDATE [dbo].[Orders] SET " +
-                "[comment] = @comment, [orderState] = @orderState, [timeOrdering] = @timeOrdering, [timeFinished] = @timeFinished, [tableId] = @tableId, [employeeId] = @employeeId " +
+                "[orderState] = @orderState, [timeOrdering] = @timeOrdering, [timeFinished] = @timeFinished, [tableId] = @tableId, [employeeId] = @employeeId " +
                 "WHERE [id] = @id";
-            SqlParameter[] parameters = new SqlParameter[7]
+            SqlParameter[] parameters = new SqlParameter[6]
             {
-                new SqlParameter("@comment", order.Comment),
                 new SqlParameter("@orderState", order.State),
                 new SqlParameter("@timeOrdering", order.TimeOrdering.TimeOfDay),
                 new SqlParameter("@timeFinished", order.TimeFinished.TimeOfDay),

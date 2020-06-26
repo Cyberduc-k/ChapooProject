@@ -132,7 +132,7 @@ namespace Ui
 
         private void FillFirstOrder(Order order)
         {
-            Chef_lblOpmerkingenContent.Text = order.Comment;
+            Chef_lblOpmerkingenContent.Text = order.Dishes[0].Comment;
             Chef_pnlOpmerkingen.Show();
             Chef_lvFirst.Clear();
             Chef_lblTafelFirst.Text = $"Tafel: {order.TableId}";
@@ -217,12 +217,11 @@ namespace Ui
                 {
                     ListViewItem li = new ListViewItem(dish.Name);
 
-                    li.Tag = order;
+                    li.Tag = dish;
                     lv_order.Items.Add(li);
                 }
 
                 lv_order.SelectedIndexChanged += ListViewGereed_IndexChanged;
-
                 Chef_pnlOrders.Controls.Add(pnl_order);
 
                 y += 503;
@@ -266,9 +265,9 @@ namespace Ui
             if (lv_order.SelectedItems.Count > 0)
             {
                 ListViewItem li = lv_order.SelectedItems[0];
-                Order order = (Order)li.Tag;
+                Dish dish = (Dish)li.Tag;
 
-                Chef_lblOpmerkingenContent2.Text = order.Comment;
+                Chef_lblOpmerkingenContent2.Text = dish.Comment;
             }
         }
 
@@ -290,6 +289,13 @@ namespace Ui
 
                 li.SubItems.Add(dish.Stock.ToString());
                 li.SubItems.Add(dish.Price.ToString("€ 0.00"));
+
+                if (dish.Stock <= 0)
+                    li.BackColor = Color.FromArgb(255, 0, 0);
+                else if (dish.Stock <= 10)
+                    li.BackColor = Color.FromArgb(255, 255, 0);
+                else
+                    li.BackColor = Color.FromArgb(0, 255, 0);
 
                 Chef_lvVoorraad.Items.Add(li);
             }

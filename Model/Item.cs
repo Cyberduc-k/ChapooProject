@@ -13,6 +13,8 @@ namespace Model
         public string Name { get; }
         public double Price { get; }
         public int Stock { get; set; }
+        public bool Finished { get; set; }
+        public string Comment { get; set; }
 
         public Item(int id, string name, double price, int stock)
         {
@@ -20,6 +22,7 @@ namespace Model
             Name = name;
             Price = price;
             Stock = stock;
+            Finished = false;
         }
 
         public Item(string name, double price, int stock)
