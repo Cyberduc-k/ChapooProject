@@ -83,7 +83,7 @@ namespace Ui
                 }
                 if (order.Dishes == null)
                 {
-                    order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started, "");
+                    order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started);
                     product.Dish.Description = opmerkingenTxt.Text;
                     order.Dishes.Add(product.Dish);
                 }
@@ -102,7 +102,7 @@ namespace Ui
                 }
                 if (order.Drinks == null)
                 {
-                    order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started, "");
+                    order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started);
                     order.Drinks.Add(product.Drink);
                 }
                 else

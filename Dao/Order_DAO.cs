@@ -12,7 +12,7 @@ namespace Dao
         public List<Order> GetAll()
         {
             string query =
-                "SELECT [id], [comment], [orderState], [timeOrdering], [timeFinished], [tableId], [employeeId] " +
+                "SELECT [id], [orderState], [timeOrdering], [timeFinished], [tableId], [employeeId] " +
                 "FROM [dbo].[Orders]";
             SqlParameter[] parameters = new SqlParameter[0];
 
@@ -153,14 +153,13 @@ namespace Dao
             int employeeId = int.Parse(dataRow["employeeId"].ToString());
             int tableId = int.Parse(dataRow["tableId"].ToString());
             OrderState state = (OrderState)int.Parse(dataRow["orderState"].ToString());
-            string comment = dataRow["comment"].ToString();
 
             DateTime timeOrdering;
             DateTime.TryParse(dataRow["timeOrdering"].ToString(), out timeOrdering);
             DateTime timeFinished;
             DateTime.TryParse(dataRow["timeFinished"].ToString(), out timeFinished);
 
-            return new Order(id, timeOrdering, timeFinished, dishes, drinks, employeeId, tableId, state, comment);
+            return new Order(id, timeOrdering, timeFinished, dishes, drinks, employeeId, tableId, state);
         }
     }
 }

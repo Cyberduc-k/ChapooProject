@@ -34,7 +34,7 @@ namespace Model
             }
         }
 
-        public Order(int id, DateTime timeOrdering, DateTime timeFinished, List<Dish> dishes, List<Drink> drinks, int employeeId, int tableId, OrderState state, string comment)
+        public Order(int id, DateTime timeOrdering, DateTime timeFinished, List<Dish> dishes, List<Drink> drinks, int employeeId, int tableId, OrderState state)
         {
             Id = id;
             TimeOrdering = timeOrdering;
@@ -44,7 +44,6 @@ namespace Model
             EmployeeId = employeeId;
             TableId = tableId;
             State = state;
-            Comment = comment;
         }
 
         public Order()
