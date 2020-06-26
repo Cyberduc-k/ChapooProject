@@ -275,30 +275,11 @@ namespace Ui
         {
             SetHightlight(Chef_btnVoorraad);
             Chef_lblActivePanel.Text = "Voorraad";
-            Refresh();
-
-            List<Dish> dishes = dish_service.GetAllDishes();
-
             HideAllPanels();
             Chef_pnlVoorraad.Show();
-            Chef_lvVoorraad.Items.Clear();
+            Refresh();
 
-            foreach (Dish dish in dishes)
-            {
-                ListViewItem li = new ListViewItem(dish.Name);
-
-                li.SubItems.Add(dish.Stock.ToString());
-                li.SubItems.Add(dish.Price.ToString("€ 0.00"));
-
-                if (dish.Stock <= 0)
-                    li.BackColor = Color.FromArgb(255, 0, 0);
-                else if (dish.Stock <= 10)
-                    li.BackColor = Color.FromArgb(255, 255, 0);
-                else
-                    li.BackColor = Color.FromArgb(0, 255, 0);
-
-                Chef_lvVoorraad.Items.Add(li);
-            }
+            Chef_btnLunch_Click(null, null);
         }
 
         // Only the first order can be marked as ready.
@@ -350,6 +331,48 @@ namespace Ui
         private void Chef_btnUitloggen_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Chef_btnLunch_Click(object sender, EventArgs e)
+        {
+            Chef_btnLunch.BackColor = Color.FromArgb(0, 184, 255);
+            Chef_btnDiner.BackColor = Color.FromArgb(0, 165, 229);
+
+            List<Dish> dishes = dish_service.GetAllLunch();
+
+            FillStock(dishes);
+        }
+
+        private void Chef_btnDiner_Click(object sender, EventArgs e)
+        {
+            Chef_btnLunch.BackColor = Color.FromArgb(0, 165, 229);
+            Chef_btnDiner.BackColor = Color.FromArgb(0, 184, 255);
+
+            List<Dish> dishes = dish_service.GetAllDinner();
+
+            FillStock(dishes);
+        }
+
+        private void FillStock(List<Dish> dishes)
+        {
+            Chef_lvVoorraad.Items.Clear();
+
+            foreach (Dish dish in dishes)
+            {
+                ListViewItem li = new ListViewItem(dish.Name);
+
+                li.SubItems.Add(dish.Stock.ToString());
+                li.SubItems.Add(dish.Price.ToString("€ 0.00"));
+
+                if (dish.Stock <= 0)
+                    li.BackColor = Color.FromArgb(255, 0, 0);
+                else if (dish.Stock <= 10)
+                    li.BackColor = Color.FromArgb(255, 255, 0);
+                else
+                    li.BackColor = Color.FromArgb(0, 255, 0);
+
+                Chef_lvVoorraad.Items.Add(li);
+            }
         }
     }
 }

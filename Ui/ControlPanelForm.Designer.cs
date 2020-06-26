@@ -95,7 +95,7 @@
             this.CP_btnMedewerkers.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnMedewerkers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_btnMedewerkers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_btnMedewerkers.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_btnMedewerkers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnMedewerkers.ForeColor = System.Drawing.Color.White;
             this.CP_btnMedewerkers.Location = new System.Drawing.Point(0, 216);
             this.CP_btnMedewerkers.Name = "CP_btnMedewerkers";
@@ -112,7 +112,7 @@
             this.CP_btnInkomsten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnInkomsten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_btnInkomsten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_btnInkomsten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_btnInkomsten.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnInkomsten.ForeColor = System.Drawing.Color.White;
             this.CP_btnInkomsten.Location = new System.Drawing.Point(0, 166);
             this.CP_btnInkomsten.Name = "CP_btnInkomsten";
@@ -129,7 +129,7 @@
             this.CP_btnUitloggen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnUitloggen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_btnUitloggen.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_btnUitloggen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnUitloggen.ForeColor = System.Drawing.Color.White;
             this.CP_btnUitloggen.Location = new System.Drawing.Point(0, 474);
             this.CP_btnUitloggen.Name = "CP_btnUitloggen";
@@ -146,7 +146,7 @@
             this.CP_btnMenukaarten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnMenukaarten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_btnMenukaarten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_btnMenukaarten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_btnMenukaarten.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnMenukaarten.ForeColor = System.Drawing.Color.White;
             this.CP_btnMenukaarten.Location = new System.Drawing.Point(0, 116);
             this.CP_btnMenukaarten.Name = "CP_btnMenukaarten";
@@ -163,7 +163,7 @@
             this.CP_btnVoorraad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnVoorraad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_btnVoorraad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_btnVoorraad.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_btnVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_btnVoorraad.ForeColor = System.Drawing.Color.White;
             this.CP_btnVoorraad.Location = new System.Drawing.Point(0, 66);
             this.CP_btnVoorraad.Name = "CP_btnVoorraad";
@@ -198,11 +198,11 @@
             // CP_lblActivePanel
             // 
             this.CP_lblActivePanel.AutoSize = true;
-            this.CP_lblActivePanel.Font = new System.Drawing.Font("Roboto", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_lblActivePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_lblActivePanel.ForeColor = System.Drawing.Color.White;
             this.CP_lblActivePanel.Location = new System.Drawing.Point(366, 7);
             this.CP_lblActivePanel.Name = "CP_lblActivePanel";
-            this.CP_lblActivePanel.Size = new System.Drawing.Size(160, 42);
+            this.CP_lblActivePanel.Size = new System.Drawing.Size(159, 39);
             this.CP_lblActivePanel.TabIndex = 0;
             this.CP_lblActivePanel.Text = "Voorraad";
             // 
@@ -215,7 +215,7 @@
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnLunchgerechten);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnDinergerechten);
             this.CP_pnlVoorraad.Controls.Add(this.CP_Voorraad_btnDranken);
-            this.CP_pnlVoorraad.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_pnlVoorraad.Location = new System.Drawing.Point(151, 66);
             this.CP_pnlVoorraad.Name = "CP_pnlVoorraad";
             this.CP_pnlVoorraad.Size = new System.Drawing.Size(857, 471);
@@ -228,7 +228,7 @@
             this.CP_Voorraad_btnEmptyItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnEmptyItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.CP_Voorraad_btnEmptyItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Voorraad_btnEmptyItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Voorraad_btnEmptyItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Voorraad_btnEmptyItem.ForeColor = System.Drawing.Color.White;
             this.CP_Voorraad_btnEmptyItem.Location = new System.Drawing.Point(435, 409);
             this.CP_Voorraad_btnEmptyItem.Name = "CP_Voorraad_btnEmptyItem";
@@ -245,7 +245,7 @@
             this.CP_Voorraad_btnEditItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnEditItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Voorraad_btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Voorraad_btnEditItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Voorraad_btnEditItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Voorraad_btnEditItem.ForeColor = System.Drawing.Color.White;
             this.CP_Voorraad_btnEditItem.Location = new System.Drawing.Point(7, 409);
             this.CP_Voorraad_btnEditItem.Name = "CP_Voorraad_btnEditItem";
@@ -274,7 +274,7 @@
             this.CP_Voorraad_btnLunchgerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnLunchgerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Voorraad_btnLunchgerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Voorraad_btnLunchgerechten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Voorraad_btnLunchgerechten.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Voorraad_btnLunchgerechten.ForeColor = System.Drawing.Color.White;
             this.CP_Voorraad_btnLunchgerechten.Location = new System.Drawing.Point(289, 0);
             this.CP_Voorraad_btnLunchgerechten.Name = "CP_Voorraad_btnLunchgerechten";
@@ -290,7 +290,7 @@
             this.CP_Voorraad_btnDinergerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnDinergerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Voorraad_btnDinergerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Voorraad_btnDinergerechten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Voorraad_btnDinergerechten.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Voorraad_btnDinergerechten.ForeColor = System.Drawing.Color.White;
             this.CP_Voorraad_btnDinergerechten.Location = new System.Drawing.Point(570, 0);
             this.CP_Voorraad_btnDinergerechten.Name = "CP_Voorraad_btnDinergerechten";
@@ -306,7 +306,7 @@
             this.CP_Voorraad_btnDranken.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnDranken.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Voorraad_btnDranken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Voorraad_btnDranken.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Voorraad_btnDranken.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Voorraad_btnDranken.ForeColor = System.Drawing.Color.White;
             this.CP_Voorraad_btnDranken.Location = new System.Drawing.Point(6, 0);
             this.CP_Voorraad_btnDranken.Name = "CP_Voorraad_btnDranken";
@@ -336,7 +336,7 @@
             this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnEdit);
             this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_btnNieuweMedewerker);
             this.CP_pnlMedewerkers.Controls.Add(this.CP_Medewerkers_listView);
-            this.CP_pnlMedewerkers.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlMedewerkers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_pnlMedewerkers.Location = new System.Drawing.Point(151, 66);
             this.CP_pnlMedewerkers.Name = "CP_pnlMedewerkers";
             this.CP_pnlMedewerkers.Size = new System.Drawing.Size(857, 471);
@@ -349,7 +349,7 @@
             this.CP_Medewerkers_btnVerwijderen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Medewerkers_btnVerwijderen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.CP_Medewerkers_btnVerwijderen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Medewerkers_btnVerwijderen.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnVerwijderen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Medewerkers_btnVerwijderen.ForeColor = System.Drawing.Color.White;
             this.CP_Medewerkers_btnVerwijderen.Location = new System.Drawing.Point(643, 409);
             this.CP_Medewerkers_btnVerwijderen.Name = "CP_Medewerkers_btnVerwijderen";
@@ -366,7 +366,7 @@
             this.CP_Medewerkers_btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Medewerkers_btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Medewerkers_btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Medewerkers_btnEdit.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Medewerkers_btnEdit.ForeColor = System.Drawing.Color.White;
             this.CP_Medewerkers_btnEdit.Location = new System.Drawing.Point(325, 409);
             this.CP_Medewerkers_btnEdit.Name = "CP_Medewerkers_btnEdit";
@@ -382,7 +382,7 @@
             this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Medewerkers_btnNieuweMedewerker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Medewerkers_btnNieuweMedewerker.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Medewerkers_btnNieuweMedewerker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Medewerkers_btnNieuweMedewerker.ForeColor = System.Drawing.Color.White;
             this.CP_Medewerkers_btnNieuweMedewerker.Location = new System.Drawing.Point(7, 409);
             this.CP_Medewerkers_btnNieuweMedewerker.Name = "CP_Medewerkers_btnNieuweMedewerker";
@@ -415,7 +415,7 @@
             this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_btnEditItem);
             this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_btnNewItem);
             this.CP_pnlMenukaarten.Controls.Add(this.CP_Menukaarten_listView);
-            this.CP_pnlMenukaarten.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlMenukaarten.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_pnlMenukaarten.Location = new System.Drawing.Point(151, 66);
             this.CP_pnlMenukaarten.Name = "CP_pnlMenukaarten";
             this.CP_pnlMenukaarten.Size = new System.Drawing.Size(857, 471);
@@ -427,7 +427,7 @@
             this.CP_Menukaarten_btnLunchgerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnLunchgerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Menukaarten_btnLunchgerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Menukaarten_btnLunchgerechten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnLunchgerechten.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Menukaarten_btnLunchgerechten.ForeColor = System.Drawing.Color.White;
             this.CP_Menukaarten_btnLunchgerechten.Location = new System.Drawing.Point(289, 3);
             this.CP_Menukaarten_btnLunchgerechten.Name = "CP_Menukaarten_btnLunchgerechten";
@@ -443,7 +443,7 @@
             this.CP_Menukaarten_btnDinergerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnDinergerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Menukaarten_btnDinergerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Menukaarten_btnDinergerechten.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnDinergerechten.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Menukaarten_btnDinergerechten.ForeColor = System.Drawing.Color.White;
             this.CP_Menukaarten_btnDinergerechten.Location = new System.Drawing.Point(570, 3);
             this.CP_Menukaarten_btnDinergerechten.Name = "CP_Menukaarten_btnDinergerechten";
@@ -459,7 +459,7 @@
             this.CP_Menukaarten_btnDranken.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnDranken.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Menukaarten_btnDranken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Menukaarten_btnDranken.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnDranken.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Menukaarten_btnDranken.ForeColor = System.Drawing.Color.White;
             this.CP_Menukaarten_btnDranken.Location = new System.Drawing.Point(6, 3);
             this.CP_Menukaarten_btnDranken.Name = "CP_Menukaarten_btnDranken";
@@ -476,7 +476,7 @@
             this.CP_Menukaarten_btnDeleteItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnDeleteItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.CP_Menukaarten_btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Menukaarten_btnDeleteItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnDeleteItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Menukaarten_btnDeleteItem.ForeColor = System.Drawing.Color.White;
             this.CP_Menukaarten_btnDeleteItem.Location = new System.Drawing.Point(643, 409);
             this.CP_Menukaarten_btnDeleteItem.Name = "CP_Menukaarten_btnDeleteItem";
@@ -493,7 +493,7 @@
             this.CP_Menukaarten_btnEditItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnEditItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Menukaarten_btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Menukaarten_btnEditItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnEditItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Menukaarten_btnEditItem.ForeColor = System.Drawing.Color.White;
             this.CP_Menukaarten_btnEditItem.Location = new System.Drawing.Point(325, 409);
             this.CP_Menukaarten_btnEditItem.Name = "CP_Menukaarten_btnEditItem";
@@ -509,7 +509,7 @@
             this.CP_Menukaarten_btnNewItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnNewItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Menukaarten_btnNewItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Menukaarten_btnNewItem.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Menukaarten_btnNewItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Menukaarten_btnNewItem.ForeColor = System.Drawing.Color.White;
             this.CP_Menukaarten_btnNewItem.Location = new System.Drawing.Point(7, 409);
             this.CP_Menukaarten_btnNewItem.Name = "CP_Menukaarten_btnNewItem";
@@ -528,7 +528,7 @@
             this.CP_pnlInkomsten.Controls.Add(this.label1);
             this.CP_pnlInkomsten.Controls.Add(this.CP_Inkomsten_btnApply);
             this.CP_pnlInkomsten.Controls.Add(this.CP_Inkomsten_listView);
-            this.CP_pnlInkomsten.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_pnlInkomsten.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_pnlInkomsten.Location = new System.Drawing.Point(151, 66);
             this.CP_pnlInkomsten.Name = "CP_pnlInkomsten";
             this.CP_pnlInkomsten.Size = new System.Drawing.Size(857, 471);
@@ -540,17 +540,17 @@
             this.CP_Inkomsten_dtpTot.CustomFormat = "MM/dd/yyy";
             this.CP_Inkomsten_dtpTot.Location = new System.Drawing.Point(356, 18);
             this.CP_Inkomsten_dtpTot.Name = "CP_Inkomsten_dtpTot";
-            this.CP_Inkomsten_dtpTot.Size = new System.Drawing.Size(217, 23);
+            this.CP_Inkomsten_dtpTot.Size = new System.Drawing.Size(217, 22);
             this.CP_Inkomsten_dtpTot.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 15F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.label2.Location = new System.Drawing.Point(308, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 24);
+            this.label2.Size = new System.Drawing.Size(47, 25);
             this.label2.TabIndex = 11;
             this.label2.Text = "Tot:";
             // 
@@ -560,17 +560,17 @@
             this.CP_Inkomsten_dtpVan.CustomFormat = "MM/dd/yyyy";
             this.CP_Inkomsten_dtpVan.Location = new System.Drawing.Point(61, 18);
             this.CP_Inkomsten_dtpVan.Name = "CP_Inkomsten_dtpVan";
-            this.CP_Inkomsten_dtpVan.Size = new System.Drawing.Size(217, 23);
+            this.CP_Inkomsten_dtpVan.Size = new System.Drawing.Size(217, 22);
             this.CP_Inkomsten_dtpVan.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 15F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.label1.Location = new System.Drawing.Point(5, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 24);
+            this.label1.Size = new System.Drawing.Size(54, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Van:";
             // 
@@ -580,7 +580,7 @@
             this.CP_Inkomsten_btnApply.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Inkomsten_btnApply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Inkomsten_btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CP_Inkomsten_btnApply.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CP_Inkomsten_btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CP_Inkomsten_btnApply.ForeColor = System.Drawing.Color.White;
             this.CP_Inkomsten_btnApply.Location = new System.Drawing.Point(643, 3);
             this.CP_Inkomsten_btnApply.Name = "CP_Inkomsten_btnApply";
