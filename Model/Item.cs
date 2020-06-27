@@ -15,6 +15,7 @@ namespace Model
         public int Stock { get; set; }
         public bool Finished { get; set; }
         public string Comment { get; set; }
+        public int aantal { get; set; }
 
         public Item(int id, string name, double price, int stock)
         {
