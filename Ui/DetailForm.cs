@@ -80,7 +80,7 @@ namespace Ui
             List<Drink> drinks = new List<Drink>();
             if (product.Dish.Name != null)
             {
-                if (product.Dish.Stock == 0)
+                if (product.Dish.Stock < product.Dish.Aantal)
                 {
                     MessageBox.Show("Niet op voorraad", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -88,18 +88,18 @@ namespace Ui
                 if (order.Dishes == null)
                 {
                     order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started);
-                    product.Dish.Description = opmerkingenTxt.Text;
+                    product.Dish.Comment = opmerkingenTxt.Text;
                     order.Dishes.Add(product.Dish);
                 }
                 else
                 {
-                    product.Dish.Description = opmerkingenTxt.Text;
+                    product.Dish.Comment = opmerkingenTxt.Text;
                     order.Dishes.Add(product.Dish);
                 }
             }
             else if (product.Drink.Name != null)
             {
-                if (product.Drink.Stock == 0)
+                if (product.Drink.Stock < product.Drink.Aantal)
                 {
                     MessageBox.Show("Niet op voorraad", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -107,10 +107,12 @@ namespace Ui
                 if (order.Drinks == null)
                 {
                     order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started);
+                    product.Drink.Comment = opmerkingenTxt.Text;
                     order.Drinks.Add(product.Drink);
                 }
                 else
                 {
+                    product.Drink.Comment = opmerkingenTxt.Text;
                     order.Drinks.Add(product.Drink);
                 }
             }
