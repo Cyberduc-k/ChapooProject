@@ -34,6 +34,10 @@ namespace Model
             Payed = payed;
         }
 
+        public Bill()
+        {
+
+        }
         public double Price
         {
             get

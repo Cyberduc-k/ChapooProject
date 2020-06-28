@@ -17,7 +17,7 @@ namespace Ui
         private Table_Service tableService = new Table_Service();
         private List<Table> tafels;
         private Employee employee;
-
+        private Bill_Service billService = new Bill_Service();
         public OrderForm(Employee employee)
         {
             InitializeComponent();
@@ -36,12 +36,29 @@ namespace Ui
             List<Button> list = new List<Button>();
             int i = 0;
 
+            Bill bill = new Bill();
+
             foreach (Table t in tafels)
             {
+                bill = billService.GetBillByTableId(t.Number);
                 if (t.Occupied)
                 {
                     color = System.Drawing.Color.Red;
-                } 
+                }
+                else if (bill.Orders.Count > 0)
+                {
+                    foreach (Order order in bill.Orders)
+                    {
+                        if (order.State == OrderState.Started)
+                        {
+                            color = System.Drawing.Color.Orange;
+                        }
+                        else if(order.State == OrderState.Done)
+                        {
+                            color = System.Drawing.Color.Yellow;
+                        }
+                    }
+                }
                 else
                 {
                     color = System.Drawing.Color.Green;
