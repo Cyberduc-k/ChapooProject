@@ -57,6 +57,10 @@
             this.Bar_btnFirstKlaar = new System.Windows.Forms.Button();
             this.Bar_lvFirst = new System.Windows.Forms.ListView();
             this.Bar_lblActivePanel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Bar_lblActivePanel1 = new System.Windows.Forms.Label();
             this.Bar_pnlVoorraad.SuspendLayout();
             this.Bar_pnlOverzicht.SuspendLayout();
             this.Bar_pnlOpmerkingen.SuspendLayout();
@@ -65,16 +69,20 @@
             this.Bar_pnlThirdOrder.SuspendLayout();
             this.Bar_pnlSecondOrder.SuspendLayout();
             this.Bar_pnlFirstOrder.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Bar_btnOverzicht
             // 
             this.Bar_btnOverzicht.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Bar_btnOverzicht.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Bar_btnOverzicht.ForeColor = System.Drawing.Color.White;
-            this.Bar_btnOverzicht.Location = new System.Drawing.Point(18, 71);
+            this.Bar_btnOverzicht.Location = new System.Drawing.Point(0, 3);
             this.Bar_btnOverzicht.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bar_btnOverzicht.Name = "Bar_btnOverzicht";
-            this.Bar_btnOverzicht.Size = new System.Drawing.Size(112, 35);
+            this.Bar_btnOverzicht.Size = new System.Drawing.Size(142, 45);
             this.Bar_btnOverzicht.TabIndex = 0;
             this.Bar_btnOverzicht.Text = "Overzicht";
             this.Bar_btnOverzicht.UseVisualStyleBackColor = false;
@@ -82,12 +90,13 @@
             // 
             // Bar_btnVoorraad
             // 
-            this.Bar_btnVoorraad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Bar_btnVoorraad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.Bar_btnVoorraad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Bar_btnVoorraad.ForeColor = System.Drawing.Color.White;
-            this.Bar_btnVoorraad.Location = new System.Drawing.Point(18, 115);
+            this.Bar_btnVoorraad.Location = new System.Drawing.Point(0, 46);
             this.Bar_btnVoorraad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bar_btnVoorraad.Name = "Bar_btnVoorraad";
-            this.Bar_btnVoorraad.Size = new System.Drawing.Size(112, 35);
+            this.Bar_btnVoorraad.Size = new System.Drawing.Size(142, 44);
             this.Bar_btnVoorraad.TabIndex = 3;
             this.Bar_btnVoorraad.Text = "Voorraad";
             this.Bar_btnVoorraad.UseVisualStyleBackColor = false;
@@ -115,6 +124,7 @@
             // 
             // Bar_pnlOverzicht
             // 
+            this.Bar_pnlOverzicht.BackColor = System.Drawing.Color.White;
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_lblGeenBestellingen);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlOpmerkingen);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlOverflow);
@@ -122,6 +132,7 @@
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlThirdOrder);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlSecondOrder);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlFirstOrder);
+            this.Bar_pnlOverzicht.ForeColor = System.Drawing.Color.Black;
             this.Bar_pnlOverzicht.Location = new System.Drawing.Point(140, 71);
             this.Bar_pnlOverzicht.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bar_pnlOverzicht.Name = "Bar_pnlOverzicht";
@@ -344,13 +355,16 @@
             // 
             // Bar_btnFirstKlaar
             // 
+            this.Bar_btnFirstKlaar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Bar_btnFirstKlaar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Bar_btnFirstKlaar.ForeColor = System.Drawing.Color.White;
             this.Bar_btnFirstKlaar.Location = new System.Drawing.Point(6, 206);
             this.Bar_btnFirstKlaar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bar_btnFirstKlaar.Name = "Bar_btnFirstKlaar";
             this.Bar_btnFirstKlaar.Size = new System.Drawing.Size(112, 35);
             this.Bar_btnFirstKlaar.TabIndex = 2;
             this.Bar_btnFirstKlaar.Text = "Klaar";
-            this.Bar_btnFirstKlaar.UseVisualStyleBackColor = true;
+            this.Bar_btnFirstKlaar.UseVisualStyleBackColor = false;
             this.Bar_btnFirstKlaar.Click += new System.EventHandler(this.Bar_btnFirstKlaar_Click_1);
             // 
             // Bar_lvFirst
@@ -372,16 +386,60 @@
             this.Bar_lblActivePanel.Size = new System.Drawing.Size(0, 20);
             this.Bar_lblActivePanel.TabIndex = 6;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.panel1.Controls.Add(this.Bar_lblActivePanel1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1180, 73);
+            this.panel1.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.panel2.Controls.Add(this.Bar_btnOverzicht);
+            this.panel2.Controls.Add(this.Bar_btnVoorraad);
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(1, 71);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(142, 603);
+            this.panel2.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Ui.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Bar_lblActivePanel1
+            // 
+            this.Bar_lblActivePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.Bar_lblActivePanel1.ForeColor = System.Drawing.Color.White;
+            this.Bar_lblActivePanel1.Location = new System.Drawing.Point(139, -2);
+            this.Bar_lblActivePanel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Bar_lblActivePanel1.Name = "Bar_lblActivePanel1";
+            this.Bar_lblActivePanel1.Size = new System.Drawing.Size(1041, 78);
+            this.Bar_lblActivePanel1.TabIndex = 10;
+            this.Bar_lblActivePanel1.Text = "Overzicht";
+            this.Bar_lblActivePanel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // BarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 692);
+            this.ClientSize = new System.Drawing.Size(1181, 673);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Bar_pnlOverzicht);
             this.Controls.Add(this.Bar_lblActivePanel);
             this.Controls.Add(this.Bar_pnlVoorraad);
-            this.Controls.Add(this.Bar_btnVoorraad);
-            this.Controls.Add(this.Bar_btnOverzicht);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BarForm";
             this.Text = "BarForm";
@@ -400,6 +458,9 @@
             this.Bar_pnlSecondOrder.PerformLayout();
             this.Bar_pnlFirstOrder.ResumeLayout(false);
             this.Bar_pnlFirstOrder.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,5 +497,9 @@
         private System.Windows.Forms.Label Bar_lblBesteldOpThird;
         private System.Windows.Forms.Label Bar_lblTafelThird;
         private System.Windows.Forms.Label Bar_lblOpmerkingenContent;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label Bar_lblActivePanel1;
     }
 }

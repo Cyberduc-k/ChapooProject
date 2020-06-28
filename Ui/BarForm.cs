@@ -66,7 +66,7 @@ namespace Ui
         private void Bar_btnOverzicht_Click_1(object sender, EventArgs e)
         {
             SetHightlight(Bar_btnOverzicht);
-            Bar_lblActivePanel.Text = "Overzicht";
+            Bar_lblActivePanel1.Text = "Overzicht";
             HideAllPanels();
             Bar_pnlOverzicht.Show();
             OnTimedEvent(null, null);
@@ -164,7 +164,7 @@ namespace Ui
         private void Bar_btnVoorraad_Click(object sender, EventArgs e)
         {
             SetHightlight(Bar_btnVoorraad);
-            Bar_lblActivePanel.Text = "Voorraad";
+            Bar_lblActivePanel1.Text = "Voorraad";
             HideAllPanels();
             Bar_lvVoorraad.Clear();
             Bar_pnlVoorraad.Show();
