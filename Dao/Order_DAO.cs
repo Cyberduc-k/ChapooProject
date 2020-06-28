@@ -54,11 +54,14 @@ namespace Dao
 
             foreach (Dish dish in order.Dishes)
             {
-                string query2 = "INSERT INTO [dbo].[Order_has_dish] ([orderId], [dishId]) VALUES (@orderId, @dishId)";
-                SqlParameter[] parameters2 = new SqlParameter[2]
+                string query2 = "INSERT INTO [dbo].[Order_has_dish] ([orderId], [dishId], [finished], [comment], [aantal]) VALUES (@orderId, @dishId, @finished, @comment, @aantal)";
+                SqlParameter[] parameters2 = new SqlParameter[5]
                 {
                     new SqlParameter("@orderId", order.Id),
                     new SqlParameter("@dishId", dish.Id),
+                    new SqlParameter("@finished", dish.Finished),
+                    new SqlParameter("@comment", dish.Comment),
+                    new SqlParameter("@aantal", dish.Aantal),
                 };
 
                 ExecuteEditQuery(query2, parameters2);
@@ -66,11 +69,14 @@ namespace Dao
 
             foreach (Drink drink in order.Drinks)
             {
-                string query2 = "INSERT INTO [dbo].[Order_has_drink] ([orderId], [drinkId]) VALUES (@orderId, @drinkID)";
-                SqlParameter[] parameters2 = new SqlParameter[2]
+                string query2 = "INSERT INTO [dbo].[Order_has_drink] ([orderId], [drinkId], [finished], [comment], [aantal]) VALUES (@orderId, @drinkID, @finished, @comment, @aantal)";
+                SqlParameter[] parameters2 = new SqlParameter[5]
                 {
                     new SqlParameter("@orderId", order.Id),
                     new SqlParameter("@drinkId", drink.Id),
+                    new SqlParameter("@finished", drink.Finished),
+                    new SqlParameter("@comment", drink.Comment),
+                    new SqlParameter("@aantal", drink.Aantal),
                 };
 
                 ExecuteEditQuery(query2, parameters2);

@@ -31,7 +31,7 @@ namespace Dao
         public List<Drink> GetAllForOrder(int orderId)
         {
             string query =
-                "SELECT D.[id], D.[name], D.[alcoholic], D.[price], D.[stock] " +
+                "SELECT D.[id], D.[name], D.[alcoholic], D.[price], D.[stock], OD.[finished], OD.[comment], OD.[aantal] " +
                 "FROM [dbo].[Drinks] AS D " +
                 "JOIN [dbo].[Order_has_drink] AS OD ON OD.[drinkId] = D.[id] " +
                 "WHERE OD.[orderId] = @orderId";
@@ -136,8 +136,17 @@ namespace Dao
             bool alcoholic = (bool)dataRow["alcoholic"];
             double price = (double)dataRow["price"];
             int stock = (int)dataRow["stock"];
-            
-            return new Drink(id, name, alcoholic, price, stock);
+
+            if (dataRow.Table.Columns.Contains("finished") && !dataRow.IsNull("finished"))
+            {
+                bool finished = (bool)dataRow["finished"];
+                string comment = dataRow.IsNull("comment") ? "" : (string)dataRow["comment"];
+                int aantal = (int)dataRow["aantal"];
+
+                return new Drink(id, name, alcoholic, price, stock, finished, comment, aantal);
+            }
+            else
+                return new Drink(id, name, alcoholic, price, stock);
         }
     }
 }
