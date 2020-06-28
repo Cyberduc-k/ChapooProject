@@ -49,7 +49,7 @@ namespace Dao
         public List<Dish> GetAllForOrder(int orderId)
         {
             string query =
-                "SELECT D.[id], D.[name], D.[description], D.[ingredients], D.[price], D.[stock], D.[category], OD.[finished], OD.[comment] " +
+                "SELECT D.[id], D.[name], D.[description], D.[ingredients], D.[price], D.[stock], D.[category], OD.[finished], OD.[comment], OD.[aantal] " +
                 "FROM [dbo].[Dishes] AS D " +
                 "JOIN [dbo].[Order_has_dish] AS OD ON OD.[dishId] = D.[id] " +
                 "WHERE OD.[orderId] = @orderId";
@@ -192,8 +192,9 @@ namespace Dao
             {
                 bool finished = (bool)dataRow["finished"];
                 string comment = dataRow.IsNull("comment") ? "" : (string)dataRow["comment"];
+                int aantal = (int)dataRow["aantal"];
 
-                return new Dish(id, name, description, ingredients, price, stock, category, finished, comment);
+                return new Dish(id, name, description, ingredients, price, stock, category, finished, comment, aantal);
             }
             else
                 return new Dish(id, name, description, ingredients, price, stock, category);

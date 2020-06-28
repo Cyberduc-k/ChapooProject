@@ -12,13 +12,14 @@ namespace Model
         public string Ingredients { get; }
         public DishCategory Category { get; }
 
-        public Dish(int id, string name, string description, string ingredients, double price, int stock, DishCategory category, bool finished, string comment) : base(id, name, price, stock)
+        public Dish(int id, string name, string description, string ingredients, double price, int stock, DishCategory category, bool finished, string comment, int aantal) : base(id, name, price, stock)
         {
             Description = description;
             Ingredients = ingredients;
             Category = category;
             Finished = finished;
             Comment = comment;
+            Aantal = aantal;
         }
 
         public Dish(int id, string name, string description, string ingredients, double price, int stock, DishCategory category) : base(id, name, price, stock)

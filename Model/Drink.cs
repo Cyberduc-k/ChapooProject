@@ -10,6 +10,14 @@ namespace Model
     {
         public bool Alcoholic { get; }
 
+        public Drink(int id, string name, bool alcoholic, double price, int stock, bool finished, string comment, int aantal) : base(id, name, price, stock)
+        {
+            Alcoholic = alcoholic;
+            Finished = finished;
+            Comment = comment;
+            Aantal = aantal;
+        }
+
         public Drink(int id, string name, bool alcoholic, double price, int stock) : base(id, name, price, stock)
         { 
             Alcoholic = alcoholic;

@@ -103,13 +103,13 @@ namespace Ui
             foreach(Dish dish in order.Dishes)
             {
                 dishService = new Dish_Service();
-                dishService.ModifyStock(dish.Id, dish.Stock - 1);
+                dishService.ModifyStock(dish.Id, dish.Stock - dish.Aantal);
             }
 
             foreach(Drink drink in order.Drinks)
             {
                 drinkService = new Drink_Service();
-                drinkService.ModifyStock(drink.Id, drink.Stock - 1);
+                drinkService.ModifyStock(drink.Id, drink.Stock - drink.Aantal);
             }
             order.Dishes.Clear();
             order.Drinks.Clear();

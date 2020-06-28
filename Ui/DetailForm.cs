@@ -42,6 +42,7 @@ namespace Ui
                 comboBox.DataSource = items;
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Dish.Price * quantity).ToString();
+                product.Dish.Aantal = quantity;
             }
             else if (product.Drink.Name != null)
             {
@@ -52,6 +53,7 @@ namespace Ui
                 comboBox.DataSource = items;
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Drink.Price * quantity).ToString();
+                product.Drink.Aantal = quantity;
             }
             
         }
@@ -62,11 +64,13 @@ namespace Ui
             {
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Dish.Price * quantity).ToString();
+                product.Dish.Aantal = quantity;
             }
             else if (product.Drink.Name != null)
             {
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Drink.Price * quantity).ToString();
+                product.Drink.Aantal = quantity;
             }
         }
 
