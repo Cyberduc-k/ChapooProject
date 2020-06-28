@@ -183,7 +183,7 @@ namespace Ui
 
             columnheader = new ColumnHeader();
             columnheader.Text = "Drankje";
-            columnheader.Width = 350;
+            columnheader.Width = 450;
             Bar_lvVoorraad.Columns.Add(columnheader);
 
             columnheader = new ColumnHeader();
@@ -196,6 +196,32 @@ namespace Ui
             columnheader.Width = 100;
             Bar_lvVoorraad.Columns.Add(columnheader);
 
+        }
+
+        private void Bar_lvVoorraad_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            SortListView(e, Bar_lvVoorraad);
+        }
+
+        private void SortListView(ColumnClickEventArgs e, ListView lv)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                else
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+
+            lv.Sort();
         }
 
         private void Bar_btnFirstKlaar_Click_1(object sender, EventArgs e)
