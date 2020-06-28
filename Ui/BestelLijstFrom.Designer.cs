@@ -45,11 +45,6 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.bestelBtn = new System.Windows.Forms.Button();
             this.Bill_GridDrinks = new System.Windows.Forms.DataGridView();
-            this.drinkBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.verwijderBtn = new System.Windows.Forms.Button();
-            this.drinkBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.alcoholicDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,13 +53,18 @@
             this.finishedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aantalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drinkBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.drinkBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.verwijderBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Bill_GridDrinks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drinkBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drinkBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drinkBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // CP_imgLogo
@@ -72,7 +72,7 @@
             this.CP_imgLogo.BackColor = System.Drawing.SystemColors.Control;
             this.CP_imgLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CP_imgLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CP_imgLogo.Image = global::Ui.Properties.Resources.Logo2;
+            this.CP_imgLogo.Image = global::Ui.Properties.Resources.Logo21;
             this.CP_imgLogo.Location = new System.Drawing.Point(0, 0);
             this.CP_imgLogo.Name = "CP_imgLogo";
             this.CP_imgLogo.Size = new System.Drawing.Size(944, 75);
@@ -212,42 +212,6 @@
             this.Bill_GridDrinks.TabIndex = 16;
             this.Bill_GridDrinks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Bill_GridDrinks_CellContentClick);
             // 
-            // drinkBindingSource
-            // 
-            this.drinkBindingSource.DataSource = typeof(Model.Drink);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Gerechten:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 343);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Dranken:";
-            // 
-            // verwijderBtn
-            // 
-            this.verwijderBtn.Location = new System.Drawing.Point(746, 538);
-            this.verwijderBtn.Name = "verwijderBtn";
-            this.verwijderBtn.Size = new System.Drawing.Size(75, 23);
-            this.verwijderBtn.TabIndex = 19;
-            this.verwijderBtn.Text = "Verwijder bestelling";
-            this.verwijderBtn.UseVisualStyleBackColor = true;
-            this.verwijderBtn.Click += new System.EventHandler(this.verwijderBtn_Click);
-            // 
-            // drinkBindingSource1
-            // 
-            this.drinkBindingSource1.DataSource = typeof(Model.Drink);
-            // 
             // alcoholicDataGridViewCheckBoxColumn
             // 
             this.alcoholicDataGridViewCheckBoxColumn.DataPropertyName = "Alcoholic";
@@ -300,6 +264,42 @@
             this.aantalDataGridViewTextBoxColumn.HeaderText = "Aantal";
             this.aantalDataGridViewTextBoxColumn.Name = "aantalDataGridViewTextBoxColumn";
             // 
+            // drinkBindingSource1
+            // 
+            this.drinkBindingSource1.DataSource = typeof(Model.Drink);
+            // 
+            // drinkBindingSource
+            // 
+            this.drinkBindingSource.DataSource = typeof(Model.Drink);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 130);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Gerechten:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 343);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Dranken:";
+            // 
+            // verwijderBtn
+            // 
+            this.verwijderBtn.Location = new System.Drawing.Point(746, 538);
+            this.verwijderBtn.Name = "verwijderBtn";
+            this.verwijderBtn.Size = new System.Drawing.Size(75, 23);
+            this.verwijderBtn.TabIndex = 19;
+            this.verwijderBtn.Text = "Verwijder bestelling";
+            this.verwijderBtn.UseVisualStyleBackColor = true;
+            this.verwijderBtn.Click += new System.EventHandler(this.verwijderBtn_Click);
+            // 
             // BestelLijstFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,6 +314,7 @@
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CP_imgLogo);
+            this.Name = "BestelLijstFrom";
             this.Text = "BestelLijstFrom";
             this.Load += new System.EventHandler(this.BestelLijstFrom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).EndInit();
@@ -321,8 +322,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dishBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Bill_GridDrinks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drinkBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drinkBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drinkBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

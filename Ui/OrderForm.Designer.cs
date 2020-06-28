@@ -60,7 +60,7 @@
             this.CP_imgLogo.BackColor = System.Drawing.SystemColors.Control;
             this.CP_imgLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CP_imgLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CP_imgLogo.Image = global::Ui.Properties.Resources.Logo2;
+            this.CP_imgLogo.Image = global::Ui.Properties.Resources.Logo21;
             this.CP_imgLogo.Location = new System.Drawing.Point(0, 0);
             this.CP_imgLogo.Name = "CP_imgLogo";
             this.CP_imgLogo.Size = new System.Drawing.Size(474, 75);
