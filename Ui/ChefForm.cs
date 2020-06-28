@@ -136,12 +136,12 @@ namespace Ui
         {
             lv.Items.Clear();
             table.Text = $"Tafel: {order.TableId}";
-            ordered.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
+            ordered.Text = $"Besteld op: {order.TimeOrdering.ToShortTimeString()}";
 
             foreach (Dish dish in order.Dishes)
                 if (!dish.Finished)
                 {
-                    ListViewItem li = new ListViewItem(dish.Name);
+                    ListViewItem li = new ListViewItem($"{dish.Aantal}x {dish.Name}");
 
                     li.Tag = dish;
                     lv.Items.Add(li);
@@ -208,7 +208,7 @@ namespace Ui
             {
                 ListViewItem li = new ListViewItem(order.TableId.ToString());
 
-                li.SubItems.Add(order.TimeFinished.ToString("hh:mm"));
+                li.SubItems.Add(order.TimeFinished.ToShortTimeString());
                 li.Tag = order;
 
                 Chef_lvGereed.Items.Add(li);
@@ -229,7 +229,7 @@ namespace Ui
                 foreach (Dish dish in order.Dishes)
                     if (dish.Finished)
                     {
-                        ListViewItem li = new ListViewItem(dish.Name);
+                        ListViewItem li = new ListViewItem($"{dish.Aantal}x {dish.Name}");
 
                         li.Tag = dish;
                         Chef_lvOrderGereed.Items.Add(li);

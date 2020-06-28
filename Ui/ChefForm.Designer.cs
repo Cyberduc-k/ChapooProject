@@ -300,7 +300,7 @@
             // 
             this.Chef_lvFourth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_lvFourth.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Chef_lvFourth.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvFourth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_lvFourth.HideSelection = false;
             this.Chef_lvFourth.Location = new System.Drawing.Point(-1, -1);
             this.Chef_lvFourth.Margin = new System.Windows.Forms.Padding(0);
@@ -367,7 +367,7 @@
             // 
             this.Chef_lvThird.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_lvThird.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Chef_lvThird.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvThird.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_lvThird.HideSelection = false;
             this.Chef_lvThird.Location = new System.Drawing.Point(-2, -1);
             this.Chef_lvThird.Margin = new System.Windows.Forms.Padding(0);
@@ -434,7 +434,7 @@
             // 
             this.Chef_lvSecond.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_lvSecond.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Chef_lvSecond.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvSecond.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_lvSecond.HideSelection = false;
             this.Chef_lvSecond.Location = new System.Drawing.Point(-1, -1);
             this.Chef_lvSecond.Margin = new System.Windows.Forms.Padding(0);
@@ -512,7 +512,7 @@
             // 
             this.Chef_lvFirst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.Chef_lvFirst.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Chef_lvFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chef_lvFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_lvFirst.HideSelection = false;
             this.Chef_lvFirst.Location = new System.Drawing.Point(0, 0);
             this.Chef_lvFirst.Margin = new System.Windows.Forms.Padding(0);
@@ -668,7 +668,7 @@
             // Chef_chTijdKlaar
             // 
             this.Chef_chTijdKlaar.Text = "Tijd Klaar";
-            this.Chef_chTijdKlaar.Width = 380;
+            this.Chef_chTijdKlaar.Width = 363;
             // 
             // Chef_pnlOrderGereed
             // 
@@ -743,8 +743,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.Chef_pnlOverzicht);
             this.Controls.Add(this.Chef_pnlGereed);
+            this.Controls.Add(this.Chef_pnlOverzicht);
             this.Controls.Add(this.Chef_pnlVoorraad);
             this.Controls.Add(this.Chef_pnlTop);
             this.Controls.Add(this.Chef_pnlLeft);
