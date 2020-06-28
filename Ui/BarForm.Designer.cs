@@ -35,6 +35,7 @@
             this.Bar_pnlOverzicht = new System.Windows.Forms.Panel();
             this.Bar_lblGeenBestellingen = new System.Windows.Forms.Label();
             this.Bar_pnlOpmerkingen = new System.Windows.Forms.Panel();
+            this.Bar_lblOpmerkingenContent = new System.Windows.Forms.Label();
             this.Bar_lblOpmerkingen = new System.Windows.Forms.Label();
             this.Bar_pnlOverflow = new System.Windows.Forms.Panel();
             this.Bar_lblOverflow = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.Bar_btnFirstKlaar = new System.Windows.Forms.Button();
             this.Bar_lvFirst = new System.Windows.Forms.ListView();
             this.Bar_lblActivePanel = new System.Windows.Forms.Label();
-            this.Bar_lblOpmerkingenContent = new System.Windows.Forms.Label();
             this.Bar_pnlVoorraad.SuspendLayout();
             this.Bar_pnlOverzicht.SuspendLayout();
             this.Bar_pnlOpmerkingen.SuspendLayout();
@@ -69,24 +69,28 @@
             // 
             // Bar_btnOverzicht
             // 
+            this.Bar_btnOverzicht.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Bar_btnOverzicht.ForeColor = System.Drawing.Color.White;
             this.Bar_btnOverzicht.Location = new System.Drawing.Point(18, 71);
             this.Bar_btnOverzicht.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bar_btnOverzicht.Name = "Bar_btnOverzicht";
             this.Bar_btnOverzicht.Size = new System.Drawing.Size(112, 35);
             this.Bar_btnOverzicht.TabIndex = 0;
             this.Bar_btnOverzicht.Text = "Overzicht";
-            this.Bar_btnOverzicht.UseVisualStyleBackColor = true;
+            this.Bar_btnOverzicht.UseVisualStyleBackColor = false;
             this.Bar_btnOverzicht.Click += new System.EventHandler(this.Bar_btnOverzicht_Click_1);
             // 
             // Bar_btnVoorraad
             // 
+            this.Bar_btnVoorraad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Bar_btnVoorraad.ForeColor = System.Drawing.Color.White;
             this.Bar_btnVoorraad.Location = new System.Drawing.Point(18, 115);
             this.Bar_btnVoorraad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bar_btnVoorraad.Name = "Bar_btnVoorraad";
             this.Bar_btnVoorraad.Size = new System.Drawing.Size(112, 35);
             this.Bar_btnVoorraad.TabIndex = 3;
             this.Bar_btnVoorraad.Text = "Voorraad";
-            this.Bar_btnVoorraad.UseVisualStyleBackColor = true;
+            this.Bar_btnVoorraad.UseVisualStyleBackColor = false;
             this.Bar_btnVoorraad.Click += new System.EventHandler(this.Bar_btnVoorraad_Click);
             // 
             // Bar_pnlVoorraad
@@ -143,6 +147,16 @@
             this.Bar_pnlOpmerkingen.Name = "Bar_pnlOpmerkingen";
             this.Bar_pnlOpmerkingen.Size = new System.Drawing.Size(468, 246);
             this.Bar_pnlOpmerkingen.TabIndex = 1;
+            // 
+            // Bar_lblOpmerkingenContent
+            // 
+            this.Bar_lblOpmerkingenContent.AutoSize = true;
+            this.Bar_lblOpmerkingenContent.Location = new System.Drawing.Point(13, 41);
+            this.Bar_lblOpmerkingenContent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Bar_lblOpmerkingenContent.MinimumSize = new System.Drawing.Size(440, 200);
+            this.Bar_lblOpmerkingenContent.Name = "Bar_lblOpmerkingenContent";
+            this.Bar_lblOpmerkingenContent.Size = new System.Drawing.Size(440, 200);
+            this.Bar_lblOpmerkingenContent.TabIndex = 2;
             // 
             // Bar_lblOpmerkingen
             // 
@@ -355,25 +369,14 @@
             this.Bar_lblActivePanel.Location = new System.Drawing.Point(633, 30);
             this.Bar_lblActivePanel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Bar_lblActivePanel.Name = "Bar_lblActivePanel";
-            this.Bar_lblActivePanel.Size = new System.Drawing.Size(51, 20);
+            this.Bar_lblActivePanel.Size = new System.Drawing.Size(0, 20);
             this.Bar_lblActivePanel.TabIndex = 6;
-            this.Bar_lblActivePanel.Text = "label1";
-            // 
-            // Bar_lblOpmerkingenContent
-            // 
-            this.Bar_lblOpmerkingenContent.AutoSize = true;
-            this.Bar_lblOpmerkingenContent.Location = new System.Drawing.Point(13, 41);
-            this.Bar_lblOpmerkingenContent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Bar_lblOpmerkingenContent.MinimumSize = new System.Drawing.Size(440, 200);
-            this.Bar_lblOpmerkingenContent.Name = "Bar_lblOpmerkingenContent";
-            this.Bar_lblOpmerkingenContent.Size = new System.Drawing.Size(440, 200);
-            this.Bar_lblOpmerkingenContent.TabIndex = 2;
             // 
             // BarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1245, 692);
+            this.ClientSize = new System.Drawing.Size(1205, 692);
             this.Controls.Add(this.Bar_pnlOverzicht);
             this.Controls.Add(this.Bar_lblActivePanel);
             this.Controls.Add(this.Bar_pnlVoorraad);

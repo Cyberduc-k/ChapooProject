@@ -52,5 +52,10 @@ namespace Logic
         {
             drink_DAO.EmptyStock(id);
         }
+
+        public void ModifyFinished(Order order, Drink drink, bool finished)
+        {
+            drink_DAO.ModifyFinished(order, drink, finished);
+        }
     }
 }

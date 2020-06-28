@@ -19,11 +19,14 @@ namespace Ui
         private Drink_Service drink_service = new Drink_Service();
         private ColumnHeader columnheader;
         private List<Order> orders;
+        private Timer timer = new Timer();
 
         public BarForm()
         {
             InitializeComponent();
             InitializeSorting();
+            InitializeTimer();
+            FormClosed += OnClosed;
             Bar_btnOverzicht_Click_1(null, null);
         }
 
@@ -32,7 +35,15 @@ namespace Ui
             Bar_lvVoorraad.View = View.Details;
             Bar_lvVoorraad.ListViewItemSorter = lvwColumnSorter;
         }
-        private void SetHightlight(Button btn)
+
+        private void InitializeTimer()
+        {
+            timer.Interval = 2000;
+            timer.Tick += OnTimedEvent;
+            timer.Stop();
+        }
+
+    private void SetHightlight(Button btn)
         {
             Bar_btnOverzicht.BackColor = Color.FromArgb(0, 165, 229);
             Bar_btnVoorraad.BackColor = Color.FromArgb(0, 165, 229);
@@ -58,84 +69,90 @@ namespace Ui
             Bar_lblActivePanel.Text = "Overzicht";
             HideAllPanels();
             Bar_pnlOverzicht.Show();
+            OnTimedEvent(null, null);
+            timer.Start();
+        }
 
-            orders = order_service
-                .GetAllOrders()
-                .Where(order => order.State == OrderState.None || order.State == OrderState.Started)
-                .Where(order => order.Drinks.Count > 0)
-                .ToList();
+        // Code taken from: https://stackoverflow.com/questions/10775367/cross-thread-operation-not-valid-control-textbox1-accessed-from-a-thread-othe
+        // to modify the ui from a different thread to avoid blocking on database access.
+        delegate void RefreshOrdersCallback();
 
-            switch (orders.Count)
+        private void RefreshOrders()
+        {
+            if (Bar_pnlOverzicht.InvokeRequired)
             {
-                case 0:
-                    Bar_lblGeenBestellingen.Show();
-                    break;
-                case 1:
-                    FillFirstOrder(orders[0]);
-                    break;
-                case 2:
-                    FillSecondOrder(orders[1]);
-                    goto case 1;
-                case 3:
-                    FillThirdOrder(orders[2]);
-                    goto case 2;
-                case 4:
-                    FillFourthOrder(orders[3]);
-                    goto case 3;
-                default:
-                    ShowOverflow(orders.Count - 4);
-                    goto case 4;
+                RefreshOrdersCallback d = new RefreshOrdersCallback(RefreshOrders);
+
+                Invoke(d, new object[] { });
+            }
+            else
+            {
+                Bar_lblGeenBestellingen.Hide();
+                Bar_pnlOpmerkingen.Hide();
+                Bar_pnlFirstOrder.Hide();
+                Bar_pnlSecondOrder.Hide();
+                Bar_pnlThirdOrder.Hide();
+                Bar_pnlFourthOrder.Hide();
+                Bar_pnlOverflow.Hide();
+
+                switch (orders.Count)
+                {
+                    case 0:
+                        Bar_lblGeenBestellingen.Show();
+                        break;
+                    case 1:
+                        FillOrder(orders[0], Bar_pnlFirstOrder, Bar_lvFirst, Bar_lblTafelFirst, Bar_lblBesteldOpFirst);
+                        Bar_lvFirst.Items[0].Selected = true;
+                        Bar_pnlOpmerkingen.Show();
+                        break;
+                    case 2:
+                        FillOrder(orders[1], Bar_pnlSecondOrder, Bar_lvSecond, Bar_lblTafelSecond, Bar_lblBesteldOpSecond);
+                        goto case 1;
+                    case 3:
+                        FillOrder(orders[2], Bar_pnlThirdOrder, Bar_lvThird, Bar_lblTafelThird, Bar_lblBesteldOpThird);
+                        goto case 2;
+                    case 4:
+                        FillOrder(orders[3], Bar_pnlFourthOrder, Bar_lvFourth, Bar_lblTafelFourth, Bar_lblBesteldOpFourth);
+                        goto case 3;
+                    default:
+                        ShowOverflow(orders.Count - 4);
+                        goto case 4;
+                }
             }
         }
 
-        private void FillFirstOrder(Order order)
+        void OnTimedEvent(Object source, EventArgs e)
         {
-            Bar_lblOpmerkingenContent.Text = order.Drinks[0].Comment;
-            Bar_pnlOpmerkingen.Show();
-            Bar_lvFirst.Clear();
-            Bar_lblTafelFirst.Text = $"Tafel: {order.TableId}";
-            Bar_lblBesteldOpFirst.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
+            // every 20 seconds the "Overzicht" panel will be refreshed
+            new System.Threading.Thread(() =>
+            {
+                // Get all unprocessed orders
+                orders = order_service
+                        .GetAllOrders()
+                        .Where(order => order.Drinks.Any(drink => !drink.Finished))
+                        .Where(order => order.Drinks.Count > 0)
+                        .ToList();
 
-            foreach (Drink drink in order.Drinks)
-                Bar_lvFirst.Items.Add(new ListViewItem(drink.Name));
-
-            Bar_pnlFirstOrder.Show();
+                RefreshOrders();
+            }).Start();
         }
 
-        private void FillSecondOrder(Order order)
+        private void FillOrder(Order order, Panel panel, ListView lv, Label table, Label ordered)
         {
-            Bar_lvSecond.Clear();
-            Bar_lblTafelSecond.Text = $"Tafel: {order.TableId}";
-            Bar_lblBesteldOpSecond.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
+            lv.Items.Clear();
+            table.Text = $"Tafel: {order.TableId}";
+            ordered.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
 
             foreach (Drink drink in order.Drinks)
-                Bar_lvSecond.Items.Add(new ListViewItem(drink.Name));
+                if (!drink.Finished)
+                {
+                    ListViewItem li = new ListViewItem(drink.Name);
 
-            Bar_pnlSecondOrder.Show();
-        }
+                    li.Tag = drink;
+                    lv.Items.Add(li);
+                }
 
-        private void FillThirdOrder(Order order)
-        {
-            Bar_lvThird.Clear();
-            Bar_lblTafelThird.Text = $"Tafel: {order.TableId}";
-            Bar_lblBesteldOpThird.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
-
-            foreach (Drink drink in order.Drinks)
-                Bar_lvThird.Items.Add(new ListViewItem(drink.Name));
-
-            Bar_pnlThirdOrder.Show();
-        }
-
-        private void FillFourthOrder(Order order)
-        {
-            Bar_lvFourth.Clear();
-            Bar_lblTafelFourth.Text = $"Tafel: {order.TableId}";
-            Bar_lblBesteldOpFourth.Text = $"Besteld op: {order.TimeOrdering.ToString("hh:mm")}";
-
-            foreach (Drink drink in order.Drinks)
-                Bar_lvFourth.Items.Add(new ListViewItem(drink.Name));
-
-            Bar_pnlFourthOrder.Show();
+            panel.Show();
         }
 
         private void ShowOverflow(int count)
@@ -149,8 +166,8 @@ namespace Ui
             SetHightlight(Bar_btnVoorraad);
             Bar_lblActivePanel.Text = "Voorraad";
             HideAllPanels();
+            Bar_lvVoorraad.Clear();
             Bar_pnlVoorraad.Show();
-            Bar_lvVoorraad.Items.Clear();
 
             List<Drink> drinks = drink_service.GetAllDrinks();
 
@@ -185,9 +202,40 @@ namespace Ui
         {
             Order order = orders[0];
 
+            foreach (int idx in Bar_lvFirst.SelectedIndices)
+            {
+                Drink drink = order.Drinks[idx];
+
+                drink_service.ModifyFinished(order, drink, true);
+            }
+
             order.TimeFinished = DateTime.Now;
-            order.State = OrderState.Done;
             order_service.ModifyOrder(order);
+            OnTimedEvent(null, null);
+
+            MessageBox.Show("De bestelling is gereed gemeld", "Gereed gemeld!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Bar_order_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView lv = (ListView)sender;
+
+            if (lv.SelectedItems.Count != 0)
+            {
+                Dish dish = (Dish)lv.SelectedItems[0].Tag;
+
+                if (dish.Comment.Length != 0)
+                    Bar_lblOpmerkingenContent.Text = dish.Comment;
+                else
+                    Bar_lblOpmerkingenContent.Text = "Geen opmerkingen";
+            }
+        }
+
+        private void OnClosed(object sender, FormClosedEventArgs e)
+        {
+            timer.Stop();
+            timer.Dispose();
+            timer = null;
         }
     }
 }

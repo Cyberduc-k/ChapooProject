@@ -117,6 +117,22 @@ namespace Dao
             ExecuteEditQuery(query, parameters);
         }
 
+        public void ModifyFinished(Order order, Drink drink, bool finished)
+        {
+            string query =
+                "UPDATE [dbo].[Order_has_drink] " +
+                "SET [finished] = @finished " +
+                "WHERE [orderId] = @orderId AND [drinkId] = @drinkId";
+            SqlParameter[] parameters = new SqlParameter[3]
+            {
+                new SqlParameter("@finished", finished),
+                new SqlParameter("@orderId", order.Id),
+                new SqlParameter("@drinkId", drink.Id),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
         // Convert the raw database data into a list of Drink objects
         private List<Drink> ReadAll(DataTable dataTable)
         {
