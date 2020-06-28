@@ -24,6 +24,7 @@ namespace Ui
         private Table tafel;
         private Table_Service tableService;
         private Employee employee;
+        private string toBeDeleted;
 
         public BestelLijstFrom(Table tafel, Order order, Employee employee)
         {
@@ -44,8 +45,19 @@ namespace Ui
                 label2.Visible = false;
                 label3.Visible = false;
             }
-            dataGridView.DataSource = order.Dishes;
-            Bill_GridDrinks.DataSource = order.Drinks;
+            BindingList<Dish> bindlist = new BindingList<Dish>();
+            BindingList<Drink> binddrinks = new BindingList<Drink>();
+            foreach (Dish d in order.Dishes)
+            {
+                bindlist.Add(d);
+            }
+            foreach (Drink d in order.Drinks)
+            {
+                binddrinks.Add(d);
+            }
+            //dataGridView.DataSource = order.Dishes;
+            dataGridView.DataSource = bindlist;
+            Bill_GridDrinks.DataSource = binddrinks;
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -114,6 +126,37 @@ namespace Ui
             order.Dishes.Clear();
             order.Drinks.Clear();
             order = new Order();
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+                toBeDeleted = row.Cells["Name"].Value.ToString();
+            }
+        }
+
+        private void verwijderBtn_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (DataGridViewRow item in this.dataGridView.SelectedRows)
+            {
+                i = item.Index;
+                dataGridView.Rows.RemoveAt(item.Index);
+                order.Dishes.RemoveAt(i);
+            }
+            foreach (DataGridViewRow item in this.Bill_GridDrinks.SelectedRows)
+            {
+                i = item.Index;
+                Bill_GridDrinks.Rows.RemoveAt(item.Index);
+                order.Drinks.RemoveAt(i);
+            }
+        }
+
+        private void Bill_GridDrinks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

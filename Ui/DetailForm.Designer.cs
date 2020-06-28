@@ -194,8 +194,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox CP_imgLogo;
         private System.Windows.Forms.Label nameLbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -208,5 +206,6 @@
         private System.Windows.Forms.Button bestelBtn;
         private System.Windows.Forms.ComboBox comboBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox CP_imgLogo;
     }
 }
