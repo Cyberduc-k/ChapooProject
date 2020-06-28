@@ -42,7 +42,6 @@ namespace Ui
                 comboBox.DataSource = items;
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Dish.Price * quantity).ToString();
-                product.Dish.Aantal = quantity;
             }
             else if (product.Drink.Name != null)
             {
@@ -53,7 +52,6 @@ namespace Ui
                 comboBox.DataSource = items;
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Drink.Price * quantity).ToString();
-                product.Drink.Aantal = quantity;
             }
             
         }
@@ -64,13 +62,11 @@ namespace Ui
             {
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Dish.Price * quantity).ToString();
-                product.Dish.Aantal = quantity;
             }
             else if (product.Drink.Name != null)
             {
                 int quantity = (int)comboBox.SelectedItem;
                 prijsLbl.Text = (product.Drink.Price * quantity).ToString();
-                product.Drink.Aantal = quantity;
             }
         }
 
@@ -80,40 +76,73 @@ namespace Ui
             List<Drink> drinks = new List<Drink>();
             if (product.Dish.Name != null)
             {
-                if (product.Dish.Stock < product.Dish.Aantal)
+                if (product.Dish.Stock < (int)comboBox.SelectedItem)
                 {
                     MessageBox.Show("Niet op voorraad", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 if (order.Dishes == null)
                 {
+                    product.Dish.Aantal = (int)comboBox.SelectedItem;
                     order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started);
                     product.Dish.Comment = opmerkingenTxt.Text;
+                    
                     order.Dishes.Add(product.Dish);
                 }
                 else
                 {
-                    product.Dish.Comment = opmerkingenTxt.Text;
-                    order.Dishes.Add(product.Dish);
+                    
+                    product.Dish.Aantal = (int)comboBox.SelectedItem;
+                    if (order.Dishes.Contains(product.Dish))
+                    {
+                        foreach (Dish d in order.Dishes)
+                        {
+                            if (product.Dish.Name == d.Name)
+                            {
+                                d.Aantal+= (int)comboBox.SelectedItem;
+                            }
+                        }
+                        product.Dish.Comment = opmerkingenTxt.Text;
+                    }
+                    else
+                    {
+                        product.Dish.Comment = opmerkingenTxt.Text;
+                        order.Dishes.Add(product.Dish);
+                    }
+                    
+                    
                 }
             }
             else if (product.Drink.Name != null)
             {
-                if (product.Drink.Stock < product.Drink.Aantal)
+                if (product.Drink.Stock < (int)comboBox.SelectedItem)
                 {
                     MessageBox.Show("Niet op voorraad", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 if (order.Drinks == null)
                 {
+                    product.Drink.Aantal = (int)comboBox.SelectedItem;
                     order = new Order(0, DateTime.Now, DateTime.Now, dishes, drinks, 0, tafel.Number, OrderState.Started);
                     product.Drink.Comment = opmerkingenTxt.Text;
                     order.Drinks.Add(product.Drink);
                 }
                 else
                 {
+                    product.Drink.Aantal = (int)comboBox.SelectedItem;
                     product.Drink.Comment = opmerkingenTxt.Text;
-                    order.Drinks.Add(product.Drink);
+                    foreach(Drink d in order.Drinks)
+                    {
+                        if (d.Name == product.Drink.Name)
+                        {
+                            d.Aantal += (int)comboBox.SelectedItem;
+                        }
+                        else
+                        {
+                            product.Drink.Comment = opmerkingenTxt.Text;
+                            order.Drinks.Add(product.Drink);
+                        }
+                    }
                 }
             }
             Hide();
