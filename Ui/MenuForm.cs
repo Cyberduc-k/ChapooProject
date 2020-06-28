@@ -73,7 +73,7 @@ namespace Ui
         private void Afrekenenbtn_Click(object sender, EventArgs e)
         {
             Hide();
-            BillForm form = new BillForm();
+            BillForm form = new BillForm(tafel, employee);
             form.ShowDialog(Owner);
             Close();
         }

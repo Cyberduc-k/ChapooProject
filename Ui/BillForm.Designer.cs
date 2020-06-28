@@ -28,29 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Bill_btnAfrekenen = new System.Windows.Forms.Button();
-            this.Bill_pnlAfrekenen = new System.Windows.Forms.Panel();
-            this.Bill_btnTable10 = new System.Windows.Forms.Button();
-            this.Bill_btnTable8 = new System.Windows.Forms.Button();
-            this.Bill_btnTable6 = new System.Windows.Forms.Button();
-            this.Bill_btnTable4 = new System.Windows.Forms.Button();
-            this.Bill_btnTable2 = new System.Windows.Forms.Button();
-            this.Bill_btnTable9 = new System.Windows.Forms.Button();
-            this.Bill_btnTable7 = new System.Windows.Forms.Button();
-            this.Bill_btnTable5 = new System.Windows.Forms.Button();
             this.Bill_lblTableNumber = new System.Windows.Forms.Label();
             this.Bill_btnBillOverview = new System.Windows.Forms.Button();
-            this.Bill_btnTable3 = new System.Windows.Forms.Button();
-            this.Bill_btnTable1 = new System.Windows.Forms.Button();
-            this.Bill_lvTables = new System.Windows.Forms.ListView();
-            this.Bill_lblRekeningNietBeschikbaar = new System.Windows.Forms.Label();
             this.Bill_btnPay = new System.Windows.Forms.Button();
             this.Bill_rbPaypal = new System.Windows.Forms.RadioButton();
             this.Bill_rbMastercard = new System.Windows.Forms.RadioButton();
             this.Bill_rbVisa = new System.Windows.Forms.RadioButton();
             this.Bill_rbCash = new System.Windows.Forms.RadioButton();
             this.Bill_lvBillOverview = new System.Windows.Forms.ListView();
-            this.Bill_lblActivePanel = new System.Windows.Forms.Label();
             this.Bill_btnKiesBetaalmethode = new System.Windows.Forms.Button();
             this.Bill_pnlBetaalMethode = new System.Windows.Forms.Panel();
             this.Bill_btnBetaalmethodeX = new System.Windows.Forms.Button();
@@ -60,136 +45,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Bill_btnFooiPlus20 = new System.Windows.Forms.Button();
             this.Bill_btnFooiPlus10 = new System.Windows.Forms.Button();
+            this.Bill_lblBetaald = new System.Windows.Forms.Label();
             this.Bill_btnFooiPlus5 = new System.Windows.Forms.Button();
             this.Bill_btnPasAan = new System.Windows.Forms.Button();
             this.Bill_btnFooi = new System.Windows.Forms.Button();
             this.Bill_lblTotalPrice = new System.Windows.Forms.Label();
-            this.Bill_lblBetaald = new System.Windows.Forms.Label();
             this.Bill_lblBtw = new System.Windows.Forms.Label();
             this.Bill_lblBtwLinks = new System.Windows.Forms.Label();
             this.Bill_lblTotaalBedrag = new System.Windows.Forms.Label();
-            this.Bill_pnlAfrekenen.SuspendLayout();
+            this.CP_imgLogo = new System.Windows.Forms.PictureBox();
+            this.Bill_lblAfrekenen = new System.Windows.Forms.Label();
             this.Bill_pnlBetaalMethode.SuspendLayout();
             this.Bill_pnlFooi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Bill_btnAfrekenen
-            // 
-            this.Bill_btnAfrekenen.Location = new System.Drawing.Point(14, 95);
-            this.Bill_btnAfrekenen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Bill_btnAfrekenen.Name = "Bill_btnAfrekenen";
-            this.Bill_btnAfrekenen.Size = new System.Drawing.Size(112, 35);
-            this.Bill_btnAfrekenen.TabIndex = 0;
-            this.Bill_btnAfrekenen.Text = "Afrekenen";
-            this.Bill_btnAfrekenen.UseVisualStyleBackColor = true;
-            this.Bill_btnAfrekenen.Click += new System.EventHandler(this.Bill_btnAfrekenen_Click);
-            // 
-            // Bill_pnlAfrekenen
-            // 
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable10);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable8);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable6);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable4);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable2);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable9);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable7);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable5);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_lblTableNumber);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnBillOverview);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable3);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_btnTable1);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_lvTables);
-            this.Bill_pnlAfrekenen.Controls.Add(this.Bill_lblRekeningNietBeschikbaar);
-            this.Bill_pnlAfrekenen.Location = new System.Drawing.Point(144, 95);
-            this.Bill_pnlAfrekenen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Bill_pnlAfrekenen.Name = "Bill_pnlAfrekenen";
-            this.Bill_pnlAfrekenen.Size = new System.Drawing.Size(1050, 526);
-            this.Bill_pnlAfrekenen.TabIndex = 1;
-            // 
-            // Bill_btnTable10
-            // 
-            this.Bill_btnTable10.Location = new System.Drawing.Point(148, 422);
-            this.Bill_btnTable10.Name = "Bill_btnTable10";
-            this.Bill_btnTable10.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable10.TabIndex = 17;
-            this.Bill_btnTable10.Text = "Tafel 10";
-            this.Bill_btnTable10.UseVisualStyleBackColor = true;
-            this.Bill_btnTable10.Click += new System.EventHandler(this.Bill_btnTable10_Click);
-            // 
-            // Bill_btnTable8
-            // 
-            this.Bill_btnTable8.Location = new System.Drawing.Point(148, 332);
-            this.Bill_btnTable8.Name = "Bill_btnTable8";
-            this.Bill_btnTable8.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable8.TabIndex = 16;
-            this.Bill_btnTable8.Text = "Tafel 8";
-            this.Bill_btnTable8.UseVisualStyleBackColor = true;
-            this.Bill_btnTable8.Click += new System.EventHandler(this.Bill_btnTable8_Click);
-            // 
-            // Bill_btnTable6
-            // 
-            this.Bill_btnTable6.Location = new System.Drawing.Point(148, 243);
-            this.Bill_btnTable6.Name = "Bill_btnTable6";
-            this.Bill_btnTable6.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable6.TabIndex = 15;
-            this.Bill_btnTable6.Text = "Tafel 6";
-            this.Bill_btnTable6.UseVisualStyleBackColor = true;
-            this.Bill_btnTable6.Click += new System.EventHandler(this.Bill_btnTable6_Click);
-            // 
-            // Bill_btnTable4
-            // 
-            this.Bill_btnTable4.Location = new System.Drawing.Point(148, 154);
-            this.Bill_btnTable4.Name = "Bill_btnTable4";
-            this.Bill_btnTable4.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable4.TabIndex = 14;
-            this.Bill_btnTable4.Text = "Tafel 4";
-            this.Bill_btnTable4.UseVisualStyleBackColor = true;
-            this.Bill_btnTable4.Click += new System.EventHandler(this.Bill_btnTable4_Click);
-            // 
-            // Bill_btnTable2
-            // 
-            this.Bill_btnTable2.Location = new System.Drawing.Point(148, 65);
-            this.Bill_btnTable2.Name = "Bill_btnTable2";
-            this.Bill_btnTable2.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable2.TabIndex = 13;
-            this.Bill_btnTable2.Text = "Tafel 2";
-            this.Bill_btnTable2.UseVisualStyleBackColor = true;
-            this.Bill_btnTable2.Click += new System.EventHandler(this.Bill_btnTable2_Click);
-            // 
-            // Bill_btnTable9
-            // 
-            this.Bill_btnTable9.Location = new System.Drawing.Point(32, 422);
-            this.Bill_btnTable9.Name = "Bill_btnTable9";
-            this.Bill_btnTable9.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable9.TabIndex = 12;
-            this.Bill_btnTable9.Text = "Tafel 9";
-            this.Bill_btnTable9.UseVisualStyleBackColor = true;
-            this.Bill_btnTable9.Click += new System.EventHandler(this.Bill_btnTable9_Click);
-            // 
-            // Bill_btnTable7
-            // 
-            this.Bill_btnTable7.Location = new System.Drawing.Point(32, 332);
-            this.Bill_btnTable7.Name = "Bill_btnTable7";
-            this.Bill_btnTable7.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable7.TabIndex = 11;
-            this.Bill_btnTable7.Text = "Tafel 7";
-            this.Bill_btnTable7.UseVisualStyleBackColor = true;
-            this.Bill_btnTable7.Click += new System.EventHandler(this.Bill_btnTable7_Click);
-            // 
-            // Bill_btnTable5
-            // 
-            this.Bill_btnTable5.Location = new System.Drawing.Point(32, 243);
-            this.Bill_btnTable5.Name = "Bill_btnTable5";
-            this.Bill_btnTable5.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable5.TabIndex = 10;
-            this.Bill_btnTable5.Text = "Tafel 5";
-            this.Bill_btnTable5.UseVisualStyleBackColor = true;
-            this.Bill_btnTable5.Click += new System.EventHandler(this.Bill_btnTable5_Click);
             // 
             // Bill_lblTableNumber
             // 
             this.Bill_lblTableNumber.AutoSize = true;
-            this.Bill_lblTableNumber.Location = new System.Drawing.Point(27, 11);
+            this.Bill_lblTableNumber.Location = new System.Drawing.Point(18, 145);
             this.Bill_lblTableNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Bill_lblTableNumber.Name = "Bill_lblTableNumber";
             this.Bill_lblTableNumber.Size = new System.Drawing.Size(123, 20);
@@ -198,7 +72,7 @@
             // 
             // Bill_btnBillOverview
             // 
-            this.Bill_btnBillOverview.Location = new System.Drawing.Point(190, 5);
+            this.Bill_btnBillOverview.Location = new System.Drawing.Point(152, 138);
             this.Bill_btnBillOverview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bill_btnBillOverview.Name = "Bill_btnBillOverview";
             this.Bill_btnBillOverview.Size = new System.Drawing.Size(170, 32);
@@ -206,46 +80,6 @@
             this.Bill_btnBillOverview.Text = "Rekening overzicht";
             this.Bill_btnBillOverview.UseVisualStyleBackColor = true;
             this.Bill_btnBillOverview.Click += new System.EventHandler(this.Bill_btnRekeningOverzicht_Click);
-            // 
-            // Bill_btnTable3
-            // 
-            this.Bill_btnTable3.Location = new System.Drawing.Point(32, 154);
-            this.Bill_btnTable3.Name = "Bill_btnTable3";
-            this.Bill_btnTable3.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable3.TabIndex = 9;
-            this.Bill_btnTable3.Text = "Tafel 3";
-            this.Bill_btnTable3.UseVisualStyleBackColor = true;
-            this.Bill_btnTable3.Click += new System.EventHandler(this.Bill_btnTable3_Click);
-            // 
-            // Bill_btnTable1
-            // 
-            this.Bill_btnTable1.Location = new System.Drawing.Point(32, 65);
-            this.Bill_btnTable1.Name = "Bill_btnTable1";
-            this.Bill_btnTable1.Size = new System.Drawing.Size(88, 83);
-            this.Bill_btnTable1.TabIndex = 8;
-            this.Bill_btnTable1.Text = "Tafel 1";
-            this.Bill_btnTable1.UseVisualStyleBackColor = true;
-            this.Bill_btnTable1.Click += new System.EventHandler(this.Bill_btnTable1_Click);
-            // 
-            // Bill_lvTables
-            // 
-            this.Bill_lvTables.HideSelection = false;
-            this.Bill_lvTables.Location = new System.Drawing.Point(4, 45);
-            this.Bill_lvTables.Name = "Bill_lvTables";
-            this.Bill_lvTables.Size = new System.Drawing.Size(1040, 476);
-            this.Bill_lvTables.TabIndex = 7;
-            this.Bill_lvTables.UseCompatibleStateImageBehavior = false;
-            this.Bill_lvTables.View = System.Windows.Forms.View.Details;
-            // 
-            // Bill_lblRekeningNietBeschikbaar
-            // 
-            this.Bill_lblRekeningNietBeschikbaar.AutoSize = true;
-            this.Bill_lblRekeningNietBeschikbaar.Location = new System.Drawing.Point(417, 269);
-            this.Bill_lblRekeningNietBeschikbaar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Bill_lblRekeningNietBeschikbaar.Name = "Bill_lblRekeningNietBeschikbaar";
-            this.Bill_lblRekeningNietBeschikbaar.Size = new System.Drawing.Size(197, 20);
-            this.Bill_lblRekeningNietBeschikbaar.TabIndex = 5;
-            this.Bill_lblRekeningNietBeschikbaar.Text = "Rekening niet beschikbaar";
             // 
             // Bill_btnPay
             // 
@@ -302,30 +136,20 @@
             // Bill_lvBillOverview
             // 
             this.Bill_lvBillOverview.HideSelection = false;
-            this.Bill_lvBillOverview.Location = new System.Drawing.Point(144, 137);
+            this.Bill_lvBillOverview.Location = new System.Drawing.Point(21, 182);
             this.Bill_lvBillOverview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bill_lvBillOverview.Name = "Bill_lvBillOverview";
-            this.Bill_lvBillOverview.Size = new System.Drawing.Size(1032, 467);
+            this.Bill_lvBillOverview.Size = new System.Drawing.Size(637, 519);
             this.Bill_lvBillOverview.TabIndex = 3;
             this.Bill_lvBillOverview.UseCompatibleStateImageBehavior = false;
             this.Bill_lvBillOverview.View = System.Windows.Forms.View.Details;
             // 
-            // Bill_lblActivePanel
-            // 
-            this.Bill_lblActivePanel.AutoSize = true;
-            this.Bill_lblActivePanel.Location = new System.Drawing.Point(574, 37);
-            this.Bill_lblActivePanel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Bill_lblActivePanel.Name = "Bill_lblActivePanel";
-            this.Bill_lblActivePanel.Size = new System.Drawing.Size(83, 20);
-            this.Bill_lblActivePanel.TabIndex = 2;
-            this.Bill_lblActivePanel.Text = "Afrekenen";
-            // 
             // Bill_btnKiesBetaalmethode
             // 
-            this.Bill_btnKiesBetaalmethode.Location = new System.Drawing.Point(334, 631);
+            this.Bill_btnKiesBetaalmethode.Location = new System.Drawing.Point(104, 711);
             this.Bill_btnKiesBetaalmethode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bill_btnKiesBetaalmethode.Name = "Bill_btnKiesBetaalmethode";
-            this.Bill_btnKiesBetaalmethode.Size = new System.Drawing.Size(182, 49);
+            this.Bill_btnKiesBetaalmethode.Size = new System.Drawing.Size(166, 49);
             this.Bill_btnKiesBetaalmethode.TabIndex = 24;
             this.Bill_btnKiesBetaalmethode.Text = "Kies betaalmethode";
             this.Bill_btnKiesBetaalmethode.UseVisualStyleBackColor = true;
@@ -341,7 +165,7 @@
             this.Bill_pnlBetaalMethode.Controls.Add(this.Bill_rbMastercard);
             this.Bill_pnlBetaalMethode.Controls.Add(this.Bill_rbVisa);
             this.Bill_pnlBetaalMethode.Controls.Add(this.Bill_rbPaypal);
-            this.Bill_pnlBetaalMethode.Location = new System.Drawing.Point(388, 291);
+            this.Bill_pnlBetaalMethode.Location = new System.Drawing.Point(70, 358);
             this.Bill_pnlBetaalMethode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bill_pnlBetaalMethode.Name = "Bill_pnlBetaalMethode";
             this.Bill_pnlBetaalMethode.Size = new System.Drawing.Size(526, 174);
@@ -369,7 +193,7 @@
             this.Bill_pnlFooi.Controls.Add(this.Bill_btnFooiPlus10);
             this.Bill_pnlFooi.Controls.Add(this.Bill_btnFooiPlus5);
             this.Bill_pnlFooi.Controls.Add(this.Bill_btnPasAan);
-            this.Bill_pnlFooi.Location = new System.Drawing.Point(388, 291);
+            this.Bill_pnlFooi.Location = new System.Drawing.Point(70, 358);
             this.Bill_pnlFooi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bill_pnlFooi.Name = "Bill_pnlFooi";
             this.Bill_pnlFooi.Size = new System.Drawing.Size(526, 174);
@@ -426,6 +250,15 @@
             this.Bill_btnFooiPlus10.UseVisualStyleBackColor = true;
             this.Bill_btnFooiPlus10.Click += new System.EventHandler(this.Bill_btnFooiPlus10_Click);
             // 
+            // Bill_lblBetaald
+            // 
+            this.Bill_lblBetaald.AutoSize = true;
+            this.Bill_lblBetaald.Location = new System.Drawing.Point(249, 440);
+            this.Bill_lblBetaald.Name = "Bill_lblBetaald";
+            this.Bill_lblBetaald.Size = new System.Drawing.Size(183, 20);
+            this.Bill_lblBetaald.TabIndex = 29;
+            this.Bill_lblBetaald.Text = "De rekening is al betaald";
+            // 
             // Bill_btnFooiPlus5
             // 
             this.Bill_btnFooiPlus5.Location = new System.Drawing.Point(4, 5);
@@ -449,10 +282,10 @@
             // 
             // Bill_btnFooi
             // 
-            this.Bill_btnFooi.Location = new System.Drawing.Point(144, 631);
+            this.Bill_btnFooi.Location = new System.Drawing.Point(18, 711);
             this.Bill_btnFooi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bill_btnFooi.Name = "Bill_btnFooi";
-            this.Bill_btnFooi.Size = new System.Drawing.Size(182, 49);
+            this.Bill_btnFooi.Size = new System.Drawing.Size(76, 49);
             this.Bill_btnFooi.TabIndex = 27;
             this.Bill_btnFooi.Text = "Fooi";
             this.Bill_btnFooi.UseVisualStyleBackColor = true;
@@ -461,7 +294,7 @@
             // Bill_lblTotalPrice
             // 
             this.Bill_lblTotalPrice.AutoSize = true;
-            this.Bill_lblTotalPrice.Location = new System.Drawing.Point(1104, 645);
+            this.Bill_lblTotalPrice.Location = new System.Drawing.Point(584, 726);
             this.Bill_lblTotalPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Bill_lblTotalPrice.Name = "Bill_lblTotalPrice";
             this.Bill_lblTotalPrice.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -470,19 +303,10 @@
             this.Bill_lblTotalPrice.Text = "€ 000,00";
             this.Bill_lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Bill_lblBetaald
-            // 
-            this.Bill_lblBetaald.AutoSize = true;
-            this.Bill_lblBetaald.Location = new System.Drawing.Point(524, 362);
-            this.Bill_lblBetaald.Name = "Bill_lblBetaald";
-            this.Bill_lblBetaald.Size = new System.Drawing.Size(183, 20);
-            this.Bill_lblBetaald.TabIndex = 29;
-            this.Bill_lblBetaald.Text = "De rekening is al betaald";
-            // 
             // Bill_lblBtw
             // 
             this.Bill_lblBtw.AutoSize = true;
-            this.Bill_lblBtw.Location = new System.Drawing.Point(574, 645);
+            this.Bill_lblBtw.Location = new System.Drawing.Point(315, 726);
             this.Bill_lblBtw.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Bill_lblBtw.Name = "Bill_lblBtw";
             this.Bill_lblBtw.Size = new System.Drawing.Size(71, 20);
@@ -492,7 +316,7 @@
             // Bill_lblBtwLinks
             // 
             this.Bill_lblBtwLinks.AutoSize = true;
-            this.Bill_lblBtwLinks.Location = new System.Drawing.Point(526, 645);
+            this.Bill_lblBtwLinks.Location = new System.Drawing.Point(279, 726);
             this.Bill_lblBtwLinks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Bill_lblBtwLinks.Name = "Bill_lblBtwLinks";
             this.Bill_lblBtwLinks.Size = new System.Drawing.Size(38, 20);
@@ -502,7 +326,7 @@
             // Bill_lblTotaalBedrag
             // 
             this.Bill_lblTotaalBedrag.AutoSize = true;
-            this.Bill_lblTotaalBedrag.Location = new System.Drawing.Point(985, 645);
+            this.Bill_lblTotaalBedrag.Location = new System.Drawing.Point(460, 726);
             this.Bill_lblTotaalBedrag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Bill_lblTotaalBedrag.Name = "Bill_lblTotaalBedrag";
             this.Bill_lblTotaalBedrag.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -511,58 +335,65 @@
             this.Bill_lblTotaalBedrag.Text = "Totaal bedrag:";
             this.Bill_lblTotaalBedrag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // CP_imgLogo
+            // 
+            this.CP_imgLogo.BackColor = System.Drawing.SystemColors.Control;
+            this.CP_imgLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CP_imgLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CP_imgLogo.Image = global::Ui.Properties.Resources.Logo2;
+            this.CP_imgLogo.Location = new System.Drawing.Point(0, 0);
+            this.CP_imgLogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CP_imgLogo.Name = "CP_imgLogo";
+            this.CP_imgLogo.Size = new System.Drawing.Size(693, 78);
+            this.CP_imgLogo.TabIndex = 33;
+            this.CP_imgLogo.TabStop = false;
+            // 
+            // Bill_lblAfrekenen
+            // 
+            this.Bill_lblAfrekenen.AutoSize = true;
+            this.Bill_lblAfrekenen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Bill_lblAfrekenen.Location = new System.Drawing.Point(272, 94);
+            this.Bill_lblAfrekenen.Name = "Bill_lblAfrekenen";
+            this.Bill_lblAfrekenen.Size = new System.Drawing.Size(160, 29);
+            this.Bill_lblAfrekenen.TabIndex = 34;
+            this.Bill_lblAfrekenen.Text = "AFREKENEN";
+            // 
             // BillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 698);
+            this.ClientSize = new System.Drawing.Size(693, 778);
+            this.Controls.Add(this.Bill_lblAfrekenen);
+            this.Controls.Add(this.CP_imgLogo);
+            this.Controls.Add(this.Bill_btnBillOverview);
+            this.Controls.Add(this.Bill_lblTableNumber);
             this.Controls.Add(this.Bill_lblTotaalBedrag);
             this.Controls.Add(this.Bill_lblBtwLinks);
-            this.Controls.Add(this.Bill_lblBtw);
             this.Controls.Add(this.Bill_lblBetaald);
+            this.Controls.Add(this.Bill_lblBtw);
             this.Controls.Add(this.Bill_lblTotalPrice);
             this.Controls.Add(this.Bill_btnFooi);
             this.Controls.Add(this.Bill_pnlFooi);
             this.Controls.Add(this.Bill_pnlBetaalMethode);
             this.Controls.Add(this.Bill_btnKiesBetaalmethode);
-            this.Controls.Add(this.Bill_lblActivePanel);
-            this.Controls.Add(this.Bill_pnlAfrekenen);
-            this.Controls.Add(this.Bill_btnAfrekenen);
             this.Controls.Add(this.Bill_lvBillOverview);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BillForm";
             this.Text = "BillForm";
-            this.Bill_pnlAfrekenen.ResumeLayout(false);
-            this.Bill_pnlAfrekenen.PerformLayout();
             this.Bill_pnlBetaalMethode.ResumeLayout(false);
             this.Bill_pnlBetaalMethode.PerformLayout();
             this.Bill_pnlFooi.ResumeLayout(false);
             this.Bill_pnlFooi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button Bill_btnAfrekenen;
-        private System.Windows.Forms.Panel Bill_pnlAfrekenen;
         private System.Windows.Forms.Label Bill_lblTableNumber;
         private System.Windows.Forms.ListView Bill_lvBillOverview;
         private System.Windows.Forms.Button Bill_btnBillOverview;
-        private System.Windows.Forms.Label Bill_lblActivePanel;
-        private System.Windows.Forms.Label Bill_lblRekeningNietBeschikbaar;
-        private System.Windows.Forms.Button Bill_btnTable10;
-        private System.Windows.Forms.Button Bill_btnTable8;
-        private System.Windows.Forms.Button Bill_btnTable6;
-        private System.Windows.Forms.Button Bill_btnTable4;
-        private System.Windows.Forms.Button Bill_btnTable2;
-        private System.Windows.Forms.Button Bill_btnTable9;
-        private System.Windows.Forms.Button Bill_btnTable7;
-        private System.Windows.Forms.Button Bill_btnTable5;
-        private System.Windows.Forms.Button Bill_btnTable3;
-        private System.Windows.Forms.Button Bill_btnTable1;
-        private System.Windows.Forms.ListView Bill_lvTables;
         private System.Windows.Forms.Button Bill_btnPay;
         private System.Windows.Forms.RadioButton Bill_rbPaypal;
         private System.Windows.Forms.RadioButton Bill_rbMastercard;
@@ -585,5 +416,7 @@
         private System.Windows.Forms.Label Bill_lblBtw;
         private System.Windows.Forms.Label Bill_lblBtwLinks;
         private System.Windows.Forms.Label Bill_lblTotaalBedrag;
+        private System.Windows.Forms.PictureBox CP_imgLogo;
+        private System.Windows.Forms.Label Bill_lblAfrekenen;
     }
 }

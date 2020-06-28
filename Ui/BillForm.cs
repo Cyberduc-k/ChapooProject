@@ -16,7 +16,7 @@ namespace Ui
     {
         private Bill_Service bill_service = new Bill_Service();
         private Table_Service table_service = new Table_Service();
-        private List<Table> tables;
+        private Employee employee;
         private ColumnHeader columnheader;
         private Table table;
         private Bill bill;
@@ -26,28 +26,33 @@ namespace Ui
         private double fooi;
         private double btw = 0.21;
 
-        public BillForm()
+        public BillForm(Table table, Employee employee)
         {
             InitializeComponent();
-            Bill_btnAfrekenen_Click(null, null);
-        }
-
-        private void Bill_btnAfrekenen_Click(object sender, EventArgs e)
-        {
-            SetHightlight(Bill_btnAfrekenen);
-            HideAllPanels();
-            Bill_lblActivePanel.Text = "Afrekenen";
-            Bill_pnlAfrekenen.Show();
-            Bill_btnBillOverview.Show();
-            Bill_lvTables.Show();
-            ShowOccupiedTables();
+            tableId = table.Number;
+            Bill_lblTableNumber.Text = "Tafel nummer: " + tableId.ToString();
+            Bill_btnRekeningOverzicht_Click(null, null);
         }
 
         private void Bill_btnRekeningOverzicht_Click(object sender, EventArgs e)
         {
             HideAllPanels();
-            
+            Bill_btnBillOverview.Show();
+            Bill_btnFooi.Show();
+            Bill_btnKiesBetaalmethode.Show();
+            Bill_lblBtw.Show();
+            Bill_lblTotaalBedrag.Show();
+            Bill_lblTotalPrice.Show();
+            Bill_lblBtwLinks.Show();
             Bill_lvBillOverview.Show();
+            Bill_lblTotalPrice.Show();
+            Bill_lblBtw.Show();
+            Bill_lblBtwLinks.Show();
+            Bill_btnFooi.Show();
+            Bill_btnKiesBetaalmethode.Show();
+
+            Bill_lvBillOverview.Clear();
+            totalprice = 0;
 
             Bill bills = bill_service.GetBillByTableId(tableId);
 
@@ -78,7 +83,7 @@ namespace Ui
                 }
                 columnheader = new ColumnHeader();
                 columnheader.Text = "Item";
-                columnheader.Width = 400;
+                columnheader.Width = 250;
                 Bill_lvBillOverview.Columns.Add(columnheader);
 
                 columnheader = new ColumnHeader();
@@ -90,11 +95,7 @@ namespace Ui
 
                 Bill_lblTotalPrice.Text = totalprice.ToString("€0.00");
 
-                Bill_lblTotalPrice.Show();
-                Bill_lblBtw.Show();
-                Bill_lblBtwLinks.Show();
-                Bill_btnFooi.Show();
-                Bill_btnKiesBetaalmethode.Show();
+                
             }
             else
             {
@@ -112,35 +113,6 @@ namespace Ui
             Bill_rbVisa.Show();
             Bill_btnPay.Show();
         }
-        private void SetHightlight(Button btn)
-        {
-            Bill_btnAfrekenen.BackColor = Color.FromArgb(0, 165, 229);
-            btn.BackColor = Color.FromArgb(0, 184, 255);
-        }
-        private void ShowOccupiedTables()
-        {
-            tables = table_service.GetAllTables();
-
-            Button[] btnArray = new Button[]
-            {
-                Bill_btnTable1, Bill_btnTable2, Bill_btnTable3, Bill_btnTable4, Bill_btnTable5, Bill_btnTable6, Bill_btnTable7, Bill_btnTable8, Bill_btnTable9, Bill_btnTable10
-            };
-
-            for (int i = 0; i < tables.Count; i++)
-            {
-                if (tables[i].Occupied == true)
-                {
-                    
-                    btnArray[i].BackColor = Color.Red;
-                    btnArray[i].Enabled = true;
-                }
-                else
-                {
-                    btnArray[i].BackColor = Color.Green;
-                    btnArray[i].Enabled = false;
-                }
-            }
-        }
 
         private void HideAllPanels()
         {
@@ -148,9 +120,6 @@ namespace Ui
             Bill_btnBillOverview.Hide();
             Bill_btnKiesBetaalmethode.Hide();
             Bill_btnFooi.Hide();
-            Bill_lblRekeningNietBeschikbaar.Hide();
-            Bill_lvTables.Hide();
-            Bill_pnlAfrekenen.Hide();
             Bill_pnlBetaalMethode.Hide();
             Bill_rbCash.Hide();
             Bill_rbMastercard.Hide();
@@ -164,66 +133,6 @@ namespace Ui
             Bill_lblTotaalBedrag.Hide();
         }
 
-        private void Bill_btnTable1_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 1";
-            tableId = 1;
-        }
-
-        private void Bill_btnTable2_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 2";
-            tableId = 2;
-        }
-
-        private void Bill_btnTable3_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 3";
-            tableId = 3;
-        }
-
-        private void Bill_btnTable4_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 4";
-            tableId = 4;
-        }
-
-        private void Bill_btnTable5_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 5";
-            tableId = 5;
-        }
-
-        private void Bill_btnTable6_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 6";
-            tableId = 6;
-        }
-
-        private void Bill_btnTable7_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 7";
-            tableId = 7;
-        }
-
-        private void Bill_btnTable8_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 8";
-            tableId = 8;
-        }
-
-        private void Bill_btnTable9_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 9";
-            tableId = 9;
-        }
-
-        private void Bill_btnTable10_Click(object sender, EventArgs e)
-        {
-            Bill_lblTableNumber.Text = "Tafel nummer: 10";
-            tableId = 10;
-        }
-
         private void Bill_btnPay_Click(object sender, EventArgs e)
         {
             bill = bill_service.GetBillByTableId(tableId);
@@ -234,7 +143,10 @@ namespace Ui
             table.Occupied = false;
             table_service.ModifyTable(table);
 
-            Bill_btnAfrekenen_Click(null, null);
+            Hide();
+            OrderForm form = new OrderForm(employee);
+            form.ShowDialog(Owner);
+            Close();
         }
 
         private void Bill_btnBetaalmethodeX_Click(object sender, EventArgs e)
