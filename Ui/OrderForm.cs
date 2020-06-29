@@ -41,27 +41,26 @@ namespace Ui
             foreach (Table t in tafels)
             {
                 bill = billService.GetBillByTableId(t.Number);
+                color = System.Drawing.Color.Green;
+
                 if (t.Occupied)
                 {
                     color = System.Drawing.Color.Red;
                 }
-                else if (bill.Orders.Count > 0)
+                if (bill.Orders.Count > 0)
                 {
-                    foreach (Order order in bill.Orders)
+                    if (bill.Orders.Any(order => order.Dishes.Any(dish => !dish.Finished) || order.Drinks.Any(drink => !drink.Finished)))
                     {
-                        if (order.State == OrderState.Started)
-                        {
-                            color = System.Drawing.Color.Orange;
-                        }
-                        else if(order.State == OrderState.Done)
-                        {
-                            color = System.Drawing.Color.Yellow;
-                        }
+                        color = Color.Orange;
                     }
-                }
-                else
-                {
-                    color = System.Drawing.Color.Green;
+                    if (bill.Orders.Any(order => order.Dishes.Any(dish => dish.Finished) || order.Drinks.Any(drink => drink.Finished)))
+                    {
+                        color = Color.Yellow;
+                    }
+                    if (bill.Orders.All(order => order.Dishes.All(dish => dish.Finished) && order.Drinks.All(drink => drink.Finished)))
+                    {
+                        color = Color.Red;
+                    }
                 }
                 Button btn = new Button();
                 btn.BackColor = color;
