@@ -18,28 +18,18 @@ namespace Ui
         private Order_Service order_service = new Order_Service();
         private Dish_Service dish_service = new Dish_Service();
         private List<Order> orders;
-        private Timer timer = new Timer();
 
         public ChefForm()
         {
             InitializeComponent();
             InitializeSorting();
-            InitializeTimer();
-            FormClosed += OnClosed;
-            Chef_btnOverzicht_Click(null, null);
+            RefreshOrders();
         }
 
         private void InitializeSorting()
         {
             Chef_lvVoorraad.View = View.Details;
             Chef_lvVoorraad.ListViewItemSorter = lvwColumnSorter;
-        }
-
-        private void InitializeTimer()
-        {
-            timer.Interval = 20000;
-            timer.Tick += OnTimedEvent;
-            timer.Stop();
         }
 
         // Highlight a button
@@ -53,7 +43,6 @@ namespace Ui
 
         private void HideAllPanels()
         {
-            timer.Stop();
             Chef_pnlOverzicht.Hide();
             Chef_pnlGereed.Hide();
             Chef_pnlVoorraad.Hide();
@@ -65,71 +54,53 @@ namespace Ui
             Chef_lblActivePanel.Text = "Overzicht";
             HideAllPanels();
             Chef_pnlOverzicht.Show();
-            OnTimedEvent(null, null);
-            timer.Start();
+            RefreshOrders();
         }
 
-        // Code taken from: https://stackoverflow.com/questions/10775367/cross-thread-operation-not-valid-control-textbox1-accessed-from-a-thread-othe
-        // to modify the ui from a different thread to avoid blocking on database access.
-        delegate void RefreshOrdersCallback();
+        private void Chef_btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshOrders();
+        }
 
         private void RefreshOrders()
         {
-            if (Chef_pnlOverzicht.InvokeRequired)
-            {
-                RefreshOrdersCallback d = new RefreshOrdersCallback(RefreshOrders);
+            Chef_lblGeenBestellingen.Hide();
+            Chef_pnlOpmerkingen.Hide();
+            Chef_pnlFirstOrder.Hide();
+            Chef_pnlSecondOrder.Hide();
+            Chef_pnlThirdOrder.Hide();
+            Chef_pnlFourthOrder.Hide();
+            Chef_pnlOverflow.Hide();
 
-                Invoke(d, new object[] { });
-            } else
-            {
-                Chef_lblGeenBestellingen.Hide();
-                Chef_pnlOpmerkingen.Hide();
-                Chef_pnlFirstOrder.Hide();
-                Chef_pnlSecondOrder.Hide();
-                Chef_pnlThirdOrder.Hide();
-                Chef_pnlFourthOrder.Hide();
-                Chef_pnlOverflow.Hide();
+            // Get all unprocessed orders
+            orders = order_service
+                .GetAllOrders()
+                .Where(order => order.Dishes.Any(dish => !dish.Finished))
+                .ToList();
 
-                switch (orders.Count)
-                {
-                    case 0:
-                        Chef_lblGeenBestellingen.Show();
-                        break;
-                    case 1:
-                        FillOrder(orders[0], Chef_pnlFirstOrder, Chef_lvFirst, Chef_lblTafelFirst, Chef_lblBesteldOpFirst);
-                        Chef_lvFirst.Items[0].Selected = true;
-                        Chef_pnlOpmerkingen.Show();
-                        break;
-                    case 2:
-                        FillOrder(orders[1], Chef_pnlSecondOrder, Chef_lvSecond, Chef_lblTafelSecond, Chef_lblBesteldOpSecond);
-                        goto case 1;
-                    case 3:
-                        FillOrder(orders[2], Chef_pnlThirdOrder, Chef_lvThird, Chef_lblTafelThird, Chef_lblBesteldOpThird);
-                        goto case 2;
-                    case 4:
-                        FillOrder(orders[3], Chef_pnlFourthOrder, Chef_lvFourth, Chef_lblTafelFourth, Chef_lblBesteldOpFourth);
-                        goto case 3;
-                    default:
-                        ShowOverflow(orders.Count - 4);
-                        goto case 4;
-                }
+            switch (orders.Count)
+            {
+                case 0:
+                    Chef_lblGeenBestellingen.Show();
+                    break;
+                case 1:
+                    FillOrder(orders[0], Chef_pnlFirstOrder, Chef_lvFirst, Chef_lblTafelFirst, Chef_lblBesteldOpFirst);
+                    Chef_lvFirst.Items[0].Selected = true;
+                    Chef_pnlOpmerkingen.Show();
+                    break;
+                case 2:
+                    FillOrder(orders[1], Chef_pnlSecondOrder, Chef_lvSecond, Chef_lblTafelSecond, Chef_lblBesteldOpSecond);
+                    goto case 1;
+                case 3:
+                    FillOrder(orders[2], Chef_pnlThirdOrder, Chef_lvThird, Chef_lblTafelThird, Chef_lblBesteldOpThird);
+                    goto case 2;
+                case 4:
+                    FillOrder(orders[3], Chef_pnlFourthOrder, Chef_lvFourth, Chef_lblTafelFourth, Chef_lblBesteldOpFourth);
+                    goto case 3;
+                default:
+                    ShowOverflow(orders.Count - 4);
+                    goto case 4;
             }
-        }
-
-        void OnTimedEvent(Object source, EventArgs e)
-        {
-            // every 20 seconds the "Overzicht" panel will be refreshed
-            new System.Threading.Thread(() =>
-            {
-                // Get all unprocessed orders
-                orders = order_service
-                        .GetAllOrders()
-                        .Where(order => order.Dishes.Any(dish => !dish.Finished))
-                        .Where(order => order.Dishes.Count > 0)
-                        .ToList();
-
-                RefreshOrders();
-            }).Start();
         }
 
         private void FillOrder(Order order, Panel panel, ListView lv, Label table, Label ordered)
@@ -170,9 +141,8 @@ namespace Ui
 
             order.TimeFinished = DateTime.Now;
             order_service.ModifyOrder(order);
-            OnTimedEvent(null, null);
-
             MessageBox.Show("De bestelling is gereed gemeld", "Gereed gemeld!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefreshOrders();
         }
 
         private void Chef_order_SelectedIndexChanged(object sender, EventArgs e)
@@ -341,13 +311,6 @@ namespace Ui
 
                 Chef_lvVoorraad.Items.Add(li);
             }
-        }
-
-        private void OnClosed(object sender, FormClosedEventArgs e)
-        {
-            timer.Stop();
-            timer.Dispose();
-            timer = null;
         }
 
         private void Chef_btnUitloggen_Click(object sender, EventArgs e)

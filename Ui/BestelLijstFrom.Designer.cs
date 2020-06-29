@@ -314,7 +314,6 @@
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CP_imgLogo);
-            this.Name = "BestelLijstFrom";
             this.Text = "BestelLijstFrom";
             this.Load += new System.EventHandler(this.BestelLijstFrom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).EndInit();
