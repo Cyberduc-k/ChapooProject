@@ -45,19 +45,19 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.bestelBtn = new System.Windows.Forms.Button();
             this.Bill_GridDrinks = new System.Windows.Forms.DataGridView();
-            this.alcoholicDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finishedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aantalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drinkBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.drinkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.verwijderBtn = new System.Windows.Forms.Button();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aantalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alcoholicDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.finishedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishBindingSource)).BeginInit();
@@ -197,72 +197,20 @@
             this.Bill_GridDrinks.AutoGenerateColumns = false;
             this.Bill_GridDrinks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Bill_GridDrinks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.alcoholicDataGridViewCheckBoxColumn,
             this.idDataGridViewTextBoxColumn,
+            this.aantalDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
+            this.commentDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.stockDataGridViewTextBoxColumn,
-            this.finishedDataGridViewCheckBoxColumn,
-            this.commentDataGridViewTextBoxColumn,
-            this.aantalDataGridViewTextBoxColumn});
+            this.alcoholicDataGridViewCheckBoxColumn,
+            this.finishedDataGridViewCheckBoxColumn});
             this.Bill_GridDrinks.DataSource = this.drinkBindingSource1;
             this.Bill_GridDrinks.Location = new System.Drawing.Point(32, 359);
             this.Bill_GridDrinks.Name = "Bill_GridDrinks";
             this.Bill_GridDrinks.Size = new System.Drawing.Size(845, 164);
             this.Bill_GridDrinks.TabIndex = 16;
             this.Bill_GridDrinks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Bill_GridDrinks_CellContentClick);
-            // 
-            // alcoholicDataGridViewCheckBoxColumn
-            // 
-            this.alcoholicDataGridViewCheckBoxColumn.DataPropertyName = "Alcoholic";
-            this.alcoholicDataGridViewCheckBoxColumn.HeaderText = "Alcoholic";
-            this.alcoholicDataGridViewCheckBoxColumn.Name = "alcoholicDataGridViewCheckBoxColumn";
-            this.alcoholicDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stockDataGridViewTextBoxColumn
-            // 
-            this.stockDataGridViewTextBoxColumn.DataPropertyName = "Stock";
-            this.stockDataGridViewTextBoxColumn.HeaderText = "Stock";
-            this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
-            // 
-            // finishedDataGridViewCheckBoxColumn
-            // 
-            this.finishedDataGridViewCheckBoxColumn.DataPropertyName = "Finished";
-            this.finishedDataGridViewCheckBoxColumn.HeaderText = "Finished";
-            this.finishedDataGridViewCheckBoxColumn.Name = "finishedDataGridViewCheckBoxColumn";
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            // 
-            // aantalDataGridViewTextBoxColumn
-            // 
-            this.aantalDataGridViewTextBoxColumn.DataPropertyName = "Aantal";
-            this.aantalDataGridViewTextBoxColumn.HeaderText = "Aantal";
-            this.aantalDataGridViewTextBoxColumn.Name = "aantalDataGridViewTextBoxColumn";
             // 
             // drinkBindingSource1
             // 
@@ -299,6 +247,58 @@
             this.verwijderBtn.Text = "Verwijder bestelling";
             this.verwijderBtn.UseVisualStyleBackColor = true;
             this.verwijderBtn.Click += new System.EventHandler(this.verwijderBtn_Click);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aantalDataGridViewTextBoxColumn
+            // 
+            this.aantalDataGridViewTextBoxColumn.DataPropertyName = "Aantal";
+            this.aantalDataGridViewTextBoxColumn.HeaderText = "Aantal";
+            this.aantalDataGridViewTextBoxColumn.Name = "aantalDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stockDataGridViewTextBoxColumn
+            // 
+            this.stockDataGridViewTextBoxColumn.DataPropertyName = "Stock";
+            this.stockDataGridViewTextBoxColumn.HeaderText = "Stock";
+            this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
+            // 
+            // alcoholicDataGridViewCheckBoxColumn
+            // 
+            this.alcoholicDataGridViewCheckBoxColumn.DataPropertyName = "Alcoholic";
+            this.alcoholicDataGridViewCheckBoxColumn.HeaderText = "Alcoholic";
+            this.alcoholicDataGridViewCheckBoxColumn.Name = "alcoholicDataGridViewCheckBoxColumn";
+            this.alcoholicDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // finishedDataGridViewCheckBoxColumn
+            // 
+            this.finishedDataGridViewCheckBoxColumn.DataPropertyName = "Finished";
+            this.finishedDataGridViewCheckBoxColumn.HeaderText = "Finished";
+            this.finishedDataGridViewCheckBoxColumn.Name = "finishedDataGridViewCheckBoxColumn";
             // 
             // BestelLijstFrom
             // 
@@ -350,14 +350,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn alcoholicDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.BindingSource drinkBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aantalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn alcoholicDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn finishedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aantalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource drinkBindingSource1;
     }
 }

@@ -22,6 +22,7 @@ namespace Ui
         private Bill bill;
         private int tableId = 1;
         private double totalprice;
+        private double totalItemPrice;
         private string items;
         private double fooi;
         private double btw = 0.21;
@@ -53,6 +54,7 @@ namespace Ui
 
             Bill_lvBillOverview.Clear();
             totalprice = 0;
+            totalItemPrice = 0;
 
             Bill bills = bill_service.GetBillByTableId(tableId);
 
@@ -64,37 +66,56 @@ namespace Ui
                     foreach (Dish dish in bills.Orders[i].Dishes)
                     {
                         items = dish.Name;
-                        totalprice = totalprice + dish.Price;
 
                         ListViewItem li = new ListViewItem(items);
                         li.SubItems.Add(dish.Price.ToString("€0.00"));
+                        li.SubItems.Add(dish.Aantal.ToString());
+
+                        totalItemPrice = dish.Price * dish.Aantal;
+                        li.SubItems.Add(totalItemPrice.ToString("€0.00"));
+                        totalprice = totalprice + totalItemPrice;
+
                         Bill_lvBillOverview.Items.Add(li);
                     }
 
                     foreach (Drink drink in bills.Orders[i].Drinks)
                     {
                         items = drink.Name;
-                        totalprice = totalprice + drink.Price;
 
                         ListViewItem li = new ListViewItem(items);
                         li.SubItems.Add(drink.Price.ToString("€0.00"));
+                        li.SubItems.Add(drink.Aantal.ToString());
+
+                        totalItemPrice = drink.Price * drink.Aantal;
+                        li.SubItems.Add(totalItemPrice.ToString("€0.00"));
+                        totalprice = totalprice + totalItemPrice;
+
                         Bill_lvBillOverview.Items.Add(li);
                     }
                 }
                 columnheader = new ColumnHeader();
                 columnheader.Text = "Item";
-                columnheader.Width = 250;
+                columnheader.Width = 200;
                 Bill_lvBillOverview.Columns.Add(columnheader);
 
                 columnheader = new ColumnHeader();
-                columnheader.Text = "Prijs";
-                columnheader.Width = 100;
+                columnheader.Text = "Enkel";
+                columnheader.Width = 70;
+                Bill_lvBillOverview.Columns.Add(columnheader);
+
+                columnheader = new ColumnHeader();
+                columnheader.Text = "Aantal";
+                columnheader.Width = 50;
+                Bill_lvBillOverview.Columns.Add(columnheader);
+
+                columnheader = new ColumnHeader();
+                columnheader.Text = "Totaalprijs";
+                columnheader.Width = 70;
                 Bill_lvBillOverview.Columns.Add(columnheader);
 
                 Bill_lblBtw.Text = (totalprice * btw).ToString("€0.00");
 
                 Bill_lblTotalPrice.Text = totalprice.ToString("€0.00");
-
                 
             }
             else
@@ -196,6 +217,14 @@ namespace Ui
         private void Bill_btnFooiPlus20_Click(object sender, EventArgs e)
         {
             fooi = 20;
+        }
+
+        private void Bill_btnTerug_Click(object sender, EventArgs e)
+        {
+            Hide();
+            OrderForm form = new OrderForm(employee);
+            form.ShowDialog(Owner);
+            Close();
         }
     }
 }
