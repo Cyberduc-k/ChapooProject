@@ -44,6 +44,7 @@ namespace Ui
                 bestelBtn.Visible = false;
                 label2.Visible = false;
                 label3.Visible = false;
+                return;
             }
             BindingList<Dish> bindlist = new BindingList<Dish>();
             BindingList<Drink> binddrinks = new BindingList<Drink>();
