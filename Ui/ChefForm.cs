@@ -131,10 +131,11 @@ namespace Ui
         private void Chef_btnFirstKlaar_Click(object sender, EventArgs e)
         {
             Order order = orders[0];
+            List<Dish> dishes = order.Dishes.Where(dish => !dish.Finished).ToList();
 
             foreach (int idx in Chef_lvFirst.SelectedIndices)
             {
-                Dish dish = order.Dishes[idx];
+                Dish dish = dishes[idx];
 
                 dish_service.ModifyFinished(order, dish, true);
             }

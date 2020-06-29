@@ -19,14 +19,12 @@ namespace Ui
         private Drink_Service drink_service = new Drink_Service();
         private ColumnHeader columnheader;
         private List<Order> orders;
-        private Timer timer = new Timer();
 
         public BarForm()
         {
             InitializeComponent();
             InitializeSorting();
             RefreshOrders();
-            Bar_btnOverzicht_Click_1(null, null);
         }
 
         private void InitializeSorting()
@@ -79,9 +77,9 @@ namespace Ui
             Bar_pnlOverflow.Hide();
 
             orders = order_service
-            .GetAllOrders()
-            .Where(order => order.Drinks.Any(drink => !drink.Finished))
-            .ToList();
+                .GetAllOrders()
+                .Where(order => order.Drinks.Any(drink => !drink.Finished))
+                .ToList();
 
             switch (orders.Count)
             {
@@ -119,6 +117,7 @@ namespace Ui
             foreach (Drink drink in order.Drinks)
                 if (!drink.Finished)
                 {
+                    Console.WriteLine("{0}, {1}", order.Id, drink.Id);
                     ListViewItem li = new ListViewItem(drink.Name);
 
                     li.Tag = drink;
@@ -211,10 +210,11 @@ namespace Ui
         private void Bar_btnFirstKlaar_Click_1(object sender, EventArgs e)
         {
             Order order = orders[0];
+            List<Drink> drinks = order.Drinks.Where(drink => !drink.Finished).ToList();
 
             foreach (int idx in Bar_lvFirst.SelectedIndices)
             {
-                Drink drink = order.Drinks[idx];
+                Drink drink = drinks[idx];
 
                 drink_service.ModifyFinished(order, drink, true);
             }
@@ -240,13 +240,6 @@ namespace Ui
                 else
                     Bar_lblOpmerkingenContent.Text = "Geen opmerkingen";
             }
-        }
-
-        private void OnClosed(object sender, FormClosedEventArgs e)
-        {
-            timer.Stop();
-            timer.Dispose();
-            timer = null;
         }
 
         private void Bar_btnUitloggen_Click(object sender, EventArgs e)
