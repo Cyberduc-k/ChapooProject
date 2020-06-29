@@ -223,6 +223,8 @@ namespace Ui
             order_service.ModifyOrder(order);
 
             MessageBox.Show("De bestelling is gereed gemeld", "Gereed gemeld!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            RefreshOrders();
         }
 
         private void Bar_order_SelectedIndexChanged(object sender, EventArgs e)

@@ -164,7 +164,7 @@ namespace Ui
             table.Occupied = false;
             table_service.ModifyTable(table);
 
-            MessageBox.Show("De bestelling is gereed gemeld", "Gereed gemeld!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("De rekening is betaald", "Rekening Betaald!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             Hide();
             OrderForm form = new OrderForm(employee);
