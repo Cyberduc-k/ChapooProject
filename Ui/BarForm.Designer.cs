@@ -35,6 +35,7 @@
             this.Bar_pnlOverzicht = new System.Windows.Forms.Panel();
             this.Bar_lblGeenBestellingen = new System.Windows.Forms.Label();
             this.Bar_pnlOpmerkingen = new System.Windows.Forms.Panel();
+            this.Bar_lblOpmerkingenContent = new System.Windows.Forms.Label();
             this.Bar_lblOpmerkingen = new System.Windows.Forms.Label();
             this.Bar_pnlOverflow = new System.Windows.Forms.Panel();
             this.Bar_lblOverflow = new System.Windows.Forms.Label();
@@ -55,13 +56,13 @@
             this.Bar_lblTafelFirst = new System.Windows.Forms.Label();
             this.Bar_btnFirstKlaar = new System.Windows.Forms.Button();
             this.Bar_lvFirst = new System.Windows.Forms.ListView();
-            this.Bar_lblOpmerkingenContent = new System.Windows.Forms.Label();
             this.Bar_lblActivePanel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Bar_lblActivePanel1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Bar_btnUitloggen = new System.Windows.Forms.Button();
+            this.Bar_btnRefresh = new System.Windows.Forms.Button();
             this.Bar_pnlVoorraad.SuspendLayout();
             this.Bar_pnlOverzicht.SuspendLayout();
             this.Bar_pnlOpmerkingen.SuspendLayout();
@@ -127,6 +128,7 @@
             // Bar_pnlOverzicht
             // 
             this.Bar_pnlOverzicht.BackColor = System.Drawing.Color.White;
+            this.Bar_pnlOverzicht.Controls.Add(this.Bar_btnRefresh);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_lblGeenBestellingen);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlOpmerkingen);
             this.Bar_pnlOverzicht.Controls.Add(this.Bar_pnlOverflow);
@@ -161,6 +163,17 @@
             this.Bar_pnlOpmerkingen.Name = "Bar_pnlOpmerkingen";
             this.Bar_pnlOpmerkingen.Size = new System.Drawing.Size(468, 246);
             this.Bar_pnlOpmerkingen.TabIndex = 1;
+            // 
+            // Bar_lblOpmerkingenContent
+            // 
+            this.Bar_lblOpmerkingenContent.AutoSize = true;
+            this.Bar_lblOpmerkingenContent.BackColor = System.Drawing.Color.White;
+            this.Bar_lblOpmerkingenContent.Location = new System.Drawing.Point(13, 39);
+            this.Bar_lblOpmerkingenContent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Bar_lblOpmerkingenContent.MinimumSize = new System.Drawing.Size(440, 200);
+            this.Bar_lblOpmerkingenContent.Name = "Bar_lblOpmerkingenContent";
+            this.Bar_lblOpmerkingenContent.Size = new System.Drawing.Size(440, 200);
+            this.Bar_lblOpmerkingenContent.TabIndex = 2;
             // 
             // Bar_lblOpmerkingen
             // 
@@ -371,17 +384,6 @@
             this.Bar_lvFirst.UseCompatibleStateImageBehavior = false;
             this.Bar_lvFirst.SelectedIndexChanged += new System.EventHandler(this.Bar_order_SelectedIndexChanged);
             // 
-            // Bar_lblOpmerkingenContent
-            // 
-            this.Bar_lblOpmerkingenContent.AutoSize = true;
-            this.Bar_lblOpmerkingenContent.BackColor = System.Drawing.Color.White;
-            this.Bar_lblOpmerkingenContent.Location = new System.Drawing.Point(13, 39);
-            this.Bar_lblOpmerkingenContent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Bar_lblOpmerkingenContent.MinimumSize = new System.Drawing.Size(440, 200);
-            this.Bar_lblOpmerkingenContent.Name = "Bar_lblOpmerkingenContent";
-            this.Bar_lblOpmerkingenContent.Size = new System.Drawing.Size(440, 200);
-            this.Bar_lblOpmerkingenContent.TabIndex = 2;
-            // 
             // Bar_lblActivePanel
             // 
             this.Bar_lblActivePanel.AutoSize = true;
@@ -449,6 +451,20 @@
             this.Bar_btnUitloggen.Text = "Uitloggen";
             this.Bar_btnUitloggen.UseVisualStyleBackColor = false;
             this.Bar_btnUitloggen.Click += new System.EventHandler(this.Bar_btnUitloggen_Click);
+            // 
+            // Bar_btnRefresh
+            // 
+            this.Bar_btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Bar_btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Bar_btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.Bar_btnRefresh.Location = new System.Drawing.Point(914, 556);
+            this.Bar_btnRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Bar_btnRefresh.Name = "Bar_btnRefresh";
+            this.Bar_btnRefresh.Size = new System.Drawing.Size(122, 38);
+            this.Bar_btnRefresh.TabIndex = 5;
+            this.Bar_btnRefresh.Text = "Refresh";
+            this.Bar_btnRefresh.UseVisualStyleBackColor = false;
+            this.Bar_btnRefresh.Click += new System.EventHandler(this.Bar_btnRefresh_Click);
             // 
             // BarForm
             // 
@@ -522,5 +538,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Bar_lblActivePanel1;
         private System.Windows.Forms.Button Bar_btnUitloggen;
+        private System.Windows.Forms.Button Bar_btnRefresh;
     }
 }

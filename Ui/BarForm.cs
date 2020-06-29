@@ -25,8 +25,7 @@ namespace Ui
         {
             InitializeComponent();
             InitializeSorting();
-            InitializeTimer();
-            FormClosed += OnClosed;
+            RefreshOrders();
             Bar_btnOverzicht_Click_1(null, null);
         }
 
@@ -36,14 +35,7 @@ namespace Ui
             Bar_lvVoorraad.ListViewItemSorter = lvwColumnSorter;
         }
 
-        private void InitializeTimer()
-        {
-            timer.Interval = 2000;
-            timer.Tick += OnTimedEvent;
-            timer.Stop();
-        }
-
-    private void SetHightlight(Button btn)
+        private void SetHightlight(Button btn)
         {
             Bar_btnOverzicht.BackColor = Color.FromArgb(0, 165, 229);
             Bar_btnVoorraad.BackColor = Color.FromArgb(0, 165, 229);
@@ -62,6 +54,7 @@ namespace Ui
             Bar_pnlOverflow.Hide();
             Bar_pnlVoorraad.Hide();
             Bar_lblOpmerkingenContent.Hide();
+            Bar_btnRefresh.Hide();
         }
 
         private void Bar_btnOverzicht_Click_1(object sender, EventArgs e)
@@ -70,74 +63,51 @@ namespace Ui
             Bar_lblActivePanel1.Text = "Overzicht";
             HideAllPanels();
             Bar_pnlOverzicht.Show();
-            OnTimedEvent(null, null);
-            timer.Start();
+            Bar_btnRefresh.Show();
+            RefreshOrders();
         }
-
-        // Code taken from: https://stackoverflow.com/questions/10775367/cross-thread-operation-not-valid-control-textbox1-accessed-from-a-thread-othe
-        // to modify the ui from a different thread to avoid blocking on database access.
-        delegate void RefreshOrdersCallback();
 
         private void RefreshOrders()
         {
-            if (Bar_pnlOverzicht.InvokeRequired)
-            {
-                RefreshOrdersCallback d = new RefreshOrdersCallback(RefreshOrders);
+            Bar_lblGeenBestellingen.Hide();
+            Bar_lblOpmerkingenContent.Hide();
+            Bar_pnlOpmerkingen.Hide();
+            Bar_pnlFirstOrder.Hide();
+            Bar_pnlSecondOrder.Hide();
+            Bar_pnlThirdOrder.Hide();
+            Bar_pnlFourthOrder.Hide();
+            Bar_pnlOverflow.Hide();
 
-                Invoke(d, new object[] { });
+            orders = order_service
+            .GetAllOrders()
+            .Where(order => order.Drinks.Any(drink => !drink.Finished))
+            .ToList();
+
+            switch (orders.Count)
+            {
+                case 0:
+                    Bar_lblGeenBestellingen.Show();
+                    break;
+                case 1:
+                    FillOrder(orders[0], Bar_pnlFirstOrder, Bar_lvFirst, Bar_lblTafelFirst, Bar_lblBesteldOpFirst);
+                    Bar_lvFirst.Items[0].Selected = true;
+                    Bar_pnlOpmerkingen.Show();
+                    Bar_lblOpmerkingenContent.Show();
+                    break;
+                case 2:
+                    FillOrder(orders[1], Bar_pnlSecondOrder, Bar_lvSecond, Bar_lblTafelSecond, Bar_lblBesteldOpSecond);
+                    goto case 1;
+                case 3:
+                    FillOrder(orders[2], Bar_pnlThirdOrder, Bar_lvThird, Bar_lblTafelThird, Bar_lblBesteldOpThird);
+                    goto case 2;
+                case 4:
+                    FillOrder(orders[3], Bar_pnlFourthOrder, Bar_lvFourth, Bar_lblTafelFourth, Bar_lblBesteldOpFourth);
+                    goto case 3;
+                default:
+                    ShowOverflow(orders.Count - 4);
+                    goto case 4;
+                
             }
-            else
-            {
-                Bar_lblGeenBestellingen.Hide();
-                Bar_lblOpmerkingenContent.Hide();
-                Bar_pnlOpmerkingen.Hide();
-                Bar_pnlFirstOrder.Hide();
-                Bar_pnlSecondOrder.Hide();
-                Bar_pnlThirdOrder.Hide();
-                Bar_pnlFourthOrder.Hide();
-                Bar_pnlOverflow.Hide();
-
-                switch (orders.Count)
-                {
-                    case 0:
-                        Bar_lblGeenBestellingen.Show();
-                        break;
-                    case 1:
-                        FillOrder(orders[0], Bar_pnlFirstOrder, Bar_lvFirst, Bar_lblTafelFirst, Bar_lblBesteldOpFirst);
-                        Bar_lvFirst.Items[0].Selected = true;
-                        Bar_pnlOpmerkingen.Show();
-                        Bar_lblOpmerkingenContent.Show();
-                        break;
-                    case 2:
-                        FillOrder(orders[1], Bar_pnlSecondOrder, Bar_lvSecond, Bar_lblTafelSecond, Bar_lblBesteldOpSecond);
-                        goto case 1;
-                    case 3:
-                        FillOrder(orders[2], Bar_pnlThirdOrder, Bar_lvThird, Bar_lblTafelThird, Bar_lblBesteldOpThird);
-                        goto case 2;
-                    case 4:
-                        FillOrder(orders[3], Bar_pnlFourthOrder, Bar_lvFourth, Bar_lblTafelFourth, Bar_lblBesteldOpFourth);
-                        goto case 3;
-                    default:
-                        ShowOverflow(orders.Count - 4);
-                        goto case 4;
-                }
-            }
-        }
-
-        void OnTimedEvent(Object source, EventArgs e)
-        {
-            // every 20 seconds the "Overzicht" panel will be refreshed
-            new System.Threading.Thread(() =>
-            {
-                // Get all unprocessed orders
-                orders = order_service
-                        .GetAllOrders()
-                        .Where(order => order.Drinks.Any(drink => !drink.Finished))
-                        .Where(order => order.Drinks.Count > 0)
-                        .ToList();
-
-                RefreshOrders();
-            }).Start();
         }
 
         private void FillOrder(Order order, Panel panel, ListView lv, Label table, Label ordered)
@@ -251,7 +221,6 @@ namespace Ui
 
             order.TimeFinished = DateTime.Now;
             order_service.ModifyOrder(order);
-            OnTimedEvent(null, null);
 
             MessageBox.Show("De bestelling is gereed gemeld", "Gereed gemeld!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -281,6 +250,11 @@ namespace Ui
         private void Bar_btnUitloggen_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Bar_btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshOrders();
         }
     }
 }
