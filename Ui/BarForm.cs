@@ -61,6 +61,7 @@ namespace Ui
             Bar_pnlFourthOrder.Hide();
             Bar_pnlOverflow.Hide();
             Bar_pnlVoorraad.Hide();
+            Bar_lblOpmerkingenContent.Hide();
         }
 
         private void Bar_btnOverzicht_Click_1(object sender, EventArgs e)
@@ -88,6 +89,7 @@ namespace Ui
             else
             {
                 Bar_lblGeenBestellingen.Hide();
+                Bar_lblOpmerkingenContent.Hide();
                 Bar_pnlOpmerkingen.Hide();
                 Bar_pnlFirstOrder.Hide();
                 Bar_pnlSecondOrder.Hide();
@@ -104,6 +106,7 @@ namespace Ui
                         FillOrder(orders[0], Bar_pnlFirstOrder, Bar_lvFirst, Bar_lblTafelFirst, Bar_lblBesteldOpFirst);
                         Bar_lvFirst.Items[0].Selected = true;
                         Bar_pnlOpmerkingen.Show();
+                        Bar_lblOpmerkingenContent.Show();
                         break;
                     case 2:
                         FillOrder(orders[1], Bar_pnlSecondOrder, Bar_lvSecond, Bar_lblTafelSecond, Bar_lblBesteldOpSecond);
@@ -168,12 +171,23 @@ namespace Ui
             HideAllPanels();
             Bar_lvVoorraad.Clear();
             Bar_pnlVoorraad.Show();
+            Bar_lblOpmerkingenContent.Hide();
 
             List<Drink> drinks = drink_service.GetAllDrinks();
 
             foreach (Drink drink in drinks)
             {
                 ListViewItem li = new ListViewItem(drink.Name);
+
+                if (drink.Stock == 0)
+                {
+                    li.ForeColor = Color.Red;
+                }
+                else
+                {
+                    li.ForeColor = Color.Green;
+                }
+                li.BackColor = Color.FromArgb(229, 247, 255);
 
                 li.SubItems.Add(drink.Stock.ToString());
                 li.SubItems.Add(drink.Price.ToString("€ 0.00"));
@@ -198,7 +212,7 @@ namespace Ui
 
         }
 
-        private void Bar_lvVoorraad_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void Bar_lvVoorraad_ColumnClickk(object sender, ColumnClickEventArgs e)
         {
             SortListView(e, Bar_lvVoorraad);
         }
@@ -248,10 +262,10 @@ namespace Ui
 
             if (lv.SelectedItems.Count != 0)
             {
-                Dish dish = (Dish)lv.SelectedItems[0].Tag;
+                Drink drink = (Drink)lv.SelectedItems[0].Tag;
 
-                if (dish.Comment.Length != 0)
-                    Bar_lblOpmerkingenContent.Text = dish.Comment;
+                if (drink.Comment.Length != 0)
+                    Bar_lblOpmerkingenContent.Text = drink.Comment;
                 else
                     Bar_lblOpmerkingenContent.Text = "Geen opmerkingen";
             }
@@ -262,6 +276,11 @@ namespace Ui
             timer.Stop();
             timer.Dispose();
             timer = null;
+        }
+
+        private void Bar_btnUitloggen_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
