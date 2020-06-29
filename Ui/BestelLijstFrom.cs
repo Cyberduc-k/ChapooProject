@@ -74,7 +74,6 @@ namespace Ui
         {
             orderService = new Order_Service();
             tableService = new Table_Service();
-            order.EmployeeId = employee.Id;
             billService = new Bill_Service();
             try
             {
