@@ -118,7 +118,7 @@ namespace Ui
                 if (!drink.Finished)
                 {
                     Console.WriteLine("{0}, {1}", order.Id, drink.Id);
-                    ListViewItem li = new ListViewItem(drink.Name);
+                    ListViewItem li = new ListViewItem($"{drink.Aantal}x {drink.Name}");
 
                     li.Tag = drink;
                     lv.Items.Add(li);
