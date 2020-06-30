@@ -62,6 +62,10 @@ namespace Ui
                         color = Color.Red;
                     }
                 }
+                if (bill.Payed)
+                {
+                    color = System.Drawing.Color.Green;
+                }
                 Button btn = new Button();
                 btn.BackColor = color;
                 btn.Name = ("tafel" + t.Number);

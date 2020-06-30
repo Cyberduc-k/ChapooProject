@@ -136,7 +136,7 @@ namespace Dao
         public void Modify(Bill bill)
         {
             string query = "UPDATE [dbo].[Bills] SET " +
-                "[date] = @date, [tableId] = @table, [employeeId] = @employeeId, [Payed] = @payed " +
+                "[date] = @date, [tableId] = @tableId, [employeeId] = @employeeId, [Payed] = @payed " +
                 "WHERE [id] = @id";
             SqlParameter[] parameters = new SqlParameter[5]
             {
