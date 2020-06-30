@@ -97,14 +97,15 @@ namespace Dao
             ExecuteEditQuery(query, parameters);
         }
 
-        private int GetLastOrderId()
+        public int GetLastOrderId()
         {
-            string query = "SELECT [id] FROM [dbo].[Orders] ORDER BY [id] DESC";
+            string query = "SELECT IDENT_CURRENT('Orders') as nextId";
             SqlParameter[] parameters = new SqlParameter[0];
-            DataTable result = ExecuteSelectQuery(query, parameters);
-            DataRow row = result.Rows[0];
 
-            return (int)row["id"];
+            DataTable table = ExecuteSelectQuery(query, parameters);
+            DataRow row = table.Rows[0];
+
+            return int.Parse(row["nextId"].ToString());
         }
 
         // Remove an order from the database
