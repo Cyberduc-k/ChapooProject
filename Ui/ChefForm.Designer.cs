@@ -33,9 +33,11 @@
             this.Chef_btnVoorraad = new System.Windows.Forms.Button();
             this.Chef_btnGereed = new System.Windows.Forms.Button();
             this.Chef_btnOverzicht = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Chef_pnlTop = new System.Windows.Forms.Panel();
             this.Chef_lblActivePanel = new System.Windows.Forms.Label();
             this.Chef_pnlOverzicht = new System.Windows.Forms.Panel();
+            this.Chef_btnRefresh = new System.Windows.Forms.Button();
             this.Chef_pnlOpmerkingen = new System.Windows.Forms.Panel();
             this.Chef_lblOpmerkingenContent = new System.Windows.Forms.Label();
             this.Chef_lblOpmerkingen = new System.Windows.Forms.Label();
@@ -79,9 +81,8 @@
             this.Chef_pnlOpmerkingenGereed = new System.Windows.Forms.Panel();
             this.Chef_lblOpmerkingenContentGereed = new System.Windows.Forms.Label();
             this.Chef_lblOpmerkingengGereed = new System.Windows.Forms.Label();
-            this.Chef_btnRefresh = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Chef_pnlLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Chef_pnlTop.SuspendLayout();
             this.Chef_pnlOverzicht.SuspendLayout();
             this.Chef_pnlOpmerkingen.SuspendLayout();
@@ -94,7 +95,6 @@
             this.Chef_pnlGereed.SuspendLayout();
             this.Chef_pnlOrderGereed.SuspendLayout();
             this.Chef_pnlOpmerkingenGereed.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Chef_pnlLeft
@@ -131,6 +131,7 @@
             // 
             this.Chef_btnVoorraad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.Chef_btnVoorraad.FlatAppearance.BorderSize = 2;
+            this.Chef_btnVoorraad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.Chef_btnVoorraad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Chef_btnVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_btnVoorraad.ForeColor = System.Drawing.Color.White;
@@ -146,6 +147,7 @@
             // 
             this.Chef_btnGereed.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.Chef_btnGereed.FlatAppearance.BorderSize = 2;
+            this.Chef_btnGereed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.Chef_btnGereed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Chef_btnGereed.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_btnGereed.ForeColor = System.Drawing.Color.White;
@@ -162,6 +164,7 @@
             this.Chef_btnOverzicht.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.Chef_btnOverzicht.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.Chef_btnOverzicht.FlatAppearance.BorderSize = 2;
+            this.Chef_btnOverzicht.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.Chef_btnOverzicht.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Chef_btnOverzicht.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_btnOverzicht.ForeColor = System.Drawing.Color.White;
@@ -172,6 +175,16 @@
             this.Chef_btnOverzicht.Text = "Overzicht";
             this.Chef_btnOverzicht.UseVisualStyleBackColor = false;
             this.Chef_btnOverzicht.Click += new System.EventHandler(this.Chef_btnOverzicht_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Ui.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(47, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(194, 101);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Chef_pnlTop
             // 
@@ -209,6 +222,19 @@
             this.Chef_pnlOverzicht.Name = "Chef_pnlOverzicht";
             this.Chef_pnlOverzicht.Size = new System.Drawing.Size(1618, 915);
             this.Chef_pnlOverzicht.TabIndex = 2;
+            // 
+            // Chef_btnRefresh
+            // 
+            this.Chef_btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.Chef_btnRefresh.BackgroundImage = global::Ui.Properties.Resources.refresh;
+            this.Chef_btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chef_btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Chef_btnRefresh.Location = new System.Drawing.Point(1424, 55);
+            this.Chef_btnRefresh.Name = "Chef_btnRefresh";
+            this.Chef_btnRefresh.Size = new System.Drawing.Size(75, 75);
+            this.Chef_btnRefresh.TabIndex = 4;
+            this.Chef_btnRefresh.UseVisualStyleBackColor = false;
+            this.Chef_btnRefresh.Click += new System.EventHandler(this.Chef_btnRefresh_Click);
             // 
             // Chef_pnlOpmerkingen
             // 
@@ -730,29 +756,6 @@
             this.Chef_lblOpmerkingengGereed.TabIndex = 0;
             this.Chef_lblOpmerkingengGereed.Text = "Opmerkingen";
             // 
-            // Chef_btnRefresh
-            // 
-            this.Chef_btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
-            this.Chef_btnRefresh.BackgroundImage = global::Ui.Properties.Resources.refresh;
-            this.Chef_btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Chef_btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Chef_btnRefresh.Location = new System.Drawing.Point(1424, 55);
-            this.Chef_btnRefresh.Name = "Chef_btnRefresh";
-            this.Chef_btnRefresh.Size = new System.Drawing.Size(75, 75);
-            this.Chef_btnRefresh.TabIndex = 4;
-            this.Chef_btnRefresh.UseVisualStyleBackColor = false;
-            this.Chef_btnRefresh.Click += new System.EventHandler(this.Chef_btnRefresh_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Ui.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(47, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 101);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // ChefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -766,6 +769,7 @@
             this.Name = "ChefForm";
             this.Text = "Overzicht";
             this.Chef_pnlLeft.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Chef_pnlTop.ResumeLayout(false);
             this.Chef_pnlOverzicht.ResumeLayout(false);
             this.Chef_pnlOverzicht.PerformLayout();
@@ -785,7 +789,6 @@
             this.Chef_pnlOrderGereed.ResumeLayout(false);
             this.Chef_pnlOpmerkingenGereed.ResumeLayout(false);
             this.Chef_pnlOpmerkingenGereed.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

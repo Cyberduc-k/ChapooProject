@@ -304,11 +304,11 @@ namespace Ui
                 li.SubItems.Add(dish.Price.ToString("€ 0.00"));
 
                 if (dish.Stock <= 0)
-                    li.BackColor = Color.FromArgb(255, 0, 0);
+                    li.ForeColor = Color.FromArgb(255, 0, 0);
                 else if (dish.Stock <= 10)
-                    li.BackColor = Color.FromArgb(255, 255, 0);
+                    li.ForeColor = Color.FromArgb(255, 255, 0);
                 else
-                    li.BackColor = Color.FromArgb(0, 255, 0);
+                    li.ForeColor = Color.FromArgb(0, 255, 0);
 
                 Chef_lvVoorraad.Items.Add(li);
             }
