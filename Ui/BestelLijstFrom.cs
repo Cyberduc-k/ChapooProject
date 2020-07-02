@@ -85,6 +85,7 @@ namespace Ui
                 bill = new Bill(DateTime.Now, tafel, orders, employee, false);
                 billService.AddBill(bill);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                order.EmployeeId = employee.Id;
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 tafel.Occupied = true;
                 tableService.ModifyTable(tafel);
@@ -95,6 +96,7 @@ namespace Ui
 
             if (bill.Payed == false)
             {
+                order.EmployeeId = employee.Id;
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 order.Dishes.Clear();
@@ -107,6 +109,7 @@ namespace Ui
                 bill = new Bill(DateTime.Now, tafel, orders, employee, false);
                 billService.AddBill(bill);
                 MessageBox.Show("Bestelling is geplaatst.", "Attentie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                order.EmployeeId = employee.Id;
                 orderService.AddOrderWhereBillIdIs(order, bill.Id);
                 tafel.Occupied = true;
                 tableService.ModifyTable(tafel);

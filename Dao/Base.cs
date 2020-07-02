@@ -60,10 +60,10 @@ namespace Dao
                 adapter.InsertCommand = command;
                 command.ExecuteNonQuery();
             }
-            catch (SqlException e)
-            {
-                new Error_DAO().Log(new Error(e.GetType().Name, DateTime.Now, e.Message, e.StackTrace));
-            }
+            //catch (SqlException e)
+            //{
+            //    new Error_DAO().Log(new Error(e.GetType().Name, DateTime.Now, e.Message, e.StackTrace));
+            //}
             finally
             {
                 CloseConnection();
