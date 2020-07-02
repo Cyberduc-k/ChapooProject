@@ -32,32 +32,31 @@
             this.CP_imgLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aantal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ingredients = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dishBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.backBtn = new System.Windows.Forms.Button();
             this.bestelBtn = new System.Windows.Forms.Button();
             this.Bill_GridDrinks = new System.Windows.Forms.DataGridView();
-            this.drinkBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.drinkBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.verwijderBtn = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aantalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alcoholicDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.finishedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.drinkBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.drinkBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.verwijderBtn = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aantal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ingredients = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishBindingSource)).BeginInit();
@@ -97,7 +96,7 @@
             this.Id,
             this.aantal,
             this.Name,
-            this.Description,
+            this.Comment,
             this.Ingredients,
             this.Price,
             this.Stock,
@@ -108,61 +107,6 @@
             this.dataGridView.Size = new System.Drawing.Size(845, 161);
             this.dataGridView.TabIndex = 13;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // aantal
-            // 
-            this.aantal.DataPropertyName = "aantal";
-            this.aantal.HeaderText = "aantal";
-            this.aantal.Name = "aantal";
-            // 
-            // Name
-            // 
-            this.Name.DataPropertyName = "Name";
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // Ingredients
-            // 
-            this.Ingredients.DataPropertyName = "Ingredients";
-            this.Ingredients.HeaderText = "Ingredients";
-            this.Ingredients.Name = "Ingredients";
-            this.Ingredients.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.DataPropertyName = "Stock";
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
             // 
             // dishBindingSource
             // 
@@ -198,7 +142,6 @@
             this.Bill_GridDrinks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Bill_GridDrinks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.aantalDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.commentDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
@@ -212,54 +155,12 @@
             this.Bill_GridDrinks.TabIndex = 16;
             this.Bill_GridDrinks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Bill_GridDrinks_CellContentClick);
             // 
-            // drinkBindingSource1
-            // 
-            this.drinkBindingSource1.DataSource = typeof(Model.Drink);
-            // 
-            // drinkBindingSource
-            // 
-            this.drinkBindingSource.DataSource = typeof(Model.Drink);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Gerechten:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 343);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Dranken:";
-            // 
-            // verwijderBtn
-            // 
-            this.verwijderBtn.Location = new System.Drawing.Point(746, 538);
-            this.verwijderBtn.Name = "verwijderBtn";
-            this.verwijderBtn.Size = new System.Drawing.Size(75, 23);
-            this.verwijderBtn.TabIndex = 19;
-            this.verwijderBtn.Text = "Verwijder bestelling";
-            this.verwijderBtn.UseVisualStyleBackColor = true;
-            this.verwijderBtn.Click += new System.EventHandler(this.verwijderBtn_Click);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // aantalDataGridViewTextBoxColumn
-            // 
-            this.aantalDataGridViewTextBoxColumn.DataPropertyName = "Aantal";
-            this.aantalDataGridViewTextBoxColumn.HeaderText = "Aantal";
-            this.aantalDataGridViewTextBoxColumn.Name = "aantalDataGridViewTextBoxColumn";
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -299,6 +200,96 @@
             this.finishedDataGridViewCheckBoxColumn.DataPropertyName = "Finished";
             this.finishedDataGridViewCheckBoxColumn.HeaderText = "Finished";
             this.finishedDataGridViewCheckBoxColumn.Name = "finishedDataGridViewCheckBoxColumn";
+            // 
+            // drinkBindingSource1
+            // 
+            this.drinkBindingSource1.DataSource = typeof(Model.Drink);
+            // 
+            // drinkBindingSource
+            // 
+            this.drinkBindingSource.DataSource = typeof(Model.Drink);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 130);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Gerechten:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 343);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Dranken:";
+            // 
+            // verwijderBtn
+            // 
+            this.verwijderBtn.Location = new System.Drawing.Point(746, 538);
+            this.verwijderBtn.Name = "verwijderBtn";
+            this.verwijderBtn.Size = new System.Drawing.Size(75, 23);
+            this.verwijderBtn.TabIndex = 19;
+            this.verwijderBtn.Text = "Verwijder bestelling";
+            this.verwijderBtn.UseVisualStyleBackColor = true;
+            this.verwijderBtn.Click += new System.EventHandler(this.verwijderBtn_Click);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // aantal
+            // 
+            this.aantal.DataPropertyName = "aantal";
+            this.aantal.HeaderText = "aantal";
+            this.aantal.Name = "aantal";
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Name";
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            // 
+            // Comment
+            // 
+            this.Comment.DataPropertyName = "Comment";
+            this.Comment.HeaderText = "Comment";
+            this.Comment.Name = "Comment";
+            // 
+            // Ingredients
+            // 
+            this.Ingredients.DataPropertyName = "Ingredients";
+            this.Ingredients.HeaderText = "Ingredients";
+            this.Ingredients.Name = "Ingredients";
+            this.Ingredients.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.DataPropertyName = "Stock";
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
             // 
             // BestelLijstFrom
             // 
@@ -342,14 +333,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource drinkBindingSource;
         private System.Windows.Forms.Button verwijderBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aantal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ingredients;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.BindingSource drinkBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aantalDataGridViewTextBoxColumn;
@@ -359,5 +342,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn alcoholicDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn finishedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aantal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ingredients;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
     }
 }
