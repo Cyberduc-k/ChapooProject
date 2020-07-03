@@ -148,14 +148,18 @@ namespace Ui
             {
                 ListViewItem li = new ListViewItem(drink.Name);
 
-                if (drink.Stock == 0)
+                if (drink.Stock <= 0) {
+                    li.ForeColor = Color.FromArgb(255, 0, 0);
+                }
+                else if (drink.Stock <= 10)
                 {
-                    li.ForeColor = Color.Red;
+                    li.ForeColor = Color.FromArgb(255, 255, 0);
                 }
                 else
                 {
-                    li.ForeColor = Color.Green;
+                    li.ForeColor = Color.FromArgb(0, 255, 0);
                 }
+
                 li.BackColor = Color.FromArgb(229, 247, 255);
 
                 li.SubItems.Add(drink.Stock.ToString());
