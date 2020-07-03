@@ -36,6 +36,7 @@ namespace Ui
 
         private void BestelLijstFrom_Load(object sender, EventArgs e)
         {
+            lblTafelNummer.Text = $"Tafel: {tafel.Number.ToString()}";
             if (order.Dishes == null && order.Drinks == null)
             {
                 dataGridView.Visible = false;

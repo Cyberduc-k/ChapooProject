@@ -32,6 +32,14 @@
             this.CP_imgLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aantal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ingredients = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dishBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.backBtn = new System.Windows.Forms.Button();
@@ -49,14 +57,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.verwijderBtn = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aantal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ingredients = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTafelNummer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishBindingSource)).BeginInit();
@@ -107,6 +108,60 @@
             this.dataGridView.Size = new System.Drawing.Size(845, 161);
             this.dataGridView.TabIndex = 13;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // aantal
+            // 
+            this.aantal.DataPropertyName = "aantal";
+            this.aantal.HeaderText = "aantal";
+            this.aantal.Name = "aantal";
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Name";
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            // 
+            // Comment
+            // 
+            this.Comment.DataPropertyName = "Comment";
+            this.Comment.HeaderText = "Comment";
+            this.Comment.Name = "Comment";
+            // 
+            // Ingredients
+            // 
+            this.Ingredients.DataPropertyName = "Ingredients";
+            this.Ingredients.HeaderText = "Ingredients";
+            this.Ingredients.Name = "Ingredients";
+            this.Ingredients.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.DataPropertyName = "Stock";
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
             // 
             // dishBindingSource
             // 
@@ -237,65 +292,21 @@
             this.verwijderBtn.UseVisualStyleBackColor = true;
             this.verwijderBtn.Click += new System.EventHandler(this.verwijderBtn_Click);
             // 
-            // Id
+            // lblTafelNummer
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // aantal
-            // 
-            this.aantal.DataPropertyName = "aantal";
-            this.aantal.HeaderText = "aantal";
-            this.aantal.Name = "aantal";
-            // 
-            // Name
-            // 
-            this.Name.DataPropertyName = "Name";
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            // 
-            // Comment
-            // 
-            this.Comment.DataPropertyName = "Comment";
-            this.Comment.HeaderText = "Comment";
-            this.Comment.Name = "Comment";
-            // 
-            // Ingredients
-            // 
-            this.Ingredients.DataPropertyName = "Ingredients";
-            this.Ingredients.HeaderText = "Ingredients";
-            this.Ingredients.Name = "Ingredients";
-            this.Ingredients.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.DataPropertyName = "Stock";
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
+            this.lblTafelNummer.AutoSize = true;
+            this.lblTafelNummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.lblTafelNummer.Location = new System.Drawing.Point(838, 41);
+            this.lblTafelNummer.Name = "lblTafelNummer";
+            this.lblTafelNummer.Size = new System.Drawing.Size(0, 25);
+            this.lblTafelNummer.TabIndex = 20;
             // 
             // BestelLijstFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 573);
+            this.Controls.Add(this.lblTafelNummer);
             this.Controls.Add(this.verwijderBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -350,5 +361,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.Label lblTafelNummer;
     }
 }

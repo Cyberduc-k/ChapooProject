@@ -37,7 +37,7 @@ namespace Ui
 
         private void LunchMenuForm_Load(object sender, EventArgs e)
         {
-            
+            lblTafelNummer.Text = $"Tafel: {tafel.Number.ToString()}";
             int i = 0;
             
             //hier komen de db calls voor de maaltijd, op basis van wat de maaaltijd string is weet je of het een lunch, diner of drank menu is.

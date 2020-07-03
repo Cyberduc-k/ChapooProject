@@ -36,6 +36,7 @@
             this.nagerechtFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.CP_imgLogo = new System.Windows.Forms.PictureBox();
             this.backBtn = new System.Windows.Forms.Button();
+            this.lblTafelNummer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,11 +116,21 @@
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // lblTafelNummer
+            // 
+            this.lblTafelNummer.AutoSize = true;
+            this.lblTafelNummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.lblTafelNummer.Location = new System.Drawing.Point(313, 38);
+            this.lblTafelNummer.Name = "lblTafelNummer";
+            this.lblTafelNummer.Size = new System.Drawing.Size(0, 25);
+            this.lblTafelNummer.TabIndex = 19;
+            // 
             // LunchMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 699);
+            this.Controls.Add(this.lblTafelNummer);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.nagerechtFlow);
             this.Controls.Add(this.label3);
@@ -147,5 +158,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel nagerechtFlow;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Label lblTafelNummer;
     }
 }

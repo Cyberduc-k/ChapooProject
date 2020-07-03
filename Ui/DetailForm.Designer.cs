@@ -41,6 +41,7 @@
             this.comboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.CP_imgLogo = new System.Windows.Forms.PictureBox();
+            this.lblTafelNummer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CP_imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,11 +167,22 @@
             this.CP_imgLogo.TabIndex = 12;
             this.CP_imgLogo.TabStop = false;
             // 
+            // lblTafelNummer
+            // 
+            this.lblTafelNummer.AutoSize = true;
+            this.lblTafelNummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.lblTafelNummer.Location = new System.Drawing.Point(341, 40);
+            this.lblTafelNummer.Name = "lblTafelNummer";
+            this.lblTafelNummer.Size = new System.Drawing.Size(70, 25);
+            this.lblTafelNummer.TabIndex = 27;
+            this.lblTafelNummer.Text = "label6";
+            // 
             // DetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 540);
+            this.Controls.Add(this.lblTafelNummer);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.bestelBtn);
@@ -207,5 +219,6 @@
         private System.Windows.Forms.ComboBox comboBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox CP_imgLogo;
+        private System.Windows.Forms.Label lblTafelNummer;
     }
 }

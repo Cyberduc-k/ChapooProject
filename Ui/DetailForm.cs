@@ -32,6 +32,7 @@ namespace Ui
 
         private void DetailForm_Load(object sender, EventArgs e)
         {
+            lblTafelNummer.Text = $"Tafel: {tafel.Number.ToString()}";
             int[] items = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             if (product.Dish.Name != null)
             {

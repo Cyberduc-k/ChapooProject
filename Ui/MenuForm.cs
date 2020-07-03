@@ -85,5 +85,10 @@ namespace Ui
             form.ShowDialog(Owner);
             Close();
         }
+
+        private void MenuForm_Load(object sender, EventArgs e)
+        {
+            lblTafelNummer.Text = $"Tafel: {tafel.Number.ToString()}";
+        }
     }
 }
