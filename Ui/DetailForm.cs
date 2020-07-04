@@ -130,6 +130,7 @@ namespace Ui
                 }
                 else
                 {
+                    /*
                     product.Drink.Aantal = (int)comboBox.SelectedItem;
                     product.Drink.Comment = opmerkingenTxt.Text;
                     foreach(Drink d in order.Drinks)
@@ -143,6 +144,24 @@ namespace Ui
                             product.Drink.Comment = opmerkingenTxt.Text;
                             order.Drinks.Add(product.Drink);
                         }
+                    }
+                    */
+                    product.Drink.Aantal = (int)comboBox.SelectedItem;
+                    if (order.Drinks.Contains(product.Drink))
+                    {
+                        foreach (Drink d in order.Drinks)
+                        {
+                            if (product.Drink.Name == d.Name)
+                            {
+                                d.Aantal += (int)comboBox.SelectedItem;
+                            }
+                        }
+                        product.Drink.Comment = opmerkingenTxt.Text;
+                    }
+                    else
+                    {
+                        product.Drink.Comment = opmerkingenTxt.Text;
+                        order.Drinks.Add(product.Drink);
                     }
                 }
             }
