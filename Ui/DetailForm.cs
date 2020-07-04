@@ -94,11 +94,11 @@ namespace Ui
                 {
                     
                     product.Dish.Aantal = (int)comboBox.SelectedItem;
-                    if (order.Dishes.Contains(product.Dish))
+                    if (order.Dishes.Any(dish => dish.Id == product.Dish.Id))
                     {
                         foreach (Dish d in order.Dishes)
                         {
-                            if (product.Dish.Name == d.Name)
+                            if (product.Dish.Id == d.Id)
                             {
                                 d.Aantal+= (int)comboBox.SelectedItem;
                             }
@@ -147,11 +147,11 @@ namespace Ui
                     }
                     */
                     product.Drink.Aantal = (int)comboBox.SelectedItem;
-                    if (order.Drinks.Contains(product.Drink))
+                    if (order.Drinks.Any(drink => drink.Id == product.Drink.Id))
                     {
                         foreach (Drink d in order.Drinks)
                         {
-                            if (product.Drink.Name == d.Name)
+                            if (product.Drink.Id == d.Id)
                             {
                                 d.Aantal += (int)comboBox.SelectedItem;
                             }
