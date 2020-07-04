@@ -227,11 +227,16 @@ namespace Ui
         private void Chef_btnTerugzetten_Click(object sender, EventArgs e)
         {
             Order order = (Order)Chef_lvGereed.SelectedItems[0].Tag;
+            List<Dish> dishes = order.Dishes.Where(dish => dish.Finished).ToList();
 
-            foreach (Dish dish in order.Dishes)
-                if (dish.Finished)
-                    dish_service.ModifyFinished(order, dish, false);
+            foreach (int idx in Chef_lvOrderGereed.SelectedIndices)
+            {
+                Dish dish = dishes[idx];
 
+                dish_service.ModifyFinished(order, dish, false);
+            }
+
+            MessageBox.Show("De bestelling is terug gezet", "Bestelling terug gezet!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Chef_btnGereed_Click(null, null);
         }
 

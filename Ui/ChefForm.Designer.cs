@@ -99,7 +99,7 @@
             // 
             // Chef_pnlLeft
             // 
-            this.Chef_pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.Chef_pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(209)))));
             this.Chef_pnlLeft.Controls.Add(this.Chef_btnUitloggen);
             this.Chef_pnlLeft.Controls.Add(this.Chef_btnVoorraad);
             this.Chef_pnlLeft.Controls.Add(this.Chef_btnGereed);
@@ -197,6 +197,7 @@
             // 
             // Chef_lblActivePanel
             // 
+            this.Chef_lblActivePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(209)))));
             this.Chef_lblActivePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 80.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_lblActivePanel.ForeColor = System.Drawing.Color.White;
             this.Chef_lblActivePanel.Location = new System.Drawing.Point(0, 0);
