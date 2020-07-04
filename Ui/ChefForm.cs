@@ -35,9 +35,9 @@ namespace Ui
         // Highlight a button
         private void SetHightlight(Button btn)
         {
-            Chef_btnOverzicht.BackColor = Color.FromArgb(0, 165, 229);
-            Chef_btnGereed.BackColor = Color.FromArgb(0, 165, 229);
-            Chef_btnVoorraad.BackColor = Color.FromArgb(0, 165, 229);
+            Chef_btnOverzicht.BackColor = Color.FromArgb(0, 146, 204);
+            Chef_btnGereed.BackColor = Color.FromArgb(0, 146, 204);
+            Chef_btnVoorraad.BackColor = Color.FromArgb(0, 146, 204);
             btn.BackColor = Color.FromArgb(0, 184, 255);
         }
 
@@ -280,7 +280,7 @@ namespace Ui
         private void Chef_btnLunch_Click(object sender, EventArgs e)
         {
             Chef_btnLunch.BackColor = Color.FromArgb(0, 184, 255);
-            Chef_btnDiner.BackColor = Color.FromArgb(0, 165, 229);
+            Chef_btnDiner.BackColor = Color.FromArgb(0, 146, 204);
 
             List<Dish> dishes = dish_service.GetAllLunch();
 
@@ -289,7 +289,7 @@ namespace Ui
 
         private void Chef_btnDiner_Click(object sender, EventArgs e)
         {
-            Chef_btnLunch.BackColor = Color.FromArgb(0, 165, 229);
+            Chef_btnLunch.BackColor = Color.FromArgb(0, 146, 204);
             Chef_btnDiner.BackColor = Color.FromArgb(0, 184, 255);
 
             List<Dish> dishes = dish_service.GetAllDinner();
@@ -311,9 +311,9 @@ namespace Ui
                 if (dish.Stock <= 0)
                     li.ForeColor = Color.FromArgb(255, 0, 0);
                 else if (dish.Stock <= 10)
-                    li.ForeColor = Color.FromArgb(255, 255, 0);
+                    li.ForeColor = Color.FromArgb(255, 155, 0);
                 else
-                    li.ForeColor = Color.FromArgb(0, 255, 0);
+                    li.ForeColor = Color.FromArgb(0, 200, 0);
 
                 Chef_lvVoorraad.Items.Add(li);
             }

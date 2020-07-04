@@ -40,8 +40,9 @@
             // 
             // Login_btnInloggen
             // 
-            this.Login_btnInloggen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Login_btnInloggen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.Login_btnInloggen.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Login_btnInloggen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.Login_btnInloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Login_btnInloggen.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_btnInloggen.ForeColor = System.Drawing.Color.White;

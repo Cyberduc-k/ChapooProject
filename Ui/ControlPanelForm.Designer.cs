@@ -75,7 +75,7 @@
             // 
             // CP_pnlNavMenu
             // 
-            this.CP_pnlNavMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_pnlNavMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnMedewerkers);
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnInkomsten);
             this.CP_pnlNavMenu.Controls.Add(this.CP_btnUitloggen);
@@ -90,7 +90,7 @@
             // 
             // CP_btnMedewerkers
             // 
-            this.CP_btnMedewerkers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_btnMedewerkers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_btnMedewerkers.Dock = System.Windows.Forms.DockStyle.Top;
             this.CP_btnMedewerkers.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnMedewerkers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -107,7 +107,7 @@
             // 
             // CP_btnInkomsten
             // 
-            this.CP_btnInkomsten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_btnInkomsten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_btnInkomsten.Dock = System.Windows.Forms.DockStyle.Top;
             this.CP_btnInkomsten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnInkomsten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -124,7 +124,7 @@
             // 
             // CP_btnUitloggen
             // 
-            this.CP_btnUitloggen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_btnUitloggen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_btnUitloggen.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CP_btnUitloggen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnUitloggen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -141,7 +141,7 @@
             // 
             // CP_btnMenukaarten
             // 
-            this.CP_btnMenukaarten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_btnMenukaarten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_btnMenukaarten.Dock = System.Windows.Forms.DockStyle.Top;
             this.CP_btnMenukaarten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnMenukaarten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -158,7 +158,7 @@
             // 
             // CP_btnVoorraad
             // 
-            this.CP_btnVoorraad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_btnVoorraad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_btnVoorraad.Dock = System.Windows.Forms.DockStyle.Top;
             this.CP_btnVoorraad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_btnVoorraad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -186,8 +186,8 @@
             // 
             // CP_pnlHeader
             // 
-            this.CP_pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
-            this.CP_pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.CP_pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
+            this.CP_pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CP_pnlHeader.Controls.Add(this.CP_lblActivePanel);
             this.CP_pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.CP_pnlHeader.Location = new System.Drawing.Point(151, 0);
@@ -223,7 +223,7 @@
             // 
             // CP_Voorraad_btnEmptyItem
             // 
-            this.CP_Voorraad_btnEmptyItem.BackColor = System.Drawing.Color.Salmon;
+            this.CP_Voorraad_btnEmptyItem.BackColor = System.Drawing.Color.IndianRed;
             this.CP_Voorraad_btnEmptyItem.Enabled = false;
             this.CP_Voorraad_btnEmptyItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnEmptyItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
@@ -240,7 +240,7 @@
             // 
             // CP_Voorraad_btnEditItem
             // 
-            this.CP_Voorraad_btnEditItem.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CP_Voorraad_btnEditItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(124)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnEditItem.Enabled = false;
             this.CP_Voorraad_btnEditItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnEditItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -270,7 +270,7 @@
             // 
             // CP_Voorraad_btnLunchgerechten
             // 
-            this.CP_Voorraad_btnLunchgerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_Voorraad_btnLunchgerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_Voorraad_btnLunchgerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnLunchgerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Voorraad_btnLunchgerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -286,7 +286,7 @@
             // 
             // CP_Voorraad_btnDinergerechten
             // 
-            this.CP_Voorraad_btnDinergerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_Voorraad_btnDinergerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_Voorraad_btnDinergerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Voorraad_btnDinergerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Voorraad_btnDinergerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -344,7 +344,7 @@
             // 
             // CP_Medewerkers_btnVerwijderen
             // 
-            this.CP_Medewerkers_btnVerwijderen.BackColor = System.Drawing.Color.Salmon;
+            this.CP_Medewerkers_btnVerwijderen.BackColor = System.Drawing.Color.IndianRed;
             this.CP_Medewerkers_btnVerwijderen.Enabled = false;
             this.CP_Medewerkers_btnVerwijderen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Medewerkers_btnVerwijderen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
@@ -361,7 +361,7 @@
             // 
             // CP_Medewerkers_btnEdit
             // 
-            this.CP_Medewerkers_btnEdit.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CP_Medewerkers_btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(124)))), ((int)(((byte)(153)))));
             this.CP_Medewerkers_btnEdit.Enabled = false;
             this.CP_Medewerkers_btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Medewerkers_btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -378,7 +378,7 @@
             // 
             // CP_Medewerkers_btnNieuweMedewerker
             // 
-            this.CP_Medewerkers_btnNieuweMedewerker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Medewerkers_btnNieuweMedewerker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Medewerkers_btnNieuweMedewerker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Medewerkers_btnNieuweMedewerker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -423,7 +423,7 @@
             // 
             // CP_Menukaarten_btnLunchgerechten
             // 
-            this.CP_Menukaarten_btnLunchgerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_Menukaarten_btnLunchgerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_Menukaarten_btnLunchgerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnLunchgerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Menukaarten_btnLunchgerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -439,7 +439,7 @@
             // 
             // CP_Menukaarten_btnDinergerechten
             // 
-            this.CP_Menukaarten_btnDinergerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.CP_Menukaarten_btnDinergerechten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_Menukaarten_btnDinergerechten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnDinergerechten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Menukaarten_btnDinergerechten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -471,7 +471,7 @@
             // 
             // CP_Menukaarten_btnDeleteItem
             // 
-            this.CP_Menukaarten_btnDeleteItem.BackColor = System.Drawing.Color.Salmon;
+            this.CP_Menukaarten_btnDeleteItem.BackColor = System.Drawing.Color.IndianRed;
             this.CP_Menukaarten_btnDeleteItem.Enabled = false;
             this.CP_Menukaarten_btnDeleteItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnDeleteItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
@@ -488,7 +488,7 @@
             // 
             // CP_Menukaarten_btnEditItem
             // 
-            this.CP_Menukaarten_btnEditItem.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CP_Menukaarten_btnEditItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(124)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnEditItem.Enabled = false;
             this.CP_Menukaarten_btnEditItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnEditItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
@@ -505,7 +505,7 @@
             // 
             // CP_Menukaarten_btnNewItem
             // 
-            this.CP_Menukaarten_btnNewItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Menukaarten_btnNewItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_Menukaarten_btnNewItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Menukaarten_btnNewItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Menukaarten_btnNewItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -576,7 +576,7 @@
             // 
             // CP_Inkomsten_btnApply
             // 
-            this.CP_Inkomsten_btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.CP_Inkomsten_btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.CP_Inkomsten_btnApply.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.CP_Inkomsten_btnApply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.CP_Inkomsten_btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -606,10 +606,10 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1009, 536);
-            this.Controls.Add(this.CP_pnlInkomsten);
             this.Controls.Add(this.CP_pnlMenukaarten);
-            this.Controls.Add(this.CP_pnlMedewerkers);
             this.Controls.Add(this.CP_pnlVoorraad);
+            this.Controls.Add(this.CP_pnlInkomsten);
+            this.Controls.Add(this.CP_pnlMedewerkers);
             this.Controls.Add(this.CP_pnlHeader);
             this.Controls.Add(this.CP_pnlNavMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

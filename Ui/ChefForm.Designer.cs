@@ -47,17 +47,14 @@
             this.Chef_lblBesteldOpFourth = new System.Windows.Forms.Label();
             this.Chef_lvFourth = new System.Windows.Forms.ListView();
             this.Chef_lblTafelFourth = new System.Windows.Forms.Label();
-            this.Chef_btnFourthKlaar = new System.Windows.Forms.Button();
             this.Chef_pnlThirdOrder = new System.Windows.Forms.Panel();
             this.Chef_lblBesteldOpThird = new System.Windows.Forms.Label();
             this.Chef_lvThird = new System.Windows.Forms.ListView();
             this.Chef_lblTafelThird = new System.Windows.Forms.Label();
-            this.Chef_btnThirdKlaar = new System.Windows.Forms.Button();
             this.Chef_pnlSecondOrder = new System.Windows.Forms.Panel();
             this.Chef_lblBesteldOpSecond = new System.Windows.Forms.Label();
             this.Chef_lvSecond = new System.Windows.Forms.ListView();
             this.Chef_lblTafelSecond = new System.Windows.Forms.Label();
-            this.Chef_btnSecondKlaar = new System.Windows.Forms.Button();
             this.Chef_pnlFirstOrder = new System.Windows.Forms.Panel();
             this.Chef_lblBesteldOpFirst = new System.Windows.Forms.Label();
             this.Chef_lblTafelFirst = new System.Windows.Forms.Label();
@@ -99,7 +96,7 @@
             // 
             // Chef_pnlLeft
             // 
-            this.Chef_pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(209)))));
+            this.Chef_pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.Chef_pnlLeft.Controls.Add(this.Chef_btnUitloggen);
             this.Chef_pnlLeft.Controls.Add(this.Chef_btnVoorraad);
             this.Chef_pnlLeft.Controls.Add(this.Chef_btnGereed);
@@ -197,7 +194,7 @@
             // 
             // Chef_lblActivePanel
             // 
-            this.Chef_lblActivePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(209)))));
+            this.Chef_lblActivePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.Chef_lblActivePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 80.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_lblActivePanel.ForeColor = System.Drawing.Color.White;
             this.Chef_lblActivePanel.Location = new System.Drawing.Point(0, 0);
@@ -226,9 +223,10 @@
             // 
             // Chef_btnRefresh
             // 
-            this.Chef_btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.Chef_btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.Chef_btnRefresh.BackgroundImage = global::Ui.Properties.Resources.refresh;
             this.Chef_btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chef_btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.Chef_btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Chef_btnRefresh.Location = new System.Drawing.Point(1424, 55);
             this.Chef_btnRefresh.Name = "Chef_btnRefresh";
@@ -297,7 +295,6 @@
             this.Chef_pnlFourthOrder.Controls.Add(this.Chef_lblBesteldOpFourth);
             this.Chef_pnlFourthOrder.Controls.Add(this.Chef_lvFourth);
             this.Chef_pnlFourthOrder.Controls.Add(this.Chef_lblTafelFourth);
-            this.Chef_pnlFourthOrder.Controls.Add(this.Chef_btnFourthKlaar);
             this.Chef_pnlFourthOrder.Location = new System.Drawing.Point(961, 517);
             this.Chef_pnlFourthOrder.Name = "Chef_pnlFourthOrder";
             this.Chef_pnlFourthOrder.Size = new System.Drawing.Size(416, 327);
@@ -308,7 +305,7 @@
             // 
             this.Chef_lblBesteldOpFourth.AutoSize = true;
             this.Chef_lblBesteldOpFourth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lblBesteldOpFourth.Location = new System.Drawing.Point(279, 291);
+            this.Chef_lblBesteldOpFourth.Location = new System.Drawing.Point(95, 291);
             this.Chef_lblBesteldOpFourth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Chef_lblBesteldOpFourth.Name = "Chef_lblBesteldOpFourth";
             this.Chef_lblBesteldOpFourth.Size = new System.Drawing.Size(89, 20);
@@ -334,28 +331,12 @@
             // 
             this.Chef_lblTafelFourth.AutoSize = true;
             this.Chef_lblTafelFourth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lblTafelFourth.Location = new System.Drawing.Point(201, 291);
+            this.Chef_lblTafelFourth.Location = new System.Drawing.Point(17, 291);
             this.Chef_lblTafelFourth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Chef_lblTafelFourth.Name = "Chef_lblTafelFourth";
             this.Chef_lblTafelFourth.Size = new System.Drawing.Size(48, 20);
             this.Chef_lblTafelFourth.TabIndex = 2;
             this.Chef_lblTafelFourth.Text = "Tafel:";
-            // 
-            // Chef_btnFourthKlaar
-            // 
-            this.Chef_btnFourthKlaar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.Chef_btnFourthKlaar.Enabled = false;
-            this.Chef_btnFourthKlaar.FlatAppearance.BorderSize = 0;
-            this.Chef_btnFourthKlaar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Chef_btnFourthKlaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_btnFourthKlaar.ForeColor = System.Drawing.Color.White;
-            this.Chef_btnFourthKlaar.Location = new System.Drawing.Point(12, 281);
-            this.Chef_btnFourthKlaar.Margin = new System.Windows.Forms.Padding(0);
-            this.Chef_btnFourthKlaar.Name = "Chef_btnFourthKlaar";
-            this.Chef_btnFourthKlaar.Size = new System.Drawing.Size(84, 34);
-            this.Chef_btnFourthKlaar.TabIndex = 0;
-            this.Chef_btnFourthKlaar.Text = "Klaar";
-            this.Chef_btnFourthKlaar.UseVisualStyleBackColor = false;
             // 
             // Chef_pnlThirdOrder
             // 
@@ -364,7 +345,6 @@
             this.Chef_pnlThirdOrder.Controls.Add(this.Chef_lblBesteldOpThird);
             this.Chef_pnlThirdOrder.Controls.Add(this.Chef_lvThird);
             this.Chef_pnlThirdOrder.Controls.Add(this.Chef_lblTafelThird);
-            this.Chef_pnlThirdOrder.Controls.Add(this.Chef_btnThirdKlaar);
             this.Chef_pnlThirdOrder.Location = new System.Drawing.Point(507, 517);
             this.Chef_pnlThirdOrder.Name = "Chef_pnlThirdOrder";
             this.Chef_pnlThirdOrder.Size = new System.Drawing.Size(416, 327);
@@ -375,7 +355,7 @@
             // 
             this.Chef_lblBesteldOpThird.AutoSize = true;
             this.Chef_lblBesteldOpThird.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lblBesteldOpThird.Location = new System.Drawing.Point(278, 291);
+            this.Chef_lblBesteldOpThird.Location = new System.Drawing.Point(93, 291);
             this.Chef_lblBesteldOpThird.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Chef_lblBesteldOpThird.Name = "Chef_lblBesteldOpThird";
             this.Chef_lblBesteldOpThird.Size = new System.Drawing.Size(89, 20);
@@ -401,28 +381,12 @@
             // 
             this.Chef_lblTafelThird.AutoSize = true;
             this.Chef_lblTafelThird.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lblTafelThird.Location = new System.Drawing.Point(200, 291);
+            this.Chef_lblTafelThird.Location = new System.Drawing.Point(15, 291);
             this.Chef_lblTafelThird.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Chef_lblTafelThird.Name = "Chef_lblTafelThird";
             this.Chef_lblTafelThird.Size = new System.Drawing.Size(48, 20);
             this.Chef_lblTafelThird.TabIndex = 2;
             this.Chef_lblTafelThird.Text = "Tafel:";
-            // 
-            // Chef_btnThirdKlaar
-            // 
-            this.Chef_btnThirdKlaar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.Chef_btnThirdKlaar.Enabled = false;
-            this.Chef_btnThirdKlaar.FlatAppearance.BorderSize = 0;
-            this.Chef_btnThirdKlaar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Chef_btnThirdKlaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_btnThirdKlaar.ForeColor = System.Drawing.Color.White;
-            this.Chef_btnThirdKlaar.Location = new System.Drawing.Point(12, 281);
-            this.Chef_btnThirdKlaar.Margin = new System.Windows.Forms.Padding(0);
-            this.Chef_btnThirdKlaar.Name = "Chef_btnThirdKlaar";
-            this.Chef_btnThirdKlaar.Size = new System.Drawing.Size(84, 34);
-            this.Chef_btnThirdKlaar.TabIndex = 0;
-            this.Chef_btnThirdKlaar.Text = "Klaar";
-            this.Chef_btnThirdKlaar.UseVisualStyleBackColor = false;
             // 
             // Chef_pnlSecondOrder
             // 
@@ -431,7 +395,6 @@
             this.Chef_pnlSecondOrder.Controls.Add(this.Chef_lblBesteldOpSecond);
             this.Chef_pnlSecondOrder.Controls.Add(this.Chef_lvSecond);
             this.Chef_pnlSecondOrder.Controls.Add(this.Chef_lblTafelSecond);
-            this.Chef_pnlSecondOrder.Controls.Add(this.Chef_btnSecondKlaar);
             this.Chef_pnlSecondOrder.Location = new System.Drawing.Point(54, 517);
             this.Chef_pnlSecondOrder.Name = "Chef_pnlSecondOrder";
             this.Chef_pnlSecondOrder.Size = new System.Drawing.Size(416, 327);
@@ -442,7 +405,7 @@
             // 
             this.Chef_lblBesteldOpSecond.AutoSize = true;
             this.Chef_lblBesteldOpSecond.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lblBesteldOpSecond.Location = new System.Drawing.Point(274, 291);
+            this.Chef_lblBesteldOpSecond.Location = new System.Drawing.Point(92, 291);
             this.Chef_lblBesteldOpSecond.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Chef_lblBesteldOpSecond.Name = "Chef_lblBesteldOpSecond";
             this.Chef_lblBesteldOpSecond.Size = new System.Drawing.Size(89, 20);
@@ -468,28 +431,12 @@
             // 
             this.Chef_lblTafelSecond.AutoSize = true;
             this.Chef_lblTafelSecond.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_lblTafelSecond.Location = new System.Drawing.Point(196, 291);
+            this.Chef_lblTafelSecond.Location = new System.Drawing.Point(14, 291);
             this.Chef_lblTafelSecond.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Chef_lblTafelSecond.Name = "Chef_lblTafelSecond";
             this.Chef_lblTafelSecond.Size = new System.Drawing.Size(48, 20);
             this.Chef_lblTafelSecond.TabIndex = 2;
             this.Chef_lblTafelSecond.Text = "Tafel:";
-            // 
-            // Chef_btnSecondKlaar
-            // 
-            this.Chef_btnSecondKlaar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
-            this.Chef_btnSecondKlaar.Enabled = false;
-            this.Chef_btnSecondKlaar.FlatAppearance.BorderSize = 0;
-            this.Chef_btnSecondKlaar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Chef_btnSecondKlaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chef_btnSecondKlaar.ForeColor = System.Drawing.Color.White;
-            this.Chef_btnSecondKlaar.Location = new System.Drawing.Point(12, 281);
-            this.Chef_btnSecondKlaar.Margin = new System.Windows.Forms.Padding(0);
-            this.Chef_btnSecondKlaar.Name = "Chef_btnSecondKlaar";
-            this.Chef_btnSecondKlaar.Size = new System.Drawing.Size(84, 34);
-            this.Chef_btnSecondKlaar.TabIndex = 0;
-            this.Chef_btnSecondKlaar.Text = "Klaar";
-            this.Chef_btnSecondKlaar.UseVisualStyleBackColor = false;
             // 
             // Chef_pnlFirstOrder
             // 
@@ -544,8 +491,9 @@
             // 
             // Chef_btnFirstKlaar
             // 
-            this.Chef_btnFirstKlaar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Chef_btnFirstKlaar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.Chef_btnFirstKlaar.FlatAppearance.BorderSize = 0;
+            this.Chef_btnFirstKlaar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.Chef_btnFirstKlaar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Chef_btnFirstKlaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_btnFirstKlaar.ForeColor = System.Drawing.Color.White;
@@ -586,7 +534,7 @@
             // 
             // Chef_btnDiner
             // 
-            this.Chef_btnDiner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(229)))));
+            this.Chef_btnDiner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.Chef_btnDiner.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(153)))));
             this.Chef_btnDiner.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.Chef_btnDiner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -701,8 +649,9 @@
             // 
             // Chef_btnTerugzetten
             // 
-            this.Chef_btnTerugzetten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.Chef_btnTerugzetten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(204)))));
             this.Chef_btnTerugzetten.FlatAppearance.BorderSize = 0;
+            this.Chef_btnTerugzetten.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
             this.Chef_btnTerugzetten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Chef_btnTerugzetten.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chef_btnTerugzetten.ForeColor = System.Drawing.Color.White;
@@ -812,9 +761,6 @@
         private System.Windows.Forms.Panel Chef_pnlOverflow;
         private System.Windows.Forms.Label Chef_lblOverflow;
         private System.Windows.Forms.Button Chef_btnFirstKlaar;
-        private System.Windows.Forms.Button Chef_btnSecondKlaar;
-        private System.Windows.Forms.Button Chef_btnFourthKlaar;
-        private System.Windows.Forms.Button Chef_btnThirdKlaar;
         private System.Windows.Forms.ListView Chef_lvFirst;
         private System.Windows.Forms.ListView Chef_lvFourth;
         private System.Windows.Forms.ListView Chef_lvThird;

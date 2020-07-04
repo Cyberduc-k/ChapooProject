@@ -274,7 +274,7 @@ namespace Ui
         private void CP_Voorraad_btnDranken_Click(object sender, EventArgs e)
         {
             CP_Voorraad_btnDranken.BackColor = Color.FromArgb(0, 184, 255);
-            CP_Voorraad_btnLunchgerechten.BackColor = CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
+            CP_Voorraad_btnLunchgerechten.BackColor = CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 146, 204);
 
             LoadVoorraadDrinks();
         }
@@ -283,7 +283,7 @@ namespace Ui
         private void CP_Voorraad_btnLunchgerechten_Click(object sender, EventArgs e)
         {
             CP_Voorraad_btnLunchgerechten.BackColor = Color.FromArgb(0, 184, 255);
-            CP_Voorraad_btnDranken.BackColor = CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
+            CP_Voorraad_btnDranken.BackColor = CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 146, 204);
 
             LoadVoorraadLunch();
         }
@@ -292,7 +292,7 @@ namespace Ui
         private void CP_Voorraad_btnDinergerechten_Click(object sender, EventArgs e)
         {
             CP_Voorraad_btnDinergerechten.BackColor = Color.FromArgb(0, 184, 255);
-            CP_Voorraad_btnLunchgerechten.BackColor = CP_Voorraad_btnDranken.BackColor = Color.FromArgb(0, 165, 229);
+            CP_Voorraad_btnLunchgerechten.BackColor = CP_Voorraad_btnDranken.BackColor = Color.FromArgb(0, 146, 204);
 
             LoadVoorraadDinner();
         }
@@ -385,8 +385,8 @@ namespace Ui
             CP_Voorraad_btnEditItem.Enabled = true;
             CP_Voorraad_btnEmptyItem.Enabled = true;
 
-            CP_Voorraad_btnEditItem.BackColor = Color.FromArgb(0, 184, 255);
-            CP_Voorraad_btnEmptyItem.BackColor = Color.Red;
+            CP_Voorraad_btnEditItem.BackColor = Color.FromArgb(0, 146, 204);
+            CP_Voorraad_btnEmptyItem.BackColor = Color.Firebrick;
         }
 
         //Sort the listview on a column when it is clicked
@@ -464,7 +464,7 @@ namespace Ui
             CP_Medewerkers_btnEdit.Enabled = false;
             CP_Medewerkers_btnVerwijderen.Enabled = false;
 
-            CP_Medewerkers_btnEdit.BackColor = Color.PaleTurquoise;
+            CP_Medewerkers_btnEdit.BackColor = Color.FromArgb(51, 124, 153);
             CP_Medewerkers_btnVerwijderen.BackColor = Color.Salmon;
 
             //Select the first item in the listview
@@ -487,8 +487,8 @@ namespace Ui
             CP_Medewerkers_btnEdit.Enabled = true;
             CP_Medewerkers_btnVerwijderen.Enabled = true;
 
-            CP_Medewerkers_btnEdit.BackColor = Color.FromArgb(0, 184, 255);
-            CP_Medewerkers_btnVerwijderen.BackColor = Color.Red;
+            CP_Medewerkers_btnEdit.BackColor = Color.FromArgb(0, 146, 204);
+            CP_Medewerkers_btnVerwijderen.BackColor = Color.Firebrick;
         }
 
         //Sort the listview on a column when it is clicked
@@ -779,15 +779,15 @@ namespace Ui
             CP_Menukaarten_btnEditItem.Enabled = true;
             CP_Menukaarten_btnDeleteItem.Enabled = true;
 
-            CP_Menukaarten_btnEditItem.BackColor = Color.FromArgb(0, 184, 255);
-            CP_Menukaarten_btnDeleteItem.BackColor = Color.Red;
+            CP_Menukaarten_btnEditItem.BackColor = Color.FromArgb(0, 146, 204);
+            CP_Menukaarten_btnDeleteItem.BackColor = Color.Firebrick;
         }
 
         //Show all drinks
         private void CP_Menukaarten_btnDranken_Click(object sender, EventArgs e)
         {
             CP_Menukaarten_btnDranken.BackColor = Color.FromArgb(0, 184, 255);
-            CP_Menukaarten_btnLunchgerechten.BackColor = CP_Menukaarten_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
+            CP_Menukaarten_btnLunchgerechten.BackColor = CP_Menukaarten_btnDinergerechten.BackColor = Color.FromArgb(0, 146, 204);
 
             LoadMenukaartenDrinks();
         }
@@ -796,7 +796,7 @@ namespace Ui
         private void CP_Menukaarten_btnLunchgerechten_Click(object sender, EventArgs e)
         {
             CP_Menukaarten_btnLunchgerechten.BackColor = Color.FromArgb(0, 184, 255);
-            CP_Menukaarten_btnDranken.BackColor = CP_Menukaarten_btnDinergerechten.BackColor = Color.FromArgb(0, 165, 229);
+            CP_Menukaarten_btnDranken.BackColor = CP_Menukaarten_btnDinergerechten.BackColor = Color.FromArgb(0, 146, 204);
 
             LoadMenukaartenLunch();
         }
@@ -805,7 +805,7 @@ namespace Ui
         private void CP_Menukaarten_btnDinergerechten_Click(object sender, EventArgs e)
         {
             CP_Menukaarten_btnDinergerechten.BackColor = Color.FromArgb(0, 184, 255);
-            CP_Menukaarten_btnLunchgerechten.BackColor = CP_Menukaarten_btnDranken.BackColor = Color.FromArgb(0, 165, 229);
+            CP_Menukaarten_btnLunchgerechten.BackColor = CP_Menukaarten_btnDranken.BackColor = Color.FromArgb(0, 146, 204);
 
             LoadMenukaartenDinner();
         }
@@ -1107,7 +1107,7 @@ namespace Ui
         private void SetHightlight(Button btn)
         {
             CP_btnVoorraad.BackColor = CP_btnMenukaarten.BackColor
-            = CP_btnInkomsten.BackColor = CP_btnMedewerkers.BackColor = CP_btnUitloggen.BackColor = Color.FromArgb(0, 165, 229);
+            = CP_btnInkomsten.BackColor = CP_btnMedewerkers.BackColor = CP_btnUitloggen.BackColor = Color.FromArgb(0, 146, 204);
 
             btn.BackColor = Color.FromArgb(0, 184, 255);
         }
