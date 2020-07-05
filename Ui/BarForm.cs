@@ -35,8 +35,8 @@ namespace Ui
 
         private void SetHightlight(Button btn)
         {
-            Bar_btnOverzicht.BackColor = Color.FromArgb(0, 165, 229);
-            Bar_btnVoorraad.BackColor = Color.FromArgb(0, 165, 229);
+            Bar_btnOverzicht.BackColor = Color.FromArgb(0, 146, 204);
+            Bar_btnVoorraad.BackColor = Color.FromArgb(0, 146, 204);
             btn.BackColor = Color.FromArgb(0, 184, 255);
         }
 
