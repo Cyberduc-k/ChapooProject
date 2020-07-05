@@ -153,11 +153,11 @@ namespace Ui
                 }
                 else if (drink.Stock <= 10)
                 {
-                    li.ForeColor = Color.FromArgb(255, 255, 0);
+                    li.ForeColor = Color.FromArgb(255, 155, 0);
                 }
                 else
                 {
-                    li.ForeColor = Color.FromArgb(0, 255, 0);
+                    li.ForeColor = Color.FromArgb(0, 200, 0);
                 }
 
                 li.BackColor = Color.FromArgb(229, 247, 255);
